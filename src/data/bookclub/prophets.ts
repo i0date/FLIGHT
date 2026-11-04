@@ -16,7 +16,7 @@ export const daniel = [
   c('dan11', 5, 'Who came to give Daniel understanding of the seventy weeks?', 'Gabriel', ['Michael', 'Raphael', 'The prince of Persia'], 'Daniel 9:21–24', 'Michael is named in Daniel 10 and 12.'),
   c('dan12', 5, "In Nebuchadnezzar's image, what were the belly and thighs made of?", 'Brass', ['Silver', 'Iron', 'Clay'], 'Daniel 2:32', 'Head of gold, breast and arms of silver, legs of iron, feet of iron and clay.'),
   c('dan13', 5, 'How long was Nebuchadnezzar driven out to eat grass as oxen?', 'Seven times', ['Three years', 'Forty days', 'Seven weeks'], 'Daniel 4:32'),
-  c('dan14', 5, 'In Daniel 7, which beast had three ribs in its mouth?', 'The bear', ["The lion with eagle's wings", 'The leopard with four heads', 'The fourth beast with iron teeth'], 'Daniel 7:5'),
+  c('dan14', 5, 'In Daniel 7, which beast had three ribs in its mouth?', 'The bear', ['The lion', 'The leopard', 'The fourth beast'], 'Daniel 7:5'),
   // Leg 3
   c('dan15', 5, 'Who is "one of the chief princes" that came to help against the prince of Persia?', 'Michael', ['Gabriel', 'Raphael', 'The Ancient of days'], 'Daniel 10:13'),
   c('dan16', 6, 'What did TEKEL mean, as Daniel read the writing on the wall?', 'Weighed in the balances and found wanting', ['God hath numbered thy kingdom', 'Thy kingdom is divided', 'Thy days are fulfilled'], 'Daniel 5:26–28', 'MENE: numbered and finished. PERES: divided and given to the Medes and Persians.'),
@@ -30,7 +30,7 @@ export const daniel = [
 export const jonah = [
   // Leg 1
   c('jon01', 2, 'To which city did God send Jonah?', 'Nineveh', ['Babylon', 'Tarshish', 'Damascus'], 'Jonah 1:2'),
-  c('jon02', 2, 'How long was Jonah in the belly of the fish?', 'Three days and three nights', ['Forty days', 'Seven days', 'One night'], 'Jonah 1:17'),
+  c('jon02', 2, 'How long was Jonah in the belly of the fish?', 'Three days and three nights', ['Forty days and forty nights', 'Seven days and seven nights', 'One day and one night'], 'Jonah 1:17'),
   c('jon03', 3, 'Instead of Nineveh, where was Jonah fleeing to?', 'Tarshish', ['Tyre', 'Egypt', 'Babylon'], 'Jonah 1:3'),
   c('jon04', 3, 'From which port did Jonah set sail?', 'Joppa', ['Tyre', 'Sidon', 'Caesarea'], 'Jonah 1:3'),
   c('jon05', 3, 'How did the mariners find out who had brought the storm?', 'They cast lots', ['They asked the shipmaster', 'They searched the cargo', 'Each prayed to his god'], 'Jonah 1:7'),
@@ -86,8 +86,8 @@ export const jeremiah = [
   c('jer01', 2, '"Before I formed thee in the belly I knew thee." To whom did the LORD say this?', 'Jeremiah', ['Samuel', 'Isaiah', 'John the Baptist'], 'Jeremiah 1:5'),
   c('jer02', 2, 'Which craftsman did the LORD send Jeremiah to watch at work?', 'A potter', ['A carpenter', 'A smith', 'A weaver'], 'Jeremiah 18:2–6'),
   c('jer03', 3, 'Where was Jeremiah let down with cords?', 'Into a dungeon full of mire', ['Into a den of lions', 'Into a well of water', 'Into a furnace'], 'Jeremiah 38:6'),
-  c('jer04', 3, 'Who drew Jeremiah up out of the dungeon?', 'Ebed-melech the Ethiopian', ['Baruch', 'Gedaliah', 'Jehudi'], 'Jeremiah 38:7–13'),
-  c('jer05', 3, "Who wrote down Jeremiah's words in a roll?", 'Baruch the son of Neriah', ['Ezra', 'Gemariah', 'Elnathan'], 'Jeremiah 36:4'),
+  c('jer04', 3, 'Who drew Jeremiah up out of the dungeon?', 'Ebed-melech the Ethiopian', ['Baruch the scribe', 'Gedaliah son of Ahikam', 'Jehudi son of Nethaniah'], 'Jeremiah 38:7–13'),
+  c('jer05', 3, "Who wrote down Jeremiah's words in a roll?", 'Baruch the son of Neriah', ['Ezra the son of Seraiah', 'Gemariah the son of Shaphan', 'Elnathan the son of Achbor'], 'Jeremiah 36:4'),
   c('jer06', 3, 'How many years did Jeremiah say the exile in Babylon would last?', 'Seventy', ['Forty', 'Four hundred and thirty', 'Four hundred and ninety'], 'Jeremiah 25:11; 29:10'),
   c('jer07', 4, 'Which king cut the roll with a penknife and burned it?', 'Jehoiakim', ['Zedekiah', 'Josiah', 'Jehoiachin'], 'Jeremiah 36:22–23'),
   // Leg 2
@@ -95,8 +95,8 @@ export const jeremiah = [
   c('jer09', 4, '"Is there no balm in…"', 'Gilead', ['Sharon', 'Lebanon', 'Bashan'], 'Jeremiah 8:22'),
   c('jer10', 4, 'What did Jeremiah hide by the Euphrates until it was marred?', 'A linen girdle', ["A potter's vessel", 'A wooden yoke', 'A sealed scroll'], 'Jeremiah 13:1–7'),
   c('jer11', 5, "Which prophet broke the wooden yoke from Jeremiah's neck?", 'Hananiah', ['Shemaiah', 'Pashur', 'Zedekiah'], 'Jeremiah 28:10', 'Hananiah died that same year (28:17).'),
-  c('jer12', 5, 'From whom did Jeremiah buy a field in Anathoth?', "Hanameel, his uncle's son", ['Baruch', 'Shallum', 'Pashur'], 'Jeremiah 32:7–9'),
-  c('jer13', 5, 'Who struck Jeremiah and put him in the stocks?', 'Pashur the son of Immer', ['Jehoiakim', 'Hananiah', 'Irijah'], 'Jeremiah 20:1–2', 'Irijah arrested him at the gate of Benjamin (37:13).'),
+  c('jer12', 5, 'From whom did Jeremiah buy a field in Anathoth?', "Hanameel, his uncle's son", ['Baruch, his scribe', 'Shallum, his uncle', 'Pashur, the priest'], 'Jeremiah 32:7–9', "Hanameel was the son of Shallum, Jeremiah's uncle."),
+  c('jer13', 5, 'Who struck Jeremiah and put him in the stocks?', 'Pashur the son of Immer', ['Jehoiakim the king', 'Hananiah the son of Azur', 'Irijah the son of Shelemiah'], 'Jeremiah 20:1–2', 'Irijah arrested him at the gate of Benjamin (37:13).'),
   c('jer14', 5, 'Which family refused to drink wine, keeping their father\'s command?', 'The Rechabites', ['The Nazarites', 'The Levites', 'The Gibeonites'], 'Jeremiah 35:5–6'),
   // Leg 3
   o('jer15', 5, 'Put these in the order they appear in Jeremiah:', ['Jeremiah called as a child', "The potter's house", 'The roll burned by the king', 'Jerusalem is taken'], 'Jeremiah 1; 18; 36; 39'),
@@ -129,7 +129,7 @@ export const ezekiel = [
   o('eze15', 5, 'Put these in the order they appear in Ezekiel:', ['The vision by the river Chebar', 'Ezekiel made a watchman', 'The valley of dry bones', 'The new temple measured'], 'Ezekiel 1; 3; 37; 40'),
   c('eze16', 6, 'The two sticks joined in Ezekiel\'s hand were for which two?', 'Judah and Joseph', ['Judah and Benjamin', 'Israel and Edom', 'Levi and Ephraim'], 'Ezekiel 37:16–19'),
   c('eze17', 6, 'The sisters Aholah and Aholibah stand for which two cities?', 'Samaria and Jerusalem', ['Sodom and Gomorrah', 'Tyre and Sidon', 'Nineveh and Babylon'], 'Ezekiel 23:4'),
-  c('eze18', 6, 'The man with the writer\'s inkhorn set a mark on the foreheads of whom?', 'The men that sigh and cry for the abominations', ['The priests', 'The firstborn', 'The elders of Israel'], 'Ezekiel 9:4'),
+  c('eze18', 6, "The man with the writer's inkhorn set a mark on the foreheads of whom?", 'Those who sighed over the abominations', ['The priests of the inner court', 'The firstborn of every house', 'The elders of the house of Israel'], 'Ezekiel 9:4'),
   c('eze19', 6, 'What is the name of the city at the very end of Ezekiel?', '"The LORD is there"', ['"The LORD our righteousness"', '"The LORD will provide"', '"The LORD is peace"'], 'Ezekiel 48:35', '"The LORD our righteousness" is Jeremiah 23:6.'),
   c('eze20', 6, "Who was Ezekiel's father?", 'Buzi', ['Hilkiah', 'Amoz', 'Berechiah'], 'Ezekiel 1:3', "Hilkiah was Jeremiah's father, Amoz Isaiah's, Berechiah Zechariah's."),
   c('eze21', 6, 'Into how many parts did Ezekiel divide the hair he shaved off?', 'Three', ['Two', 'Four', 'Seven'], 'Ezekiel 5:1–2'),
@@ -137,7 +137,7 @@ export const ezekiel = [
 
 export const amos = [
   // Leg 1
-  c('amo01', 2, 'What was Amos before the LORD called him?', 'A herdman and a gatherer of sycomore fruit', ['A priest of Bethel', 'A scribe of the king', 'A fisherman'], 'Amos 7:14'),
+  c('amo01', 2, 'What was Amos before the LORD called him?', 'A herdman and a gatherer of sycomore fruit', ['A priest of the house at Bethel', 'A scribe in the court of the king', 'A potter in the valley of Hinnom'], 'Amos 7:14'),
   c('amo02', 2, '"Let judgment run down as waters, and righteousness as a mighty…"', 'Stream', ['River', 'Flood', 'Sea'], 'Amos 5:24'),
   c('amo03', 3, 'Which town was Amos from?', 'Tekoa', ['Anathoth', 'Moresheth', 'Bethel'], 'Amos 1:1'),
   c('amo04', 3, '"Can two walk together, except they be…"', 'Agreed', ['Friends', 'Brethren', 'Equal'], 'Amos 3:3'),
@@ -150,7 +150,7 @@ export const amos = [
   c('amo10', 4, 'Amos called the women of Samaria "ye kine of" where?', 'Bashan', ['Gilead', 'Sharon', 'Carmel'], 'Amos 4:1'),
   c('amo11', 5, 'Complete Amos\'s repeated words of judgment: "For three transgressions… and for…"', 'Four', ['Seven', 'Five', 'Ten'], 'Amos 1:3'),
   c('amo12', 5, 'What did the Lord hold as he stood upon a wall?', 'A plumbline', ['A measuring reed', 'A sword', 'A line of flax'], 'Amos 7:7–8', 'The measuring reed and line of flax are in Ezekiel 40:3.'),
-  c('amo13', 5, 'Amos prophesied in the days of which king of Israel?', 'Jeroboam the son of Joash', ['Ahab', 'Jehu', 'Omri'], 'Amos 1:1'),
+  c('amo13', 5, 'Amos prophesied in the days of which king of Israel?', 'Jeroboam the son of Joash', ['Ahab the son of Omri', 'Jehu the son of Nimshi', 'Omri the captain of the host'], 'Amos 1:1'),
   c('amo14', 5, '"In that day will I raise up the tabernacle of ___ that is fallen."', 'David', ['Moses', 'Solomon', 'Jacob'], 'Amos 9:11'),
   // Leg 3
   c('amo15', 5, 'Israel sold the righteous for silver, "and the poor for…"', '"a pair of shoes"', ['"a measure of wheat"', '"a piece of bread"', '"thirty pieces"'], 'Amos 2:6'),
@@ -165,14 +165,14 @@ export const amos = [
 export const hosea = [
   // Leg 1
   c('hos01', 2, 'Whom did Hosea marry?', 'Gomer', ['Rahab', 'Tamar', 'Abigail'], 'Hosea 1:3'),
-  c('hos02', 2, "What did Hosea's unfaithful wife picture?", "Israel's unfaithfulness to the LORD", ["Egypt's pride", "Judah's exile", "Nineveh's repentance"], 'Hosea 1:2; 3:1'),
+  c('hos02', 2, "What did Hosea's unfaithful wife picture?", "Israel's unfaithfulness to the LORD", ["Egypt's pride against the LORD", "Judah's exile in Babylon", "Nineveh's repentance at Jonah's word"], 'Hosea 1:2; 3:1'),
   c('hos03', 3, "What was Hosea's first son named?", 'Jezreel', ['Lo-ammi', 'Shear-jashub', 'Maher-shalal-hash-baz'], 'Hosea 1:4', "Shear-jashub and Maher-shalal-hash-baz were Isaiah's sons."),
   c('hos04', 3, 'Which child\'s name meant "not having obtained mercy"?', 'Lo-ruhamah', ['Lo-ammi', 'Jezreel', 'Hephzibah'], 'Hosea 1:6'),
   c('hos05', 3, '"They have sown the wind, and they shall reap the…"', 'Whirlwind', ['Storm', 'Harvest', 'Dust'], 'Hosea 8:7'),
   c('hos06', 3, '"My people are destroyed for lack of…"', 'Knowledge', ['Bread', 'Shepherds', 'Faith'], 'Hosea 4:6'),
   c('hos07', 4, '"When Israel was a child, then I loved him, and called my son out of…"', 'Egypt', ['Babylon', 'Ur', 'Bondage'], 'Hosea 11:1; Matthew 2:15'),
   // Leg 2
-  c('hos08', 4, 'What did Hosea pay to buy back his wife?', 'Fifteen pieces of silver and an homer and a half of barley', ['Thirty pieces of silver', 'Twenty shekels of silver', 'Fifty shekels and an homer of wheat'], 'Hosea 3:2'),
+  c('hos08', 4, 'What did Hosea pay to buy back his wife?', 'Fifteen pieces of silver and an homer and a half of barley', ['Thirty pieces of silver and an homer of wheat', 'Twenty shekels of silver and a lamb of the flock', 'Fifty shekels of silver and a measure of oil'], 'Hosea 3:2'),
   c('hos09', 4, '"Ephraim is joined to idols: let him…"', 'Alone', ['Perish', 'Go', 'Be ashamed'], 'Hosea 4:17'),
   c('hos10', 4, '"Ephraim is a cake not…"', 'Turned', ['Baked', 'Leavened', 'Broken'], 'Hosea 7:8'),
   c('hos11', 5, '"I desired mercy, and not sacrifice; and the knowledge of God more than…"', 'Burnt offerings', ['Fat of rams', 'Rivers of oil', 'Thousands of rams'], 'Hosea 6:6'),
@@ -193,7 +193,7 @@ export const micah = [
   // Leg 1
   c('mic01', 2, 'Micah foretold that the ruler of Israel would come from which town?', 'Bethlehem Ephratah', ['Nazareth', 'Jerusalem', 'Hebron'], 'Micah 5:2'),
   c('mic02', 2, '"To do justly, and to love mercy, and to walk ___ with thy God."', 'Humbly', ['Uprightly', 'Faithfully', 'Daily'], 'Micah 6:8'),
-  c('mic03', 3, '"They shall beat their swords into…"', 'Plowshares', ['Pruninghooks', 'Sickles', 'Spades'], 'Micah 4:3', 'Their spears become pruninghooks.'),
+  c('mic03', 3, '"Declare ye it not at…" Which Philistine city does Micah name first?', 'Gath', ['Gaza', 'Ashdod', 'Ekron'], 'Micah 1:10; 2 Samuel 1:20'),
   c('mic04', 3, 'What was Micah called, after his home town?', 'The Morasthite', ['The Tishbite', 'The Shilonite', 'The Gileadite'], 'Micah 1:1; Jeremiah 26:18'),
   c('mic05', 3, '"Who is a God like unto thee, that pardoneth…"', 'Iniquity', ['The proud', 'The nations', 'All men'], 'Micah 7:18'),
   c('mic06', 3, '"Thou wilt cast all their sins into the depths of the…"', 'Sea', ['Earth', 'Pit', 'Grave'], 'Micah 7:19'),
@@ -226,7 +226,7 @@ export const malachi = [
   c('mal06', 3, '"For I am the LORD, I change…"', 'Not', ['All things', 'The times', 'Hearts'], 'Malachi 3:6'),
   c('mal07', 4, 'Jesus said "Behold, I send my messenger before thy face" was written of whom?', 'John the Baptist', ['Isaiah', 'Peter', 'Paul'], 'Malachi 3:1; Matthew 11:10'),
   // Leg 2
-  c('mal08', 4, 'What were the priests offering on the altar?', 'The blind, the lame and the sick', ['Strange fire', "Swine's flesh", 'Leavened bread'], 'Malachi 1:7–8'),
+  c('mal08', 4, 'What were the priests offering on the altar?', 'The blind, the lame and the sick', ['Strange fire and incense', "Swine's flesh and broth", 'Leavened bread and honey'], 'Malachi 1:7–8'),
   c('mal09', 4, '"He is like a refiner\'s fire, and like fullers\'…"', 'Soap', ['Earth', 'Water', 'Lye'], 'Malachi 3:2'),
   c('mal10', 4, 'For those who feared the LORD, "a book of ___ was written before him".', 'Remembrance', ['Life', 'The law', 'Judgment'], 'Malachi 3:16'),
   c('mal11', 5, '"They shall be mine, saith the LORD of hosts, in that day when I make up my…"', 'Jewels', ['Kingdom', 'People', 'Flock'], 'Malachi 3:17'),
@@ -245,7 +245,7 @@ export const malachi = [
 
 export const joel = [
   // Leg 1
-  c('joe01', 2, 'What plague opens the book of Joel?', 'Locusts and other insects devouring the land', ['Frogs', 'Hail', 'Boils'], 'Joel 1:4'),
+  c('joe01', 2, 'What plague opens the book of Joel?', 'Locusts', ['Frogs', 'Hail', 'Boils'], 'Joel 1:4', 'The palmerworm, locust, cankerworm and caterpiller.'),
   c('joe02', 2, '"I will pour out my spirit upon all…"', 'Flesh', ['Nations', 'Israel', 'Believers'], 'Joel 2:28'),
   c('joe03', 3, 'Who quoted Joel on the day of Pentecost?', 'Peter', ['Paul', 'Stephen', 'James'], 'Acts 2:14–21'),
   c('joe04', 3, '"Rend your heart, and not your…"', 'Garments', ['Hands', 'Tents', 'Altars'], 'Joel 2:13'),
@@ -402,7 +402,7 @@ export const obadiah = [
   c('oba18', 6, 'Where are "the captivity of Jerusalem" said to be?', 'Sepharad', ['Babylon', 'Halah', 'Tarshish'], 'Obadiah 20'),
   c('oba19', 6, 'The captivity of Israel shall possess the land of the Canaanites "even unto…"', 'Zarephath', ['Sidon', 'Dan', 'Hamath'], 'Obadiah 20'),
   c('oba20', 6, '"The house of Jacob shall possess their…"', 'Possessions', ['Inheritance', 'Enemies', 'Land'], 'Obadiah 17'),
-  c('oba21', 6, 'When did Edom "stand on the other side"?', 'When strangers carried away the forces of Jerusalem', ['When Israel crossed the Jordan', 'When the temple was built', 'When Nineveh fell'], 'Obadiah 11'),
+  c('oba21', 6, 'When did Edom "stand on the other side"?', 'When strangers carried away the forces of Jerusalem', ['When Israel crossed over the Jordan', 'When Solomon built the temple', 'When the city of Nineveh fell'], 'Obadiah 11'),
 ];
 
 export const zephaniah = [

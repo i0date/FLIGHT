@@ -74,7 +74,7 @@ export const harderQuestions: RawQuestion[] = [
   { id: 'h524', level: 5, q: 'Which book tells of Zerubbabel and Jeshua rebuilding the altar after the exile?', a: 'Ezra', wrong: ['Nehemiah', 'Esther', 'Malachi'], ref: 'Ezra 3:2' },
   { id: 'h525', level: 5, cat: 'People', q: 'Which aged prophetess gave thanks when the infant Jesus was presented in the temple?', a: 'Anna', wrong: ['Elisabeth', 'Huldah', 'Deborah'], ref: 'Luke 2:36–38' },
   { id: 'h526', level: 5, cat: 'People', q: 'Which apostle was called Zelotes?', a: 'Simon', wrong: ['Judas', 'Thaddaeus', 'Bartholomew'], ref: 'Luke 6:15' },
-  { id: 'h527', level: 5, cat: 'Connections', q: "Luke's genealogy of Jesus reaches back to whom?", a: 'Adam, "which was the son of God"', wrong: ['Abraham', 'David', 'Noah'], ref: 'Luke 3:38', note: "Matthew's genealogy begins from Abraham (Matthew 1:1–2)." },
+  { id: 'h527', level: 5, cat: 'Connections', q: "Luke's genealogy of Jesus reaches back to whom?", a: 'Adam', wrong: ['Abraham', 'David', 'Noah'], ref: 'Luke 3:38', note: "Matthew's genealogy begins from Abraham (Matthew 1:1–2)." },
   { id: 'h528', level: 5, q: 'How many elders sit about the throne in Revelation 4?', a: 'Four and twenty', wrong: ['Twelve', 'Seventy', 'Seven'], ref: 'Revelation 4:4' },
 
   // Level 6 · Stratosphere — scholar-level detail and traps
@@ -92,7 +92,7 @@ export const harderQuestions: RawQuestion[] = [
   { id: 'h611', level: 6, cat: 'People', q: 'Which king of Israel reigned only seven days?', a: 'Zimri', wrong: ['Shallum', 'Elah', 'Nadab'], ref: '1 Kings 16:15', note: 'Shallum reigned a full month (2 Kings 15:13).' },
   { id: 'h612', level: 6, cat: 'People', q: 'Who was the mother of Rehoboam?', a: 'Naamah an Ammonitess', wrong: ['Bathsheba', 'Abishag', 'Maachah'], ref: '1 Kings 14:21', note: "Bathsheba was Solomon's mother." },
   { id: 'h613', level: 6, cat: 'People', q: 'To which prophet did God say "I have made thee a watchman unto the house of Israel"?', a: 'Ezekiel', wrong: ['Jeremiah', 'Isaiah', 'Habakkuk'], ref: 'Ezekiel 3:17; 33:7', note: 'Habakkuk says "I will stand upon my watch" (2:1).' },
-  { id: 'h614', level: 6, q: 'Who actually anointed Jehu king over Israel?', a: 'A young prophet sent by Elisha', wrong: ['Elijah', 'Elisha himself', 'Nathan'], ref: '2 Kings 9:1–6', note: 'Elijah had been told to do it (1 Kings 19:16).' },
+  { id: 'h614', level: 6, q: 'Who actually anointed Jehu king over Israel?', a: 'One of the sons of the prophets', wrong: ['Elijah the Tishbite', 'Elisha himself', 'Nathan the prophet'], ref: '2 Kings 9:1–6', note: 'Elijah had been told to do it (1 Kings 19:16).' },
   { id: 'h615', level: 6, cat: 'People', q: 'Of which course of priests was Zacharias, father of John the Baptist?', a: 'Abia', wrong: ['Aaron', 'Zadok', 'Eleazar'], ref: 'Luke 1:5', note: 'Elisabeth was "of the daughters of Aaron".' },
   { id: 'h616', level: 6, cat: 'People', q: 'Who were the Hebrew midwives who defied Pharaoh?', a: 'Shiphrah and Puah', wrong: ['Jochebed and Miriam', 'Bilhah and Zilpah', 'Zipporah and Elisheba'], ref: 'Exodus 1:15–17' },
   { id: 'h617', level: 6, cat: 'People', q: "Hosea's wife Gomer was the daughter of whom?", a: 'Diblaim', wrong: ['Beeri', 'Pethuel', 'Amittai'], ref: 'Hosea 1:3', note: "Beeri was Hosea's father; Pethuel, Joel's; Amittai, Jonah's." },

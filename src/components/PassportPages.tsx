@@ -152,7 +152,7 @@ export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) 
               return (
                 <button key={b.id} className={`ink-slot ${open ? '' : 'ink-soon'}`} disabled={!open} onClick={() => go({ name: 'book', bookId: b.id })} title={b.name}>
                   <span className="mono">{b.code}</span>
-                  <small>{!open ? 'Soon' : r ? `Leg ${legsFlown(r)}/${LEGS.length}` : 'Open'}</small>
+                  {(!open || r) && <small>{!open ? 'Soon' : `Leg ${legsFlown(r!)}/${LEGS.length}`}</small>}
                 </button>
               );
             })}

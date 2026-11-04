@@ -67,7 +67,7 @@ export const james = [
   c('jas08', 4, 'A very small helm turns what, says James?', 'Ships', ['Horses', 'Chariots', 'Armies'], 'James 3:4', 'Bits in horses\' mouths are the previous verse (3:3).'),
   c('jas09', 4, 'Every good and perfect gift comes down from whom?', 'The Father of lights', ['The God of heaven', 'The Most High', 'The Holy One'], 'James 1:17'),
   c('jas10', 4, 'The devils also believe, and do what?', 'Tremble', ['Flee', 'Obey', 'Worship'], 'James 2:19'),
-  c('jas11', 5, 'According to James, for how long did it not rain after Elijah prayed?', 'Three years and six months', ['Three years', 'Seven years', 'Forty days'], 'James 5:17'),
+  c('jas11', 5, 'According to James, for how long did it not rain after Elijah prayed?', 'Three years and six months', ['Three years', 'Two years and six months', 'Seven years and six months'], 'James 5:17; Luke 4:25'),
   c('jas12', 5, 'Which "royal law" does James quote?', 'Thou shalt love thy neighbour as thyself', ['Thou shalt not kill', 'Honour thy father and thy mother', 'Thou shalt love the Lord thy God'], 'James 2:8'),
   c('jas13', 5, 'What does James say our life is?', 'A vapour', ['A shadow', 'A tale that is told', 'A watch in the night'], 'James 4:14', '"A tale that is told" is Psalm 90:9.'),
   c('jas14', 5, 'James condemns favouring a man with a gold ring and what?', 'Goodly apparel', ['A fine horse', 'Many servants', 'A full purse'], 'James 2:2–4'),
@@ -153,7 +153,7 @@ export const ephesians = [
   c('eph13', 5, '"Awake thou that sleepest, and arise from the dead, and Christ shall give thee…"', 'Light', ['Life', 'Rest', 'Peace'], 'Ephesians 5:14'),
   c('eph14', 5, 'Paul calls himself "less than the least of all" whom?', 'Saints', ['Apostles', 'Sinners', 'Brethren'], 'Ephesians 3:8', '"Least of the apostles" is 1 Corinthians 15:9; "chief" of sinners, 1 Timothy 1:15.'),
   // Leg 3
-  c('eph15', 5, 'We wrestle not against flesh and blood, but against whom?', 'Principalities, powers and the rulers of the darkness of this world', ['Kings and governors', 'Jews and Greeks', 'Sin and death'], 'Ephesians 6:12'),
+  c('eph15', 5, 'We wrestle not against flesh and blood, but against whom?', 'Principalities and powers', ['Kings and governors', 'Jews and Greeks', 'Sin and death'], 'Ephesians 6:12', '"…against the rulers of the darkness of this world."'),
   c('eph16', 6, '"When he ascended up on high, he led captivity captive" quotes which psalm?', 'Psalm 68', ['Psalm 24', 'Psalm 110', 'Psalm 47'], 'Ephesians 4:8; Psalm 68:18'),
   c('eph17', 6, '"For this cause shall a man leave his father and mother" (5:31) quotes which verse?', 'Genesis 2:24', ['Genesis 1:27', 'Genesis 3:16', 'Genesis 12:1'], 'Ephesians 5:31'),
   c('eph18', 6, 'Paul calls himself an ambassador in what?', 'Bonds', ['Exile', 'Weakness', 'Tears'], 'Ephesians 6:20'),
@@ -234,7 +234,7 @@ export const peter1 = [
   c('1pe13', 5, 'Peter sends greetings from the church at which place?', 'Babylon', ['Jerusalem', 'Antioch', 'Corinth'], '1 Peter 5:13'),
   c('1pe14', 5, 'Christ preached to the spirits in prison who were disobedient in the days of whom?', 'Noah', ['Moses', 'Lot', 'Elijah'], '1 Peter 3:19–20'),
   // Leg 3
-  c('1pe15', 5, 'When the chief Shepherd appears, faithful elders receive a crown of what?', 'Glory that fadeth not away', ['Life', 'Righteousness', 'Rejoicing'], '1 Peter 5:4'),
+  c('1pe15', 5, 'When the chief Shepherd appears, faithful elders receive a crown of what?', 'Glory', ['Life', 'Righteousness', 'Rejoicing'], '1 Peter 5:4', '"…a crown of glory that fadeth not away."'),
   c('1pe16', 6, '"The grass withereth… But the word of the Lord…"', '"endureth for ever"', ['"standeth sure"', '"is a lamp unto my feet"', '"shall not return void"'], '1 Peter 1:24–25'),
   c('1pe17', 6, 'Christ is "a stone of stumbling, and a rock of…"', 'Offence', ['Refuge', 'Ages', 'Salvation'], '1 Peter 2:8'),
   c('1pe18', 6, 'Christ is "the Shepherd and ___ of your souls".', 'Bishop', ['Captain', 'Keeper', 'Lover'], '1 Peter 2:25'),
@@ -388,8 +388,8 @@ export const timothy2 = [
   c('2ti06', 3, '"Demas hath forsaken me, having loved this present…"', 'World', ['Life', 'Age', 'Pleasure'], '2 Timothy 4:10'),
   c('2ti07', 4, 'Paul wrote, "Only ___ is with me."', 'Luke', ['Mark', 'Titus', 'Tychicus'], '2 Timothy 4:11'),
   // Leg 2
-  c('2ti08', 4, "Who was Timothy's mother?", 'Eunice', ['Lois', 'Lydia', 'Priscilla'], '2 Timothy 1:5'),
-  c('2ti09', 4, 'What did Paul ask Timothy to bring from Troas?', 'The cloke, the books and the parchments', ['His staff and scrip', 'His letters and pen', 'His coat and sandals'], '2 Timothy 4:13'),
+  c('2ti08', 4, 'What did Paul say was "at hand" as he wrote 2 Timothy?', 'The time of his departure', ['His release from prison', 'His journey to Spain', 'His return to Ephesus'], '2 Timothy 4:6'),
+  c('2ti09', 4, 'What did Paul ask Timothy to bring from Troas?', 'The cloke, the books and the parchments', ['His staff, his scrip and his sandals', 'His letters, his pen and his ink', 'His coat, his girdle and his purse'], '2 Timothy 4:13'),
   c('2ti10', 4, 'Whom did Paul ask Timothy to bring, "for he is profitable to me for the ministry"?', 'Mark', ['Luke', 'Titus', 'Demas'], '2 Timothy 4:11'),
   c('2ti11', 5, 'Alexander, who "did me much evil", was a what?', 'Coppersmith', ['Silversmith', 'Tentmaker', 'Tanner'], '2 Timothy 4:14', 'Demetrius was the silversmith of Ephesus (Acts 19:24).'),
   c('2ti12', 5, 'Who "oft refreshed me, and was not ashamed of my chain"?', 'Onesiphorus', ['Onesimus', 'Epaphroditus', 'Philemon'], '2 Timothy 1:16'),
@@ -515,7 +515,7 @@ export const philemon = [
 
 export const john2 = [
   // Leg 1
-  c('2jn01', 2, 'To whom is 2 John addressed?', 'The elect lady and her children', ['Gaius the beloved', 'The seven churches', 'Diotrephes'], '2 John 1', 'Gaius is the reader of 3 John.'),
+  c('2jn01', 2, 'To whom is 2 John addressed?', 'The elect lady and her children', ['Gaius and his household', 'The seven churches of Asia', 'Diotrephes and his house'], '2 John 1', 'Gaius is the reader of 3 John.'),
   c('2jn02', 2, 'What does the writer of 2 John call himself?', 'The elder', ['The apostle', 'The disciple whom Jesus loved', 'A servant of God'], '2 John 1'),
   c('2jn03', 3, '"This is love, that we walk after his…"', 'Commandments', ['Spirit', 'Steps', 'Truth'], '2 John 6'),
   c('2jn04', 3, 'Deceivers "confess not that Jesus Christ is come in the…"', 'Flesh', ['Spirit', 'Glory', 'Clouds'], '2 John 7'),
@@ -550,11 +550,11 @@ export const john3 = [
   c('3jn06', 3, '"I wish above all things that thou mayest prosper and be in…"', 'Health', ['Peace', 'Joy', 'Truth'], '3 John 2'),
   c('3jn07', 4, '"…be in health, even as thy ___ prospereth."', 'Soul', ['House', 'Church', 'Work'], '3 John 2'),
   // Leg 2
-  c('3jn08', 4, 'What did Diotrephes do to the brethren?', 'Refused them and cast out those who received them', ['Received them gladly', 'Sent them to the elder', 'Took their money'], '3 John 10'),
+  c('3jn08', 4, 'What did Diotrephes do to the brethren?', 'He refused them and cast others out', ['He received them gladly', 'He sent them to the elder', 'He took their money'], '3 John 10'),
   c('3jn09', 4, 'Diotrephes was "prating against us with malicious…"', 'Words', ['Letters', 'Lies', 'Intent'], '3 John 10'),
   c('3jn10', 4, 'The travelling brethren "went forth, taking nothing of the…"', 'Gentiles', ['Church', 'Rich', 'Elders'], '3 John 7'),
   c('3jn11', 5, 'Gaius should bring them forward on their journey "after a godly…"', 'Sort', ['Manner', 'Fashion', 'Order'], '3 John 6'),
-  c('3jn12', 5, 'By receiving such, "we might be fellowhelpers to the…"', 'Truth', ['Gospel', 'Saints', 'Church'], '3 John 8'),
+  c('3jn12', 5, 'How does the elder describe Gaius in the first verse?', '"The wellbeloved"', ['"My son in the faith"', '"The faithful brother"', '"My fellowlabourer"'], '3 John 1'),
   c('3jn13', 5, '"He that doeth evil hath not ___ God."', 'Seen', ['Known', 'Loved', 'Heard'], '3 John 11'),
   c('3jn14', 5, 'How does 3 John end? "Greet the friends by…"', 'Name', ['A holy kiss', 'Letter', 'The elders'], '3 John 14'),
   // Leg 3
@@ -563,7 +563,7 @@ export const john3 = [
   c('3jn17', 6, 'How many verses are in 3 John (King James)?', 'Fourteen', ['Thirteen', 'Twenty-one', 'Twenty-five'], '3 John'),
   c('3jn18', 6, '"I had many things to write, but I will not with ink and ___ write unto thee."', 'Pen', ['Paper', 'Parchment', 'Reed'], '3 John 13', '2 John 12 says "paper and ink".'),
   c('3jn19', 6, '"Thou doest faithfully whatsoever thou doest to the brethren, and to…"', 'Strangers', ['The poor', 'The saints', 'The elders'], '3 John 5'),
-  c('3jn20', 6, 'Demetrius has good report "of all men, and of the ___ itself".', 'Truth', ['Church', 'Gospel', 'Spirit'], '3 John 12'),
+  c('3jn20', 6, 'When did the elder hope to see Gaius?', 'Shortly', ['At the feast', 'In the spring', 'After the winter'], '3 John 14'),
   c('3jn21', 6, 'Why did the brethren go forth?', '"For his name\'s sake"', ['"To preach in Rome"', '"Because of persecution"', '"To gather an offering"'], '3 John 7'),
 ];
 

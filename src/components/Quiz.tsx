@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { PlayQuestion } from '../types';
 import { Altimeter, FlightMap } from './Aircraft';
 import { chime, setSound, soundOn } from '../lib/sound';
+
+// Typeset straight quotes as curly ones, so every question reads the same.
+const curly = (s: string) => s.replace(/"([^"]*)"/g, '\u201c$1\u201d').replace(/'/g, '\u2019');
 
 type Props = {
   questions: PlayQuestion[];
@@ -20,6 +23,15 @@ export function Quiz({ questions, route, onFinish }: Props) {
   const q = questions[index];
   const revealed = results[index] !== undefined;
   const correct = results[index];
+  const revealRef = useRef<HTMLDivElement>(null);
+
+  // On a phone the answer card lands below the tab bar: bring it into view, and start each new question at the top.
+  useEffect(() => {
+    if (revealed) revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [revealed]);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [index]);
 
   const settle = (ok: boolean) => {
     const next = [...results];
@@ -69,7 +81,7 @@ export function Quiz({ questions, route, onFinish }: Props) {
         </div>
       </div>
 
-      <h2 className="quiz-prompt">{q.prompt}</h2>
+      <h2 className="quiz-prompt">{curly(q.prompt)}</h2>
 
       {q.kind === 'choice' ? (
         <div className="options">
@@ -81,7 +93,7 @@ export function Quiz({ questions, route, onFinish }: Props) {
             return (
               <button key={i} className={cls} onClick={() => pick(i)} disabled={revealed}>
                 <span className="option-key mono">{'ABCD'[i]}</span>
-                <span>{opt}</span>
+                <span>{curly(opt)}</span>
               </button>
             );
           })}
@@ -110,11 +122,11 @@ export function Quiz({ questions, route, onFinish }: Props) {
       )}
 
       {revealed && (
-        <div className={`reveal ${correct ? 'reveal-good' : 'reveal-bad'}`}>
+        <div ref={revealRef} className={`reveal ${correct ? 'reveal-good' : 'reveal-bad'}`}>
           <strong>{correct ? 'Smooth air.' : 'Turbulence.'}</strong>
           {q.kind === 'order' && !correct && <p>The list above now shows the correct order.</p>}
           <span className="mono ref">{q.ref}</span>
-          {q.note && <p>{q.note}</p>}
+          {q.note && <p>{curly(q.note)}</p>}
           <button className="btn btn-primary" onClick={advance}>
             {index + 1 < questions.length ? 'Next question' : 'Begin descent'}
           </button>

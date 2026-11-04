@@ -16,7 +16,7 @@ export const mark = [
   c('mrk11', 5, 'To whom did Jesus say "Talitha cumi"?', "Jairus's daughter", ["The widow's son at Nain", 'The Syrophenician woman', 'The deaf man in Decapolis'], 'Mark 5:41'),
   c('mrk12', 5, 'What did Jesus say to the deaf man with an impediment in his speech?', 'Ephphatha', ['Talitha cumi', 'Eloi, Eloi', 'Corban'], 'Mark 7:34', 'Ephphatha means "Be opened".'),
   c('mrk13', 5, 'Mark describes the woman whose daughter had an unclean spirit as a Greek of which nation?', 'Syrophenician', ['Samaritan', 'Egyptian', 'Cretan'], 'Mark 7:26'),
-  c('mrk14', 5, 'What did the poor widow cast into the treasury?', 'Two mites, which make a farthing', ['One mite', 'A penny', 'Three mites'], 'Mark 12:42'),
+  c('mrk14', 5, 'What did the poor widow cast into the treasury?', 'Two mites', ['One mite', 'A penny', 'Three mites'], 'Mark 12:42', '"…which make a farthing."'),
   // Leg 3
   c('mrk15', 5, 'Mark says Barabbas had committed what "in the insurrection"?', 'Murder', ['Blasphemy', 'Sorcery', 'Desertion'], 'Mark 15:7'),
   c('mrk16', 6, 'Where did Jesus heal a blind man in two stages ("I see men as trees, walking")?', 'Bethsaida', ['Jericho', 'Siloam', 'Capernaum'], 'Mark 8:22–25', 'Only Mark records it. Bartimaeus was at Jericho.'),
@@ -51,7 +51,7 @@ export const john = [
   c('jhn18', 6, 'How far from land were the disciples when they recognised Jesus on the shore?', 'About two hundred cubits', ['About a hundred cubits', 'About a furlong', "About a stone's cast"], 'John 21:8'),
   c('jhn19', 6, 'Which feast was nigh when Jesus fed the five thousand, in John?', 'The passover', ['The feast of tabernacles', 'The feast of dedication', 'Pentecost'], 'John 6:4', 'Tabernacles is John 7:2; dedication is 10:22.'),
   c('jhn20', 6, 'Where was Jesus walking at the feast of dedication?', "In Solomon's porch", ['By the pool of Siloam', 'On the mount of Olives', 'In the court of the Gentiles'], 'John 10:22–23'),
-  c('jhn21', 6, 'Who asked "Lord, how is it that thou wilt manifest thyself unto us, and not unto the world?"', 'Judas, not Iscariot', ['Thomas', 'Philip', 'Peter'], 'John 14:22', 'Thomas asked about the way (14:5); Philip asked to see the Father (14:8).'),
+  c('jhn21', 6, 'Who asked "Lord, how is it that thou wilt manifest thyself unto us, and not unto the world?"', 'Judas, not Iscariot', ['Thomas, called Didymus', 'Philip of Bethsaida', 'Simon Peter'], 'John 14:22'),
 ];
 
 export const acts = [
@@ -59,7 +59,7 @@ export const acts = [
   c('act01', 2, 'Who was stoned while Saul kept the witnesses\' clothes?', 'Stephen', ['James', 'Philip', 'Barnabas'], 'Acts 7:58–60'),
   c('act02', 2, 'Who was chosen to replace Judas among the twelve?', 'Matthias', ['Barsabas', 'Barnabas', 'Stephen'], 'Acts 1:23–26', 'Joseph called Barsabas was the other candidate.'),
   c('act03', 3, 'Who in Samaria offered money to receive the power to give the Holy Ghost?', 'Simon', ['Elymas', 'Bar-jesus', 'Demetrius'], 'Acts 8:9–20'),
-  c('act04', 3, 'Whom did Peter raise from the dead at Joppa?', 'Tabitha, called Dorcas', ['Eutychus', 'Lydia', 'Rhoda'], 'Acts 9:36–41'),
+  c('act04', 3, 'Whom did Peter raise from the dead at Joppa?', 'Tabitha', ['Eutychus', 'Lydia', 'Rhoda'], 'Acts 9:36–41', 'Tabitha is also called Dorcas. Paul raised Eutychus at Troas (20:9–12).'),
   c('act05', 3, 'Where were the disciples first called Christians?', 'Antioch', ['Jerusalem', 'Ephesus', 'Damascus'], 'Acts 11:26'),
   c('act06', 3, 'Who explained Isaiah to the Ethiopian eunuch and baptized him?', 'Philip', ['Peter', 'Stephen', 'Paul'], 'Acts 8:26–38'),
   c('act07', 4, "Which young man fell from the third loft during Paul's long sermon?", 'Eutychus', ['Trophimus', 'Tychicus', 'Aristarchus'], 'Acts 20:9'),
@@ -128,7 +128,7 @@ export const luke = [
   // Leg 3
   c('luk15', 5, 'In the parable, how many brethren did the rich man want warned?', 'Five', ['Three', 'Seven', 'Ten'], 'Luke 16:28'),
   c('luk16', 6, 'Who was governor of Syria at the first taxing?', 'Cyrenius', ['Pontius Pilate', 'Felix', 'Sergius Paulus'], 'Luke 2:2'),
-  c('luk17', 6, 'Joanna, who ministered to Jesus, was the wife of whom?', "Chuza, Herod's steward", ['Cleopas', 'Zebedee', 'Alphaeus'], 'Luke 8:3'),
+  c('luk17', 6, 'Joanna, who ministered to Jesus, was the wife of whom?', 'Chuza', ['Cleopas', 'Zebedee', 'Alphaeus'], 'Luke 8:3', "Chuza was Herod's steward."),
   c('luk18', 6, 'How far was Emmaus from Jerusalem?', 'About threescore furlongs', ["A sabbath day's journey", 'About fifteen furlongs', 'About a hundred furlongs'], 'Luke 24:13', 'Bethany was about fifteen furlongs off (John 11:18).'),
   c('luk19', 6, 'In which year of Tiberius Caesar did the word of God come to John?', 'The fifteenth', ['The first', 'The twelfth', 'The thirtieth'], 'Luke 3:1–2'),
   c('luk20', 6, 'Who was tetrarch of Abilene when John began preaching?', 'Lysanias', ['Philip', 'Herod', 'Archelaus'], 'Luke 3:1', 'Herod had Galilee; Philip had Ituraea and Trachonitis.'),

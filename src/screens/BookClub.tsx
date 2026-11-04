@@ -75,7 +75,7 @@ export function BookClub({ go }: { go: (s: Screen) => void }) {
                     <button className="stamp-face" disabled={!open} onClick={() => go({ name: 'book', bookId: b.id })}>
                       <span className="stamp-code mono">{b.code}</span>
                       <span className="stamp-name">{b.name}</span>
-                      <span className="stamp-state">{stampState(result, open, profile.premium)}</span>
+                      <span className={`stamp-state ${result ? '' : 'quiet'}`}>{stampState(result, open, profile.premium, b.chapters)}</span>
                     </button>
                     {open && (
                       <button className={`stamp-join ${joined ? 'on' : ''}`} onClick={() => toggleJoin(b.id)} aria-pressed={joined}>
@@ -92,9 +92,9 @@ export function BookClub({ go }: { go: (s: Screen) => void }) {
   );
 }
 
-function stampState(r: BookProgress | undefined, open: boolean, premium: boolean) {
+function stampState(r: BookProgress | undefined, open: boolean, premium: boolean, chapters: number) {
   if (!open) return 'Soon';
-  if (!r) return 'Open';
+  if (!r) return `${chapters} ${chapters === 1 ? 'chapter' : 'chapters'}`;
   if (r.earnedAt) return premium ? `${bookScore(r)}/21 ✓` : `${bookScore(r)}/21 · unstamped`;
   if (legsFlown(r) < LEGS.length) return `Leg ${legsFlown(r)}/3`;
   return `${bookScore(r)}/21 · retry`;
@@ -207,7 +207,7 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
           );
         })}
       </div>
-      <button className="btn btn-ghost" onClick={() => go({ name: 'bookclub' })}>Back to passport</button>
+      <button className="btn btn-ghost" onClick={() => go({ name: 'bookclub' })}>Back to Book Club</button>
     </div>
   );
 }

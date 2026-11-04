@@ -114,7 +114,7 @@ main { padding-bottom: 96px; }
 .option.wrong { border-color: var(--bad); background: #fbe9e4; }
 .option.wrong .option-key { background: var(--bad); color: #fff; }
 .option.dim { opacity: 0.55; }
-.reveal { padding: 14px; border-radius: 14px; background: var(--card); border-left: 4px solid; display: flex; flex-direction: column; gap: 8px; }
+.reveal { scroll-margin-bottom: 96px; padding: 14px; border-radius: 14px; background: var(--card); border-left: 4px solid; display: flex; flex-direction: column; gap: 8px; }
 .reveal-good { border-color: var(--good); }
 .reveal-bad { border-color: var(--bad); }
 .reveal p { margin: 0; color: var(--muted); font-size: 14px; }
@@ -180,6 +180,7 @@ main { padding-bottom: 96px; }
 .stamp-state { font-size: 11px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .stamp-soon { opacity: 0.45; }
 .stamp-soon .stamp-state { color: var(--muted); }
+.stamp-state.quiet { color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0; }
 .stamp-done { border-color: var(--coral); }
 .stamp-done .stamp-code { color: var(--coral); }
 .stamp-join { border: 0; border-top: 1px solid var(--line); background: var(--sky); color: var(--navy); font-size: 12px; font-weight: 700; padding: 6px; }
@@ -328,7 +329,7 @@ main { padding-bottom: 96px; }
 .pp-fields { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; flex: 1; min-width: 0; }
 .pp-fields .wide { grid-column: 1 / -1; }
 .pp-fields dd { margin: 0; font-weight: 700; color: var(--navy); font-size: 14px; overflow-wrap: anywhere; }
-.pp-fields small { font-weight: 400; color: #8a7a55; }
+.pp-fields small { font-weight: 400; color: #8a7a55; white-space: nowrap; }
 .pp-tier { display: inline-block; padding: 1px 10px; border-radius: 999px; color: var(--navy); font-size: 12px; }
 .pp-signature { display: flex; flex-direction: column; border-bottom: 1px solid #c9b88f; padding-bottom: 2px; position: relative; z-index: 1; }
 .pp-sign { font-family: 'Caveat', cursive; font-size: 28px; color: #1f3a66; line-height: 1; }

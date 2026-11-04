@@ -117,7 +117,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
       )}
 
       <p className="fineprint">
-        {Object.keys(bookClubQuestions).length} Book Club books open · more boarding through the year
+        {Object.keys(bookClubQuestions).length === 66 ? 'All 66 books of the Bible are open in Book Club' : `${Object.keys(bookClubQuestions).length} of 66 Book Club books open`}
       </p>
     </div>
   );

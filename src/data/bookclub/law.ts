@@ -26,7 +26,7 @@ export const genesis = [
   c('gen18', 6, 'How old was Jacob when he stood before Pharaoh?', '130', ['120', '147', '110'], 'Genesis 47:9', 'He died at 147 (47:28); Joseph died at 110 (50:26).'),
   c('gen19', 6, 'Which son did Jacob call "unstable as water"?', 'Reuben', ['Simeon', 'Dan', 'Issachar'], 'Genesis 49:3–4'),
   c('gen20', 6, 'In Jacob\'s blessing, who is "a hind let loose"?', 'Naphtali', ['Asher', 'Gad', 'Benjamin'], 'Genesis 49:21', 'Benjamin "shall ravin as a wolf" (49:27).'),
-  c('gen21', 6, 'Where was Rachel buried?', 'On the way to Ephrath, which is Bethlehem', ['In the cave of Machpelah', 'At Bethel, under an oak', 'At Shechem'], 'Genesis 35:19', 'Leah was buried in Machpelah (49:31); Deborah, Rebekah\'s nurse, under the oak at Bethel (35:8).'),
+  c('gen21', 6, 'Where was Rachel buried?', 'On the way to Ephrath, which is Bethlehem', ['At Hebron, in the cave of Machpelah', 'At Bethel, under the oak Allon-bachuth', 'At Shechem, by the parcel of ground Jacob bought'], 'Genesis 35:19', 'Deborah, Rebekah\'s nurse, was buried under the oak at Bethel (35:8).'),
 ];
 
 export const exodus = [
@@ -67,17 +67,17 @@ export const leviticus = [
   c('lev07', 4, 'When is the Day of Atonement?', 'The tenth day of the seventh month', ['The fourteenth day of the first month', 'The fifteenth day of the seventh month', 'The first day of the seventh month'], 'Leviticus 16:29; 23:27', 'The 15th of the seventh month begins Tabernacles; the 1st is the blowing of trumpets.'),
   // Leg 2
   c('lev08', 4, 'Which year was hallowed as the jubile?', 'The fiftieth', ['The seventh', 'The fortieth', 'The forty-ninth'], 'Leviticus 25:8–11', 'Seven sabbaths of years make forty-nine; the jubile follows.'),
-  c('lev09', 4, 'A clean beast must chew the cud and do what?', 'Part the hoof and be clovenfooted', ['Have no horns', 'Be without spot', 'Be a firstling'], 'Leviticus 11:3'),
-  c('lev10', 4, "What did Moses put on Aaron's right ear, thumb and great toe?", 'Blood of the ram of consecration', ['Anointing oil', 'Water of the laver', 'Ashes of the altar'], 'Leviticus 8:22–23'),
-  c('lev11', 5, 'Why were Nadab and Abihu devoured by fire?', 'They offered strange fire, which the LORD commanded them not', ['They touched the ark', 'They ate the shewbread', 'They offered a lamb with a blemish'], 'Leviticus 10:1–2'),
-  c('lev12', 5, 'In mourning for them, Aaron and his sons were told not to do what?', 'Uncover their heads or rend their clothes', ['Fast or weep', 'Shave their beards', 'Sing in the tabernacle'], 'Leviticus 10:6'),
+  c('lev09', 4, 'A clean beast must chew the cud and do what?', 'Part the hoof and be clovenfooted', ['Have no blemish and be a male', 'Be a firstling of the flock', 'Have horns and be of the first year'], 'Leviticus 11:3'),
+  c('lev10', 4, "What did Moses put on Aaron's right ear, thumb and great toe?", 'Blood of the ram of consecration', ['Oil of the holy anointing', 'Water of the brasen laver', 'Ashes from the altar of burnt offering'], 'Leviticus 8:22–23'),
+  c('lev11', 5, 'Why were Nadab and Abihu devoured by fire?', 'They offered strange fire', ['They touched the ark', 'They ate the shewbread', 'They offered a blemished lamb'], 'Leviticus 10:1–2', '"…which he commanded them not."'),
+  c('lev12', 5, 'In mourning for them, Aaron and his sons were told not to do what?', 'Uncover their heads or rend their clothes', ['Fast or weep for them seven days', 'Shave their beards or cut their flesh', 'Speak the names of the dead'], 'Leviticus 10:6'),
   c('lev13', 5, 'Moses was angry with which sons of Aaron when the goat of the sin offering was burnt?', 'Eleazar and Ithamar', ['Nadab and Abihu', 'Phinehas and Eleazar', 'Gershon and Kohath'], 'Leviticus 10:16'),
   c('lev14', 5, 'What happened to the son of the Israelitish woman who blasphemed the Name?', 'He was stoned by the congregation', ['He was burnt with fire', 'He was cut off and sent from the camp', 'He was struck with leprosy'], 'Leviticus 24:14, 23'),
   // Leg 3
   c('lev15', 5, 'What does Leviticus 17:11 say is in the blood?', 'The life of the flesh', ['The sin of the offerer', 'The strength of the beast', 'The spirit of the man'], 'Leviticus 17:11'),
   c('lev16', 6, "What was the blasphemer's mother's name?", 'Shelomith, the daughter of Dibri', ['Cozbi, the daughter of Zur', 'Maachah, the daughter of Talmai', 'Abihail, the daughter of Eliab'], 'Leviticus 24:11'),
   c('lev17', 6, 'How many days did Aaron and his sons stay at the door of the tabernacle for their consecration?', 'Seven', ['Three', 'Eight', 'Forty'], 'Leviticus 8:33', 'They came out on the eighth day (9:1).'),
-  c('lev18', 6, 'What could a poor offerer bring instead of a lamb?', 'Two turtledoves, or two young pigeons', ['A kid of the goats', 'A young bullock', 'A heifer'], 'Leviticus 5:7; 12:8'),
+  c('lev18', 6, 'What could a poor offerer bring instead of a lamb?', 'Two turtledoves, or two young pigeons', ['A kid of the goats, a female', 'A young bullock without blemish', 'A ram of the flock'], 'Leviticus 5:7; 12:8', 'If even that was too much, a tenth of an ephah of fine flour (5:11).'),
   c('lev19', 6, 'After a son is born, how many days of purifying follow the first seven?', 'Thirty-three', ['Sixty-six', 'Forty', 'Fourteen'], 'Leviticus 12:2–4', 'For a daughter: fourteen, then sixty-six (12:5).'),
   c('lev20', 6, 'Cleansing a leper used two birds, cedar wood, scarlet and what?', 'Hyssop', ['Myrrh', 'Frankincense', 'Salt'], 'Leviticus 14:4'),
   c('lev21', 6, 'Giving one\'s seed to which god is forbidden in Leviticus 18 and 20?', 'Molech', ['Baal', 'Chemosh', 'Dagon'], 'Leviticus 18:21; 20:2'),
@@ -85,7 +85,7 @@ export const leviticus = [
 
 export const numbers = [
   // Leg 1
-  c('num01', 2, 'What did the spies carry back from the brook of Eshcol?', 'A cluster of grapes on a staff between two', ['Figs on a cart', 'Honey in jars', 'A sheaf of wheat'], 'Numbers 13:23'),
+  c('num01', 2, 'What did two of the spies carry between them on a staff?', 'A cluster of grapes', ['A sheaf of wheat', 'A jar of honey', 'A basket of olives'], 'Numbers 13:23', 'They also brought pomegranates and figs.'),
   c('num02', 2, 'Which two spies urged Israel to go up and take the land?', 'Joshua and Caleb', ['Moses and Aaron', 'Eleazar and Phinehas', 'Caleb and Othniel'], 'Numbers 14:6–9'),
   c('num03', 3, 'Whose ass spoke?', "Balaam's", ["Balak's", "Gideon's", "Saul's"], 'Numbers 22:28'),
   c('num04', 3, 'What did Moses make so the bitten could look and live?', 'A serpent of brass on a pole', ['A golden calf', 'An altar of stone', 'A censer of fire'], 'Numbers 21:8–9'),
@@ -95,9 +95,9 @@ export const numbers = [
   // Leg 2
   c('num08', 4, 'How long did the spies search the land?', 'Forty days', ['Seven days', 'Three days', 'Forty years'], 'Numbers 13:25', 'Israel then wandered a year for each day (14:34).'),
   c('num09', 4, 'When the people lusted for flesh, what did the LORD send?', 'Quails', ['Manna', 'Locusts', 'Ravens'], 'Numbers 11:31'),
-  c('num10', 4, 'Why was Moses barred from bringing Israel into the land?', 'He smote the rock at Meribah instead of speaking to it', ['He made the golden calf', 'He married an Ethiopian woman', 'He slew an Egyptian'], 'Numbers 20:8–12'),
+  c('num10', 4, 'Why was Moses barred from bringing Israel into the land?', 'He struck the rock instead of speaking to it', ['He made a golden calf for the people', 'He married an Ethiopian woman', 'He slew an Egyptian taskmaster'], 'Numbers 20:8–12', 'Aaron made the golden calf (Exodus 32).'),
   c('num11', 5, 'Which two men prophesied in the camp?', 'Eldad and Medad', ['Hur and Bezaleel', 'Nadab and Abihu', 'Hobab and Jethro'], 'Numbers 11:26'),
-  c('num12', 5, 'Why did Miriam and Aaron speak against Moses?', 'Because of the Ethiopian woman he had married', ['Because he struck the rock', 'Because he chose Joshua', 'Because he broke the tables'], 'Numbers 12:1'),
+  c('num12', 5, 'Why did Miriam and Aaron speak against Moses?', 'Because of the Ethiopian woman he married', ['Because he struck the rock twice', 'Because he chose Joshua over them', 'Because he broke the tables of stone'], 'Numbers 12:1'),
   c('num13', 5, 'Which priest stayed the plague at Baal-peor with a javelin?', 'Phinehas', ['Eleazar', 'Ithamar', 'Aaron'], 'Numbers 25:7–8'),
   c('num14', 5, 'Whose five daughters asked for their father\'s inheritance?', 'Zelophehad', ['Korah', 'Caleb', 'Eliab'], 'Numbers 27:1–7'),
   // Leg 3
@@ -113,7 +113,7 @@ export const numbers = [
 export const deuteronomy = [
   // Leg 1
   c('deu01', 2, 'Who succeeded Moses to lead Israel into the land?', 'Joshua', ['Caleb', 'Eleazar', 'Aaron'], 'Deuteronomy 31:7; 34:9'),
-  c('deu02', 2, 'From which mountain did Moses view the promised land?', 'Nebo, the top of Pisgah', ['Sinai', 'Carmel', 'Hor'], 'Deuteronomy 34:1'),
+  c('deu02', 2, 'From which mountain did Moses view the promised land?', 'Nebo', ['Sinai', 'Carmel', 'Hor'], 'Deuteronomy 34:1', '"…to the top of Pisgah." Aaron died on mount Hor.'),
   c('deu03', 3, '"Hear, O Israel: The LORD our God is one LORD" — which chapter?', 'Deuteronomy 6', ['Deuteronomy 5', 'Deuteronomy 10', 'Deuteronomy 28'], 'Deuteronomy 6:4'),
   c('deu04', 3, 'Where are the Ten Commandments repeated in Deuteronomy?', 'Chapter 5', ['Chapter 6', 'Chapter 10', 'Chapter 28'], 'Deuteronomy 5:6–21'),
   c('deu05', 3, 'Which chapter sets out the long blessings and curses?', 'Chapter 28', ['Chapter 5', 'Chapter 18', 'Chapter 32'], 'Deuteronomy 28'),
@@ -129,7 +129,7 @@ export const deuteronomy = [
   c('deu14', 5, 'Which king had a bedstead of iron nine cubits long?', 'Og king of Bashan', ['Sihon king of Heshbon', 'Balak king of Moab', 'Agag king of Amalek'], 'Deuteronomy 3:11'),
   // Leg 3
   c('deu15', 5, 'Israel was told to "blot out the remembrance of" whom?', 'Amalek', ['Moab', 'Edom', 'The Philistines'], 'Deuteronomy 25:17–19'),
-  c('deu16', 6, 'Where did Moses speak the words of Deuteronomy?', 'In the land of Moab, on this side Jordan', ['At mount Sinai', 'At Gilgal', 'At Shechem'], 'Deuteronomy 1:5; 29:1'),
+  c('deu16', 6, 'Where did Moses speak the words of Deuteronomy?', 'In the land of Moab, on this side Jordan', ['At mount Sinai, in the wilderness', 'At Gilgal, beyond Jordan', 'At Shechem, in the land of Canaan'], 'Deuteronomy 1:5; 29:1'),
   c('deu17', 6, '"Ye shall not tempt the LORD your God" — which verse did Jesus quote?', 'Deuteronomy 6:16', ['Deuteronomy 8:3', 'Deuteronomy 10:20', 'Deuteronomy 5:7'], 'Matthew 4:7'),
   c('deu18', 6, 'Unlike Egypt, how is the promised land watered?', 'It drinketh water of the rain of heaven', ['By rivers from the mountains', 'By the floods of Jordan', 'By wells the fathers digged'], 'Deuteronomy 11:10–11'),
   c('deu19', 6, 'At most, how many stripes could a guilty man be given?', 'Forty', ['Thirty-nine', 'Twelve', 'Seven'], 'Deuteronomy 25:3', 'Paul received "forty stripes save one" (2 Corinthians 11:24).'),
