@@ -29,3 +29,11 @@ export function flightNumber(d: Date = new Date()): string {
   const doy = Math.floor((d.getTime() - start.getTime()) / 86_400_000);
   return `FL ${String(doy).padStart(3, '0')}`;
 }
+
+// The Monday (as YYYY-MM-DD) of an ISO week id like "2026-W45".
+export function weekMonday(key: string): string {
+  const [year, week] = key.split('-W').map(Number);
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const monday = new Date(jan4.getTime() - ((jan4.getUTCDay() || 7) - 1) * 86_400_000 + (week - 1) * 7 * 86_400_000);
+  return monday.toISOString().slice(0, 10);
+}

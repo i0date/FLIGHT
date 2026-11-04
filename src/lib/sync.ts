@@ -34,6 +34,8 @@ type ProfileRow = {
   joined_books: string[];
   on_leaderboard: boolean;
   night_flights: Record<string, number>;
+  home_church: string | null;
+  photo_updated_at: string | null;
   created_at: string;
 };
 
@@ -65,6 +67,8 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
       joinedBooks: p.joined_books,
       onLeaderboard: p.on_leaderboard,
       nightFlights: p.night_flights,
+      homeChurch: p.home_church ?? '',
+      photoUpdatedAt: p.photo_updated_at,
       daily: Object.fromEntries((daily.data ?? []).map((r) => [r.day, r.score])),
       bookClub: Object.fromEntries(
         (books.data ?? []).map((r) => [r.book_id, { legs: r.legs, attempts: r.attempts, lastFlown: r.last_flown, earnedAt: r.earned_at }]),
@@ -98,6 +102,8 @@ export function merge(local: Profile, remote: Partial<Profile>): Profile {
     joinedBooks: [...new Set([...(remote.joinedBooks ?? []), ...local.joinedBooks])],
     onLeaderboard: remote.onLeaderboard ?? local.onLeaderboard,
     nightFlights: { ...local.nightFlights, ...remote.nightFlights },
+    homeChurch: remote.homeChurch || local.homeChurch,
+    photoUpdatedAt: remote.photoUpdatedAt ?? null,
     daily: { ...local.daily, ...remote.daily },
     bookClub,
   };
@@ -117,6 +123,8 @@ export async function pushChanges(userId: string, prev: Profile | null, next: Pr
     joined_books: p.joinedBooks,
     on_leaderboard: p.onLeaderboard,
     night_flights: p.nightFlights,
+    home_church: p.homeChurch.trim() || null,
+    photo_updated_at: p.photoUpdatedAt,
   });
   if (!prev || JSON.stringify(fields(prev)) !== JSON.stringify(fields(next))) {
     jobs.push(db.from('profiles').update(fields(next)).eq('id', userId));

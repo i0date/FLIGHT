@@ -50,6 +50,8 @@ Sign-in is by email code (no passwords). Each account gets a passport with a pas
 - Sign-in email: `supabase/templates/magic_link.html`.
 - Settings: copy `.env.example` to `.env.local` and fill in the project URL and anon key. Without them the app runs in device-only mode.
 
+**The passport** is a booklet: a cover that opens onto Identity, Stamps, Visas and Flight log pages, plus a passport office for editing details. **Passport photos** are optional: the app crops them to passport shape and shrinks them to a small JPEG before upload (which also strips location data), and they live in a private storage bucket that only the owner can read. Travellers can also add a home church.
+
 **Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 300 per Book Club leg plus 150 per correct answer, 1,500 per stamp earned, and 50 per day of your best streak. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
 
 ## Leaderboards

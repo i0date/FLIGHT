@@ -20,6 +20,8 @@ export type Profile = {
   joinedBooks: string[];
   onLeaderboard: boolean; // shown on the public leaderboard
   nightFlights: Record<string, number>; // ISO week -> score out of 10 (Flight Club)
+  homeChurch: string;
+  photoUpdatedAt: string | null; // set when a passport photo is uploaded (account only)
 };
 
 const KEY = 'flight.profile.v1';
@@ -36,6 +38,8 @@ const fresh: Profile = {
   joinedBooks: [],
   onLeaderboard: true,
   nightFlights: {},
+  homeChurch: '',
+  photoUpdatedAt: null,
 };
 
 function load(): Profile {

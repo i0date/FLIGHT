@@ -1,0 +1,194 @@
+import { books, bookById } from '../data/books';
+import { LEGS } from '../data/bookClubQuestions';
+import { bookClubQuestions } from '../data/bookClubQuestions';
+import { bookScore, legsFlown, type Profile } from '../lib/profile';
+import { milesFor, tierFor, VISAS } from '../lib/miles';
+import type { Account } from '../lib/sync';
+import { weekMonday } from '../lib/dates';
+import type { Screen } from '../types';
+import { Lock, Plane } from './Icons';
+
+const SECTIONS = [...new Set(books.map((b) => b.section))];
+// Each section of the Bible stamps in its own ink.
+const INK: Record<string, string> = {
+  Law: '#b5523b',
+  History: '#2f7f7a',
+  'Poetry & Wisdom': '#7a4f9a',
+  'Major Prophets': '#1f4f8a',
+  'Minor Prophets': '#3d6e9c',
+  'Gospels & Acts': '#c0392b',
+  "Paul's Letters": '#2c6e49',
+  'General Letters & Revelation': '#8a5a1f',
+};
+const SHAPES = ['round', 'oval', 'rect', 'octagon'];
+
+function Page({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+  return (
+    <section className="pp-page" aria-label={title}>
+      <header className="pp-page-head mono">
+        <span>{title}</span>
+        <span>FLIGHT</span>
+      </header>
+      {children}
+      <footer className="pp-page-foot mono">{n}</footer>
+    </section>
+  );
+}
+
+export function IdentityPage({ profile, account, photoUrl, onPhotoTap }: { profile: Profile; account: Account | null; photoUrl: string | null; onPhotoTap?: () => void }) {
+  const miles = milesFor(profile);
+  const { tier, next } = tierFor(miles);
+  const name = profile.name.toUpperCase().replace(/[^A-Z]/g, '<');
+  const passportNo = account?.passengerNo ?? 'FL0000000';
+
+  return (
+    <Page n={2} title="IDENTITY">
+      <div className="pp-id">
+        <div className="pp-id-top mono">
+          <span><small>TYPE</small>P</span>
+          <span><small>CODE</small>FLT</span>
+          <span><small>PASSPORT NO.</small>{account ? passportNo : 'NOT ISSUED'}</span>
+        </div>
+        <div className="pp-id-body">
+          <button className={`pp-photo ${photoUrl ? 'has-photo' : ''}`} onClick={onPhotoTap} disabled={!onPhotoTap} aria-label={photoUrl ? 'Change passport photo' : 'Add passport photo'}>
+            {photoUrl ? <img src={photoUrl} alt="Passport photo" /> : <span className="pp-photo-initial">{profile.name.slice(0, 1).toUpperCase()}</span>}
+            {onPhotoTap && <span className="pp-photo-hint">{photoUrl ? 'Change' : '+ Photo'}</span>}
+          </button>
+          <dl className="pp-fields">
+            <div className="wide"><dt>Name / Nom</dt><dd>{profile.name}</dd></div>
+            <div><dt>Status</dt><dd><span className="pp-tier" style={{ background: tier.color }}>{tier.name}</span></dd></div>
+            <div><dt>Miles</dt><dd className="mono">{miles.toLocaleString('en-GB')}</dd></div>
+            <div><dt>Date of issue</dt><dd className="mono">{account?.memberSince ?? '—'}</dd></div>
+            <div><dt>Citizenship</dt><dd>Heaven <small>Phil 3:20</small></dd></div>
+            {profile.homeChurch && <div className="wide"><dt>Home church</dt><dd>{profile.homeChurch}</dd></div>}
+          </dl>
+        </div>
+        <div className="pp-signature">
+          <span className="pp-sign">{profile.name}</span>
+          <small>Holder's signature</small>
+        </div>
+        <div className="pp-mrz mono" aria-hidden="true">
+          {/* Two fixed 30-character lines, like a real machine-readable zone. */}
+          {`P<FLT${name}`.padEnd(30, '<').slice(0, 30)}
+          <br />
+          {`${passportNo.padEnd(9, '<')}FLT${String(miles).padStart(7, '0')}<${tier.name.toUpperCase()}`.padEnd(30, '<').slice(0, 30)}
+        </div>
+        <Plane size={120} className="pp-watermark" />
+      </div>
+      <div className="pp-ff">
+        <div>
+          <p className="mono small">FREQUENT FLYER · {tier.name.toUpperCase()}</p>
+          {next ? (
+            <>
+              <div className="ff-bar"><div style={{ width: `${((miles - tier.from) / (next.from - tier.from)) * 100}%` }} /></div>
+              <p className="small">{(next.from - miles).toLocaleString('en-GB')} miles to {next.name}</p>
+            </>
+          ) : (
+            <p className="small">Platinum: the highest status there is.</p>
+          )}
+        </div>
+      </div>
+    </Page>
+  );
+}
+
+export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) => void }) {
+  const stamped = books.filter((b) => profile.premium && profile.bookClub[b.id]?.earnedAt).length;
+  const earned = books.filter((b) => profile.bookClub[b.id]?.earnedAt).length;
+  return (
+    <Page n={3} title="ENTRIES · STAMPS">
+      <p className="pp-count mono">{stamped} / {books.length} STAMPED</p>
+      {!profile.premium && (
+        <button className="upsell" onClick={() => go({ name: 'premium' })}>
+          <Lock /> <span>{earned ? `${earned} earned stamp${earned === 1 ? ' is' : 's are'} waiting. ` : ''}Stamps go in your passport with Flight Club. Earn them in Book Club with 15 of 21.</span>
+        </button>
+      )}
+      {SECTIONS.map((section) => (
+        <div key={section} className="pp-section">
+          <h4 className="mono">{section.toUpperCase()}</h4>
+          <div className="pp-stamp-grid">
+            {books.filter((b) => b.section === section).map((b) => {
+              const r = profile.bookClub[b.id];
+              const open = !!bookClubQuestions[b.id];
+              const index = books.indexOf(b);
+              const style = { color: INK[section], transform: `rotate(${((index * 47) % 22) - 11}deg)` };
+              if (r?.earnedAt) {
+                return (
+                  <button key={b.id} className={`ink-stamp ink-${SHAPES[index % SHAPES.length]} ${profile.premium ? '' : 'ink-locked'}`} style={style} onClick={() => go({ name: 'book', bookId: b.id })} title={b.name}>
+                    <span className="ink-code mono">{b.code}</span>
+                    <span className="ink-date mono">{r.earnedAt}</span>
+                    <span className="ink-score mono">{bookScore(r)}/21</span>
+                    {!profile.premium && <Lock size={12} />}
+                  </button>
+                );
+              }
+              return (
+                <button key={b.id} className={`ink-slot ${open ? '' : 'ink-soon'}`} disabled={!open} onClick={() => go({ name: 'book', bookId: b.id })} title={b.name}>
+                  <span className="mono">{b.code}</span>
+                  <small>{!open ? 'Soon' : r ? `Leg ${legsFlown(r)}/${LEGS.length}` : 'Open'}</small>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </Page>
+  );
+}
+
+export function VisasPage({ profile, go }: { profile: Profile; go: (s: Screen) => void }) {
+  return (
+    <Page n={4} title="VISAS">
+      <div className="visa-list">
+        {VISAS.map((v) => {
+          const granted = v.earned(profile);
+          return (
+            <div key={v.id} className={`visa-sticker ${granted ? 'granted' : ''}`}>
+              <div className="visa-band mono">VISA · {v.needsStamps ? 'BOOK CLUB' : 'STREAK'}</div>
+              <strong>{v.name}</strong>
+              <span>{v.detail}</span>
+              {granted ? (
+                <span className="visa-granted mono">GRANTED</span>
+              ) : v.needsStamps && !profile.premium ? (
+                <button className="visa-lock" onClick={() => go({ name: 'premium' })}><Lock size={12} /> Flight Club</button>
+              ) : (
+                <span className="visa-pending mono">NOT YET</span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </Page>
+  );
+}
+
+export function LogPage({ profile }: { profile: Profile }) {
+  const rows = [
+    ...Object.entries(profile.daily).map(([day, score]) => ({ day, route: 'GEN → REV', what: 'Daily Flight', score: `${score}/10` })),
+    ...Object.entries(profile.nightFlights).map(([week, score]) => ({ day: weekMonday(week), route: 'DSK → DWN', what: `Night Flight · week ${week.split('-W')[1]}`, score: `${score}/10` })),
+    ...Object.entries(profile.bookClub).map(([id, r]) => {
+      const b = bookById(id);
+      return { day: r.lastFlown, route: `${b?.code ?? id} · ${legsFlown(r)}/3 legs`, what: `Book Club · ${b?.name ?? id}${r.earnedAt ? ' ✓' : ''}`, score: `${bookScore(r)}/21` };
+    }),
+  ]
+    .sort((a, b) => b.day.localeCompare(a.day))
+    .slice(0, 40);
+
+  return (
+    <Page n={5} title="FLIGHT LOG">
+      {rows.length ? (
+        <div className="pp-log">
+          {rows.map((r, i) => (
+            <div key={i} className="pp-log-row">
+              <span className="mono">{r.day}</span>
+              <span><strong className="mono">{r.route}</strong><small>{r.what}</small></span>
+              <span className="mono">{r.score}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="muted">No flights yet. Your first boards from the terminal.</p>
+      )}
+    </Page>
+  );
+}

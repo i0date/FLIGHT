@@ -1,201 +1,190 @@
-import { useState } from 'react';
-import { bookScore, useProfile } from '../lib/profile';
-import { milesFor, tierFor, VISAS } from '../lib/miles';
-import { books, bookById } from '../data/books';
+import { useRef, useState } from 'react';
+import { useProfile } from '../lib/profile';
+import { milesFor, tierFor } from '../lib/miles';
+import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
+import { SignIn } from '../components/SignIn';
+import { IdentityPage, LogPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
-import { Lock } from '../components/Icons';
 import type { Screen } from '../types';
+
+const PAGES = [
+  { id: 'id', label: 'Identity' },
+  { id: 'stamps', label: 'Stamps' },
+  { id: 'visas', label: 'Visas' },
+  { id: 'log', label: 'Log' },
+] as const;
+type PageId = (typeof PAGES)[number]['id'];
+
+const OPEN_KEY = 'flight.passport.open';
+const readOpen = () => {
+  try {
+    return sessionStorage.getItem(OPEN_KEY) === '1';
+  } catch {
+    return false;
+  }
+};
 
 export function Passport({ go }: { go: (s: Screen) => void }) {
   const { profile, update, account, sync, accountsEnabled, signOut } = useProfile();
-  const [name, setName] = useState(profile.name);
-  const miles = milesFor(profile);
-  const { tier, next } = tierFor(miles);
-  const earned = books.filter((b) => profile.bookClub[b.id]?.earnedAt);
-  const stamped = profile.premium ? earned : [];
-  const log = [
-    ...Object.entries(profile.daily).map(([day, score]) => ({ day, what: 'Daily Flight', score: `${score}/10` })),
-    ...Object.entries(profile.bookClub).map(([id, r]) => ({ day: r.lastFlown, what: `Book Club · ${bookById(id)?.name ?? id}${r.earnedAt ? ' · stamp earned' : ''}`, score: `${bookScore(r)}/21` })),
-  ]
-    .sort((a, b) => b.day.localeCompare(a.day))
-    .slice(0, 12);
-  const surname = profile.name.toUpperCase().replace(/[^A-Z]/g, '<').padEnd(20, '<').slice(0, 20);
+  const [open, setOpen] = useState(readOpen);
+  const [page, setPage] = useState<PageId>('id');
+  const photoUrl = usePassportPhoto(account?.userId, profile.photoUpdatedAt);
+  const fileInput = useRef<HTMLInputElement>(null);
+  const { tier } = tierFor(milesFor(profile));
+
+  const setOpenRemembered = (value: boolean) => {
+    setOpen(value);
+    try {
+      sessionStorage.setItem(OPEN_KEY, value ? '1' : '0');
+    } catch {
+      /* not remembered this time */
+    }
+  };
 
   return (
     <div className="screen">
       {!account && <SignIn enabled={accountsEnabled} />}
 
-      <section className="passport-page">
-        <div className="pp-head">
-          <span className="mono">PASSPORT · FLIGHT</span>
-          <span className="pp-tier" style={{ background: tier.color }}>{tier.name}</span>
-        </div>
-        <div className="pp-body">
-          <div className="pp-photo" aria-hidden="true">
-            <span>{profile.name.slice(0, 1).toUpperCase()}</span>
-          </div>
-          <dl className="pp-fields">
-            <div><dt>Name</dt><dd>{profile.name}</dd></div>
-            <div><dt>Passenger no.</dt><dd className="mono">{account?.passengerNo ?? 'Not issued'}</dd></div>
-            <div><dt>Member since</dt><dd className="mono">{account?.memberSince ?? '—'}</dd></div>
-            <div><dt>Citizenship</dt><dd>Heaven <small>Phil 3:20</small></dd></div>
-          </dl>
-        </div>
-        <div className="pp-mrz mono" aria-hidden="true">
-          P&lt;FLT{surname}<br />
-          {(account?.passengerNo ?? 'FL0000000').padEnd(9, '<')}&lt;{String(miles).padStart(7, '0')}&lt;{tier.name.toUpperCase().padEnd(8, '<')}&lt;&lt;&lt;
-        </div>
-        {account && (
-          <p className="pp-sync">
-            {sync === 'saved' ? 'Saved to your account' : sync === 'syncing' ? 'Saving…' : sync === 'error' ? 'Could not save — will retry on your next flight' : ''}
-          </p>
-        )}
-      </section>
-
-      <section className="ff-card">
-        <div className="ff-top">
-          <div>
-            <p className="mono small">FREQUENT FLYER</p>
-            <strong className="ff-miles">{miles.toLocaleString('en-GB')} miles</strong>
-          </div>
-          <PlaneMascot width={110} />
-        </div>
-        {next ? (
-          <>
-            <div className="ff-bar"><div style={{ width: `${((miles - tier.from) / (next.from - tier.from)) * 100}%` }} /></div>
-            <p className="small">{(next.from - miles).toLocaleString('en-GB')} miles to {next.name}</p>
-          </>
-        ) : (
-          <p className="small">Platinum: the highest status there is.</p>
-        )}
-        <p className="ff-earn small">Earn 250 per daily flight + 100 per correct answer · 300 per Book Club leg + 150 per correct answer · 1,500 per stamp earned · 50 per day of your best streak</p>
-      </section>
-
-      <h3 className="section-title">Stamps · {stamped.length} / {books.length}</h3>
-      {profile.premium ? (
-        stamped.length ? (
-          <div className="pp-stamps">
-            {stamped.map((b, i) => (
-              <div key={b.id} className="pp-stamp" style={{ transform: `rotate(${((i * 37) % 24) - 12}deg)` }}>
-                <span className="mono">{b.code}</span>
-                <small>{profile.bookClub[b.id].earnedAt}</small>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="muted">No stamps yet. Score 15 of 21 across a book's three Book Club legs to earn your first.</p>
-        )
-      ) : (
-        <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>Stamps are a Flight Club perk. {earned.length ? `${earned.length} earned stamp${earned.length === 1 ? ' is' : 's are'} waiting to go in your passport.` : 'Earn them in Book Club: 15 of 21 on a book.'}</span>
-        </button>
-      )}
-
-      <h3 className="section-title">Visas</h3>
-      <div className="visas">
-        {VISAS.map((v) => {
-          const earned = v.earned(profile);
-          return (
-            <div key={v.id} className={`visa ${earned ? 'visa-earned' : ''}`}>
-              <strong>{v.name}</strong>
-              <span>{v.detail}</span>
-              {!earned && v.needsStamps && !profile.premium && <span className="visa-lock"><Lock size={12} /> Flight Club</span>}
-            </div>
-          );
-        })}
-      </div>
-
-      <h3 className="section-title">Flight log</h3>
-      {log.length ? (
-        <div className="log">
-          {log.map((l, i) => (
-            <div key={i} className="log-row">
-              <span className="mono">{l.day}</span>
-              <span>{l.what}</span>
-              <span className="mono">{l.score}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="muted">No flights yet — your first boards from the terminal.</p>
-      )}
-
-      <h3 className="section-title">Passenger name</h3>
-      <form className="card row" onSubmit={(e) => { e.preventDefault(); update((p) => ({ ...p, name: name.trim() || 'Traveller' })); }}>
-        <input value={name} onChange={(e) => setName(e.target.value)} maxLength={24} aria-label="Passenger name" />
-        <button className="btn btn-primary" disabled={name.trim() === profile.name}>Save</button>
-      </form>
-
-      {account && (
-        <label className="card switch-row">
-          <span>
-            <strong>Show me on the public leaderboard</strong>
-            <span className="small muted">Your passenger name, streak and today's score. Crews always see you.</span>
+      {!open ? (
+        <button className="pp-cover" onClick={() => setOpenRemembered(true)} aria-label="Open passport">
+          <span className="pp-cover-top mono">KINGDOM OF HEAVEN · FREQUENT FLYER</span>
+          <span className="pp-crest" aria-hidden="true">
+            <PlaneMascot width={150} />
           </span>
-          <input type="checkbox" checked={profile.onLeaderboard} onChange={(e) => update((p) => ({ ...p, onLeaderboard: e.target.checked }))} />
-        </label>
+          <span className="pp-cover-title">PASSPORT</span>
+          <span className="pp-cover-sub mono">FLIGHT</span>
+          <span className="pp-cover-band" style={{ background: tier.color }}>{tier.name.toUpperCase()}</span>
+          <span className="pp-cover-hint">Tap to open</span>
+        </button>
+      ) : (
+        <>
+          <div className="pp-tabs" role="tablist" aria-label="Passport pages">
+            {PAGES.map((p) => (
+              <button key={p.id} role="tab" aria-selected={page === p.id} className={page === p.id ? 'on' : ''} onClick={() => setPage(p.id)}>
+                {p.label}
+              </button>
+            ))}
+            <button className="pp-close" onClick={() => setOpenRemembered(false)} aria-label="Close passport">Close</button>
+          </div>
+          <div className="pp-book" key={page}>
+            {page === 'id' && <IdentityPage profile={profile} account={account} photoUrl={photoUrl} onPhotoTap={account ? () => fileInput.current?.click() : undefined} />}
+            {page === 'stamps' && <StampsPage profile={profile} go={go} />}
+            {page === 'visas' && <VisasPage profile={profile} go={go} />}
+            {page === 'log' && <LogPage profile={profile} />}
+          </div>
+          {account && sync !== 'local' && (
+            <p className="pp-sync">{sync === 'saved' ? 'Saved to your account' : sync === 'syncing' ? 'Saving…' : 'Could not save — will retry on your next flight'}</p>
+          )}
+        </>
       )}
 
+      <PassportOffice key={`${account?.userId}-${profile.name}-${profile.homeChurch}`} fileInput={fileInput} photoUrl={photoUrl} />
+
       {account && (
-        <div className="card">
-          <p className="small muted">Signed in as {account.email}</p>
-          <button className="btn btn-ghost" onClick={signOut}>Sign out</button>
-        </div>
+        <>
+          <label className="card switch-row">
+            <span>
+              <strong>Show me on the public leaderboard</strong>
+              <span className="small muted">Your passenger name, streak and today's score. Crews always see you.</span>
+            </span>
+            <input type="checkbox" checked={profile.onLeaderboard} onChange={(e) => update((p) => ({ ...p, onLeaderboard: e.target.checked }))} />
+          </label>
+          <div className="card">
+            <p className="small muted">Signed in as {account.email}</p>
+            <button className="btn btn-ghost" onClick={signOut}>Sign out</button>
+          </div>
+        </>
       )}
     </div>
   );
 }
 
-function SignIn({ enabled }: { enabled: boolean }) {
-  const { sendLink } = useProfile();
-  const [email, setEmail] = useState('');
-  const [sent, setSent] = useState(false);
-  const [busy, setBusy] = useState(false);
+// Edit the details printed in the passport: photo, name and home church.
+function PassportOffice({ fileInput, photoUrl }: { fileInput: React.RefObject<HTMLInputElement>; photoUrl: string | null }) {
+  const { profile, update, account } = useProfile();
+  const [name, setName] = useState(profile.name);
+  const [church, setChurch] = useState(profile.homeChurch);
+  const [photoBusy, setPhotoBusy] = useState(false);
+  const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const changed = name.trim() !== profile.name || church.trim() !== profile.homeChurch;
 
-  if (!enabled) {
-    return (
-      <div className="card signin">
-        <strong>Accounts are on their way</strong>
-        <p className="small muted">For now your passport is saved on this device.</p>
-      </div>
-    );
-  }
-
-  const send = async () => {
-    setBusy(true);
+  const choosePhoto = async (file: File | undefined) => {
+    if (!file || !account) return;
+    setPhotoBusy(true);
     setError('');
+    setMessage('');
     try {
-      await sendLink(email.trim());
-      setSent(true);
+      const photo = await preparePhoto(file);
+      await uploadPhoto(account.userId, photo);
+      update((p) => ({ ...p, photoUpdatedAt: new Date().toISOString() }));
+      setMessage('Photo added to your passport.');
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
+      setError(e instanceof Error ? e.message : 'Could not upload the photo.');
     } finally {
-      setBusy(false);
+      setPhotoBusy(false);
+      if (fileInput.current) fileInput.current.value = '';
     }
   };
 
-  if (sent) {
-    return (
-      <div className="card signin">
-        <strong>Check your email</strong>
-        <p className="small muted">
-          We sent a sign-in link to <strong>{email}</strong>. Open it on this device and you'll land back here, signed in. Progress on this device comes with you.
-        </p>
-        {error && <p className="form-error small">{error}</p>}
-        <button className="btn btn-ghost" disabled={busy} onClick={send}>{busy ? 'Sending…' : 'Send it again'}</button>
-        <button className="btn btn-ghost" onClick={() => { setSent(false); setError(''); }}>Use a different email</button>
-      </div>
-    );
-  }
+  const deletePhoto = async () => {
+    if (!account) return;
+    setPhotoBusy(true);
+    setError('');
+    try {
+      await removePhoto(account.userId);
+      update((p) => ({ ...p, photoUpdatedAt: null }));
+      setMessage('Photo removed.');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not remove the photo.');
+    } finally {
+      setPhotoBusy(false);
+    }
+  };
 
   return (
-    <form className="card signin" onSubmit={(e) => { e.preventDefault(); send(); }}>
-      <strong>Get your passport issued</strong>
-      <p className="small muted">Sign in to save your streak, miles and stamps to your account and keep them on any device. No password — we email you a link.</p>
-      <input type="email" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+    <section className="card office">
+      <p className="mono small muted">PASSPORT OFFICE</p>
+      <strong>Your details</strong>
+
+      <div className="office-photo">
+        <div className="office-photo-preview">{photoUrl ? <img src={photoUrl} alt="" /> : <span>{profile.name.slice(0, 1).toUpperCase()}</span>}</div>
+        <div className="office-photo-actions">
+          {account ? (
+            <>
+              <button className="btn btn-primary btn-small" disabled={photoBusy} onClick={() => fileInput.current?.click()}>
+                {photoBusy ? 'Working…' : photoUrl ? 'Change photo' : 'Add a photo'}
+              </button>
+              {photoUrl && <button className="btn btn-ghost btn-small" disabled={photoBusy} onClick={deletePhoto}>Remove</button>}
+              <p className="small muted">Optional. Only you can see it. We crop it to passport shape.</p>
+            </>
+          ) : (
+            <p className="small muted">Sign in to add a passport photo.</p>
+          )}
+        </div>
+        <input ref={fileInput} type="file" accept="image/*" hidden onChange={(e) => choosePhoto(e.target.files?.[0])} />
+      </div>
+
+      <form
+        className="office-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          update((p) => ({ ...p, name: name.trim() || 'Traveller', homeChurch: church.trim() }));
+          setMessage('Details saved.');
+        }}
+      >
+        <label>
+          <span>Passenger name</span>
+          <input value={name} onChange={(e) => setName(e.target.value)} maxLength={24} />
+        </label>
+        <label>
+          <span>Home church <small>(optional)</small></span>
+          <input value={church} onChange={(e) => setChurch(e.target.value)} maxLength={60} placeholder="e.g. Grace Chapel, Toronto" />
+        </label>
+        <button className="btn btn-primary" disabled={!changed}>Save details</button>
+      </form>
+      {message && <p className="small office-ok">{message}</p>}
       {error && <p className="form-error small">{error}</p>}
-      <button className="btn btn-primary" disabled={busy}>{busy ? 'Please wait…' : 'Email me a sign-in link'}</button>
-    </form>
+    </section>
   );
 }
