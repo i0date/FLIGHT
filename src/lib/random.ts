@@ -30,15 +30,14 @@ export function shuffle<T>(items: T[], rand: () => number = Math.random): T[] {
   return out;
 }
 
-export function toPlay(raw: RawQuestion, rand: () => number = Math.random, tag?: string): PlayQuestion {
+export function toPlay(raw: RawQuestion, rand: () => number = Math.random): PlayQuestion {
+  const base = { id: raw.id, prompt: raw.q, level: raw.level, ref: raw.ref, note: raw.note, tag: raw.cat };
+  if (raw.kind === 'order') {
+    let options = shuffle(raw.order, rand);
+    // Never hand out the items already in the right order.
+    while (options.every((o, i) => o === raw.order[i])) options = shuffle(raw.order, rand);
+    return { ...base, kind: 'order', options, answer: -1, order: raw.order, tag: raw.cat ?? 'Order' };
+  }
   const options = shuffle([raw.a, ...raw.wrong], rand);
-  return {
-    id: raw.id,
-    prompt: raw.q,
-    options,
-    answer: options.indexOf(raw.a),
-    ref: raw.ref,
-    note: raw.note,
-    tag: tag ?? raw.cat,
-  };
+  return { ...base, kind: 'choice', options, answer: options.indexOf(raw.a), order: [] };
 }

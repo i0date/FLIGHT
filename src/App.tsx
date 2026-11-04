@@ -12,7 +12,7 @@ const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
   { screen: { name: 'home' }, label: 'Terminal', Icon: HomeIcon },
   { screen: { name: 'bookclub' }, label: 'Book Club', Icon: Passport },
   { screen: { name: 'leaderboard' }, label: 'Ranks', Icon: Trophy },
-  { screen: { name: 'premium' }, label: 'First Class', Icon: Seat },
+  { screen: { name: 'premium' }, label: 'Flight Club', Icon: Seat },
 ];
 
 export default function App() {

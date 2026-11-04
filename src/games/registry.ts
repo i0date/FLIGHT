@@ -14,7 +14,7 @@ export type Gate = {
 };
 
 export const gates: Gate[] = [
-  { id: 'daily', gate: 'A1', title: 'Daily Flight', blurb: '10 questions on passages, books & themes. Keeps your streak alive.', status: 'live', screen: { name: 'daily' } },
-  { id: 'bookclub', gate: 'B4', title: 'Book Club', blurb: 'Studying a book? 5 tough questions that climb in difficulty.', status: 'live', screen: { name: 'bookclub' } },
+  { id: 'daily', gate: 'A1', title: 'Daily Flight', blurb: '10 questions that climb from take-off to the stratosphere. Keeps your streak alive.', status: 'live', screen: { name: 'daily' } },
+  { id: 'bookclub', gate: 'B4', title: 'Book Club', blurb: 'Studying a book? 5 scholar-level questions, cruise to stratosphere.', status: 'live', screen: { name: 'bookclub' } },
   { id: 'crossword', gate: 'C2', title: 'Crossword', blurb: 'Scripture crossword. Arriving soon.', status: 'soon' },
 ];

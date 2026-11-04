@@ -4,6 +4,7 @@ import { dayKey, flightNumber } from '../lib/dates';
 import { books } from '../data/books';
 import { bookClubQuestions } from '../data/bookClubQuestions';
 import { Flame, Lock, Plane } from '../components/Icons';
+import { PlaneWindow } from '../components/Aircraft';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
@@ -23,21 +24,26 @@ export function Home({ go }: { go: (s: Screen) => void }) {
           </span>
           <span className="mono board-flight">{flightNumber()}</span>
         </div>
-        <p className="board-greet">
-          {greeting}, {profile.name}.
-        </p>
-        <div className="streak">
-          <Flame size={28} className={streak > 0 ? 'flame-on' : 'flame-off'} />
-          <div>
-            <div className="streak-num">
-              {streak} day{streak === 1 ? '' : 's'}
-            </div>
-            <div className="streak-sub">
-              {todayScore !== undefined ? 'Streak secured for today' : streak > 0 ? 'Fly today to keep it' : 'Take off to start a streak'}
-              {' · best '}
-              {profile.bestStreak}
+        <div className="board-body">
+          <div className="board-text">
+            <p className="board-greet">
+              {greeting}, {profile.name}.
+            </p>
+            <div className="streak">
+              <Flame size={28} className={streak > 0 ? 'flame-on' : 'flame-off'} />
+              <div>
+                <div className="streak-num">
+                  {streak} day{streak === 1 ? '' : 's'}
+                </div>
+                <div className="streak-sub">
+                  {todayScore !== undefined ? 'Secured today' : streak > 0 ? 'Fly today to keep it' : 'Take off to start'}
+                  {' · best '}
+                  {profile.bestStreak}
+                </div>
+              </div>
             </div>
           </div>
+          <PlaneWindow streak={streak} />
         </div>
       </header>
 
@@ -94,7 +100,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
               <span className="gate-id mono">{g.gate}</span>
               <span className="gate-body">
                 <strong>{g.title}</strong>
-                <span>{g.id === 'bookclub' ? `${stamps}/${books.length} passport stamps · ${g.blurb}` : g.blurb}</span>
+                <span>{g.id === 'bookclub' ? `${stamps}/${books.length} routes flown · ${g.blurb}` : g.blurb}</span>
               </span>
               <span className={`gate-status mono ${live ? 'on' : ''}`}>{live ? 'BOARDING' : 'DELAYED'}</span>
             </button>
@@ -104,7 +110,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
 
       {!profile.premium && (
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>Upgrade to First Class for crew leaderboards and streak shields</span>
+          <Lock /> <span>Join Flight Club to stamp your passport, run private leaderboards and shield your streak</span>
         </button>
       )}
 

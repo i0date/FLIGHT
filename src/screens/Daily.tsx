@@ -1,19 +1,21 @@
 import { useMemo, useState } from 'react';
 import { Quiz } from '../components/Quiz';
+import { Landing } from '../components/Aircraft';
 import { dailyQuestions } from '../data/dailyQuestions';
 import { dayKey, flightNumber } from '../lib/dates';
 import { liveStreak, recordDaily, useProfile } from '../lib/profile';
 import { seeded, shuffle, toPlay } from '../lib/random';
 import { Flame } from '../components/Icons';
-import type { Screen } from '../types';
+import type { Level, Screen } from '../types';
 
-const QUESTIONS_PER_FLIGHT = 10;
+// Ten questions that climb from a warm-up to the stratosphere.
+const RAMP: Level[] = [1, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 
 export function dailySet(day = dayKey()) {
   const rand = seeded(`flight-daily-${day}`);
-  return shuffle(dailyQuestions, rand)
-    .slice(0, QUESTIONS_PER_FLIGHT)
-    .map((q) => toPlay(q, rand));
+  const pools = new Map<Level, typeof dailyQuestions>();
+  for (const q of shuffle(dailyQuestions, rand)) pools.set(q.level, [...(pools.get(q.level) ?? []), q]);
+  return RAMP.map((level) => toPlay(pools.get(level)!.pop()!, rand));
 }
 
 export function Daily({ go }: { go: (s: Screen) => void }) {
@@ -28,7 +30,12 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
     const streak = liveStreak(profile);
     return (
       <div className="screen landed">
-        <p className="mono muted">{flightNumber()} · ARRIVED</p>
+        <Landing />
+        <div className="arrivals mono">
+          <span>{flightNumber()}</span>
+          <span>GEN → REV</span>
+          <span className="arrivals-status">LANDED</span>
+        </div>
         <h1 className="landed-score">
           {score}
           <span>/10</span>
@@ -55,6 +62,7 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
     <div className="screen">
       <Quiz
         questions={questions}
+        route={{ from: 'GEN', to: 'REV' }}
         onFinish={(score) => {
           update((p) => recordDaily(p, score, today));
           setJustLanded(score);
@@ -65,8 +73,8 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
 }
 
 function verdict(score: number) {
-  if (score === 10) return 'A perfect landing. The cabin crew applauds.';
-  if (score >= 8) return 'Smooth flight — barely a bump.';
-  if (score >= 5) return 'Solid journey. A few pockets of turbulence.';
-  return 'Bumpy ride, but you landed. Back on board tomorrow.';
+  if (score === 10) return 'A perfect landing — all the way through the stratosphere.';
+  if (score >= 8) return 'Smooth flight, even at altitude.';
+  if (score >= 5) return 'Solid journey. The upper air got bumpy.';
+  return 'A rough ride up high, but you landed. Back on board tomorrow.';
 }

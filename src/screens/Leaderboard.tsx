@@ -74,7 +74,7 @@ export function Leaderboard({ go }: { go: (s: Screen) => void }) {
         </div>
       ) : (
         <button className="card locked" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>First Class members can create crew leaderboards. Tap to upgrade.</span>
+          <Lock /> <span>Flight Club members can create private leaderboards. Tap to join.</span>
         </button>
       )}
     </div>

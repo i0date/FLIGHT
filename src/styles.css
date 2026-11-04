@@ -96,11 +96,12 @@ main { padding-bottom: 96px; }
 
 /* Quiz */
 .quiz { display: flex; flex-direction: column; gap: 16px; }
-.flightpath { position: relative; height: 32px; margin: 4px 12px 0; }
-.flightpath::before { content: ''; position: absolute; left: 0; right: 0; top: 15px; border-top: 2px dashed var(--sky-deep); }
-.flightpath-trail { position: absolute; left: 0; top: 14px; height: 4px; background: var(--coral); border-radius: 4px; transition: width 0.4s ease; }
-.flightpath-plane { position: absolute; top: 5px; transform: translateX(-50%) rotate(90deg); color: var(--navy); transition: left 0.4s ease; }
-.quiz-meta { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
+.quiz-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+.quiz-meta-side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.sound-toggle { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 4px 10px; font-size: 12px; color: var(--muted); }
+.hint { margin: 0; font-size: 13px; color: var(--muted); }
+.option.placed { border-color: var(--navy); background: var(--sky); }
+.option.placed .option-key { background: var(--navy); color: #fff; }
 .pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: #f1e7d6; color: #7a5410; }
 .pill-sky { background: var(--sky); color: var(--navy); }
 .quiz-prompt { font-size: 21px; line-height: 1.35; font-weight: 700; }
@@ -121,7 +122,8 @@ main { padding-bottom: 96px; }
 
 .btn { border: 0; border-radius: 12px; padding: 14px 18px; font-weight: 700; font-size: 15px; }
 .btn-primary { background: var(--navy); color: #fff; }
-.btn-primary:hover { background: var(--navy-2); }
+.btn-primary:hover:not(:disabled) { background: var(--navy-2); }
+.btn:disabled { opacity: 0.4; }
 .btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--line); }
 
 /* Results */
@@ -140,9 +142,14 @@ main { padding-bottom: 96px; }
 .page-head h1 { font-size: 28px; color: var(--navy); }
 .page-head p { margin: 0; color: var(--muted); }
 .page-head.compact h1 { font-size: 24px; }
-.first-class { background: linear-gradient(160deg, var(--navy), #3a2f4f); color: #fff; padding: 20px; border-radius: 20px; }
-.first-class h1 { color: var(--amber); }
-.first-class p { color: rgba(255,255,255,0.8); }
+.flight-club { background: linear-gradient(160deg, var(--navy), #2c3f63 60%, #4a6a8f); color: #fff; padding: 20px 20px 8px; border-radius: 20px; overflow: hidden; }
+.flight-club h1 { color: var(--amber); }
+.flight-club p { color: rgba(255,255,255,0.8); }
+.club-plane { align-self: flex-end; margin: 4px -24px 0 0; animation: cruise 6s ease-in-out infinite; }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.plan { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--teal); border-radius: 12px; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.plan span { color: var(--muted); font-size: 12px; }
+.stamp-flown { border-style: dashed; border-color: var(--sky-deep); }
 .passport-bar { height: 8px; background: var(--line); border-radius: 8px; overflow: hidden; margin-top: 6px; }
 .passport-fill { height: 100%; background: linear-gradient(90deg, var(--coral), var(--amber)); }
 
@@ -187,3 +194,61 @@ main { padding-bottom: 96px; }
 }
 .tabbar button { flex: 1; border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; color: var(--muted); padding: 4px; }
 .tabbar button.active { color: var(--navy); font-weight: 700; }
+
+/* Home: window seat */
+.board-body { display: flex; gap: 14px; align-items: center; margin-top: 10px; }
+.board-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.board-text .board-greet { margin: 0; }
+.window { width: 108px; flex: none; display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; z-index: 1; }
+.window-svg { width: 100%; height: auto; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
+.window-readout { display: flex; flex-direction: column; align-items: center; font-size: 9px; letter-spacing: 0.12em; opacity: 0.8; }
+.window-readout strong { font-size: 11px; color: var(--amber); letter-spacing: 0.04em; }
+.drift { animation: drift 14s ease-in-out infinite alternate; }
+.twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+@keyframes drift { from { transform: translateX(-10px); } to { transform: translateX(10px); } }
+@keyframes twinkle { 50% { opacity: 0.25; } }
+@keyframes cruise { 50% { transform: translateY(-4px); } }
+
+/* Quiz: seat-back screen */
+.seatback { background: #0f1a2c; border-radius: 16px; padding: 10px; border: 3px solid #2a3a55; box-shadow: inset 0 0 0 1px #3a4b66; }
+.seatback-map { width: 100%; height: auto; display: block; }
+.map-grid { stroke: #1d2c45; stroke-width: 1; }
+.map-land { fill: #1f3a4a; }
+.map-route { fill: none; stroke: #4a5f80; stroke-width: 2; stroke-dasharray: 4 5; }
+.map-flown { fill: none; stroke: var(--coral); stroke-width: 3; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
+.map-dot { fill: #cfd8e6; }
+.map-code { fill: #cfd8e6; font: 700 11px var(--mono); }
+.map-plane { transition: transform 0.6s ease; }
+.seatback-strip { display: flex; justify-content: space-between; color: #8fb8d8; font-size: 11px; padding: 6px 4px 0; border-top: 1px solid #1d2c45; margin-top: 4px; }
+
+/* Altimeter */
+.altimeter { display: flex; align-items: center; gap: 10px; }
+.altimeter-label { display: flex; flex-direction: column; gap: 2px; }
+.altimeter-label strong { color: var(--navy); font-size: 14px; }
+.altimeter-label span { font-size: 11px; }
+
+/* Turbulence on a wrong answer */
+.turbulence { animation: turbulence 0.55s ease; }
+@keyframes turbulence {
+  10%, 90% { transform: translate(-1px, 1px); }
+  20%, 80% { transform: translate(3px, -2px); }
+  30%, 50%, 70% { transform: translate(-4px, 2px) rotate(-0.4deg); }
+  40%, 60% { transform: translate(4px, -1px) rotate(0.4deg); }
+}
+
+/* Landing */
+.landing { width: 100%; height: auto; border-radius: 16px; }
+.landing-plane { animation: touchdown 2.4s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes touchdown {
+  from { transform: translate(-60px, 0px); }
+  to { transform: translate(112px, 100px); }
+}
+.runway-light { animation: blink 1.2s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.3; } }
+.arrivals { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; background: var(--navy); color: #fff; border-radius: 10px; padding: 10px 14px; font-size: 13px; text-align: left; }
+.arrivals-status { color: var(--amber); }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift, .twinkle, .club-plane, .landing-plane, .runway-light, .turbulence { animation: none; }
+  .landing-plane { transform: translate(112px, 100px); }
+}
