@@ -323,3 +323,84 @@ export const john1 = [
   c('1jn20', 6, '"For this purpose the Son of God was manifested, that he might destroy the works of the…"', 'Devil', ['Flesh', 'Law', 'World'], '1 John 3:8'),
   c('1jn21', 6, '"This is the victory that overcometh the world, even our…"', 'Faith', ['Love', 'Hope', 'Lord'], '1 John 5:4'),
 ];
+
+export const colossians = [
+  // Leg 1
+  c('col01', 2, '"Set your affection on things…"', 'Above', ['Eternal', 'Unseen', 'Holy'], 'Colossians 3:2'),
+  c('col02', 2, '"Whatsoever ye do, do it heartily, as to the…"', 'Lord', ['Church', 'Glory of God', 'End'], 'Colossians 3:23'),
+  c('col03', 3, '"Christ in you, the hope of…"', 'Glory', ['Salvation', 'Life', 'Heaven'], 'Colossians 1:27'),
+  c('col04', 3, 'Who is called "the beloved physician"?', 'Luke', ['Mark', 'Epaphras', 'Tychicus'], 'Colossians 4:14'),
+  c('col05', 3, '"Let your speech be alway with grace, seasoned with…"', 'Salt', ['Love', 'Truth', 'Wisdom'], 'Colossians 4:6'),
+  c('col06', 3, 'Christ "is the image of the invisible…"', 'God', ['Father', 'Spirit', 'Kingdom'], 'Colossians 1:15'),
+  c('col07', 4, '"In him dwelleth all the fulness of the ___ bodily."', 'Godhead', ['Spirit', 'Father', 'Glory'], 'Colossians 2:9'),
+  // Leg 2
+  c('col08', 4, 'Who first taught the Colossians and told Paul of their love?', 'Epaphras', ['Tychicus', 'Onesimus', 'Archippus'], 'Colossians 1:7–8'),
+  c('col09', 4, 'In which other church was Colossians also to be read?', 'Laodicea', ['Ephesus', 'Philadelphia', 'Hierapolis'], 'Colossians 4:16'),
+  c('col10', 4, 'Who was sent to Colosse with Tychicus, "a faithful and beloved brother"?', 'Onesimus', ['Epaphras', 'Demas', 'Aristarchus'], 'Colossians 4:7–9'),
+  c('col11', 5, 'Who sends greetings as Paul\'s "fellowprisoner"?', 'Aristarchus', ['Demas', 'Justus', 'Luke'], 'Colossians 4:10'),
+  c('col12', 5, 'Marcus is called the "sister\'s son" of whom?', 'Barnabas', ['Peter', 'Silas', 'Paul'], 'Colossians 4:10'),
+  c('col13', 5, 'Who was told, "Take heed to the ministry which thou hast received in the Lord, that thou fulfil it"?', 'Archippus', ['Timothy', 'Epaphras', 'Tychicus'], 'Colossians 4:17'),
+  c('col14', 5, '"Jesus, which is called…"', 'Justus', ['Niger', 'Didymus', 'Thaddaeus'], 'Colossians 4:11'),
+  // Leg 3
+  c('col15', 5, 'The handwriting of ordinances was taken out of the way, "nailing it to his…"', 'Cross', ['Tree', 'Hands', 'Door'], 'Colossians 2:14'),
+  c('col16', 6, '"Let no man therefore judge you in meat, or in drink, or in respect of an holyday, or of the new moon, or of the ___ days."', 'Sabbath', ['Feast', 'Fast', 'Holy'], 'Colossians 2:16'),
+  c('col17', 6, '"Beware lest any man spoil you through philosophy and vain…"', 'Deceit', ['Glory', 'Traditions', 'Words'], 'Colossians 2:8', '"…after the tradition of men" comes next.'),
+  c('col18', 6, 'Which believer, with a church in his house, is greeted in Colossians?', 'Nymphas', ['Gaius', 'Stephanas', 'Crispus'], 'Colossians 4:15'),
+  c('col19', 6, '"Psalms and hymns and spiritual…"', 'Songs', ['Gifts', 'Prayers', 'Praises'], 'Colossians 3:16'),
+  c('col20', 6, '"Neither Greek nor Jew, circumcision nor uncircumcision, Barbarian, ___, bond nor free."', 'Scythian', ['Roman', 'Gentile', 'Samaritan'], 'Colossians 3:11'),
+  c('col21', 6, '"Above all these things put on charity, which is the bond of…"', 'Perfectness', ['Peace', 'Unity', 'Love'], 'Colossians 3:14', '"The bond of peace" is Ephesians 4:3.'),
+];
+
+export const thessalonians1 = [
+  // Leg 1
+  c('1th01', 2, '"Pray without…"', 'Ceasing', ['Fear', 'Doubting', 'Wrath'], '1 Thessalonians 5:17'),
+  c('1th02', 2, 'The Lord shall descend "with the voice of the archangel, and with the trump of…"', 'God', ['Gabriel', 'Jubilee', 'Heaven'], '1 Thessalonians 4:16'),
+  c('1th03', 3, 'When the Lord comes, "the dead in Christ shall rise…"', 'First', ['Last', 'Together', 'In glory'], '1 Thessalonians 4:16'),
+  c('1th04', 3, '"The day of the Lord so cometh as a ___ in the night."', 'Thief', ['Light', 'Storm', 'Trumpet'], '1 Thessalonians 5:2'),
+  c('1th05', 3, '"In every thing give…"', 'Thanks', ['Glory', 'Praise', 'Diligence'], '1 Thessalonians 5:18'),
+  c('1th06', 3, '"Quench not the…"', 'Spirit', ['Lamp', 'Fire', 'Prophets'], '1 Thessalonians 5:19', '"Despise not prophesyings" follows.'),
+  c('1th07', 4, '"Prove all things; hold fast that which is…"', 'Good', ['True', 'Pure', 'Holy'], '1 Thessalonians 5:21'),
+  // Leg 2
+  c('1th08', 4, 'Whom did Paul send from Athens to establish the Thessalonians?', 'Timotheus', ['Silvanus', 'Titus', 'Luke'], '1 Thessalonians 3:1–2'),
+  c('1th09', 4, 'Where had Paul been "shamefully entreated" just before coming to Thessalonica?', 'Philippi', ['Berea', 'Athens', 'Lystra'], '1 Thessalonians 2:2; Acts 16'),
+  c('1th10', 4, 'Who joins Paul in the greeting of 1 Thessalonians?', 'Silvanus and Timotheus', ['Barnabas and Mark', 'Titus and Luke', 'Sosthenes and Apollos'], '1 Thessalonians 1:1'),
+  c('1th11', 5, '"Study to be ___, and to do your own business."', 'Quiet', ['Wise', 'Diligent', 'Approved'], '1 Thessalonians 4:11'),
+  c('1th12', 5, '"We were gentle among you, even as a ___ cherisheth her children."', 'Nurse', ['Mother', 'Hen', 'Shepherdess'], '1 Thessalonians 2:7'),
+  c('1th13', 5, 'They turned from idols "to wait for his Son from…"', 'Heaven', ['The east', 'The clouds', 'Glory'], '1 Thessalonians 1:10'),
+  c('1th14', 5, 'Their faith had sounded out in Macedonia and where else?', 'Achaia', ['Asia', 'Galatia', 'Judaea'], '1 Thessalonians 1:7–8'),
+  // Leg 3
+  c('1th15', 5, '"Sorrow not, even as others which have no…"', 'Hope', ['Faith', 'God', 'Comfort'], '1 Thessalonians 4:13'),
+  c('1th16', 6, '"Abstain from all appearance of…"', 'Evil', ['Sin', 'Pride', 'Idols'], '1 Thessalonians 5:22'),
+  c('1th17', 6, '"Putting on the breastplate of faith and love; and for an helmet, the hope of…"', 'Salvation', ['Glory', 'Righteousness', 'Eternal life'], '1 Thessalonians 5:8', 'In Ephesians 6:14 the breastplate is righteousness.'),
+  c('1th18', 6, '"When they shall say, Peace and ___; then sudden destruction cometh."', 'Safety', ['Plenty', 'Rest', 'Quiet'], '1 Thessalonians 5:3'),
+  c('1th19', 6, '"We would have come unto you, even I Paul, once and again; but Satan…"', 'Hindered us', ['Withstood us', 'Sifted us', 'Bound us'], '1 Thessalonians 2:18'),
+  c('1th20', 6, '"I pray God your whole spirit and soul and ___ be preserved blameless."', 'Body', ['Mind', 'Heart', 'Strength'], '1 Thessalonians 5:23'),
+  c('1th21', 6, 'Paul laboured night and day, "because we would not be ___ unto any of you".', 'Chargeable', ['Unknown', 'A stranger', 'A debtor'], '1 Thessalonians 2:9'),
+];
+
+export const timothy2 = [
+  // Leg 1
+  c('2ti01', 2, '"I have fought a good fight, I have finished my course, I have kept the…"', 'Faith', ['Law', 'Commandment', 'Truth'], '2 Timothy 4:7'),
+  c('2ti02', 2, '"All scripture is given by ___ of God."', 'Inspiration', ['The hand', 'The will', 'The Spirit'], '2 Timothy 3:16'),
+  c('2ti03', 3, "Who was Timothy's grandmother?", 'Lois', ['Eunice', 'Lydia', 'Priscilla'], '2 Timothy 1:5', 'Eunice was his mother.'),
+  c('2ti04', 3, '"Study to shew thyself approved unto God, a workman that needeth not to be…"', 'Ashamed', ['Rebuked', 'Corrected', 'Afraid'], '2 Timothy 2:15'),
+  c('2ti05', 3, '"Thou therefore endure hardness, as a good ___ of Jesus Christ."', 'Soldier', ['Servant', 'Steward', 'Shepherd'], '2 Timothy 2:3'),
+  c('2ti06', 3, '"Demas hath forsaken me, having loved this present…"', 'World', ['Life', 'Age', 'Pleasure'], '2 Timothy 4:10'),
+  c('2ti07', 4, 'Paul wrote, "Only ___ is with me."', 'Luke', ['Mark', 'Titus', 'Tychicus'], '2 Timothy 4:11'),
+  // Leg 2
+  c('2ti08', 4, "Who was Timothy's mother?", 'Eunice', ['Lois', 'Lydia', 'Priscilla'], '2 Timothy 1:5'),
+  c('2ti09', 4, 'What did Paul ask Timothy to bring from Troas?', 'The cloke, the books and the parchments', ['His staff and scrip', 'His letters and pen', 'His coat and sandals'], '2 Timothy 4:13'),
+  c('2ti10', 4, 'Whom did Paul ask Timothy to bring, "for he is profitable to me for the ministry"?', 'Mark', ['Luke', 'Titus', 'Demas'], '2 Timothy 4:11'),
+  c('2ti11', 5, 'Alexander, who "did me much evil", was a what?', 'Coppersmith', ['Silversmith', 'Tentmaker', 'Tanner'], '2 Timothy 4:14', 'Demetrius was the silversmith of Ephesus (Acts 19:24).'),
+  c('2ti12', 5, 'Who "oft refreshed me, and was not ashamed of my chain"?', 'Onesiphorus', ['Onesimus', 'Epaphroditus', 'Philemon'], '2 Timothy 1:16'),
+  c('2ti13', 5, '"As Jannes and Jambres withstood ___, so do these also resist the truth."', 'Moses', ['Aaron', 'Elijah', 'Daniel'], '2 Timothy 3:8'),
+  c('2ti14', 5, '"From a child thou hast known the holy…"', 'Scriptures', ['Prophets', 'Law', 'Commandments'], '2 Timothy 3:15'),
+  // Leg 3
+  c('2ti15', 5, '"Preach the word; be instant in season, out of…"', 'Season', ['Time', 'Order', 'Patience'], '2 Timothy 4:2'),
+  c('2ti16', 6, 'Who taught "that the resurrection is past already"?', 'Hymenaeus and Philetus', ['Hymenaeus and Alexander', 'Phygellus and Hermogenes', 'Demas and Crescens'], '2 Timothy 2:17–18', 'Hymenaeus and Alexander were handed to Satan in 1 Timothy 1:20.'),
+  c('2ti17', 6, 'Of "all they which are in Asia" who turned away from Paul, which two are named?', 'Phygellus and Hermogenes', ['Hymenaeus and Philetus', 'Demas and Crescens', 'Euodias and Syntyche'], '2 Timothy 1:15'),
+  c('2ti18', 6, 'Where did Paul leave Trophimus sick?', 'Miletum', ['Troas', 'Corinth', 'Ephesus'], '2 Timothy 4:20', 'Erastus stayed at Corinth (same verse).'),
+  c('2ti19', 6, '"Crescens to Galatia, Titus unto…"', 'Dalmatia', ['Crete', 'Macedonia', 'Illyricum'], '2 Timothy 4:10'),
+  c('2ti20', 6, '"God hath not given us the spirit of fear; but of power, and of love, and of a sound…"', 'Mind', ['Heart', 'Faith', 'Judgment'], '2 Timothy 1:7'),
+  c('2ti21', 6, 'Where did Paul send Tychicus?', 'Ephesus', ['Crete', 'Thessalonica', 'Dalmatia'], '2 Timothy 4:12', 'Demas went to Thessalonica; Titus to Dalmatia.'),
+];

@@ -161,3 +161,84 @@ export const amos = [
   c('amo20', 6, 'Stephen quoted Amos about Israel taking up "the tabernacle of" whom?', 'Moloch', ['Baal', 'Chemosh', 'Dagon'], 'Acts 7:43; Amos 5:26'),
   c('amo21', 6, '"I was no prophet, neither was I a prophet\'s…"', 'Son', ['Servant', 'Disciple', 'Friend'], 'Amos 7:14'),
 ];
+
+export const hosea = [
+  // Leg 1
+  c('hos01', 2, 'Whom did Hosea marry?', 'Gomer', ['Rahab', 'Tamar', 'Abigail'], 'Hosea 1:3'),
+  c('hos02', 2, "What did Hosea's unfaithful wife picture?", "Israel's unfaithfulness to the LORD", ["Egypt's pride", "Judah's exile", "Nineveh's repentance"], 'Hosea 1:2; 3:1'),
+  c('hos03', 3, "What was Hosea's first son named?", 'Jezreel', ['Lo-ammi', 'Shear-jashub', 'Maher-shalal-hash-baz'], 'Hosea 1:4', "Shear-jashub and Maher-shalal-hash-baz were Isaiah's sons."),
+  c('hos04', 3, 'Which child\'s name meant "not having obtained mercy"?', 'Lo-ruhamah', ['Lo-ammi', 'Jezreel', 'Hephzibah'], 'Hosea 1:6'),
+  c('hos05', 3, '"They have sown the wind, and they shall reap the…"', 'Whirlwind', ['Storm', 'Harvest', 'Dust'], 'Hosea 8:7'),
+  c('hos06', 3, '"My people are destroyed for lack of…"', 'Knowledge', ['Bread', 'Shepherds', 'Faith'], 'Hosea 4:6'),
+  c('hos07', 4, '"When Israel was a child, then I loved him, and called my son out of…"', 'Egypt', ['Babylon', 'Ur', 'Bondage'], 'Hosea 11:1; Matthew 2:15'),
+  // Leg 2
+  c('hos08', 4, 'What did Hosea pay to buy back his wife?', 'Fifteen pieces of silver and an homer and a half of barley', ['Thirty pieces of silver', 'Twenty shekels of silver', 'Fifty shekels and an homer of wheat'], 'Hosea 3:2'),
+  c('hos09', 4, '"Ephraim is joined to idols: let him…"', 'Alone', ['Perish', 'Go', 'Be ashamed'], 'Hosea 4:17'),
+  c('hos10', 4, '"Ephraim is a cake not…"', 'Turned', ['Baked', 'Leavened', 'Broken'], 'Hosea 7:8'),
+  c('hos11', 5, '"I desired mercy, and not sacrifice; and the knowledge of God more than…"', 'Burnt offerings', ['Fat of rams', 'Rivers of oil', 'Thousands of rams'], 'Hosea 6:6'),
+  c('hos12', 5, "Who was Gomer's father?", 'Diblaim', ['Beeri', 'Amoz', 'Buzi'], 'Hosea 1:3', "Beeri was Hosea's father."),
+  c('hos13', 5, 'The LORD would give "the valley of Achor for a door of…"', 'Hope', ['Mercy', 'Peace', 'Return'], 'Hosea 2:15'),
+  c('hos14', 5, '"Ephraim also is like a silly ___ without heart."', 'Dove', ['Sheep', 'Heifer', 'Sparrow'], 'Hosea 7:11'),
+  // Leg 3
+  o('hos15', 5, 'Put these in order:', ['Hosea marries Gomer', 'Jezreel is born', 'Lo-ruhamah is born', 'Lo-ammi is born'], 'Hosea 1:3–9'),
+  c('hos16', 6, "Who was Hosea's father?", 'Beeri', ['Diblaim', 'Amoz', 'Pethuel'], 'Hosea 1:1', "Pethuel was Joel's father; Amoz was Isaiah's."),
+  c('hos17', 6, '"O death, I will be thy plagues; O grave, I will be thy…"', 'Destruction', ['End', 'Master', 'Judge'], 'Hosea 13:14'),
+  c('hos18', 6, '"I will heal their backsliding, I will love them…"', 'Freely', ['For ever', 'Again', 'With all my heart'], 'Hosea 14:4'),
+  c('hos19', 6, '"Take with you words… so will we render the ___ of our lips."', 'Calves', ['Song', 'Vows', 'Offering'], 'Hosea 14:2'),
+  c('hos20', 6, '"Thou shalt call me ___; and shalt call me no more Baali."', 'Ishi', ['Ammi', 'Adonai', 'Abba'], 'Hosea 2:16', 'Ishi means "my husband".'),
+  c('hos21', 6, 'Paul quotes Hosea, "I will call them my people, which were not my people", in which letter?', 'Romans', ['Galatians', 'Ephesians', 'Hebrews'], 'Romans 9:25; Hosea 2:23'),
+];
+
+export const micah = [
+  // Leg 1
+  c('mic01', 2, 'Micah foretold that the ruler of Israel would come from which town?', 'Bethlehem Ephratah', ['Nazareth', 'Jerusalem', 'Hebron'], 'Micah 5:2'),
+  c('mic02', 2, '"To do justly, and to love mercy, and to walk ___ with thy God."', 'Humbly', ['Uprightly', 'Faithfully', 'Daily'], 'Micah 6:8'),
+  c('mic03', 3, '"They shall beat their swords into…"', 'Plowshares', ['Pruninghooks', 'Sickles', 'Spades'], 'Micah 4:3', 'Their spears become pruninghooks.'),
+  c('mic04', 3, 'What was Micah called, after his home town?', 'The Morasthite', ['The Tishbite', 'The Shilonite', 'The Gileadite'], 'Micah 1:1; Jeremiah 26:18'),
+  c('mic05', 3, '"Who is a God like unto thee, that pardoneth…"', 'Iniquity', ['The proud', 'The nations', 'All men'], 'Micah 7:18'),
+  c('mic06', 3, '"Thou wilt cast all their sins into the depths of the…"', 'Sea', ['Earth', 'Pit', 'Grave'], 'Micah 7:19'),
+  c('mic07', 4, '"They shall sit every man under his vine and under his…"', 'Fig tree', ['Olive tree', 'Own roof', 'Palm tree'], 'Micah 4:4'),
+  // Leg 2
+  c('mic08', 4, 'Under which kings of Judah did Micah prophesy?', 'Jotham, Ahaz and Hezekiah', ['Uzziah, Jotham and Ahaz', 'Josiah, Jehoiakim and Zedekiah', 'Hezekiah, Manasseh and Amon'], 'Micah 1:1'),
+  c('mic09', 4, '"A man\'s enemies are the men of his own…"', 'House', ['City', 'Tribe', 'Household of faith'], 'Micah 7:6; Matthew 10:36'),
+  c('mic10', 4, '"What is the transgression of Jacob?" Which city does Micah name?', 'Samaria', ['Bethel', 'Damascus', 'Gilgal'], 'Micah 1:5'),
+  c('mic11', 5, 'When Jeremiah was on trial, the elders quoted which earlier prophet in his defence?', 'Micah', ['Isaiah', 'Amos', 'Hosea'], 'Jeremiah 26:17–19'),
+  c('mic12', 5, '"Will the LORD be pleased with thousands of rams, or with ten thousands of rivers of…"', 'Oil', ['Wine', 'Milk', 'Blood'], 'Micah 6:7'),
+  c('mic13', 5, '"Remember now what ___ king of Moab consulted."', 'Balak', ['Eglon', 'Mesha', 'Agag'], 'Micah 6:5'),
+  c('mic14', 5, '"Rejoice not against me, O mine enemy: when I fall, I shall…"', 'Arise', ['Return', 'Be lifted up', 'Stand'], 'Micah 7:8'),
+  // Leg 3
+  c('mic15', 5, 'The ruler from Bethlehem: "whose goings forth have been from of old, from…"', 'Everlasting', ['The beginning', 'The fathers', 'Ancient days'], 'Micah 5:2'),
+  c('mic16', 6, 'Who quoted Micah 5:2 to Herod when the wise men came?', 'The chief priests and scribes', ['The wise men', 'The Pharisees and Sadducees', 'Annas and Caiaphas'], 'Matthew 2:4–6'),
+  c('mic17', 6, '"The statutes of ___ are kept, and all the works of the house of Ahab."', 'Omri', ['Jeroboam', 'Jezebel', 'Baasha'], 'Micah 6:16'),
+  c('mic18', 6, '"Hear ye the ___, and who hath appointed it."', 'Rod', ['Trumpet', 'Word', 'Watchman'], 'Micah 6:9'),
+  c('mic19', 6, '"The best of them is as a brier: the most upright is sharper than a thorn…"', 'Hedge', ['Bush', 'Crown', 'Tree'], 'Micah 7:4'),
+  c('mic20', 6, '"And thou, O tower of the ___, the strong hold of the daughter of Zion."', 'Flock', ['Shepherd', 'Watchman', 'King'], 'Micah 4:8'),
+  c('mic21', 6, 'Micah foretold the daughter of Zion would go "even to" which city, and there be delivered?', 'Babylon', ['Nineveh', 'Egypt', 'Damascus'], 'Micah 4:10', 'Remarkable, since Assyria was the great power of his day.'),
+];
+
+export const malachi = [
+  // Leg 1
+  c('mal01', 2, '"Will a man rob God?" How had they robbed him?', 'In tithes and offerings', ['In sabbaths and feasts', 'In prayers and praises', 'In vows and firstfruits'], 'Malachi 3:8'),
+  c('mal02', 2, 'Which prophet would be sent "before the coming of the great and dreadful day of the LORD"?', 'Elijah', ['Moses', 'Enoch', 'Samuel'], 'Malachi 4:5'),
+  c('mal03', 3, '"Bring ye all the tithes into the…"', 'Storehouse', ['Temple', 'Treasury', 'Barn'], 'Malachi 3:10'),
+  c('mal04', 3, '"Shall the Sun of righteousness arise with healing in his…"', 'Wings', ['Hands', 'Rays', 'Word'], 'Malachi 4:2'),
+  c('mal05', 3, '"Jacob have I loved, and ___ I hated."', 'Esau', ['Ishmael', 'Reuben', 'Laban'], 'Malachi 1:2–3; Romans 9:13'),
+  c('mal06', 3, '"For I am the LORD, I change…"', 'Not', ['All things', 'The times', 'Hearts'], 'Malachi 3:6'),
+  c('mal07', 4, 'Jesus said "Behold, I send my messenger before thy face" was written of whom?', 'John the Baptist', ['Isaiah', 'Peter', 'Paul'], 'Malachi 3:1; Matthew 11:10'),
+  // Leg 2
+  c('mal08', 4, 'What were the priests offering on the altar?', 'The blind, the lame and the sick', ['Strange fire', "Swine's flesh", 'Leavened bread'], 'Malachi 1:7–8'),
+  c('mal09', 4, '"He is like a refiner\'s fire, and like fullers\'…"', 'Soap', ['Earth', 'Water', 'Lye'], 'Malachi 3:2'),
+  c('mal10', 4, 'For those who feared the LORD, "a book of ___ was written before him".', 'Remembrance', ['Life', 'The law', 'Judgment'], 'Malachi 3:16'),
+  c('mal11', 5, '"They shall be mine, saith the LORD of hosts, in that day when I make up my…"', 'Jewels', ['Kingdom', 'People', 'Flock'], 'Malachi 3:17'),
+  c('mal12', 5, '"Ye shall go forth, and grow up as ___ of the stall."', 'Calves', ['Lambs', 'Oxen', 'Kids'], 'Malachi 4:2'),
+  c('mal13', 5, '"The LORD hath been witness between thee and the wife of thy…"', 'Youth', ['Covenant', 'Bosom', 'House'], 'Malachi 2:14'),
+  c('mal14', 5, 'The wicked "shall be ashes under the soles of your…"', 'Feet', ['Shoes', 'Gates', 'Altars'], 'Malachi 4:3'),
+  // Leg 3
+  c('mal15', 5, 'Of Edom\'s plan to rebuild, the LORD says: "They shall build, but I will…"', 'Throw down', ['Scatter', 'Laugh', 'Forget'], 'Malachi 1:4'),
+  c('mal16', 6, '"Remember ye the law of Moses my servant, which I commanded unto him in…"', 'Horeb', ['Moab', 'Kadesh', 'Nebo'], 'Malachi 4:4'),
+  c('mal17', 6, 'With whom did the LORD make a "covenant of life and peace"?', 'Levi', ['David', 'Abraham', 'Noah'], 'Malachi 2:4–5'),
+  c('mal18', 6, '"The priest\'s lips should keep…"', 'Knowledge', ['Silence', 'The law', 'Truth'], 'Malachi 2:7', '"…and they should seek the law at his mouth."'),
+  c('mal19', 6, '"From the rising of the sun even unto the going down of the same my name shall be great among the…"', 'Gentiles', ['Kings', 'Priests', 'Isles'], 'Malachi 1:11'),
+  c('mal20', 6, '"Ye have wearied the LORD… when ye say… Where is the God of…"', 'Judgment', ['Israel', 'Mercy', 'Our fathers'], 'Malachi 2:17'),
+  c('mal21', 6, 'In the King James Old Testament, what is the very last word?', 'Curse', ['Amen', 'Elijah', 'LORD'], 'Malachi 4:6'),
+];

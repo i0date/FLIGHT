@@ -1,9 +1,9 @@
 import type { RawQuestion } from '../types';
 import { deuteronomy, exodus, genesis, leviticus, numbers } from './bookclub/law';
 import { esther, ezra, joshua, judges, kings1, kings2, nehemiah, ruth, samuel1, samuel2 } from './bookclub/history';
-import { amos, daniel, ezekiel, isaiah, jeremiah, jonah } from './bookclub/prophets';
+import { amos, daniel, ezekiel, hosea, isaiah, jeremiah, jonah, malachi, micah } from './bookclub/prophets';
 import { acts, john, luke, mark, matthew } from './bookclub/gospels';
-import { corinthians1, corinthians2, ephesians, galatians, hebrews, james, john1, peter1, philippians, revelation, romans, timothy1 } from './bookclub/letters';
+import { colossians, corinthians1, corinthians2, ephesians, galatians, hebrews, james, john1, peter1, philippians, revelation, romans, thessalonians1, timothy1, timothy2 } from './bookclub/letters';
 import { ecclesiastes, job, proverbs, psalms } from './bookclub/wisdom';
 
 // Book Club: 21 questions per book, flown as 3 legs of 7 that climb in difficulty.
@@ -12,9 +12,9 @@ import { ecclesiastes, job, proverbs, psalms } from './bookclub/wisdom';
 export const bookClubQuestions: Record<string, RawQuestion[]> = {
   genesis, exodus, leviticus, numbers, deuteronomy, joshua, judges, ruth, '1samuel': samuel1, '2samuel': samuel2,
   '1kings': kings1, '2kings': kings2, ezra, nehemiah, esther, job, psalms, proverbs, ecclesiastes, isaiah, jeremiah,
-  ezekiel, daniel, amos, jonah,
+  ezekiel, daniel, hosea, amos, jonah, micah, malachi,
   matthew, mark, luke, john, acts, romans, '1corinthians': corinthians1, '2corinthians': corinthians2, galatians,
-  ephesians, philippians, '1timothy': timothy1, hebrews, james, '1peter': peter1, '1john': john1, revelation,
+  ephesians, philippians, colossians, '1thessalonians': thessalonians1, '1timothy': timothy1, '2timothy': timothy2, hebrews, james, '1peter': peter1, '1john': john1, revelation,
 };
 
 export const LEG_SIZE = 7;
