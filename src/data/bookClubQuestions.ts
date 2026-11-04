@@ -1,18 +1,19 @@
 import type { RawQuestion } from '../types';
 import { deuteronomy, exodus, genesis, leviticus, numbers } from './bookclub/law';
-import { esther, joshua, judges, ruth, samuel1 } from './bookclub/history';
-import { daniel, isaiah, jonah } from './bookclub/prophets';
+import { esther, joshua, judges, kings1, kings2, nehemiah, ruth, samuel1, samuel2 } from './bookclub/history';
+import { daniel, isaiah, jeremiah, jonah } from './bookclub/prophets';
 import { acts, john, luke, mark, matthew } from './bookclub/gospels';
-import { corinthians1, ephesians, galatians, hebrews, james, peter1, philippians, revelation, romans } from './bookclub/letters';
+import { corinthians1, corinthians2, ephesians, galatians, hebrews, james, peter1, philippians, revelation, romans } from './bookclub/letters';
 import { job, proverbs, psalms } from './bookclub/wisdom';
 
 // Book Club: 21 questions per book, flown as 3 legs of 7 that climb in difficulty.
 // A passport stamp needs all three legs flown and at least 15 of 21 correct.
 // Books without a set yet show as "Soon" in the passport.
 export const bookClubQuestions: Record<string, RawQuestion[]> = {
-  genesis, exodus, leviticus, numbers, deuteronomy, joshua, judges, ruth, '1samuel': samuel1, esther, job, psalms, proverbs,
-  isaiah, daniel, jonah, matthew, mark, luke, john, acts, romans, '1corinthians': corinthians1, galatians, ephesians,
-  philippians, hebrews, james, '1peter': peter1, revelation,
+  genesis, exodus, leviticus, numbers, deuteronomy, joshua, judges, ruth, '1samuel': samuel1, '2samuel': samuel2,
+  '1kings': kings1, '2kings': kings2, nehemiah, esther, job, psalms, proverbs, isaiah, jeremiah, daniel, jonah,
+  matthew, mark, luke, john, acts, romans, '1corinthians': corinthians1, '2corinthians': corinthians2, galatians,
+  ephesians, philippians, hebrews, james, '1peter': peter1, revelation,
 };
 
 export const LEG_SIZE = 7;

@@ -134,3 +134,111 @@ export const samuel1 = [
   c('1sa20', 6, 'What did David take from beside the sleeping Saul in the hill of Hachilah?', 'His spear and the cruse of water', ['The skirt of his robe', 'His crown and bracelet', 'His sword and shield'], '1 Samuel 26:1, 12', 'He cut off the skirt of the robe earlier, in a cave at En-gedi (24:4).'),
   c('1sa21', 6, "The men of which city took Saul's body down from the wall of Beth-shan?", 'Jabesh-gilead', ['Ramah', 'Gibeah', 'Ziklag'], '1 Samuel 31:11–13', 'Saul had rescued Jabesh-gilead from Nahash (ch. 11).'),
 ];
+
+export const samuel2 = [
+  // Leg 1
+  c('2sa01', 2, 'Bathsheba was the wife of whom?', 'Uriah the Hittite', ['Nabal', 'Joab', 'Abner'], '2 Samuel 11:3'),
+  c('2sa02', 2, 'Which prophet told David the parable of the ewe lamb?', 'Nathan', ['Gad', 'Samuel', 'Elijah'], '2 Samuel 12:1–7'),
+  c('2sa03', 3, 'Which son of David "stole the hearts of the men of Israel"?', 'Absalom', ['Amnon', 'Adonijah', 'Solomon'], '2 Samuel 15:6'),
+  c('2sa04', 3, 'How was Absalom caught as he fled?', 'His head caught in the boughs of an oak', ['He fell into a pit', 'His chariot overturned', 'He was taken at the city gate'], '2 Samuel 18:9'),
+  c('2sa05', 3, 'Who thrust three darts through the heart of Absalom?', 'Joab', ['Abishai', 'Ittai', 'Ahimaaz'], '2 Samuel 18:14'),
+  c('2sa06', 3, 'Who put out his hand to the ark and died?', 'Uzzah', ['Ahio', 'Obed-edom', 'Abinadab'], '2 Samuel 6:6–7', 'The ark then stayed three months in the house of Obed-edom.'),
+  c('2sa07', 4, 'Which city did David take from the Jebusites?', 'Jerusalem', ['Hebron', 'Gibeah', 'Bethlehem'], '2 Samuel 5:6–7'),
+  // Leg 2
+  c('2sa08', 4, 'Where was David anointed king over the house of Judah?', 'Hebron', ['Ramah', 'Gibeah', 'Shiloh'], '2 Samuel 2:4'),
+  c('2sa09', 4, 'How long did David reign in Hebron?', 'Seven years and six months', ['Three years', 'Twelve years', 'Forty years'], '2 Samuel 5:5', 'Then 33 years in Jerusalem: 40 in all.'),
+  c('2sa10', 4, "Which lame grandson of Saul ate at David's table?", 'Mephibosheth', ['Ishbosheth', 'Ziba', 'Machir'], '2 Samuel 9:6–13', 'Ziba was his servant; Ishbosheth his uncle.'),
+  c('2sa11', 5, 'Who despised David in her heart as he danced before the ark?', 'Michal', ['Abigail', 'Bathsheba', 'Ahinoam'], '2 Samuel 6:16'),
+  c('2sa12', 5, 'Who threw stones and cursed David as he fled from Absalom?', 'Shimei', ['Ziba', 'Ahithophel', 'Doeg'], '2 Samuel 16:5–7'),
+  c('2sa13', 5, 'Whose counsel was "as if a man had enquired at the oracle of God"?', 'Ahithophel', ['Hushai', 'Nathan', 'Joab'], '2 Samuel 16:23', 'Hushai was sent by David to defeat it (15:34).'),
+  c('2sa14', 5, 'Whom did Joab send to persuade David to bring Absalom home?', 'A wise woman of Tekoah', ['A wise woman of Abel', 'The witch of Endor', 'Abigail'], '2 Samuel 14:2', 'The wise woman of Abel handed over Sheba\'s head (20:16–22).'),
+  // Leg 3
+  o('2sa15', 5, 'Put these events from 2 Samuel in order:', ['David made king at Hebron', 'The ark brought to Jerusalem', 'David and Bathsheba', "Absalom's rebellion"], '2 Samuel 2; 6; 11; 15'),
+  c('2sa16', 6, "What did Absalom's hair weigh when it was cut each year?", 'Two hundred shekels', ['Fifty shekels', 'One hundred shekels', 'Three hundred shekels'], '2 Samuel 14:26'),
+  c('2sa17', 6, "David's lament for Saul and Jonathan is said to be written in which book?", 'The book of Jasher', ['The book of the wars of the LORD', 'The chronicles of the kings of Israel', 'The book of Nathan the prophet'], '2 Samuel 1:18', 'The book of the wars of the LORD is cited in Numbers 21:14.'),
+  c('2sa18', 6, "Which brother of Joab, \"light of foot\", did Abner kill?", 'Asahel', ['Abishai', 'Amasa', 'Ittai'], '2 Samuel 2:18–23'),
+  c('2sa19', 6, 'What name did the LORD give Solomon through Nathan?', 'Jedidiah', ['Lemuel', 'Jedaiah', 'Ithiel'], '2 Samuel 12:25', 'Jedidiah means "beloved of the LORD".'),
+  c('2sa20', 6, 'From whom did David buy the threshingfloor to build an altar?', 'Araunah the Jebusite', ['Obed-edom', 'Barzillai', 'Hiram'], '2 Samuel 24:18–24', '1 Chronicles 21 calls him Ornan.'),
+  c('2sa21', 6, 'After David numbered the people, which punishment came?', "Three days' pestilence", ['Seven years of famine', 'Three months fleeing his enemies', 'Three years of drought'], '2 Samuel 24:13–15'),
+];
+
+export const kings1 = [
+  // Leg 1
+  c('1ki01', 2, 'Which king asked God for an understanding heart?', 'Solomon', ['David', 'Hezekiah', 'Josiah'], '1 Kings 3:9'),
+  c('1ki02', 2, 'Which prophet was fed by ravens by the brook Cherith?', 'Elijah', ['Elisha', 'Jonah', 'Micaiah'], '1 Kings 17:3–6'),
+  c('1ki03', 3, 'On which mount did Elijah challenge the prophets of Baal?', 'Carmel', ['Horeb', 'Sinai', 'Hermon'], '1 Kings 18:19'),
+  c('1ki04', 3, 'Who came to prove Solomon with hard questions?', 'The queen of Sheba', ['Jezebel', 'Vashti', 'Candace'], '1 Kings 10:1'),
+  c('1ki05', 3, 'Whose vineyard did Ahab covet?', 'Naboth', ['Nabal', 'Obadiah', 'Micaiah'], '1 Kings 21:1–2'),
+  c('1ki06', 3, 'How did Solomon find the true mother of the living child?', 'He called for a sword to divide the child', ['He asked the child to choose', 'He cast lots', 'He sent for the priests'], '1 Kings 3:24–27'),
+  c('1ki07', 4, 'Who became king of the ten tribes when the kingdom split?', 'Jeroboam', ['Rehoboam', 'Abijam', 'Omri'], '1 Kings 12:20', 'Rehoboam kept Judah.'),
+  // Leg 2
+  c('1ki08', 4, 'Where did Jeroboam set up his two golden calves?', 'Bethel and Dan', ['Samaria and Jezreel', 'Shechem and Shiloh', 'Gilgal and Beersheba'], '1 Kings 12:28–29'),
+  c('1ki09', 4, 'At Horeb, after wind, earthquake and fire, how did the LORD speak to Elijah?', 'In a still small voice', ['From a burning bush', 'Through an angel', 'In a dream'], '1 Kings 19:11–12'),
+  c('1ki10', 4, 'Who hid a hundred prophets in caves from Jezebel?', 'Obadiah', ['Micaiah', 'Elisha', 'Jehoshaphat'], '1 Kings 18:4'),
+  c('1ki11', 5, 'How many prophets of Baal did Elijah face on Carmel?', 'Four hundred and fifty', ['Four hundred', 'Eight hundred and fifty', 'Three hundred'], '1 Kings 18:19, 22', 'Four hundred more were prophets of the groves.'),
+  c('1ki12', 5, 'Rehoboam: "My father chastised you with whips, but I will chastise you with…"', '"scorpions"', ['"rods"', '"chains"', '"thorns"'], '1 Kings 12:11'),
+  c('1ki13', 5, 'What was Elisha doing when Elijah cast his mantle on him?', 'Ploughing with twelve yoke of oxen', ['Tending sheep', 'Threshing wheat', 'Drawing water'], '1 Kings 19:19'),
+  c('1ki14', 5, 'How long did Solomon take to build the temple?', 'Seven years', ['Thirteen years', 'Twenty years', 'Forty years'], '1 Kings 6:38', 'His own house took thirteen (7:1).'),
+  // Leg 3
+  o('1ki15', 5, 'Put these events from 1 Kings in order:', ['Solomon builds the temple', 'The kingdom divides', 'Elijah on Carmel', "Naboth's vineyard"], '1 Kings 6; 12; 18; 21'),
+  c('1ki16', 6, 'Which prophet tore a new garment into twelve pieces for Jeroboam?', 'Ahijah the Shilonite', ['Shemaiah', 'Micaiah', 'Jehu son of Hanani'], '1 Kings 11:29–31'),
+  c('1ki17', 6, 'Who said, "I saw all Israel scattered upon the hills, as sheep that have not a shepherd"?', 'Micaiah', ['Elijah', 'Zedekiah son of Chenaanah', 'Jehu son of Hanani'], '1 Kings 22:17', 'Zedekiah made horns of iron and struck Micaiah (22:11, 24).'),
+  c('1ki18', 6, 'Who rebuilt Jericho at the cost of his firstborn and youngest sons?', 'Hiel the Bethelite', ['Omri', 'Ahab', 'Zimri'], '1 Kings 16:34; Joshua 6:26'),
+  c('1ki19', 6, 'Who reigned only seven days in Tirzah?', 'Zimri', ['Elah', 'Tibni', 'Nadab'], '1 Kings 16:15–18'),
+  c('1ki20', 6, 'Who bought the hill of Samaria from Shemer for two talents?', 'Omri', ['Ahab', 'Baasha', 'Jeroboam'], '1 Kings 16:24'),
+  c('1ki21', 6, 'What were the two bronze pillars of the temple porch called?', 'Jachin and Boaz', ['Urim and Thummim', 'Ebenezer and Gilgal', 'Jedidiah and Salem'], '1 Kings 7:21'),
+];
+
+export const kings2 = [
+  // Leg 1
+  c('2ki01', 2, 'How was Elijah taken up?', 'By a whirlwind into heaven', ['In a cloud from the Mount of Olives', 'He died and was buried in Moab', 'By angels on a ladder'], '2 Kings 2:11'),
+  c('2ki02', 2, 'Which Syrian captain was healed of leprosy?', 'Naaman', ['Ben-hadad', 'Hazael', 'Rezin'], '2 Kings 5:1–14'),
+  c('2ki03', 3, 'How many times did Naaman dip in the Jordan?', 'Seven', ['Three', 'Ten', 'Twelve'], '2 Kings 5:14'),
+  c('2ki04', 3, 'What did Elisha ask of Elijah?', 'A double portion of his spirit', ['His mantle', 'A blessing on his house', 'To ride in the chariot of fire'], '2 Kings 2:9'),
+  c('2ki05', 3, 'Which queen was thrown down from a window?', 'Jezebel', ['Athaliah', 'Maachah', 'Vashti'], '2 Kings 9:30–33', 'Athaliah was slain with the sword (11:16).'),
+  c('2ki06', 3, 'In whose reign was the book of the law found in the temple?', 'Josiah', ['Hezekiah', 'Joash', 'Uzziah'], '2 Kings 22:1, 8'),
+  c('2ki07', 4, "How many years did the LORD add to Hezekiah's life?", 'Fifteen', ['Ten', 'Seven', 'Forty'], '2 Kings 20:6'),
+  // Leg 2
+  c('2ki08', 4, 'What sign was Hezekiah given that he would be healed?', 'The shadow went back ten degrees', ['The shadow went forward ten degrees', 'The sun stood still', 'Dew fell on a fleece'], '2 Kings 20:9–11'),
+  c('2ki09', 4, 'How many children who mocked Elisha were torn by two she bears?', 'Forty-two', ['Twelve', 'Forty', 'Seventy'], '2 Kings 2:23–24'),
+  c('2ki10', 4, 'Which empire carried the northern kingdom of Israel captive?', 'Assyria', ['Babylon', 'Egypt', 'Persia'], '2 Kings 17:6'),
+  c('2ki11', 5, "What came on Gehazi for taking Naaman's gifts?", "Naaman's leprosy", ['Blindness', 'Sudden death', 'His house was burned'], '2 Kings 5:27'),
+  c('2ki12', 5, 'Which child was hidden when Athaliah destroyed the royal seed?', 'Joash', ['Josiah', 'Amaziah', 'Ahaziah'], '2 Kings 11:1–3', 'He was hidden six years in the house of the LORD.'),
+  c('2ki13', 5, 'How did Elisha make the lost iron axe head swim?', 'He cast in a stick', ['He poured in salt', 'He struck the water with his mantle', 'He prayed and dived in'], '2 Kings 6:5–6', 'Salt healed the waters of Jericho (2:21); the mantle parted the Jordan (2:14).'),
+  c('2ki14', 5, "Whose son did Elisha raise from the dead?", 'The Shunammite woman\'s', ["The widow of Zarephath's", "Naaman's", "The king of Moab's"], '2 Kings 4:32–37', 'Elijah raised the son of the widow of Zarephath (1 Kings 17).'),
+  // Leg 3
+  o('2ki15', 5, 'Put these events from 2 Kings in order:', ['Elijah taken up', 'Naaman healed', 'Jehu anointed', 'Samaria falls'], '2 Kings 2; 5; 9; 17'),
+  c('2ki16', 6, '"The driving is like the driving of ___ the son of Nimshi; for he driveth furiously."', 'Jehu', ['Joram', 'Ahaziah', 'Jehoahaz'], '2 Kings 9:20'),
+  c('2ki17', 6, 'What did Hezekiah break in pieces and call Nehushtan?', 'The brasen serpent Moses had made', ['The golden calf of Bethel', "Gideon's ephod", 'The altar of Ahaz'], '2 Kings 18:4'),
+  c('2ki18', 6, 'Which captain of the guard burnt the house of the LORD?', 'Nebuzar-adan', ['Rab-shakeh', 'Gedaliah', 'Evil-merodach'], '2 Kings 25:8–9', 'Rab-shakeh was the Assyrian who taunted Hezekiah (ch. 18).'),
+  c('2ki19', 6, 'Which king of Babylon brought Jehoiachin out of prison?', 'Evil-merodach', ['Nebuchadnezzar', 'Merodach-baladan', 'Belshazzar'], '2 Kings 25:27', 'Merodach-baladan sent letters to Hezekiah (20:12).'),
+  c('2ki20', 6, 'Who was made governor of Judah after the fall of Jerusalem, and then murdered?', 'Gedaliah', ['Zedekiah', 'Ishmael', 'Johanan'], '2 Kings 25:22–25', 'Ishmael killed him.'),
+  c('2ki21', 6, "Which prophetess did Josiah's men consult about the book of the law?", 'Huldah', ['Deborah', 'Noadiah', 'Anna'], '2 Kings 22:14'),
+];
+
+export const nehemiah = [
+  // Leg 1
+  c('neh01', 2, "What was Nehemiah's office at the Persian court?", "The king's cupbearer", ["The king's scribe", 'Keeper of the women', 'Captain of the guard'], 'Nehemiah 1:11'),
+  c('neh02', 2, 'What did Nehemiah go back to Jerusalem to build?', 'The wall', ['The temple', "Solomon's palace", 'The altar'], 'Nehemiah 2:5, 17', 'The temple was rebuilt earlier, in the days of Ezra 6.'),
+  c('neh03', 3, 'Which king sent Nehemiah to Jerusalem?', 'Artaxerxes', ['Cyrus', 'Darius', 'Ahasuerus'], 'Nehemiah 2:1–6'),
+  c('neh04', 3, 'In how many days was the wall finished?', 'Fifty-two', ['Forty', 'Seventy', 'One hundred and twenty'], 'Nehemiah 6:15'),
+  c('neh05', 3, 'How did the builders work under threat of attack?', 'With one hand they worked, with the other they held a weapon', ['They built only by night', 'They worked in shifts of seven days', 'They built behind a hedge of thorns'], 'Nehemiah 4:17'),
+  c('neh06', 3, 'Which of these opposed the building of the wall?', 'Sanballat', ['Ezra', 'Hanani', 'Mordecai'], 'Nehemiah 2:10; 4:1'),
+  c('neh07', 4, 'Who read the law to the people from a pulpit of wood?', 'Ezra the scribe', ['Nehemiah', 'Eliashib', 'Zerubbabel'], 'Nehemiah 8:4–8'),
+  // Leg 2
+  c('neh08', 4, '"The joy of the LORD is your…"', '"strength"', ['"portion"', '"song"', '"shield"'], 'Nehemiah 8:10'),
+  c('neh09', 4, "Which of Nehemiah's brethren brought him news of Jerusalem?", 'Hanani', ['Shemaiah', 'Tobiah', 'Ezra'], 'Nehemiah 1:2'),
+  c('neh10', 4, 'Which feast did the people keep by living in booths?', 'The feast of tabernacles', ['The passover', 'Purim', 'Pentecost'], 'Nehemiah 8:14–17'),
+  c('neh11', 5, 'Tobiah, the opponent of Nehemiah, was what?', 'An Ammonite', ['A Horonite', 'An Arabian', 'A Moabite'], 'Nehemiah 2:10, 19', 'Sanballat was the Horonite; Geshem the Arabian.'),
+  c('neh12', 5, "What did Nehemiah do with Tobiah's goods found in a temple chamber?", 'He cast them out', ['He burned them', 'He sold them', 'He gave them to the Levites'], 'Nehemiah 13:7–8'),
+  c('neh13', 5, 'When invited to meet in the plain of Ono, what did Nehemiah answer?', '"I am doing a great work, so that I cannot come down"', ['"Wait until the wall is finished"', '"Send me your words by a letter"', '"The LORD hath forbidden me"'], 'Nehemiah 6:2–3'),
+  c('neh14', 5, 'Which hired prophet urged Nehemiah to hide in the temple?', 'Shemaiah', ['Hanani', 'Ezra', 'Hananiah'], 'Nehemiah 6:10–13'),
+  // Leg 3
+  o('neh15', 5, 'Put these events from Nehemiah in order:', ['Nehemiah hears the news of Jerusalem', 'He views the walls by night', 'The wall is finished', 'Ezra reads the law'], 'Nehemiah 1; 2:12–15; 6:15; 8'),
+  c('neh16', 6, 'Which gate did Eliashib the high priest and his brethren build first?', 'The sheep gate', ['The fish gate', 'The water gate', 'The dung gate'], 'Nehemiah 3:1'),
+  c('neh17', 6, 'In which month was the wall finished?', 'Elul', ['Nisan', 'Chisleu', 'Adar'], 'Nehemiah 6:15', 'He heard the news in Chisleu (1:1) and spoke to the king in Nisan (2:1).'),
+  c('neh18', 6, 'A grandson of Eliashib the high priest was chased away for being son-in-law to whom?', 'Sanballat the Horonite', ['Tobiah the Ammonite', 'Geshem the Arabian', 'Shemaiah'], 'Nehemiah 13:28'),
+  c('neh19', 6, 'Which prophetess tried to put Nehemiah in fear?', 'Noadiah', ['Huldah', 'Anna', 'Deborah'], 'Nehemiah 6:14'),
+  c('neh20', 6, 'What did Nehemiah do to the Jews who had married foreign wives?', 'Plucked off their hair', ['Shaved their beards', 'Sold them as servants', 'Banished them to Babylon'], 'Nehemiah 13:23–25', 'In Ezra 9:3 Ezra plucked off his own hair.'),
+  c('neh21', 6, "For how many years did Nehemiah govern without eating the governor's bread?", 'Twelve', ['Seven', 'Twenty', 'Forty'], 'Nehemiah 5:14'),
+];

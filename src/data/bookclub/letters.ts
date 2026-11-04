@@ -242,3 +242,30 @@ export const peter1 = [
   c('1pe20', 6, 'Baptism saves, "not the putting away of the filth of the flesh, but…"', '"the answer of a good conscience toward God"', ['"the washing of a pure heart"', '"faith unfeigned toward God"', '"the renewing of the Holy Ghost"'], '1 Peter 3:21', '"The renewing of the Holy Ghost" is Titus 3:5.'),
   c('1pe21', 6, 'Peter calls himself "also an elder, and a witness of…"', '"the sufferings of Christ"', ['"his resurrection"', '"his majesty"', '"the holy mount"'], '1 Peter 5:1', '"Eyewitnesses of his majesty" is 2 Peter 1:16.'),
 ];
+
+export const corinthians2 = [
+  // Leg 1
+  c('2co01', 2, '"My grace is sufficient for thee: for my strength is made perfect in…"', 'Weakness', ['Suffering', 'Faith', 'Love'], '2 Corinthians 12:9'),
+  c('2co02', 2, '"God loveth a cheerful…"', 'Giver', ['Heart', 'Servant', 'Worshipper'], '2 Corinthians 9:7'),
+  c('2co03', 3, '"If any man be in Christ, he is a new…"', 'Creature', ['Man', 'Spirit', 'Life'], '2 Corinthians 5:17'),
+  c('2co04', 3, 'Paul was given "a thorn in the…"', 'Flesh', ['Side', 'Heart', 'Eye'], '2 Corinthians 12:7'),
+  c('2co05', 3, '"We have this treasure in earthen…"', 'Vessels', ['Tabernacles', 'Temples', 'Houses'], '2 Corinthians 4:7'),
+  c('2co06', 3, '"Be ye not unequally yoked together with…"', 'Unbelievers', ['Sinners', 'The world', 'Idolaters'], '2 Corinthians 6:14'),
+  c('2co07', 4, '"Now then we are ___ for Christ, as though God did beseech you by us."', 'Ambassadors', ['Heralds', 'Witnesses', 'Watchmen'], '2 Corinthians 5:20'),
+  // Leg 2
+  c('2co08', 4, 'How did Paul escape from Damascus?', 'He was let down in a basket through a window', ['He went disguised as a merchant', 'He fled by night on a camel', 'He hid on a ship'], '2 Corinthians 11:33; Acts 9:25'),
+  c('2co09', 4, 'Satan himself is transformed into an angel of what?', 'Light', ['Peace', 'Truth', 'Glory'], '2 Corinthians 11:14'),
+  c('2co10', 4, 'How many times did Paul receive "forty stripes save one" from the Jews?', 'Five', ['Three', 'Once', 'Seven'], '2 Corinthians 11:24', 'He was beaten with rods three times (11:25).'),
+  c('2co11', 5, 'How many times had Paul been shipwrecked when he wrote this letter?', 'Three', ['Once', 'Twice', 'Four'], '2 Corinthians 11:25', 'The shipwreck on Malta (Acts 27) came later.'),
+  c('2co12', 5, 'Paul knew a man in Christ caught up to which heaven?', 'The third', ['The second', 'The seventh', 'The highest'], '2 Corinthians 12:2'),
+  c('2co13', 5, 'The governor of Damascus who tried to seize Paul served under which king?', 'Aretas', ['Herod', 'Agrippa', 'Felix'], '2 Corinthians 11:32'),
+  c('2co14', 5, 'Whom did Paul fail to find at Troas, so that he "had no rest" in his spirit?', 'Titus', ['Timothy', 'Silas', 'Apollos'], '2 Corinthians 2:12–13'),
+  // Leg 3
+  c('2co15', 5, 'How long before writing had the man been caught up into paradise?', 'Fourteen years', ['Three years', 'Seven years', 'Twelve years'], '2 Corinthians 12:2'),
+  c('2co16', 6, '"The letter killeth, but the spirit…"', '"giveth life"', ['"maketh free"', '"abideth"', '"healeth"'], '2 Corinthians 3:6'),
+  c('2co17', 6, '"Ye are our epistle written in our hearts, known and read of…"', '"all men"', ['"the churches"', '"God"', '"the saints"'], '2 Corinthians 3:2'),
+  c('2co18', 6, 'Which churches gave generously "in a great trial of affliction" and "deep poverty"?', 'The churches of Macedonia', ['The churches of Galatia', 'The churches of Judaea', 'The churches of Asia'], '2 Corinthians 8:1–2'),
+  c('2co19', 6, '"Are they Hebrews? so am I. Are they Israelites? so am I. Are they the seed of…"', 'Abraham', ['Jacob', 'David', 'Moses'], '2 Corinthians 11:22'),
+  c('2co20', 6, '"Behold, now is the accepted time; behold, now is the day of…"', 'Salvation', ['The Lord', 'Redemption', 'Grace'], '2 Corinthians 6:2'),
+  c('2co21', 6, 'He was made sin for us, who knew no sin, "that we might be made…"', '"the righteousness of God in him"', ['"heirs of the kingdom"', '"partakers of his glory"', '"the sons of God by faith"'], '2 Corinthians 5:21'),
+];

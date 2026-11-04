@@ -1,4 +1,4 @@
-import { c } from './helpers';
+import { c, o } from './helpers';
 
 export const daniel = [
   // Leg 1
@@ -79,4 +79,31 @@ export const isaiah = [
   c('isa19', 6, 'Who is called "son of the morning" in Isaiah 14?', 'Lucifer', ['Cyrus', 'The prince of Tyrus', 'Pharaoh'], 'Isaiah 14:12'),
   c('isa20', 6, 'In the days of which kings did Isaiah see his vision?', 'Uzziah, Jotham, Ahaz and Hezekiah', ['Uzziah, Ahaz, Hezekiah and Manasseh', 'Jotham, Ahaz, Hezekiah and Josiah', 'Joash, Uzziah, Jotham and Ahaz'], 'Isaiah 1:1'),
   c('isa21', 6, 'Who was reading Isaiah 53 when Philip joined his chariot?', 'The Ethiopian eunuch', ['Cornelius the centurion', 'Saul of Tarsus', 'Apollos of Alexandria'], 'Acts 8:28–35'),
+];
+
+export const jeremiah = [
+  // Leg 1
+  c('jer01', 2, '"Before I formed thee in the belly I knew thee." To whom did the LORD say this?', 'Jeremiah', ['Samuel', 'Isaiah', 'John the Baptist'], 'Jeremiah 1:5'),
+  c('jer02', 2, 'Which craftsman did the LORD send Jeremiah to watch at work?', 'A potter', ['A carpenter', 'A smith', 'A weaver'], 'Jeremiah 18:2–6'),
+  c('jer03', 3, 'Where was Jeremiah let down with cords?', 'Into a dungeon full of mire', ['Into a den of lions', 'Into a well of water', 'Into a furnace'], 'Jeremiah 38:6'),
+  c('jer04', 3, 'Who drew Jeremiah up out of the dungeon?', 'Ebed-melech the Ethiopian', ['Baruch', 'Gedaliah', 'Jehudi'], 'Jeremiah 38:7–13'),
+  c('jer05', 3, "Who wrote down Jeremiah's words in a roll?", 'Baruch the son of Neriah', ['Ezra', 'Gemariah', 'Elnathan'], 'Jeremiah 36:4'),
+  c('jer06', 3, 'How many years did Jeremiah say the exile in Babylon would last?', 'Seventy', ['Forty', 'Four hundred and thirty', 'Four hundred and ninety'], 'Jeremiah 25:11; 29:10'),
+  c('jer07', 4, 'Which king cut the roll with a penknife and burned it?', 'Jehoiakim', ['Zedekiah', 'Josiah', 'Jehoiachin'], 'Jeremiah 36:22–23'),
+  // Leg 2
+  c('jer08', 4, '"Can the Ethiopian change his skin, or the leopard his…"', '"spots"', ['"stripes"', '"claws"', '"roar"'], 'Jeremiah 13:23'),
+  c('jer09', 4, '"Is there no balm in…"', 'Gilead', ['Sharon', 'Lebanon', 'Bashan'], 'Jeremiah 8:22'),
+  c('jer10', 4, 'What did Jeremiah hide by the Euphrates until it was marred?', 'A linen girdle', ["A potter's vessel", 'A wooden yoke', 'A sealed scroll'], 'Jeremiah 13:1–7'),
+  c('jer11', 5, "Which prophet broke the wooden yoke from Jeremiah's neck?", 'Hananiah', ['Shemaiah', 'Pashur', 'Zedekiah'], 'Jeremiah 28:10', 'Hananiah died that same year (28:17).'),
+  c('jer12', 5, 'From whom did Jeremiah buy a field in Anathoth?', "Hanameel, his uncle's son", ['Baruch', 'Shallum', 'Pashur'], 'Jeremiah 32:7–9'),
+  c('jer13', 5, 'Who struck Jeremiah and put him in the stocks?', 'Pashur the son of Immer', ['Jehoiakim', 'Hananiah', 'Irijah'], 'Jeremiah 20:1–2', 'Irijah arrested him at the gate of Benjamin (37:13).'),
+  c('jer14', 5, 'Which family refused to drink wine, keeping their father\'s command?', 'The Rechabites', ['The Nazarites', 'The Levites', 'The Gibeonites'], 'Jeremiah 35:5–6'),
+  // Leg 3
+  o('jer15', 5, 'Put these in the order they appear in Jeremiah:', ['Jeremiah called as a child', "The potter's house", 'The roll burned by the king', 'Jerusalem is taken'], 'Jeremiah 1; 18; 36; 39'),
+  c('jer16', 6, 'How much did Jeremiah pay for the field in Anathoth?', 'Seventeen shekels of silver', ['Thirty pieces of silver', 'Fifty shekels of silver', 'Four hundred shekels of silver'], 'Jeremiah 32:9', 'Four hundred shekels was what Abraham paid for Machpelah (Genesis 23:15).'),
+  c('jer17', 6, "What was Jeremiah's home town?", 'Anathoth', ['Tekoa', 'Moresheth', 'Elkosh'], 'Jeremiah 1:1', 'Tekoa was home to Amos; Moresheth to Micah; Elkosh to Nahum.'),
+  c('jer18', 6, 'Into which land was Jeremiah taken against his word after Gedaliah was killed?', 'Egypt', ['Babylon', 'Moab', 'Ammon'], 'Jeremiah 43:5–7', 'They came to Tahpanhes.'),
+  c('jer19', 6, "Where did the king of Babylon slay Zedekiah's sons before his eyes?", 'Riblah', ['Carchemish', 'Babylon', 'Mizpah'], 'Jeremiah 39:6–7'),
+  c('jer20', 6, 'What did Jeremiah write to the exiles in Babylon?', '"Build ye houses, and dwell in them"', ['"Make ready to return within two years"', '"Pray not for the city"', '"Build no houses, for ye shall return"'], 'Jeremiah 29:5–7', 'Hananiah falsely promised a return within two years (28:3).'),
+  c('jer21', 6, 'In the vision of two baskets, whom did the good figs stand for?', 'The captives carried away to Babylon', ['Zedekiah and those left in the land', 'Those who fled to Egypt', 'The Rechabites'], 'Jeremiah 24:5–8'),
 ];
