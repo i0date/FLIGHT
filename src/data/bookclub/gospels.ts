@@ -80,3 +80,57 @@ export const acts = [
   c('act20', 6, 'Where was Paul\'s head shorn, "for he had a vow"?', 'Cenchrea', ['Corinth', 'Ephesus', 'Troas'], 'Acts 18:18'),
   c('act21', 6, 'The Fair Havens, where the ship put in, was nigh unto which city?', 'Lasea', ['Phenice', 'Myra', 'Salmone'], 'Acts 27:8', 'Phenice was the haven they hoped to winter in (27:12).'),
 ];
+
+export const matthew = [
+  // Leg 1
+  c('mat01', 2, 'Where was Jesus born?', 'Bethlehem of Judaea', ['Nazareth', 'Jerusalem', 'Capernaum'], 'Matthew 2:1'),
+  c('mat02', 2, 'What led the wise men to Jesus?', 'His star, seen in the east', ['An angel of the Lord', 'A pillar of cloud', 'A dream given to Herod'], 'Matthew 2:2, 9'),
+  c('mat03', 3, 'What gifts did the wise men bring?', 'Gold, frankincense and myrrh', ['Gold, silver and myrrh', 'Frankincense, aloes and spices', 'Gold, oil and incense'], 'Matthew 2:11'),
+  c('mat04', 3, 'Where was Matthew sitting when Jesus called him?', 'At the receipt of custom', ['Mending nets by the sea', 'In the synagogue', 'Under a fig tree'], 'Matthew 9:9', 'Nathanael was the one under the fig tree (John 1:48).'),
+  c('mat05', 3, 'In the wilderness temptation, Jesus answers every time from which book?', 'Deuteronomy', ['Psalms', 'Isaiah', 'Exodus'], 'Matthew 4:4, 7, 10; Deuteronomy 8:3; 6:16; 6:13', 'The devil quotes Psalm 91.'),
+  c('mat06', 3, 'The wise man built his house upon what?', 'A rock', ['The sand', 'A hill', 'The shore'], 'Matthew 7:24'),
+  c('mat07', 4, 'Where did Joseph settle the family after Egypt, "that he shall be called a Nazarene"?', 'Nazareth', ['Bethlehem', 'Capernaum', 'Jerusalem'], 'Matthew 2:23'),
+  // Leg 2
+  c('mat08', 4, 'How often did Jesus tell Peter to forgive?', 'Seventy times seven', ['Seven times', 'Seventy times', 'Seven times seven'], 'Matthew 18:21–22'),
+  c('mat09', 4, 'In the parable of the talents, how many did the first servant receive?', 'Five', ['Ten', 'Two', 'One'], 'Matthew 25:15', 'He gained five more and ended with ten (25:20).'),
+  c('mat10', 4, 'For how many pieces of silver did Judas covenant with the chief priests?', 'Thirty', ['Twenty', 'Forty', 'Fifty'], 'Matthew 26:15'),
+  c('mat11', 5, 'What was the potter\'s field called, bought with Judas\'s silver?', 'The field of blood', ['Golgotha', 'Gabbatha', 'Gethsemane'], 'Matthew 27:7–8'),
+  c('mat12', 5, 'Who sent to Pilate saying "Have thou nothing to do with that just man"?', 'His wife', ['Herod', 'Caiaphas', 'The centurion'], 'Matthew 27:19'),
+  c('mat13', 5, 'Which parable has labourers hired at the eleventh hour?', 'The labourers in the vineyard', ['The two sons', 'The wicked husbandmen', 'The talents'], 'Matthew 20:1–16'),
+  c('mat14', 5, 'Whom did Jesus call "Elias, which was for to come"?', 'John the Baptist', ['Elisha', 'Himself', 'Moses'], 'Matthew 11:13–14'),
+  // Leg 3
+  c('mat15', 5, 'What sign did Jesus say would be given to "an evil and adulterous generation"?', 'The sign of the prophet Jonas', ['A sign from heaven', 'The sign of Elias', 'The sign of the brasen serpent'], 'Matthew 12:39–40'),
+  c('mat16', 6, "Matthew's genealogy groups the generations from Abraham to Christ in threes of how many?", 'Fourteen', ['Twelve', 'Seven', 'Forty'], 'Matthew 1:17'),
+  c('mat17', 6, "Besides Mary, which women are named in Matthew's genealogy?", 'Thamar, Rachab, Ruth and the wife of Urias', ['Sarah, Rebekah, Leah and Rachel', 'Thamar, Rachab, Ruth and Naomi', 'Rachab, Ruth, Bathsheba and Esther'], 'Matthew 1:3–6', 'Bathsheba appears only as "her that had been the wife of Urias".'),
+  c('mat18', 6, "The scribes and Pharisees sit in whose seat?", "Moses' seat", ["David's seat", "Aaron's seat", "The elders' seat"], 'Matthew 23:2'),
+  c('mat19', 6, 'When did the saints raised at the crucifixion go into the holy city?', 'After his resurrection', ['At the ninth hour, when he died', 'When the veil was rent', 'Forty days later, at his ascension'], 'Matthew 27:52–53'),
+  c('mat20', 6, '"A bruised reed shall he not break" — Matthew cites which prophet?', 'Esaias', ['Jeremy', 'Zechariah', 'Malachi'], 'Matthew 12:17–20; Isaiah 42:1–4'),
+  c('mat21', 6, 'In Matthew, what did they give Jesus to drink before he was crucified?', 'Vinegar mingled with gall', ['Wine mingled with myrrh', 'Water from the well', 'Sour wine on hyssop'], 'Matthew 27:34', 'Mark has wine mingled with myrrh (Mark 15:23).'),
+];
+
+export const luke = [
+  // Leg 1
+  c('luk01', 2, 'Who was the mother of John the Baptist?', 'Elisabeth', ['Anna', 'Mary', 'Salome'], 'Luke 1:57–60'),
+  c('luk02', 2, 'Where did Mary lay her newborn son?', 'In a manger', ['In a cradle', 'In a basket', 'On a bed of straw in the inn'], 'Luke 2:7'),
+  c('luk03', 3, 'Which angel was sent to Mary?', 'Gabriel', ['Michael', 'Raphael', 'An unnamed angel'], 'Luke 1:26–27'),
+  c('luk04', 3, 'What did Zacharias write on the writing table?', '"His name is John"', ['"His name is Zacharias"', '"His name is Elias"', '"Call him Jesus"'], 'Luke 1:63'),
+  c('luk05', 3, 'Who climbed a sycomore tree to see Jesus?', 'Zacchaeus', ['Bartimaeus', 'Nathanael', 'Levi'], 'Luke 19:2–4'),
+  c('luk06', 3, 'How old was Jesus when he stayed behind in the temple?', 'Twelve', ['Thirteen', 'Ten', 'Thirty'], 'Luke 2:42'),
+  c('luk07', 4, 'To whom does Luke address his Gospel?', 'Theophilus', ['Timothy', 'Titus', 'Philemon'], 'Luke 1:3'),
+  // Leg 2
+  c('luk08', 4, 'Whose decree "that all the world should be taxed" brought Joseph to Bethlehem?', 'Caesar Augustus', ['Tiberius Caesar', 'Claudius', 'Nero'], 'Luke 2:1', 'Tiberius reigned when John began preaching (3:1).'),
+  c('luk09', 4, 'Who was waiting for "the consolation of Israel" and took the child in his arms?', 'Simeon', ['Zacharias', 'Joseph of Arimathaea', 'Nicodemus'], 'Luke 2:25–28'),
+  c('luk10', 4, 'About how old was Jesus when he began his ministry?', 'Thirty', ['Twenty-five', 'Thirty-three', 'Forty'], 'Luke 3:23'),
+  c('luk11', 5, "In which city did Jesus raise a widow's only son?", 'Nain', ['Bethany', 'Cana', 'Bethsaida'], 'Luke 7:11–15'),
+  c('luk12', 5, 'Jesus said Mary had chosen what?', 'That good part', ['The narrow way', 'The better gift', 'The lowest room'], 'Luke 10:42'),
+  c('luk13', 5, 'Which disciple is named on the road to Emmaus?', 'Cleopas', ['Thomas', 'Nathanael', 'Matthias'], 'Luke 24:18'),
+  c('luk14', 5, 'How many others did Jesus appoint and send two by two in Luke 10?', 'Seventy', ['Twelve', 'Forty', 'A hundred and twenty'], 'Luke 10:1'),
+  // Leg 3
+  c('luk15', 5, 'In the parable, how many brethren did the rich man want warned?', 'Five', ['Three', 'Seven', 'Ten'], 'Luke 16:28'),
+  c('luk16', 6, 'Who was governor of Syria at the first taxing?', 'Cyrenius', ['Pontius Pilate', 'Felix', 'Sergius Paulus'], 'Luke 2:2'),
+  c('luk17', 6, 'Joanna, who ministered to Jesus, was the wife of whom?', "Chuza, Herod's steward", ['Cleopas', 'Zebedee', 'Alphaeus'], 'Luke 8:3'),
+  c('luk18', 6, 'How far was Emmaus from Jerusalem?', 'About threescore furlongs', ["A sabbath day's journey", 'About fifteen furlongs', 'About a hundred furlongs'], 'Luke 24:13', 'Bethany was about fifteen furlongs off (John 11:18).'),
+  c('luk19', 6, 'In which year of Tiberius Caesar did the word of God come to John?', 'The fifteenth', ['The first', 'The twelfth', 'The thirtieth'], 'Luke 3:1–2'),
+  c('luk20', 6, 'Who was tetrarch of Abilene when John began preaching?', 'Lysanias', ['Philip', 'Herod', 'Archelaus'], 'Luke 3:1', 'Herod had Galilee; Philip had Ituraea and Trachonitis.'),
+  c('luk21', 6, 'Which high priests does Luke name when John began preaching?', 'Annas and Caiaphas', ['Caiaphas alone', 'Ananias and Annas', 'Eli and Caiaphas'], 'Luke 3:2'),
+];

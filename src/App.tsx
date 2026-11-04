@@ -6,6 +6,8 @@ import { BookClub, BookQuiz } from './screens/BookClub';
 import { Leaderboard } from './screens/Leaderboard';
 import { Premium } from './screens/Premium';
 import { Passport as PassportScreen } from './screens/Passport';
+import { NightFlight } from './screens/NightFlight';
+import { Archive } from './screens/Archive';
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -28,7 +30,7 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : screen.name === 'daily' ? 'home' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive'].includes(screen.name) ? 'home' : screen.name;
 
   return (
     <ProfileProvider>
@@ -39,6 +41,8 @@ export default function App() {
           {screen.name === 'bookclub' && <BookClub go={go} />}
           {screen.name === 'book' && <BookQuiz key={screen.bookId} bookId={screen.bookId} go={go} />}
           {screen.name === 'passport' && <PassportScreen go={go} />}
+          {screen.name === 'night' && <NightFlight go={go} />}
+          {screen.name === 'archive' && <Archive go={go} />}
           {screen.name === 'leaderboard' && <Leaderboard go={go} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
         </main>

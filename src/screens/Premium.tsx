@@ -8,8 +8,8 @@ const PERKS = [
   { title: 'Passport stamps', body: 'Every Book Club route you complete is stamped in your passport.' },
   { title: 'Private leaderboards', body: 'Boards for your friends, family or church.' },
   { title: 'Streak shield', body: 'Miss a day? One shield a week keeps your streak alive.' },
-  { title: 'Night Flight', body: 'A weekly challenge flown entirely in the stratosphere. Coming soon.' },
-  { title: 'Flight archive', body: 'Replay any past Daily Flight. Coming soon.' },
+  { title: 'Night Flight', body: 'A weekly challenge flown entirely in the stratosphere.' },
+  { title: 'Flight archive', body: 'Replay any of the last 30 Daily Flights.' },
 ];
 
 const PLAN_NAMES: Record<PlanId, string> = { individual: 'Individual', family: 'Family', group: 'Church & groups' };
@@ -178,7 +178,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
         </>
       )}
 
-      {import.meta.env.DEV && !accountsEnabled && (
+      {import.meta.env.DEV && !account && (
         <button className="btn btn-ghost" onClick={() => update((p) => ({ ...p, premium: !p.premium }))}>
           {profile.premium ? 'Leave' : 'Join'} Flight Club (local demo)
         </button>

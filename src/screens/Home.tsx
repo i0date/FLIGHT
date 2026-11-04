@@ -102,7 +102,9 @@ export function Home({ go }: { go: (s: Screen) => void }) {
                 <strong>{g.title}</strong>
                 <span>{g.id === 'bookclub' ? `${stamps}/${books.length} stamps earned · ${g.blurb}` : g.blurb}</span>
               </span>
-              <span className={`gate-status mono ${live ? 'on' : ''}`}>{live ? 'BOARDING' : 'DELAYED'}</span>
+              <span className={`gate-status mono ${live ? 'on' : ''}`}>
+                {!live ? 'DELAYED' : g.premium && !profile.premium ? <><Lock size={12} /> CLUB</> : 'BOARDING'}
+              </span>
             </button>
           );
         })}

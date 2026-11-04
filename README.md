@@ -14,7 +14,7 @@ npm run dev
 | **Daily Flight**: 10 questions a day that climb from level 1 to level 6. Everyone gets the same 10 for the date. | `src/screens/Daily.tsx`, bank in `src/data/dailyQuestions.ts` (levels 1–2) and `src/data/dailyHarder.ts` (levels 3–6) |
 | **Streaks**: playing on consecutive days builds the streak; missing a day resets it. | `src/lib/profile.tsx` (`recordDaily`, `liveStreak`) |
 | **Book Club**: join the book you're studying. Each book has 21 questions flown as 3 legs of 7 (Departure, Cruise, Final approach), each harder than the last. Score 15 of 21 to earn the book's stamp; legs can be re-flown and the best score counts. Putting stamps in the passport is a Flight Club perk. | `src/screens/BookClub.tsx`, questions in `src/data/bookclub/` |
-| **Flight Club (paid)**: passport stamps, private leaderboards and a weekly streak shield. Plans: individual, family and church/group. | `src/screens/Premium.tsx`, `src/screens/Leaderboard.tsx` |
+| **Flight Club (paid)**: passport stamps, starting crews, a weekly streak shield, **Night Flight** (10 level-6 questions, new every Monday, one try a week) and the **flight archive** (replay the last 30 Daily Flights without affecting streaks or miles). Plans: individual, family and church/group. | `src/screens/Premium.tsx`, `src/screens/Leaderboard.tsx` |
 | **Game gates**: the list of games on the home screen. | `src/games/registry.ts` |
 
 ## Difficulty levels
@@ -34,7 +34,7 @@ Questions are either multiple choice (`a` + `wrong`) or put-in-order (`kind: 'or
 
 **Daily questions:** add an entry with a `level`. Each day needs at least 2 questions at every level from 3 to 6, so keep every level well stocked. Put the correct answer in `a` and three wrong ones in `wrong`. Options are shuffled for you. Always include `ref`.
 
-**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 12 of 66 books are written so far: Genesis, Exodus, Ruth, Esther, Daniel, Jonah, Mark, John, Acts, Romans, Philippians and James.
+**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 18 of 66 books are written so far: Genesis, Exodus, Ruth, Esther, Psalms, Proverbs, Isaiah, Daniel, Jonah, Matthew, Mark, Luke, John, Acts, Romans, 1 Corinthians, Philippians and James.
 
 **A new game (e.g. the crossword):**
 1. Build `src/screens/Crossword.tsx`.

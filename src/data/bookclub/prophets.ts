@@ -53,3 +53,30 @@ export const jonah = [
   c('jon20', 6, 'Jesus said the men of Nineveh would rise in judgment. Who else did he say would rise "with this generation"?', 'The queen of the south', ['Queen Esther', 'Queen Vashti', 'Candace, queen of the Ethiopians'], 'Matthew 12:41–42'),
   c('jon21', 6, 'In his prayer, Jonah says he went down to the bottoms of what?', 'The mountains', ['The sea', 'The valleys', 'The rivers'], 'Jonah 2:6'),
 ];
+
+export const isaiah = [
+  // Leg 1
+  c('isa01', 2, '"For unto us a child is born, unto us a son is given" — which chapter of Isaiah?', 'Isaiah 9', ['Isaiah 7', 'Isaiah 11', 'Isaiah 53'], 'Isaiah 9:6'),
+  c('isa02', 2, '"Comfort ye, comfort ye my people" opens which chapter?', 'Isaiah 40', ['Isaiah 1', 'Isaiah 53', 'Isaiah 61'], 'Isaiah 40:1'),
+  c('isa03', 3, "Who was Isaiah's father?", 'Amoz', ['Amos', 'Amittai', 'Hilkiah'], 'Isaiah 1:1', 'Not Amos the prophet, whose book comes later.'),
+  c('isa04', 3, "In Isaiah's vision, what touched his lips?", 'A live coal from off the altar', ['The hand of the LORD', 'A roll of a book', 'Water from the laver'], 'Isaiah 6:6–7', 'The LORD touched Jeremiah\'s mouth with his hand (Jeremiah 1:9).'),
+  c('isa05', 3, '"They shall beat their swords into…"', 'Plowshares', ['Pruninghooks', 'Sickles', 'Mattocks'], 'Isaiah 2:4', 'Their spears become pruninghooks.'),
+  c('isa06', 3, 'What did the seraphims cry one to another?', '"Holy, holy, holy, is the LORD of hosts"', ['"Glory to God in the highest"', '"Worthy is the Lamb"', '"Hallelujah, the Lord reigneth"'], 'Isaiah 6:3'),
+  c('isa07', 4, '"The wolf also shall dwell with the…"', 'Lamb', ['Kid', 'Calf', 'Ox'], 'Isaiah 11:6', 'The leopard lies down with the kid.'),
+  // Leg 2
+  c('isa08', 4, 'Which Persian king does Isaiah call the LORD\'s "anointed"?', 'Cyrus', ['Darius', 'Artaxerxes', 'Ahasuerus'], 'Isaiah 45:1'),
+  c('isa09', 4, 'Which king was told to ask a sign of the LORD, and refused?', 'Ahaz', ['Hezekiah', 'Uzziah', 'Jotham'], 'Isaiah 7:10–12'),
+  c('isa10', 4, "What did Isaiah say to lay upon Hezekiah's boil?", 'A lump of figs', ['Oil and wine', 'A poultice of hyssop', 'Salt'], 'Isaiah 38:21'),
+  c('isa11', 5, 'Which king of Assyria came up against the cities of Judah in Hezekiah\'s fourteenth year?', 'Sennacherib', ['Shalmaneser', 'Tiglath-pileser', 'Esarhaddon'], 'Isaiah 36:1', 'Esarhaddon was his son and successor (37:38).'),
+  c('isa12', 5, 'Who spoke for the king of Assyria at the conduit of the upper pool?', 'Rabshakeh', ['Eliakim', 'Shebna', 'Joah'], 'Isaiah 36:2–4', "Eliakim, Shebna and Joah were Hezekiah's men."),
+  c('isa13', 5, 'How many Assyrians did the angel of the LORD smite in one night?', 'An hundred and fourscore and five thousand', ['An hundred and twenty thousand', 'Fourscore and five thousand', 'Eighteen thousand'], 'Isaiah 37:36', '185,000.'),
+  c('isa14', 5, 'How long did Isaiah walk naked and barefoot as a sign against Egypt and Ethiopia?', 'Three years', ['Forty days', 'Seven days', 'One year'], 'Isaiah 20:3'),
+  // Leg 3
+  c('isa15', 5, 'Where did Jesus read "The Spirit of the Lord GOD is upon me" from Isaiah 61?', 'In the synagogue at Nazareth', ['In the synagogue at Capernaum', 'In the temple at Jerusalem', 'On the mount by the sea'], 'Luke 4:16–21'),
+  c('isa16', 6, 'Who replaced Shebna as the one "over the house"?', 'Eliakim the son of Hilkiah', ['Joah the son of Asaph', 'Shebna the scribe', 'Azariah the priest'], 'Isaiah 22:15–20; 36:3', 'Joah was the recorder; Shebna became the scribe.'),
+  c('isa17', 6, 'Which two sons killed Sennacherib as he worshipped?', 'Adrammelech and Sharezer', ['Esarhaddon and Sharezer', 'Nisroch and Adrammelech', 'Merodach and Baladan'], 'Isaiah 37:38', 'Nisroch was his god; Esarhaddon reigned after him.'),
+  c('isa18', 6, 'Which king of Babylon sent letters and a present to Hezekiah?', 'Merodach-baladan', ['Nebuchadnezzar', 'Evil-merodach', 'Belshazzar'], 'Isaiah 39:1'),
+  c('isa19', 6, 'Who is called "son of the morning" in Isaiah 14?', 'Lucifer', ['Cyrus', 'The prince of Tyrus', 'Pharaoh'], 'Isaiah 14:12'),
+  c('isa20', 6, 'In the days of which kings did Isaiah see his vision?', 'Uzziah, Jotham, Ahaz and Hezekiah', ['Uzziah, Ahaz, Hezekiah and Manasseh', 'Jotham, Ahaz, Hezekiah and Josiah', 'Joash, Uzziah, Jotham and Ahaz'], 'Isaiah 1:1'),
+  c('isa21', 6, 'Who was reading Isaiah 53 when Philip joined his chariot?', 'The Ethiopian eunuch', ['Cornelius the centurion', 'Saul of Tarsus', 'Apollos of Alexandria'], 'Acts 8:28–35'),
+];

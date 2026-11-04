@@ -329,3 +329,13 @@ main { padding-bottom: 96px; }
 .switch-row { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; }
 .switch-row > span { display: flex; flex-direction: column; gap: 2px; }
 .switch-row input { width: 22px; height: 22px; accent-color: var(--navy); flex: none; }
+
+/* Night Flight */
+.night-head { display: flex; gap: 14px; align-items: center; background: linear-gradient(160deg, #0c1424, #1d2b4a); color: #fff; border-radius: 20px; padding: 16px; }
+.night-head h1 { font-size: 20px; color: var(--amber); margin: 4px 0; }
+.night-head p { margin: 0; font-size: 13px; opacity: 0.85; }
+.night-head .window { width: 84px; }
+.night-result { align-items: center; text-align: center; }
+.gate-status { display: inline-flex; align-items: center; gap: 3px; }
+.archive-row { width: 100%; border: 0; border-top: 1px solid var(--line); background: none; text-align: left; font: inherit; color: inherit; }
+.archive-row:first-child { border-top: 0; }

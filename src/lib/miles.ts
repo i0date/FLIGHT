@@ -8,6 +8,7 @@ export const MILES = {
   perBookLeg: 300,
   perBookCorrect: 150,
   perStampEarned: 1_500,
+  perNightCorrect: 200,
   perBestStreakDay: 50,
 };
 
@@ -17,7 +18,8 @@ export function milesFor(p: Profile): number {
     (sum, r) => sum + r.legs.reduce<number>((s, l) => s + (l === null ? 0 : MILES.perBookLeg + l * MILES.perBookCorrect), 0) + (r.earnedAt ? MILES.perStampEarned : 0),
     0,
   );
-  return daily + book + p.bestStreak * MILES.perBestStreakDay;
+  const night = Object.values(p.nightFlights).reduce((sum, score) => sum + score * MILES.perNightCorrect, 0);
+  return daily + book + night + p.bestStreak * MILES.perBestStreakDay;
 }
 
 export const TIERS = [

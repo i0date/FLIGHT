@@ -38,5 +38,7 @@ export type Screen =
   | { name: 'bookclub' }
   | { name: 'book'; bookId: string }
   | { name: 'passport' }
+  | { name: 'night' }
+  | { name: 'archive' }
   | { name: 'leaderboard' }
   | { name: 'premium' };

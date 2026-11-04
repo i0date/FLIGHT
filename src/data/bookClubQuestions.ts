@@ -1,15 +1,17 @@
 import type { RawQuestion } from '../types';
 import { exodus, genesis } from './bookclub/law';
 import { esther, ruth } from './bookclub/history';
-import { daniel, jonah } from './bookclub/prophets';
-import { acts, john, mark } from './bookclub/gospels';
-import { james, philippians, romans } from './bookclub/letters';
+import { daniel, isaiah, jonah } from './bookclub/prophets';
+import { acts, john, luke, mark, matthew } from './bookclub/gospels';
+import { corinthians1, james, philippians, romans } from './bookclub/letters';
+import { proverbs, psalms } from './bookclub/wisdom';
 
 // Book Club: 21 questions per book, flown as 3 legs of 7 that climb in difficulty.
 // A passport stamp needs all three legs flown and at least 15 of 21 correct.
 // Books without a set yet show as "Soon" in the passport.
 export const bookClubQuestions: Record<string, RawQuestion[]> = {
-  genesis, exodus, ruth, esther, daniel, jonah, mark, john, acts, romans, philippians, james,
+  genesis, exodus, ruth, esther, psalms, proverbs, isaiah, daniel, jonah,
+  matthew, mark, luke, john, acts, romans, '1corinthians': corinthians1, philippians, james,
 };
 
 export const LEG_SIZE = 7;

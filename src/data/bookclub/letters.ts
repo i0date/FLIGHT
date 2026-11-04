@@ -80,3 +80,30 @@ export const james = [
   c('jas20', 6, 'The tongue is a fire, "a world of…"', 'Iniquity', ['Wickedness', 'Trouble', 'Sorrow'], 'James 3:6'),
   c('jas21', 6, '"Ye have condemned and killed the…"', 'Just', ['Prophets', 'Poor', 'Fatherless'], 'James 5:6'),
 ];
+
+export const corinthians1 = [
+  // Leg 1
+  c('1co01', 2, '"And now abideth faith, hope, charity, these three; but the greatest of these is…"', 'Charity', ['Faith', 'Hope', 'Grace'], '1 Corinthians 13:13'),
+  c('1co02', 2, '"Know ye not that your body is the temple of the…"', 'Holy Ghost', ['Living God', 'Most High', 'Lord of hosts'], '1 Corinthians 6:19'),
+  c('1co03', 3, '"I am of Paul; and I of Apollos; and I of…"', 'Cephas', ['Barnabas', 'Silas', 'Timothy'], '1 Corinthians 1:12'),
+  c('1co04', 3, '"I have planted, Apollos watered; but God gave the…"', 'Increase', ['Harvest', 'Fruit', 'Rain'], '1 Corinthians 3:6'),
+  c('1co05', 3, 'Who reported the contentions at Corinth to Paul?', 'They of the house of Chloe', ['They of the house of Stephanas', 'Crispus, the chief ruler of the synagogue', 'Gaius, his host'], '1 Corinthians 1:11'),
+  c('1co06', 3, '"For even Christ our ____ is sacrificed for us."', 'Passover', ['Lamb', 'Offering', 'Firstfruits'], '1 Corinthians 5:7'),
+  c('1co07', 4, 'Besides Crispus, which individual does Paul say he baptized at Corinth?', 'Gaius', ['Chloe', 'Sosthenes', 'Apollos'], '1 Corinthians 1:14', 'He also baptized the household of Stephanas (1:16).'),
+  // Leg 2
+  c('1co08', 4, 'Who is named with Paul as sending the letter?', 'Sosthenes', ['Timotheus', 'Silvanus', 'Apollos'], '1 Corinthians 1:1', 'Timothy co-sends 2 Corinthians.'),
+  c('1co09', 4, 'Without charity, speaking with the tongues of angels makes one "as" what?', 'Sounding brass, or a tinkling cymbal', ['A trumpet without a sound', 'A reed shaken with the wind', 'A cloud without water'], '1 Corinthians 13:1'),
+  c('1co10', 4, 'Which chapter is Paul\'s great chapter on the resurrection?', '1 Corinthians 15', ['1 Corinthians 13', '1 Corinthians 11', '1 Corinthians 12'], '1 Corinthians 15'),
+  c('1co11', 5, 'The risen Christ was seen of how many brethren at once?', 'Above five hundred', ['About an hundred and twenty', 'Seventy', 'About three thousand'], '1 Corinthians 15:6'),
+  c('1co12', 5, 'If Christ be not raised, "your faith is vain; ye are…"', 'Yet in your sins', ['Of all men most miserable', 'Without hope', 'Dead in trespasses'], '1 Corinthians 15:17', '"Of all men most miserable" is verse 19.'),
+  c('1co13', 5, '"Thou shalt not muzzle the mouth of the ox that treadeth out the corn" — from which book?', 'Deuteronomy', ['Leviticus', 'Exodus', 'Numbers'], '1 Corinthians 9:9; Deuteronomy 25:4'),
+  c('1co14', 5, '"O death, where is thy sting?" draws on which prophet?', 'Hosea', ['Isaiah', 'Joel', 'Ezekiel'], '1 Corinthians 15:55; Hosea 13:14', '"Death is swallowed up in victory" (v.54) is from Isaiah 25:8.'),
+  // Leg 3
+  c('1co15', 5, '"God hath set some in the church" — whom does Paul name first?', 'Apostles', ['Prophets', 'Teachers', 'Miracles'], '1 Corinthians 12:28', 'Then prophets, then teachers.'),
+  c('1co16', 6, '"If any man love not the Lord Jesus Christ, let him be Anathema…" What word follows?', 'Maranatha', ['Hosanna', 'Amen', 'Selah'], '1 Corinthians 16:22'),
+  c('1co17', 6, 'Whose house was "the firstfruits of Achaia"?', 'Stephanas', ['Chloe', 'Crispus', 'Gaius'], '1 Corinthians 16:15'),
+  c('1co18', 6, 'What does Paul say he fought with at Ephesus "after the manner of men"?', 'Beasts', ['The Jews', 'The magicians', 'The silversmiths'], '1 Corinthians 15:32'),
+  c('1co19', 6, 'Who came to Paul with Stephanas and Achaicus?', 'Fortunatus', ['Erastus', 'Tertius', 'Quartus'], '1 Corinthians 16:17'),
+  c('1co20', 6, 'Which couple salutes "with the church that is in their house"?', 'Aquila and Priscilla', ['Andronicus and Junia', 'Philemon and Apphia', 'Ananias and Sapphira'], '1 Corinthians 16:19'),
+  c('1co21', 6, 'Until when does Paul plan to tarry at Ephesus?', 'Pentecost', ['The passover', 'The winter is past', 'The feast of tabernacles'], '1 Corinthians 16:8'),
+];

@@ -19,6 +19,7 @@ export type Profile = {
   bookClub: Record<string, BookProgress>;
   joinedBooks: string[];
   onLeaderboard: boolean; // shown on the public leaderboard
+  nightFlights: Record<string, number>; // ISO week -> score out of 10 (Flight Club)
 };
 
 const KEY = 'flight.profile.v1';
@@ -34,6 +35,7 @@ const fresh: Profile = {
   bookClub: {},
   joinedBooks: [],
   onLeaderboard: true,
+  nightFlights: {},
 };
 
 function load(): Profile {

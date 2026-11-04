@@ -16,5 +16,7 @@ export type Gate = {
 export const gates: Gate[] = [
   { id: 'daily', gate: 'A1', title: 'Daily Flight', blurb: '10 questions that climb from take-off to the stratosphere. Keeps your streak alive.', status: 'live', screen: { name: 'daily' } },
   { id: 'bookclub', gate: 'B4', title: 'Book Club', blurb: 'Studying a book? 21 questions over three flights. Score 15 to earn its stamp.', status: 'live', screen: { name: 'bookclub' } },
+  { id: 'night', gate: 'N1', title: 'Night Flight', blurb: 'Ten stratosphere questions. A new flight every Monday.', status: 'live', premium: true, screen: { name: 'night' } },
+  { id: 'archive', gate: 'A2', title: 'Flight archive', blurb: 'Replay any of the last 30 Daily Flights.', status: 'live', premium: true, screen: { name: 'archive' } },
   { id: 'crossword', gate: 'C2', title: 'Crossword', blurb: 'Scripture crossword. Arriving soon.', status: 'soon' },
 ];
