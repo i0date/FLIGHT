@@ -34,7 +34,7 @@ Questions are either multiple choice (`a` + `wrong`) or put-in-order (`kind: 'or
 
 **Daily questions:** add an entry with a `level`. Each day needs at least 2 questions at every level from 3 to 6, so keep every level well stocked. Put the correct answer in `a` and three wrong ones in `wrong`. Options are shuffled for you. Always include `ref`.
 
-**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 18 of 66 books are written so far: Genesis, Exodus, Ruth, Esther, Psalms, Proverbs, Isaiah, Daniel, Jonah, Matthew, Mark, Luke, John, Acts, Romans, 1 Corinthians, Philippians and James.
+**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 24 of 66 books are written so far: Genesis, Exodus, Leviticus, Numbers, Deuteronomy, Ruth, Esther, Psalms, Proverbs, Isaiah, Daniel, Jonah, Matthew, Mark, Luke, John, Acts, Romans, 1 Corinthians, Galatians, Ephesians, Philippians, James and Revelation.
 
 **A new game (e.g. the crossword):**
 1. Build `src/screens/Crossword.tsx`.
@@ -52,7 +52,7 @@ Sign-in is by email code (no passwords). Each account gets a passport with a pas
 
 **The passport** is a booklet: a cover that opens onto Identity, Stamps, Visas and Flight log pages, plus a passport office for editing details. **Passport photos** are optional: the app crops them to passport shape and shrinks them to a small JPEG before upload (which also strips location data), and they live in a private storage bucket that only the owner can read. Travellers can also add a home church.
 
-**Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 300 per Book Club leg plus 150 per correct answer, 1,500 per stamp earned, and 50 per day of your best streak. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
+**Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 300 per Book Club leg plus 150 per correct answer, 1,500 per stamp earned, 200 per correct Night Flight answer, and 50 per day of your best streak. The Passport's Identity page explains this to travellers ("How miles work"), using the same numbers. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
 
 ## Leaderboards
 

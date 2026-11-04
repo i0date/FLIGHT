@@ -2,7 +2,7 @@ import { books, bookById } from '../data/books';
 import { LEGS } from '../data/bookClubQuestions';
 import { bookClubQuestions } from '../data/bookClubQuestions';
 import { bookScore, legsFlown, type Profile } from '../lib/profile';
-import { milesFor, tierFor, VISAS } from '../lib/miles';
+import { MILES, TIERS, milesFor, tierFor, VISAS } from '../lib/miles';
 import type { Account } from '../lib/sync';
 import { weekMonday } from '../lib/dates';
 import type { Screen } from '../types';
@@ -21,6 +21,11 @@ const INK: Record<string, string> = {
   'General Letters & Revelation': '#8a5a1f',
 };
 const SHAPES = ['round', 'oval', 'rect', 'octagon'];
+
+function MrzLine({ text }: { text: string }) {
+  const line = text.padEnd(30, '<').slice(0, 30);
+  return <div className="pp-mrz-line">{[...line].map((ch, i) => <span key={i}>{ch}</span>)}</div>;
+}
 
 function Page({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
   return (
@@ -68,25 +73,47 @@ export function IdentityPage({ profile, account, photoUrl, onPhotoTap }: { profi
           <small>Holder's signature</small>
         </div>
         <div className="pp-mrz mono" aria-hidden="true">
-          {/* Two fixed 30-character lines, like a real machine-readable zone. */}
-          {`P<FLT${name}`.padEnd(30, '<').slice(0, 30)}
-          <br />
-          {`${passportNo.padEnd(9, '<')}FLT${String(miles).padStart(7, '0')}<${tier.name.toUpperCase()}`.padEnd(30, '<').slice(0, 30)}
+          {/* Two fixed 30-character lines, like a real machine-readable zone, spread edge to edge. */}
+          <MrzLine text={`P<FLT${name}`} />
+          <MrzLine text={`${passportNo.padEnd(9, '<')}FLT${String(miles).padStart(7, '0')}<${tier.name.toUpperCase()}`} />
         </div>
         <Plane size={120} className="pp-watermark" />
       </div>
       <div className="pp-ff">
-        <div>
-          <p className="mono small">FREQUENT FLYER · {tier.name.toUpperCase()}</p>
-          {next ? (
-            <>
-              <div className="ff-bar"><div style={{ width: `${((miles - tier.from) / (next.from - tier.from)) * 100}%` }} /></div>
-              <p className="small">{(next.from - miles).toLocaleString('en-GB')} miles to {next.name}</p>
-            </>
-          ) : (
-            <p className="small">Platinum: the highest status there is.</p>
-          )}
+        <p className="mono small">FREQUENT FLYER · {tier.name.toUpperCase()}</p>
+        <div className="ff-stages" aria-label="Status stages">
+          {TIERS.map((t) => (
+            <div key={t.name} className={`ff-stage ${t.name === tier.name ? 'on' : ''} ${miles >= t.from ? 'reached' : ''}`}>
+              <span className="ff-dot" style={{ background: t.color }} />
+              <strong>{t.name}</strong>
+              <small className="mono">{t.from.toLocaleString('en-GB')}</small>
+            </div>
+          ))}
         </div>
+        {next ? (
+          <>
+            <div className="ff-bar"><div style={{ width: `${((miles - tier.from) / (next.from - tier.from)) * 100}%` }} /></div>
+            <p className="small">{(next.from - miles).toLocaleString('en-GB')} miles to {next.name}</p>
+          </>
+        ) : (
+          <p className="small">Platinum: the highest status there is.</p>
+        )}
+        <details className="ff-how">
+          <summary>How miles work</summary>
+          <p className="small">Miles are earned by flying — never bought. They're worked out from your flights, so replays in the archive earn nothing.</p>
+          <table className="ff-table">
+            <tbody>
+              <tr><td>Each Daily Flight</td><td className="mono">{MILES.perDailyFlight}</td></tr>
+              <tr><td>Each correct Daily Flight answer</td><td className="mono">+{MILES.perDailyCorrect}</td></tr>
+              <tr><td>Each Book Club leg flown</td><td className="mono">{MILES.perBookLeg}</td></tr>
+              <tr><td>Each correct Book Club answer (best score per leg)</td><td className="mono">+{MILES.perBookCorrect}</td></tr>
+              <tr><td>Each Book Club stamp earned (15 of 21)</td><td className="mono">+{MILES.perStampEarned.toLocaleString('en-GB')}</td></tr>
+              <tr><td>Each correct Night Flight answer</td><td className="mono">{MILES.perNightCorrect}</td></tr>
+              <tr><td>Each day of your best streak</td><td className="mono">{MILES.perBestStreakDay}</td></tr>
+            </tbody>
+          </table>
+          <p className="small">A perfect Daily Flight is worth {(MILES.perDailyFlight + 10 * MILES.perDailyCorrect).toLocaleString('en-GB')} miles; a perfect Book Club book, {(3 * MILES.perBookLeg + 21 * MILES.perBookCorrect + MILES.perStampEarned).toLocaleString('en-GB')}.</p>
+        </details>
       </div>
     </Page>
   );

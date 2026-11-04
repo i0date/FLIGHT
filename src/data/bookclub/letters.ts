@@ -107,3 +107,84 @@ export const corinthians1 = [
   c('1co20', 6, 'Which couple salutes "with the church that is in their house"?', 'Aquila and Priscilla', ['Andronicus and Junia', 'Philemon and Apphia', 'Ananias and Sapphira'], '1 Corinthians 16:19'),
   c('1co21', 6, 'Until when does Paul plan to tarry at Ephesus?', 'Pentecost', ['The passover', 'The winter is past', 'The feast of tabernacles'], '1 Corinthians 16:8'),
 ];
+
+export const galatians = [
+  // Leg 1
+  c('gal01', 2, '"I am crucified with Christ: nevertheless I…"', 'Live', ['Rejoice', 'Suffer', 'Die daily'], 'Galatians 2:20'),
+  c('gal02', 2, '"Whatsoever a man soweth, that shall he also…"', 'Reap', ['Eat', 'Gather', 'Receive'], 'Galatians 6:7'),
+  c('gal03', 3, 'Whom did Paul withstand to the face at Antioch?', 'Peter', ['James', 'Barnabas', 'John'], 'Galatians 2:11'),
+  c('gal04', 3, 'Where did Paul go straight after his conversion, before Jerusalem?', 'Arabia', ['Tarsus', 'Antioch', 'Rome'], 'Galatians 1:17'),
+  c('gal05', 3, 'How long after his conversion did Paul go up to Jerusalem to see Peter?', 'Three years', ['Fourteen years', 'One year', 'Seven years'], 'Galatians 1:18'),
+  c('gal06', 3, 'How long did Paul stay with Peter on that visit?', 'Fifteen days', ['Forty days', 'Seven days', 'Three months'], 'Galatians 1:18'),
+  c('gal07', 4, 'Which Greek companion was "not compelled to be circumcised"?', 'Titus', ['Timothy', 'Luke', 'Silas'], 'Galatians 2:3', 'Paul did circumcise Timothy (Acts 16:3).'),
+  // Leg 2
+  c('gal08', 4, 'Fourteen years later, whom did Paul take up to Jerusalem?', 'Barnabas and Titus', ['Silas and Timothy', 'Luke and Mark', 'Peter and John'], 'Galatians 2:1'),
+  c('gal09', 4, 'Which three "seemed to be pillars" at Jerusalem?', 'James, Cephas and John', ['Peter, Andrew and John', 'James, John and Barnabas', 'Peter, James and Paul'], 'Galatians 2:9'),
+  c('gal10', 4, 'Who "also was carried away with their dissimulation"?', 'Barnabas', ['Titus', 'Silas', 'John Mark'], 'Galatians 2:13'),
+  c('gal11', 5, 'The law was "our schoolmaster to bring us unto" whom?', 'Christ', ['Moses', 'The promise', 'The truth'], 'Galatians 3:24'),
+  c('gal12', 5, 'How long after the promise to Abraham did the law come?', 'Four hundred and thirty years', ['Four hundred years', 'Forty years', 'Seventy years'], 'Galatians 3:17'),
+  c('gal13', 5, '"Ye see how large a letter I have written unto you" — written how?', 'With mine own hand', ['By the hand of Tertius', 'By the hand of Titus', 'By the hand of Sosthenes'], 'Galatians 6:11', 'Tertius wrote Romans (Romans 16:22).'),
+  c('gal14', 5, 'In the allegory, Agar stands for which mount?', 'Sinai in Arabia', ['Zion', 'Moriah', 'Carmel'], 'Galatians 4:24–25'),
+  // Leg 3
+  c('gal15', 5, 'Paul bears in his body the marks of whom?', 'The Lord Jesus', ['His persecutors', 'The law', 'The apostles'], 'Galatians 6:17'),
+  c('gal16', 6, 'Whom does Paul call "the Lord\'s brother"?', 'James', ['Jude', 'Simon', 'Joses'], 'Galatians 1:19'),
+  c('gal17', 6, 'After that first Jerusalem visit, into which regions did Paul go?', 'Syria and Cilicia', ['Galatia and Phrygia', 'Macedonia and Achaia', 'Arabia and Damascus'], 'Galatians 1:21'),
+  c('gal18', 6, '"Cursed is every one that hangeth on a tree" quotes which book?', 'Deuteronomy', ['Leviticus', 'Numbers', 'Isaiah'], 'Galatians 3:13; Deuteronomy 21:23'),
+  c('gal19', 6, 'Paul says he received the gospel by what?', 'The revelation of Jesus Christ', ['The teaching of Ananias', 'The apostles at Jerusalem', 'Gamaliel'], 'Galatians 1:11–12'),
+  c('gal20', 6, 'Paul first preached to the Galatians because of what?', 'Infirmity of the flesh', ['A vision in the night', 'A shipwreck', 'A riot at Ephesus'], 'Galatians 4:13'),
+  c('gal21', 6, '"God hath sent forth the Spirit of his Son into your hearts, crying, ____, Father."', 'Abba', ['Eloi', 'Maranatha', 'Rabboni'], 'Galatians 4:6'),
+];
+
+export const ephesians = [
+  // Leg 1
+  c('eph01', 2, '"For by grace are ye saved through…"', 'Faith', ['Works', 'Love', 'Hope'], 'Ephesians 2:8'),
+  c('eph02', 2, '"Be ye angry, and sin not: let not the sun go down upon your…"', 'Wrath', ['Sorrow', 'Quarrel', 'Pride'], 'Ephesians 4:26'),
+  c('eph03', 3, '"Children, obey your parents in the Lord: for this is…"', 'Right', ['Pleasing', 'Good', 'The law'], 'Ephesians 6:1'),
+  c('eph04', 3, 'Which is "the first commandment with promise"?', 'Honour thy father and mother', ['Thou shalt have no other gods', 'Remember the sabbath day', 'Thou shalt not covet'], 'Ephesians 6:2'),
+  c('eph05', 3, '"One Lord, one faith, one…"', 'Baptism', ['Church', 'Gospel', 'Cup'], 'Ephesians 4:5', 'The list also has one body, one Spirit, one hope and one God.'),
+  c('eph06', 3, 'What is "the sword of the Spirit"?', 'The word of God', ['Prayer', 'Faith', 'Truth'], 'Ephesians 6:17'),
+  c('eph07', 4, 'Whom does Paul send, "a beloved brother and faithful minister"?', 'Tychicus', ['Timothy', 'Onesimus', 'Epaphras'], 'Ephesians 6:21'),
+  // Leg 2
+  c('eph08', 4, 'Husbands should love their wives "even as" whom?', 'Christ also loved the church', ['Abraham loved Sarah', 'Jacob loved Rachel', 'Boaz loved Ruth'], 'Ephesians 5:25'),
+  c('eph09', 4, 'Christ gave some apostles, some prophets, some evangelists, and some…', 'Pastors and teachers', ['Elders and deacons', 'Bishops and deacons', 'Healers and helps'], 'Ephesians 4:11'),
+  c('eph10', 4, 'Believers are "sealed with" what?', 'That holy Spirit of promise', ['The blood of the covenant', 'The mark of the Lamb', 'Circumcision made without hands'], 'Ephesians 1:13'),
+  c('eph11', 5, 'Christ "hath broken down the middle wall of" what?', 'Partition', ['Separation', 'The temple', 'Jericho'], 'Ephesians 2:14'),
+  c('eph12', 5, 'Paul prays they may comprehend the breadth, and length, and depth, and…', 'Height', ['Width', 'Fulness', 'Glory'], 'Ephesians 3:18'),
+  c('eph13', 5, '"Awake thou that sleepest, and arise from the dead, and Christ shall give thee…"', 'Light', ['Life', 'Rest', 'Peace'], 'Ephesians 5:14'),
+  c('eph14', 5, 'Paul calls himself "less than the least of all" whom?', 'Saints', ['Apostles', 'Sinners', 'Brethren'], 'Ephesians 3:8', '"Least of the apostles" is 1 Corinthians 15:9; "chief" of sinners, 1 Timothy 1:15.'),
+  // Leg 3
+  c('eph15', 5, 'We wrestle not against flesh and blood, but against whom?', 'Principalities, powers and the rulers of the darkness of this world', ['Kings and governors', 'Jews and Greeks', 'Sin and death'], 'Ephesians 6:12'),
+  c('eph16', 6, '"When he ascended up on high, he led captivity captive" quotes which psalm?', 'Psalm 68', ['Psalm 24', 'Psalm 110', 'Psalm 47'], 'Ephesians 4:8; Psalm 68:18'),
+  c('eph17', 6, '"For this cause shall a man leave his father and mother" (5:31) quotes which verse?', 'Genesis 2:24', ['Genesis 1:27', 'Genesis 3:16', 'Genesis 12:1'], 'Ephesians 5:31'),
+  c('eph18', 6, 'Paul calls himself an ambassador in what?', 'Bonds', ['Exile', 'Weakness', 'Tears'], 'Ephesians 6:20'),
+  c('eph19', 6, 'We were chosen in him "before" what?', 'The foundation of the world', ['The law was given', 'Abraham was', 'The flood'], 'Ephesians 1:4'),
+  c('eph20', 6, '"Fellowcitizens with the saints, and of the…"', 'Household of God', ['Family of Abraham', 'Commonwealth of Israel', 'Kingdom of priests'], 'Ephesians 2:19', '"The commonwealth of Israel" is 2:12, which they had been aliens from.'),
+  c('eph21', 6, 'Paul preaches among the Gentiles "the ____ riches of Christ".', 'Unsearchable', ['Unspeakable', 'Exceeding', 'Glorious'], 'Ephesians 3:8', '"Unspeakable gift" is 2 Corinthians 9:15.'),
+];
+
+export const revelation = [
+  // Leg 1
+  c('rev01', 2, 'On which island was John when he saw the Revelation?', 'Patmos', ['Crete', 'Cyprus', 'Melita'], 'Revelation 1:9'),
+  c('rev02', 2, 'How many churches are written to in Revelation 2–3?', 'Seven', ['Twelve', 'Five', 'Three'], 'Revelation 1:11'),
+  c('rev03', 3, 'Which church was "lukewarm"?', 'Laodicea', ['Sardis', 'Ephesus', 'Pergamos'], 'Revelation 3:14–16'),
+  c('rev04', 3, 'Which church had "left thy first love"?', 'Ephesus', ['Laodicea', 'Smyrna', 'Thyatira'], 'Revelation 2:1–4'),
+  c('rev05', 3, 'What is the number of the beast?', 'Six hundred threescore and six', ['Seven hundred and seventy-seven', 'An hundred and forty and four', 'A thousand two hundred and sixty'], 'Revelation 13:18'),
+  c('rev06', 3, 'How many were sealed out of all the tribes of Israel?', '144,000', ['12,000', '7,000', '24,000'], 'Revelation 7:4', '12,000 from each tribe.'),
+  c('rev07', 4, 'What colour was the horse whose rider was Death?', 'Pale', ['Black', 'Red', 'White'], 'Revelation 6:8'),
+  // Leg 2
+  c('rev08', 4, 'At which church was "Antipas my faithful martyr" slain?', 'Pergamos', ['Smyrna', 'Philadelphia', 'Sardis'], 'Revelation 2:12–13'),
+  c('rev09', 4, 'Which woman\'s teaching is condemned at Thyatira?', 'Jezebel', ['Delilah', 'Herodias', 'Athaliah'], 'Revelation 2:18–20'),
+  c('rev10', 4, 'What was the star called that made the waters bitter?', 'Wormwood', ['Abaddon', 'Lucifer', 'Apollyon'], 'Revelation 8:11'),
+  c('rev11', 5, 'Abaddon in the Greek tongue is called what?', 'Apollyon', ['Wormwood', 'Beelzebub', 'Legion'], 'Revelation 9:11'),
+  c('rev12', 5, 'How many days do the two witnesses prophesy?', '1,260', ['1,290', '1,335', '1,000'], 'Revelation 11:3', '1,290 and 1,335 are Daniel 12.'),
+  c('rev13', 5, 'Where are the kings of the earth gathered together?', 'Armageddon', ['The valley of Jehoshaphat', 'Gog and Magog', 'Babylon'], 'Revelation 16:16', 'Gog and Magog come after the thousand years (20:8).'),
+  c('rev14', 5, 'Each gate of the new Jerusalem was made of what?', 'One pearl', ['Jasper', 'Pure gold', 'Sapphire'], 'Revelation 21:21'),
+  // Leg 3
+  c('rev15', 5, 'How long is Satan bound in the bottomless pit?', 'A thousand years', ['Seven years', 'Forty and two months', 'A time, and times, and half a time'], 'Revelation 20:2–3'),
+  c('rev16', 6, 'Which two of the seven churches receive no rebuke?', 'Smyrna and Philadelphia', ['Ephesus and Smyrna', 'Philadelphia and Sardis', 'Pergamos and Thyatira'], 'Revelation 2:8–11; 3:7–13'),
+  c('rev17', 6, 'What is the first foundation of the wall of the new Jerusalem?', 'Jasper', ['Sapphire', 'Emerald', 'Amethyst'], 'Revelation 21:19', 'Amethyst is the twelfth.'),
+  c('rev18', 6, 'How many furlongs did the city measure?', 'Twelve thousand', ['An hundred and forty and four', 'A thousand and six hundred', 'Seven thousand'], 'Revelation 21:16', 'The wall was 144 cubits (21:17).'),
+  c('rev19', 6, 'Whose deeds are hated at Ephesus, and doctrine rebuked at Pergamos?', 'The Nicolaitanes', ['Balaam', 'Jezebel', 'The synagogue of Satan'], 'Revelation 2:6, 15'),
+  c('rev20', 6, 'The beast rising out of the sea had how many heads and horns?', 'Seven heads and ten horns', ['Ten heads and seven horns', 'Seven heads and seven horns', 'Three heads and twelve horns'], 'Revelation 13:1'),
+  c('rev21', 6, 'Which church was promised hidden manna and a white stone?', 'Pergamos', ['Philadelphia', 'Smyrna', 'Thyatira'], 'Revelation 2:17'),
+];
