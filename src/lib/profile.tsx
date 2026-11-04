@@ -4,8 +4,6 @@ import { LEGS, STAMP_PASS } from '../data/bookClubQuestions';
 import { supabase } from './supabase';
 import { loadMembership, loadRemote, merge, pushChanges, type Account } from './sync';
 
-export type Crew = { id: string; name: string; code: string; createdAt: string };
-
 // A book's three legs: best score out of 7 on each (null until flown), and the
 // day its stamp was earned (all three flown, 15 of 21 or better).
 export type BookProgress = { legs: (number | null)[]; attempts: number; lastFlown: string; earnedAt: string | null };
@@ -20,7 +18,7 @@ export type Profile = {
   daily: Record<string, number>; // dayKey -> score out of 10
   bookClub: Record<string, BookProgress>;
   joinedBooks: string[];
-  crews: Crew[];
+  onLeaderboard: boolean; // shown on the public leaderboard
 };
 
 const KEY = 'flight.profile.v1';
@@ -35,7 +33,7 @@ const fresh: Profile = {
   daily: {},
   bookClub: {},
   joinedBooks: [],
-  crews: [],
+  onLeaderboard: true,
 };
 
 function load(): Profile {

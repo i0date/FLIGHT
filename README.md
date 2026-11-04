@@ -52,6 +52,10 @@ Sign-in is by email code (no passwords). Each account gets a passport with a pas
 
 **Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 300 per Book Club leg plus 150 per correct answer, 1,500 per stamp earned, and 50 per day of your best streak. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
 
+## Leaderboards
+
+A public board ranks travellers by today's Daily Flight score (ties go to whoever landed first) or by current streak. It shows only the passenger name, streak and today's score, and anyone can switch themselves off it on the Passport page. **Crews** are private boards for a church, family or friends: anyone signed in can join with a 6-letter code; starting one (up to 5, with up to 100 members each) is a Flight Club perk. All of this goes through database functions in `supabase/migrations/20261104030000_leaderboards.sql`; the tables themselves stay locked.
+
 ## Payments (Stripe)
 
 Flight Club plans: Individual, Family (6 seats) and Church & groups (30 seats), monthly or yearly, priced in USD with a CAD option. The server code is in `api/`: checkout, the Stripe webhook (the only thing that writes memberships), the billing page, and joining or leaving a plan by invite code.
@@ -60,6 +64,5 @@ To switch payments on, create a Stripe account and run `npm run setup:payments`.
 
 ## Not wired up yet
 
-- **Shared leaderboards.** Accounts exist, but the leaderboard still shows sample travellers, and crews are not shared yet.
 - **Google and Apple sign-in.** These need a Google Cloud and an Apple Developer setup.
 - **Stripe keys.** Payments are built but switched off until `npm run setup:payments` is run. A phone-app version would need App Store / Play Store in-app purchases.

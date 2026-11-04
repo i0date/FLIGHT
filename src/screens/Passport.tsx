@@ -127,6 +127,16 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
       </form>
 
       {account && (
+        <label className="card switch-row">
+          <span>
+            <strong>Show me on the public leaderboard</strong>
+            <span className="small muted">Your passenger name, streak and today's score. Crews always see you.</span>
+          </span>
+          <input type="checkbox" checked={profile.onLeaderboard} onChange={(e) => update((p) => ({ ...p, onLeaderboard: e.target.checked }))} />
+        </label>
+      )}
+
+      {account && (
         <div className="card">
           <p className="small muted">Signed in as {account.email}</p>
           <button className="btn btn-ghost" onClick={signOut}>Sign out</button>

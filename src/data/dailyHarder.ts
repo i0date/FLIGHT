@@ -33,6 +33,19 @@ export const harderQuestions: RawQuestion[] = [
   { id: 'h410', level: 4, q: 'About how many were added to the church on the day of Pentecost?', a: 'Three thousand', wrong: ['Five thousand', 'One hundred and twenty', 'Seventy'], ref: 'Acts 2:41', note: 'Five thousand is Acts 4:4; one hundred and twenty is Acts 1:15.' },
   { id: 'h411', level: 4, q: 'Which prophet was told to take "a wife of whoredoms"?', a: 'Hosea', wrong: ['Ezekiel', 'Jeremiah', 'Amos'], ref: 'Hosea 1:2', note: 'Jeremiah was told not to marry at all (Jeremiah 16:2).' },
 
+  // More levels 4–6, so the hardest slots don't repeat for weeks.
+  { id: 'h412', level: 4, kind: 'order', q: 'Put these in order:', order: ['Elijah on Mount Carmel', 'Elijah taken up by a whirlwind', 'Naaman healed in Jordan', 'Jehu anointed king'], ref: '1 Kings 18; 2 Kings 2; 5; 9' },
+  { id: 'h413', level: 4, cat: 'People', q: 'Which left-handed judge killed Eglon king of Moab?', a: 'Ehud', wrong: ['Othniel', 'Shamgar', 'Gideon'], ref: 'Judges 3:15–21' },
+  { id: 'h414', level: 4, q: 'How many men did Gideon finally take against Midian?', a: 'Three hundred', wrong: ['Ten thousand', 'Thirty-two thousand', 'One thousand'], ref: 'Judges 7:7', note: 'He started with 32,000, then 10,000 (7:3).' },
+  { id: 'h415', level: 4, cat: 'People', q: 'Which prophetess judged Israel under a palm tree?', a: 'Deborah', wrong: ['Huldah', 'Miriam', 'Anna'], ref: 'Judges 4:4–5' },
+  { id: 'h416', level: 4, q: 'How many smooth stones did David choose out of the brook?', a: 'Five', wrong: ['Three', 'Seven', 'One'], ref: '1 Samuel 17:40' },
+  { id: 'h417', level: 4, cat: 'People', q: 'Which son of David was caught by his head in an oak?', a: 'Absalom', wrong: ['Amnon', 'Adonijah', 'Solomon'], ref: '2 Samuel 18:9' },
+  { id: 'h418', level: 4, q: 'Where did Elijah challenge the prophets of Baal?', a: 'Mount Carmel', wrong: ['Horeb', 'Mount Gilboa', 'Mount Ebal'], ref: '1 Kings 18:19–20', note: 'He fled to Horeb afterwards (19:8).' },
+  { id: 'h419', level: 4, q: 'How many times did Naaman dip himself in Jordan?', a: 'Seven', wrong: ['Three', 'Ten', 'Once'], ref: '2 Kings 5:14' },
+  { id: 'h420', level: 4, cat: 'Connections', q: 'Which Gospel records Peter walking on the water?', a: 'Matthew', wrong: ['Mark', 'John', 'Luke'], ref: 'Matthew 14:28–31', note: 'Mark 6 and John 6 tell of Jesus walking on the sea, without Peter stepping out.' },
+  { id: 'h421', level: 4, q: 'How long did David reign in Hebron?', a: 'Seven years and six months', wrong: ['Forty years', 'Thirty-three years', 'Three years'], ref: '2 Samuel 5:5', note: 'He reigned thirty-three years in Jerusalem.' },
+  { id: 'h422', level: 4, q: 'How many lepers did Jesus cleanse when only one returned to give thanks?', a: 'Ten', wrong: ['Seven', 'Twelve', 'Three'], ref: 'Luke 17:12–17' },
+
   // Level 5 · Ceiling — "which is NOT", cross-book synthesis, harder sequences
   { id: 'h501', level: 5, kind: 'order', q: "Put Paul's story in Acts in order:", order: ['Conversion on the Damascus road', 'First journey with Barnabas', 'The council at Jerusalem', 'Shipwreck on Melita'], ref: 'Acts 9; 13; 15; 27–28' },
   { id: 'h502', level: 5, kind: 'order', q: 'Put these judges in the order they appear:', order: ['Ehud', 'Deborah', 'Gideon', 'Samson'], ref: 'Judges 3; 4; 6; 13' },
@@ -51,6 +64,19 @@ export const harderQuestions: RawQuestion[] = [
   { id: 'h515', level: 5, q: 'Which prophetic book is directed entirely against Edom?', a: 'Obadiah', wrong: ['Nahum', 'Habakkuk', 'Joel'], ref: 'Obadiah 1', note: 'Nahum is against Nineveh.' },
   { id: 'h516', level: 5, q: 'How many years did it take Solomon to build the temple?', a: 'Seven', wrong: ['Three', 'Twelve', 'Thirteen'], ref: '1 Kings 6:38', note: 'His own house took thirteen (7:1).' },
 
+  { id: 'h517', level: 5, q: 'Which is NOT one of the four rivers out of Eden?', a: 'Jordan', wrong: ['Pison', 'Hiddekel', 'Gihon'], ref: 'Genesis 2:10–14', note: 'The fourth is Euphrates.' },
+  { id: 'h518', level: 5, cat: 'People', q: "Which of these was NOT one of Job's three friends?", a: 'Elihu', wrong: ['Eliphaz', 'Bildad', 'Zophar'], ref: 'Job 2:11; 32:2', note: 'Elihu, a younger man, speaks only from chapter 32.' },
+  { id: 'h519', level: 5, cat: 'People', q: 'In whose reign was the book of the law found while the temple was repaired?', a: 'Josiah', wrong: ['Hezekiah', 'Jehoash', 'Asa'], ref: '2 Kings 22:8' },
+  { id: 'h520', level: 5, kind: 'order', q: 'Put these books in Bible order:', order: ['Jonah', 'Micah', 'Nahum', 'Habakkuk'], ref: 'The Minor Prophets' },
+  { id: 'h521', level: 5, kind: 'order', q: 'Put these events from Joshua in order:', order: ['Jericho falls', 'Defeat at Ai', 'The sun stands still', 'Caleb is given Hebron'], ref: 'Joshua 6; 7; 10; 14' },
+  { id: 'h522', level: 5, q: 'Which letter asks a master to receive back his runaway servant?', a: 'Philemon', wrong: ['Titus', 'Colossians', '3 John'], ref: 'Philemon 10–16', note: 'Onesimus is also mentioned in Colossians 4:9.' },
+  { id: 'h523', level: 5, q: 'What did Elisha ask of Elijah before he was taken up?', a: 'A double portion of his spirit', wrong: ['His mantle', 'His blessing on Jericho', 'To go with him in the chariot'], ref: '2 Kings 2:9', note: 'He did take up the mantle afterwards (2:13).' },
+  { id: 'h524', level: 5, q: 'Which book tells of Zerubbabel and Jeshua rebuilding the altar after the exile?', a: 'Ezra', wrong: ['Nehemiah', 'Esther', 'Malachi'], ref: 'Ezra 3:2' },
+  { id: 'h525', level: 5, cat: 'People', q: 'Which aged prophetess gave thanks when the infant Jesus was presented in the temple?', a: 'Anna', wrong: ['Elisabeth', 'Huldah', 'Deborah'], ref: 'Luke 2:36–38' },
+  { id: 'h526', level: 5, cat: 'People', q: 'Which apostle was called Zelotes?', a: 'Simon', wrong: ['Judas', 'Thaddaeus', 'Bartholomew'], ref: 'Luke 6:15' },
+  { id: 'h527', level: 5, cat: 'Connections', q: "Luke's genealogy of Jesus reaches back to whom?", a: 'Adam, "which was the son of God"', wrong: ['Abraham', 'David', 'Noah'], ref: 'Luke 3:38', note: "Matthew's genealogy begins from Abraham (Matthew 1:1–2)." },
+  { id: 'h528', level: 5, q: 'How many elders sit about the throne in Revelation 4?', a: 'Four and twenty', wrong: ['Twelve', 'Seventy', 'Seven'], ref: 'Revelation 4:4' },
+
   // Level 6 · Stratosphere — scholar-level detail and traps
   { id: 'h601', level: 6, q: 'Stephen says Abraham bought a tomb in Sychem from the sons of Emmor (Acts 7:16). Genesis records a purchase at Shechem from Hamor\'s sons by someone else. Who?', a: 'Jacob — Genesis 33', wrong: ['Abraham — Genesis 23', 'Joseph — Genesis 50', 'Isaac — Genesis 26'], ref: 'Genesis 33:19; Acts 7:16', note: 'Genesis 23 is Abraham buying Machpelah from Ephron the Hittite.' },
   { id: 'h602', level: 6, q: 'Jude quotes a prophecy from which figure whose words appear nowhere in the Old Testament?', a: 'Enoch', wrong: ['Elijah', 'Noah', 'Moses'], ref: 'Jude 14', note: 'Moses appears in Jude 9, where Michael disputes about his body.' },
@@ -62,4 +88,17 @@ export const harderQuestions: RawQuestion[] = [
   { id: 'h608', level: 6, q: 'Where does Paul quote a Cretan "prophet of their own" saying "The Cretians are alway liars"?', a: 'Titus', wrong: ['1 Timothy', 'Acts', '1 Corinthians'], ref: 'Titus 1:12', note: 'Acts 17:28 also cites Greek poets, at Athens.' },
   { id: 'h609', level: 6, kind: 'order', q: 'Put these kings of the northern kingdom of Israel in order:', order: ['Jeroboam', 'Ahab', 'Jehu', 'Hoshea'], ref: '1 Kings 12; 16; 2 Kings 9; 17' },
   { id: 'h610', level: 6, kind: 'order', q: 'Put these events from the life of Abraham in order:', order: ['Called out of Haran', 'Rescues Lot and meets Melchizedek', 'Hagar bears Ishmael', 'Isaac is born'], ref: 'Genesis 12; 14; 16; 21' },
+
+  { id: 'h611', level: 6, cat: 'People', q: 'Which king of Israel reigned only seven days?', a: 'Zimri', wrong: ['Shallum', 'Elah', 'Nadab'], ref: '1 Kings 16:15', note: 'Shallum reigned a full month (2 Kings 15:13).' },
+  { id: 'h612', level: 6, cat: 'People', q: 'Who was the mother of Rehoboam?', a: 'Naamah an Ammonitess', wrong: ['Bathsheba', 'Abishag', 'Maachah'], ref: '1 Kings 14:21', note: "Bathsheba was Solomon's mother." },
+  { id: 'h613', level: 6, cat: 'People', q: 'To which prophet did God say "I have made thee a watchman unto the house of Israel"?', a: 'Ezekiel', wrong: ['Jeremiah', 'Isaiah', 'Habakkuk'], ref: 'Ezekiel 3:17; 33:7', note: 'Habakkuk says "I will stand upon my watch" (2:1).' },
+  { id: 'h614', level: 6, q: 'Who actually anointed Jehu king over Israel?', a: 'A young prophet sent by Elisha', wrong: ['Elijah', 'Elisha himself', 'Nathan'], ref: '2 Kings 9:1–6', note: 'Elijah had been told to do it (1 Kings 19:16).' },
+  { id: 'h615', level: 6, cat: 'People', q: 'Of which course of priests was Zacharias, father of John the Baptist?', a: 'Abia', wrong: ['Aaron', 'Zadok', 'Eleazar'], ref: 'Luke 1:5', note: 'Elisabeth was "of the daughters of Aaron".' },
+  { id: 'h616', level: 6, cat: 'People', q: 'Who were the Hebrew midwives who defied Pharaoh?', a: 'Shiphrah and Puah', wrong: ['Jochebed and Miriam', 'Bilhah and Zilpah', 'Zipporah and Elisheba'], ref: 'Exodus 1:15–17' },
+  { id: 'h617', level: 6, cat: 'People', q: "Hosea's wife Gomer was the daughter of whom?", a: 'Diblaim', wrong: ['Beeri', 'Pethuel', 'Amittai'], ref: 'Hosea 1:3', note: "Beeri was Hosea's father; Pethuel, Joel's; Amittai, Jonah's." },
+  { id: 'h618', level: 6, q: 'Isaiah saw the Lord "high and lifted up" in the year which king died?', a: 'Uzziah', wrong: ['Hezekiah', 'Ahaz', 'Jotham'], ref: 'Isaiah 6:1' },
+  { id: 'h619', level: 6, cat: 'People', q: 'Abimelech slew his seventy brothers, the sons of whom?', a: 'Jerubbaal (Gideon)', wrong: ['Jephthah', 'Jair', 'Abdon'], ref: 'Judges 9:5', note: 'Jair had thirty sons (10:4); Abdon forty (12:14).' },
+  { id: 'h620', level: 6, cat: 'People', q: "Who wrote Jeremiah's words in a roll from his mouth?", a: 'Baruch', wrong: ['Ebed-melech', 'Seraiah', 'Gemariah'], ref: 'Jeremiah 36:4', note: 'Ebed-melech drew Jeremiah out of the dungeon (38:7–13).' },
+  { id: 'h621', level: 6, kind: 'order', q: 'Put these kings of Judah in order:', order: ['Jehoshaphat', 'Uzziah', 'Hezekiah', 'Josiah'], ref: '1 Kings 22; 2 Kings 15; 18; 22' },
+  { id: 'h622', level: 6, q: 'How long does Exodus say Israel sojourned in Egypt?', a: 'Four hundred and thirty years', wrong: ['Four hundred years', 'Two hundred and fifteen years', 'Forty years'], ref: 'Exodus 12:40–41', note: 'Genesis 15:13 speaks of four hundred years of affliction.' },
 ];
