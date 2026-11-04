@@ -44,3 +44,9 @@ export const Lock = ({ size = 16 }: P) => (
     <path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
+
+export const Book = ({ size = 22 }: P) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7" />
+  </svg>
+);

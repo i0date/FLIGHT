@@ -1,11 +1,13 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { dayKey, daysBetween, weekKey } from './dates';
+import { supabase } from './supabase';
+import { loadRemote, merge, pushChanges, type Account } from './sync';
 
 export type Crew = { id: string; name: string; code: string; createdAt: string };
 
 export type Profile = {
   name: string;
-  premium: boolean;
+  premium: boolean; // demo switch until payments arrive; account members are premium too
   streak: number;
   bestStreak: number;
   lastDaily: string | null;
@@ -41,7 +43,7 @@ function load(): Profile {
 }
 
 // The streak shown on screen: it lapses once a full day has been missed
-// (or two for First Class with an unused shield this week).
+// (or two for Flight Club with an unused shield this week).
 export function liveStreak(p: Profile, today = dayKey()): number {
   if (!p.lastDaily) return 0;
   const gap = daysBetween(p.lastDaily, today);
@@ -87,11 +89,27 @@ export function recordBook(p: Profile, bookId: string, score: number): Profile {
   };
 }
 
-type Ctx = { profile: Profile; update: (fn: (p: Profile) => Profile) => void };
+type SyncState = 'local' | 'syncing' | 'saved' | 'error';
+
+type Ctx = {
+  profile: Profile;
+  update: (fn: (p: Profile) => Profile) => void;
+  account: Account | null;
+  sync: SyncState;
+  accountsEnabled: boolean;
+  sendCode: (email: string) => Promise<void>;
+  verifyCode: (email: string, code: string) => Promise<void>;
+  signOut: () => Promise<void>;
+};
 const ProfileContext = createContext<Ctx | null>(null);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<Profile>(load);
+  const [account, setAccount] = useState<Account | null>(null);
+  const [sync, setSync] = useState<SyncState>('local');
+  // The last version known to be saved on the server, so only changes are sent.
+  const saved = useRef<Profile | null>(null);
+
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(profile));
@@ -99,7 +117,72 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
       /* storage unavailable: progress lasts for this session only */
     }
   }, [profile]);
-  return <ProfileContext.Provider value={{ profile, update: setProfile }}>{children}</ProfileContext.Provider>;
+
+  // On sign-in: load the account, fold in this device's progress, save the result.
+  useEffect(() => {
+    if (!supabase) return;
+    const connect = async (userId: string, email: string) => {
+      setSync('syncing');
+      try {
+        const { account, remote } = await loadRemote(userId, email);
+        const merged = merge(load(), remote);
+        await pushChanges(userId, { ...merged, ...remote } as Profile, merged);
+        saved.current = merged;
+        setAccount(account);
+        setProfile((p) => ({ ...merged, premium: p.premium || account.member }));
+        setSync('saved');
+      } catch {
+        setSync('error');
+      }
+    };
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) connect(data.session.user.id, data.session.user.email ?? '');
+    });
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session && saved.current === null) connect(session.user.id, session.user.email ?? '');
+      if (event === 'SIGNED_OUT') {
+        saved.current = null;
+        setAccount(null);
+        setSync('local');
+      }
+    });
+    return () => data.subscription.unsubscribe();
+  }, []);
+
+  // After sign-in, every change is saved to the account.
+  useEffect(() => {
+    if (!account || !saved.current || saved.current === profile) return;
+    const prev = saved.current;
+    setSync('syncing');
+    pushChanges(account.userId, prev, profile)
+      .then(() => {
+        saved.current = profile;
+        setSync('saved');
+      })
+      .catch(() => setSync('error'));
+  }, [profile, account]);
+
+  const sendCode = useCallback(async (email: string) => {
+    const { error } = await supabase!.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
+    if (error) throw error;
+  }, []);
+
+  const verifyCode = useCallback(async (email: string, code: string) => {
+    const { error } = await supabase!.auth.verifyOtp({ email, token: code, type: 'email' });
+    if (error) throw error;
+  }, []);
+
+  const signOut = useCallback(async () => {
+    await supabase?.auth.signOut();
+    // Progress stays with the account; this device starts fresh.
+    setProfile(fresh);
+  }, []);
+
+  return (
+    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendCode, verifyCode, signOut }}>
+      {children}
+    </ProfileContext.Provider>
+  );
 }
 
 export function useProfile(): Ctx {

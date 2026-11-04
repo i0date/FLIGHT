@@ -5,14 +5,16 @@ import { Daily } from './screens/Daily';
 import { BookClub, BookQuiz } from './screens/BookClub';
 import { Leaderboard } from './screens/Leaderboard';
 import { Premium } from './screens/Premium';
-import { Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
+import { Passport as PassportScreen } from './screens/Passport';
+import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
 const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
   { screen: { name: 'home' }, label: 'Terminal', Icon: HomeIcon },
-  { screen: { name: 'bookclub' }, label: 'Book Club', Icon: Passport },
+  { screen: { name: 'bookclub' }, label: 'Book Club', Icon: Book },
+  { screen: { name: 'passport' }, label: 'Passport', Icon: Passport },
   { screen: { name: 'leaderboard' }, label: 'Ranks', Icon: Trophy },
-  { screen: { name: 'premium' }, label: 'Flight Club', Icon: Seat },
+  { screen: { name: 'premium' }, label: 'Club', Icon: Seat },
 ];
 
 export default function App() {
@@ -31,6 +33,7 @@ export default function App() {
           {screen.name === 'daily' && <Daily go={go} />}
           {screen.name === 'bookclub' && <BookClub go={go} />}
           {screen.name === 'book' && <BookQuiz key={screen.bookId} bookId={screen.bookId} go={go} />}
+          {screen.name === 'passport' && <PassportScreen go={go} />}
           {screen.name === 'leaderboard' && <Leaderboard go={go} />}
           {screen.name === 'premium' && <Premium />}
         </main>

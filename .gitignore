@@ -2,3 +2,7 @@ node_modules
 dist
 *.tsbuildinfo
 .vercel
+.env
+.env.local
+supabase/.temp
+supabase/.branches
