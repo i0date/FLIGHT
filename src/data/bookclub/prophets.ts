@@ -296,3 +296,84 @@ export const zechariah = [
   c('zec20', 6, 'Upon whose head were the crowns set, with the words "Behold the man whose name is The BRANCH"?', 'Joshua the high priest', ['Zerubbabel', 'Zechariah', 'Darius'], 'Zechariah 6:11–12'),
   c('zec21', 6, 'Zechariah recalls people fleeing an earthquake in the days of which king?', 'Uzziah', ['Hezekiah', 'Ahab', 'Josiah'], 'Zechariah 14:5; Amos 1:1'),
 ];
+
+export const nahum = [
+  // Leg 1
+  c('nah01', 2, 'Against which city did Nahum prophesy?', 'Nineveh', ['Babylon', 'Tyre', 'Damascus'], 'Nahum 1:1'),
+  c('nah02', 2, '"The LORD is good, a strong hold in the day of…"', 'Trouble', ['Battle', 'Judgment', 'Darkness'], 'Nahum 1:7'),
+  c('nah03', 3, 'What is Nahum called, after his home town?', 'The Elkoshite', ['The Morasthite', 'The Tishbite', 'The Tekoite'], 'Nahum 1:1'),
+  c('nah04', 3, '"Behold upon the mountains the feet of him that bringeth good tidings, that publisheth…"', 'Peace', ['Salvation', 'Judgment', 'Freedom'], 'Nahum 1:15'),
+  c('nah05', 3, 'In Nahum, "The LORD is slow to anger, and great in…"', 'Power', ['Mercy', 'Kindness', 'Patience'], 'Nahum 1:3', 'Elsewhere it is "great in mercy" (Psalm 145:8); Nahum says power.'),
+  c('nah06', 3, 'Nineveh was the capital of which empire?', 'Assyria', ['Babylon', 'Persia', 'Egypt'], 'Nahum 3:18'),
+  c('nah07', 4, '"The LORD hath his way in the whirlwind and in the storm, and the clouds are the ___ of his feet."', 'Dust', ['Footstool', 'Path', 'Chariot'], 'Nahum 1:3'),
+  // Leg 2
+  c('nah08', 4, '"Woe to the bloody…"', 'City', ['King', 'Nation', 'House'], 'Nahum 3:1'),
+  c('nah09', 4, 'The chariots raging in the streets "shall seem like…"', 'Torches', ['Lightning', 'Whirlwinds', 'Locusts'], 'Nahum 2:4'),
+  c('nah10', 4, '"The gates of the rivers shall be opened, and the palace shall be…"', 'Dissolved', ['Burned', 'Taken', 'Silent'], 'Nahum 2:6'),
+  c('nah11', 5, 'Nineveh is asked, "Art thou better than populous…", an Egyptian city that fell?', 'No', ['Noph', 'Zoan', 'On'], 'Nahum 3:8'),
+  c('nah12', 5, '"Thy shepherds slumber, O king of…"', 'Assyria', ['Babylon', 'Nineveh', 'Egypt'], 'Nahum 3:18'),
+  c('nah13', 5, '"God is jealous, and the LORD…"', 'Revengeth', ['Is merciful', 'Is holy', 'Forgiveth'], 'Nahum 1:2'),
+  c('nah14', 5, '"Where is the dwelling of the ___, and the feedingplace of the young lions?"', 'Lions', ['Eagles', 'Wolves', 'Kings'], 'Nahum 2:11'),
+  // Leg 3
+  c('nah15', 5, '"Thy crowned are as the ___, and thy captains as the great grasshoppers."', 'Locusts', ['Cankerworms', 'Flies', 'Stubble'], 'Nahum 3:17'),
+  c('nah16', 6, '"Bashan languisheth, and Carmel, and the flower of ___ languisheth."', 'Lebanon', ['Sharon', 'Gilead', 'Hermon'], 'Nahum 1:4'),
+  c('nah17', 6, '"Keep the munition, watch the way, make thy loins…"', 'Strong', ['Girded', 'Ready', 'Bare'], 'Nahum 2:1'),
+  c('nah18', 6, 'Nineveh "is of old like a pool of…"', 'Water', ['Blood', 'Tears', 'Mire'], 'Nahum 2:8'),
+  c('nah19', 6, 'Nineveh had multiplied her merchants above what?', 'The stars of heaven', ['The sand of the sea', 'The kings of the earth', 'The trees of the field'], 'Nahum 3:16'),
+  c('nah20', 6, '"Ethiopia and Egypt were her strength… ___ and Lubim were thy helpers."', 'Put', ['Cush', 'Javan', 'Tarshish'], 'Nahum 3:9'),
+  c('nah21', 6, '"There is no healing of thy bruise; thy wound is…"', 'Grievous', ['Deep', 'Mortal', 'Open'], 'Nahum 3:19'),
+];
+
+export const habakkuk = [
+  // Leg 1
+  c('hab01', 2, '"The just shall live by his…"', 'Faith', ['Works', 'Righteousness', 'Word'], 'Habakkuk 2:4'),
+  c('hab02', 2, '"Write the vision, and make it plain upon…"', 'Tables', ['Scrolls', 'Walls', 'Stones'], 'Habakkuk 2:2'),
+  c('hab03', 3, '"…that he may ___ that readeth it."', 'Run', ['Understand', 'Believe', 'Live'], 'Habakkuk 2:2'),
+  c('hab04', 3, '"The earth shall be filled with the knowledge of the glory of the LORD, as the waters cover the…"', 'Sea', ['Earth', 'Deep', 'Land'], 'Habakkuk 2:14'),
+  c('hab05', 3, '"The LORD is in his holy temple: let all the earth keep ___ before him."', 'Silence', ['Watch', 'Feast', 'Holy day'], 'Habakkuk 2:20'),
+  c('hab06', 3, 'Which people did the LORD say he was raising up to punish Judah?', 'The Chaldeans', ['The Assyrians', 'The Egyptians', 'The Persians'], 'Habakkuk 1:6'),
+  c('hab07', 4, '"O LORD, how long shall I cry, and thou wilt not…"', '"hear!"', ['"answer!"', '"come!"', '"save!"'], 'Habakkuk 1:2', '"…even cry out unto thee of violence, and thou wilt not save!" follows.'),
+  // Leg 2
+  c('hab08', 4, '"Although the fig tree shall not blossom… Yet I will rejoice in the…"', 'LORD', ['Harvest', 'Morning', 'Temple'], 'Habakkuk 3:17–18'),
+  c('hab09', 4, '"He will make my feet like ___ feet."', "Hinds'", ["Eagles'", "Roes'", "Lions'"], 'Habakkuk 3:19'),
+  c('hab10', 4, '"Thou art of purer eyes than to behold…"', 'Evil', ['Sin', 'The wicked', 'Idols'], 'Habakkuk 1:13'),
+  c('hab11', 5, '"I will stand upon my watch, and set me upon the…"', 'Tower', ['Wall', 'Gate', 'Rock'], 'Habakkuk 2:1'),
+  c('hab12', 5, '"O LORD, revive thy work in the midst of the years… in wrath remember…"', 'Mercy', ['Thy covenant', 'Zion', 'Thy people'], 'Habakkuk 3:2'),
+  c('hab13', 5, '"Woe to him that buildeth a town with…"', 'Blood', ['Lies', 'Gold', 'Slaves'], 'Habakkuk 2:12'),
+  c('hab14', 5, 'Habakkuk 3 is "a prayer of Habakkuk the prophet upon…"', 'Shigionoth', ['Gittith', 'Neginoth', 'Alamoth'], 'Habakkuk 3:1'),
+  // Leg 3
+  c('hab15', 5, '"Though it tarry, wait for it; because it will surely come, it will not…"', 'Tarry', ['Fail', 'Lie', 'Return'], 'Habakkuk 2:3'),
+  c('hab16', 6, '"The sun and moon stood still in their…"', 'Habitation', ['Courses', 'Places', 'Heaven'], 'Habakkuk 3:11'),
+  c('hab17', 6, '"God came from ___, and the Holy One from mount Paran."', 'Teman', ['Sinai', 'Seir', 'Edom'], 'Habakkuk 3:3'),
+  c('hab18', 6, 'The Chaldean horses are "more fierce than the evening…"', 'Wolves', ['Lions', 'Leopards', 'Bears'], 'Habakkuk 1:8', 'They are "swifter than the leopards".'),
+  c('hab19', 6, '"They sacrifice unto their net, and burn incense unto their…"', 'Drag', ['Hook', 'Bow', 'Idols'], 'Habakkuk 1:16'),
+  c('hab20', 6, '"The stone shall cry out of the wall, and the beam out of the ___ shall answer it."', 'Timber', ['House', 'Roof', 'Gate'], 'Habakkuk 2:11'),
+  c('hab21', 6, 'Which three New Testament letters quote "The just shall live by faith"?', 'Romans, Galatians and Hebrews', ['Romans, James and 1 Peter', 'Galatians, Ephesians and Colossians', 'Hebrews, James and Jude'], 'Romans 1:17; Galatians 3:11; Hebrews 10:38'),
+];
+
+export const haggai = [
+  // Leg 1
+  c('hag01', 2, 'What did Haggai urge the people to build?', 'The house of the LORD', ['The walls of Jerusalem', 'Their own houses', 'An altar at Bethel'], 'Haggai 1:2–8'),
+  c('hag02', 2, '"Thus saith the LORD of hosts; Consider your…"', 'Ways', ['Hearts', 'Fathers', 'Works'], 'Haggai 1:5, 7'),
+  c('hag03', 3, 'Which governor of Judah did Haggai address?', 'Zerubbabel', ['Nehemiah', 'Sheshbazzar', 'Tatnai'], 'Haggai 1:1'),
+  c('hag04', 3, 'Which high priest did Haggai address?', 'Joshua the son of Josedech', ['Ezra the scribe', 'Eliashib', 'Hilkiah'], 'Haggai 1:1'),
+  c('hag05', 3, 'In the reign of which king did Haggai prophesy?', 'Darius', ['Cyrus', 'Artaxerxes', 'Ahasuerus'], 'Haggai 1:1'),
+  c('hag06', 3, '"Ye have sown much, and bring in…"', 'Little', ['Nothing', 'Thorns', 'Chaff'], 'Haggai 1:6'),
+  c('hag07', 4, 'He that earns wages "earneth wages to put it into a bag with…"', 'Holes', ['Thieves', 'Moths', 'Stones'], 'Haggai 1:6'),
+  // Leg 2
+  c('hag08', 4, '"Is it time for you, O ye, to dwell in your ___ houses, and this house lie waste?"', 'Cieled', ['Cedar', 'Stone', 'Fair'], 'Haggai 1:4', 'Cieled means panelled.'),
+  c('hag09', 4, '"The silver is mine, and the gold is mine, saith the LORD of…"', 'Hosts', ['Glory', 'Israel', 'All the earth'], 'Haggai 2:8'),
+  c('hag10', 4, '"The glory of this latter house shall be greater than of the…"', 'Former', ['Palace', 'Tabernacle', 'Heavens'], 'Haggai 2:9'),
+  c('hag11', 5, '"I will shake all nations, and the ___ of all nations shall come."', 'Desire', ['Kings', 'Treasure', 'Glory'], 'Haggai 2:7'),
+  c('hag12', 5, 'The LORD said he would make Zerubbabel as a what?', 'A signet', ['A pillar', 'A cornerstone', 'A shepherd'], 'Haggai 2:23'),
+  c('hag13', 5, "In which month came Haggai's first message?", 'The sixth month', ['The first month', 'The seventh month', 'The ninth month'], 'Haggai 1:1'),
+  c('hag14', 5, '"In this place will I give…"', 'Peace', ['Rest', 'Glory', 'Rain'], 'Haggai 2:9'),
+  // Leg 3
+  c('hag15', 5, 'If holy flesh carried in a skirt touches bread, does the bread become holy?', 'No', ['Yes', 'Only on the sabbath', 'Only if a priest carries it'], 'Haggai 2:12'),
+  c('hag16', 6, 'If one unclean by a dead body touches the bread, is it unclean?', 'Yes', ['No', 'Only until evening', 'Only if it is eaten'], 'Haggai 2:13'),
+  c('hag17', 6, '"I smote you with blasting and with mildew and with ___ in all the labours of your hands."', 'Hail', ['Locusts', 'Drought', 'Fire'], 'Haggai 2:17'),
+  c('hag18', 6, '"Yet once… I will shake the heavens" is quoted in which New Testament book?', 'Hebrews', ['Revelation', 'Romans', '2 Peter'], 'Hebrews 12:26; Haggai 2:6'),
+  c('hag19', 6, "In Haggai, Zerubbabel is called the son of whom?", 'Shealtiel', ['Josedech', 'Iddo', 'Berechiah'], 'Haggai 1:1'),
+  c('hag20', 6, '"The heaven over you is stayed from…"', 'Dew', ['Rain', 'Light', 'Mercy'], 'Haggai 1:10'),
+  c('hag21', 6, 'Haggai is called "the LORD\'s…"', 'Messenger', ['Watchman', 'Servant', 'Seer'], 'Haggai 1:13'),
+];

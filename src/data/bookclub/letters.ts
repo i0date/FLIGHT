@@ -458,3 +458,30 @@ export const peter2 = [
   c('2pe20', 6, '"New heavens and a new earth, wherein dwelleth…"', 'Righteousness', ['Peace', 'Glory', 'The Lamb'], '2 Peter 3:13'),
   c('2pe21', 6, 'False teachers are "wells without water, clouds that are carried with a…"', 'Tempest', ['Wind', 'Whirlwind', 'Flood'], '2 Peter 2:17', 'Jude 12 has "clouds… carried about of winds".'),
 ];
+
+export const thessalonians2 = [
+  // Leg 1
+  c('2th01', 2, '"If any would not work, neither should he…"', 'Eat', ['Rest', 'Speak', 'Pray'], '2 Thessalonians 3:10'),
+  c('2th02', 2, '"Be not weary in well…"', 'Doing', ['Being', 'Saying', 'Giving'], '2 Thessalonians 3:13'),
+  c('2th03', 3, 'Before the day of Christ, there must be a falling away and the revealing of "that man of…"', 'Sin', ['Lies', 'Pride', 'Strife'], '2 Thessalonians 2:3'),
+  c('2th04', 3, 'The Lord Jesus shall be revealed from heaven "in flaming…"', 'Fire', ['Glory', 'Clouds', 'Light'], '2 Thessalonians 1:7–8'),
+  c('2th05', 3, 'The Thessalonians were troubled by a claim that the day of Christ was what?', 'At hand', ['Already past', 'Far off', 'Cancelled'], '2 Thessalonians 2:2'),
+  c('2th06', 3, 'How did Paul mark his letters as genuine?', 'A salutation in his own hand', ['A seal of wax', 'The name of Silvanus', 'A greeting from Peter'], '2 Thessalonians 3:17'),
+  c('2th07', 4, 'The man of sin is called "the son of…"', 'Perdition', ['Belial', 'Wrath', 'Darkness'], '2 Thessalonians 2:3', 'Judas is also called "the son of perdition" (John 17:12).'),
+  // Leg 2
+  c('2th08', 4, 'Who joins Paul in the greeting of 2 Thessalonians?', 'Silvanus and Timotheus', ['Barnabas and Mark', 'Titus and Luke', 'Sosthenes and Apollos'], '2 Thessalonians 1:1'),
+  c('2th09', 4, '"The mystery of ___ doth already work."', 'Iniquity', ['Godliness', 'Christ', 'Faith'], '2 Thessalonians 2:7', '"The mystery of godliness" is 1 Timothy 3:16.'),
+  c('2th10', 4, '"God shall send them strong delusion, that they should believe a…"', 'Lie', ['Dream', 'Fable', 'False Christ'], '2 Thessalonians 2:11'),
+  c('2th11', 5, 'The Lord shall consume the wicked one "with the ___ of his mouth".', 'Spirit', ['Sword', 'Word', 'Rod'], '2 Thessalonians 2:8'),
+  c('2th12', 5, 'They shall be punished with everlasting destruction "from the presence of the…"', 'Lord', ['Saints', 'Angels', 'Throne'], '2 Thessalonians 1:9'),
+  c('2th13', 5, '"Stand fast, and hold the ___ which ye have been taught."', 'Traditions', ['Doctrine', 'Faith', 'Commandments'], '2 Thessalonians 2:15'),
+  c('2th14', 5, 'Withdraw from every brother that walketh how?', 'Disorderly', ['In darkness', 'After the flesh', 'In pride'], '2 Thessalonians 3:6'),
+  // Leg 3
+  c('2th15', 5, 'Some were "working not at all, but are…"', 'Busybodies', ['Sluggards', 'Talebearers', 'Idle'], '2 Thessalonians 3:11'),
+  c('2th16', 6, '"He who now letteth will let, until he be taken out of the…"', 'Way', ['World', 'Earth', 'Midst'], '2 Thessalonians 2:7', '"Letteth" means holds back.'),
+  c('2th17', 6, 'The man of sin sits in the temple of God, "shewing himself that he is…"', 'God', ['Christ', 'King', 'Holy'], '2 Thessalonians 2:4'),
+  c('2th18', 6, '"Count him not as an enemy, but admonish him as a…"', 'Brother', ['Son', 'Friend', 'Stranger'], '2 Thessalonians 3:15'),
+  c('2th19', 6, 'The coming of the wicked one is "with all power and signs and lying…"', 'Wonders', ['Words', 'Prophets', 'Spirits'], '2 Thessalonians 2:9'),
+  c('2th20', 6, '"Pray for us, that the word of the Lord may have free…"', 'Course', ['Access', 'Speech', 'Entrance'], '2 Thessalonians 3:1'),
+  c('2th21', 6, 'Paul worked night and day as "an ensample unto you to…"', 'Follow us', ['Work likewise', 'Remember us', 'Pray always'], '2 Thessalonians 3:8–9'),
+];

@@ -107,3 +107,57 @@ export const ecclesiastes = [
   c('ecc20', 6, '"As the crackling of thorns under a pot, so is the laughter of the…"', 'Fool', ['Scorner', 'Wicked', 'Sluggard'], 'Ecclesiastes 7:6'),
   c('ecc21', 6, '"Wisdom is good with an…"', 'Inheritance', ['Understanding', 'Old age', 'Humble heart'], 'Ecclesiastes 7:11'),
 ];
+
+export const songOfSolomon = [
+  // Leg 1
+  c('sos01', 2, 'Whose song is the Song of Songs said to be?', "Solomon's", ["David's", "Asaph's", "Lemuel's"], 'Song of Solomon 1:1'),
+  c('sos02', 2, '"I am the rose of…"', 'Sharon', ['Lebanon', 'Gilead', 'Carmel'], 'Song of Solomon 2:1'),
+  c('sos03', 3, '"…and the lily of the…"', 'Valleys', ['Field', 'Fountains', 'Hills'], 'Song of Solomon 2:1'),
+  c('sos04', 3, '"He brought me to the banqueting house, and his banner over me was…"', 'Love', ['Peace', 'Joy', 'Gold'], 'Song of Solomon 2:4'),
+  c('sos05', 3, '"Take us the foxes, the little foxes, that spoil the…"', 'Vines', ['Gardens', 'Flocks', 'Fields'], 'Song of Solomon 2:15'),
+  c('sos06', 3, '"Many waters cannot quench…"', 'Love', ['Fire', 'Desire', 'The heart'], 'Song of Solomon 8:7'),
+  c('sos07', 4, '"Love is strong as…"', 'Death', ['The sea', 'Iron', 'The mountains'], 'Song of Solomon 8:6'),
+  // Leg 2
+  c('sos08', 4, '"I am black, but comely… as the tents of…"', 'Kedar', ['Shem', 'Jacob', 'Midian'], 'Song of Solomon 1:5'),
+  c('sos09', 4, '"Thou hast ravished my heart, my ___, my spouse."', 'Sister', ['Dove', 'Love', 'Queen'], 'Song of Solomon 4:9'),
+  c('sos10', 4, '"Thy hair is as a flock of…"', 'Goats', ['Sheep', 'Doves', 'Ravens'], 'Song of Solomon 4:1; 6:5'),
+  c('sos11', 5, '"Thy neck is like the tower of ___ builded for an armoury."', 'David', ['Lebanon', 'Ivory', 'Babel'], 'Song of Solomon 4:4', 'In 7:4 her neck is "as a tower of ivory".'),
+  c('sos12', 5, '"Jealousy is cruel as the…"', 'Grave', ['Sword', 'Sea', 'Lion'], 'Song of Solomon 8:6'),
+  c('sos13', 5, 'What is the bride called in "Return, return, O ___"?', 'Shulamite', ['Shunammite', 'Sharonite', 'Shilonite'], 'Song of Solomon 6:13'),
+  c('sos14', 5, '"For, lo, the winter is past, the ___ is over and gone."', 'Rain', ['Cold', 'Storm', 'Night'], 'Song of Solomon 2:11'),
+  // Leg 3
+  c('sos15', 5, '"The voice of the ___ is heard in our land."', 'Turtle', ['Sparrow', 'Nightingale', 'Shepherd'], 'Song of Solomon 2:12', 'The turtledove.'),
+  c('sos16', 6, 'Where did Solomon have a vineyard that he let out to keepers?', 'Baal-hamon', ['En-gedi', 'Heshbon', 'Tirzah'], 'Song of Solomon 8:11'),
+  c('sos17', 6, '"Thine eyes like the fishpools in ___, by the gate of Bath-rabbim."', 'Heshbon', ['Gilead', 'Siloam', 'Gibeon'], 'Song of Solomon 7:4'),
+  c('sos18', 6, '"Thy nose is as the tower of Lebanon which looketh toward…"', 'Damascus', ['Jerusalem', 'Tyre', 'The sea'], 'Song of Solomon 7:4'),
+  c('sos19', 6, 'What did the keepers of the walls take from the bride?', 'Her veil', ['Her ring', 'Her lamp', 'Her crown'], 'Song of Solomon 5:7'),
+  c('sos20', 6, "King Solomon made himself a chariot of the wood of where?", 'Lebanon', ['Shittim', 'Ophir', 'Bashan'], 'Song of Solomon 3:9'),
+  c('sos21', 6, '"My beloved is unto me as a cluster of camphire in the vineyards of…"', 'En-gedi', ['Sharon', 'Baal-hamon', 'Eshcol'], 'Song of Solomon 1:14'),
+];
+
+export const lamentations = [
+  // Leg 1
+  c('lam01', 2, 'Which city does Lamentations mourn?', 'Jerusalem', ['Samaria', 'Nineveh', 'Babylon'], 'Lamentations 1:7–8'),
+  c('lam02', 2, '"His compassions fail not. They are new every…"', 'Morning', ['Day', 'Hour', 'Season'], 'Lamentations 3:22–23'),
+  c('lam03', 3, '"Great is thy…"', 'Faithfulness', ['Mercy', 'Glory', 'Name'], 'Lamentations 3:23'),
+  c('lam04', 3, '"How doth the city sit solitary, that was full of people! how is she become as a…"', 'Widow', ['Wilderness', 'Ruin', 'Harlot'], 'Lamentations 1:1'),
+  c('lam05', 3, '"The LORD is my portion, saith my…"', 'Soul', ['Heart', 'Mouth', 'Spirit'], 'Lamentations 3:24'),
+  c('lam06', 3, '"It is good for a man that he bear the yoke in his…"', 'Youth', ['Sorrow', 'Strength', 'Old age'], 'Lamentations 3:27'),
+  c('lam07', 4, 'How many verses are in Lamentations 3, three for each Hebrew letter?', 'Sixty-six', ['Twenty-two', 'Forty-four', 'Seventy'], 'Lamentations 3', 'Chapters 1, 2 and 4 have 22 verses each.'),
+  // Leg 2
+  c('lam08', 4, '"Is it nothing to you, all ye that…"', '"pass by?"', ['"dwell in Zion?"', '"know the LORD?"', '"mourn for her?"'], 'Lamentations 1:12'),
+  c('lam09', 4, '"It is of the LORD\'s mercies that we are not…"', 'Consumed', ['Forsaken', 'Destroyed', 'Forgotten'], 'Lamentations 3:22'),
+  c('lam10', 4, '"Turn thou us unto thee, O LORD… renew our days as of…"', 'Old', ['Youth', 'David', 'The fathers'], 'Lamentations 5:21'),
+  c('lam11', 5, 'The punishment of Jerusalem was "greater than the punishment of the sin of" which city?', 'Sodom', ['Gomorrah', 'Nineveh', 'Samaria'], 'Lamentations 4:6'),
+  c('lam12', 5, 'The Nazarites\' "visage is blacker than a…"', 'Coal', ['Raven', 'Night', 'Cloud'], 'Lamentations 4:7–8'),
+  c('lam13', 5, 'The daughter of Edom is said to dwell in the land of where?', 'Uz', ['Seir', 'Teman', 'Bozrah'], 'Lamentations 4:21'),
+  c('lam14', 5, '"The Lord hath trodden the virgin, the daughter of Judah, as in a…"', 'Winepress', ['Threshingfloor', 'Furnace', 'Field'], 'Lamentations 1:15'),
+  // Leg 3
+  c('lam15', 5, '"Let us search and try our ways, and turn again to the…"', 'LORD', ['Law', 'Temple', 'Old paths'], 'Lamentations 3:40'),
+  c('lam16', 6, '"Thou hast covered thyself with a ___, that our prayer should not pass through."', 'Cloud', ['Veil', 'Darkness', 'Wall'], 'Lamentations 3:44'),
+  c('lam17', 6, '"He hath broken my teeth with gravel stones, he hath covered me with…"', 'Ashes', ['Dust', 'Shame', 'Sackcloth'], 'Lamentations 3:16'),
+  c('lam18', 6, '"Our fathers have sinned, and are not; and we have borne their…"', 'Iniquities', ['Shame', 'Burdens', 'Reproach'], 'Lamentations 5:7'),
+  c('lam19', 6, '"The joy of our heart is ceased; our dance is turned into…"', 'Mourning', ['Weeping', 'Silence', 'Sorrow'], 'Lamentations 5:15'),
+  c('lam20', 6, '"The crown is fallen from our…"', 'Head', ['King', 'City', 'Glory'], 'Lamentations 5:16'),
+  c('lam21', 6, 'What walks upon the desolate mountain of Zion?', 'Foxes', ['Jackals', 'Owls', 'Lions'], 'Lamentations 5:18'),
+];
