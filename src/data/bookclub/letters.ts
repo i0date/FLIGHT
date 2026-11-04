@@ -1,4 +1,4 @@
-import { c } from './helpers';
+import { c, o } from './helpers';
 
 export const romans = [
   // Leg 1
@@ -187,4 +187,58 @@ export const revelation = [
   c('rev19', 6, 'Whose deeds are hated at Ephesus, and doctrine rebuked at Pergamos?', 'The Nicolaitanes', ['Balaam', 'Jezebel', 'The synagogue of Satan'], 'Revelation 2:6, 15'),
   c('rev20', 6, 'The beast rising out of the sea had how many heads and horns?', 'Seven heads and ten horns', ['Ten heads and seven horns', 'Seven heads and seven horns', 'Three heads and twelve horns'], 'Revelation 13:1'),
   c('rev21', 6, 'Which church was promised hidden manna and a white stone?', 'Pergamos', ['Philadelphia', 'Smyrna', 'Thyatira'], 'Revelation 2:17'),
+];
+
+export const hebrews = [
+  // Leg 1
+  c('heb01', 2, 'Christ is a priest for ever after the order of whom?', 'Melchisedec', ['Aaron', 'Levi', 'Zadok'], 'Hebrews 5:6'),
+  c('heb02', 2, '"Jesus Christ the same yesterday, and to day, and…"', '"for ever"', ['"unto the end"', '"world without end"', '"to all generations"'], 'Hebrews 13:8'),
+  c('heb03', 3, 'The word of God is sharper than any what?', 'Twoedged sword', ['Arrow', 'Razor', 'Spear'], 'Hebrews 4:12'),
+  c('heb04', 3, 'By faith, who "was translated that he should not see death"?', 'Enoch', ['Elijah', 'Abel', 'Noah'], 'Hebrews 11:5', 'Elijah was also taken up (2 Kings 2), but Hebrews 11 names Enoch.'),
+  c('heb05', 3, 'Jesus is "the author and finisher of our…"', 'Faith', ['Hope', 'Race', 'Joy'], 'Hebrews 12:2'),
+  c('heb06', 3, 'Which woman "perished not with them that believed not"?', 'Rahab', ['Tamar', 'Gomer', 'Jael'], 'Hebrews 11:31'),
+  c('heb07', 4, 'Some, by showing hospitality, have entertained whom unawares?', 'Angels', ['Prophets', 'Kings', 'Apostles'], 'Hebrews 13:2'),
+  // Leg 2
+  c('heb08', 4, 'In Hebrews 1, the Son is shown to be better than whom?', 'The angels', ['Aaron', 'The prophets of old', 'Abraham'], 'Hebrews 1:4–5', 'Chapter 3 then compares him with Moses.'),
+  c('heb09', 4, 'Melchisedec was king of which city?', 'Salem', ['Sodom', 'Tyre', 'Gerar'], 'Hebrews 7:1–2', '"King of Salem, which is, King of peace."'),
+  c('heb10', 4, '"Without shedding of blood is no…"', 'Remission', ['Atonement', 'Covenant', 'Sacrifice'], 'Hebrews 9:22'),
+  c('heb11', 5, 'Which of these does Hebrews NOT list with the ark of the covenant?', 'The brazen serpent', ['The golden pot that had manna', "Aaron's rod that budded", 'The tables of the covenant'], 'Hebrews 9:4'),
+  c('heb12', 5, 'What does Hebrews call Esau, who sold his birthright?', 'A profane person', ['A wicked servant', 'A son of Belial', 'A scoffer'], 'Hebrews 12:16'),
+  c('heb13', 5, 'The new covenant passage in Hebrews 8 quotes which prophet?', 'Jeremiah', ['Ezekiel', 'Isaiah', 'Hosea'], 'Hebrews 8:8–12; Jeremiah 31:31–34'),
+  c('heb14', 5, '"Ye are not come unto the mount that might be touched… But ye are come unto mount…"', 'Sion', ['Sinai', 'Horeb', 'Olivet'], 'Hebrews 12:18–22'),
+  // Leg 3
+  o('heb15', 5, 'Put these names in the order Hebrews 11:32 lists them:', ['Gedeon', 'Barak', 'Samson', 'Jephthae'], 'Hebrews 11:32', 'Not the order of the book of Judges, where Barak comes before Gideon.'),
+  c('heb16', 6, 'Melchisedec was "without father, without mother, without…"', 'Descent', ['Sin', 'Name', 'House'], 'Hebrews 7:3'),
+  c('heb17', 6, 'Moses esteemed the reproach of Christ greater riches than what?', 'The treasures in Egypt', ['The throne of Pharaoh', 'The wisdom of the Egyptians', 'The land of Goshen'], 'Hebrews 11:26'),
+  c('heb18', 6, '"Thou art a priest for ever after the order of Melchisedec" is quoted from which psalm?', 'Psalm 110', ['Psalm 2', 'Psalm 45', 'Psalm 22'], 'Hebrews 5:6; Psalm 110:4', 'Psalm 2 ("Thou art my Son") is quoted in the verse before.'),
+  c('heb19', 6, 'By faith Joseph, when he died, gave commandment concerning his what?', 'Bones', ['Brethren', 'Inheritance', 'Coat'], 'Hebrews 11:22'),
+  c('heb20', 6, 'Jacob, dying, worshipped "leaning upon the top of his…"', 'Staff', ['Sword', 'Tent pole', 'Pillar'], 'Hebrews 11:21'),
+  c('heb21', 6, 'Where does Hebrews say Jesus suffered?', 'Without the gate', ['In the holy place', 'Upon mount Sion', 'Within the veil'], 'Hebrews 13:12'),
+];
+
+export const peter1 = [
+  // Leg 1
+  c('1pe01', 2, 'Your adversary the devil walks about as a roaring what?', 'Lion', ['Bear', 'Wolf', 'Serpent'], '1 Peter 5:8'),
+  c('1pe02', 2, '"Casting all your care upon him; for he…"', '"careth for you"', ['"knoweth your heart"', '"heareth your prayer"', '"is faithful"'], '1 Peter 5:7'),
+  c('1pe03', 3, '"Ye are a chosen generation, a royal…"', 'Priesthood', ['House', 'Kingdom', 'Family'], '1 Peter 2:9'),
+  c('1pe04', 3, 'What "shall cover the multitude of sins"?', 'Charity', ['Faith', 'Patience', 'Repentance'], '1 Peter 4:8'),
+  c('1pe05', 3, '"By whose stripes ye were…"', 'Healed', ['Saved', 'Redeemed', 'Cleansed'], '1 Peter 2:24'),
+  c('1pe06', 3, '"Honour all men. Love the brotherhood. Fear God. Honour the…"', 'King', ['Elders', 'Priests', 'Prophets'], '1 Peter 2:17'),
+  c('1pe07', 4, 'Which woman "obeyed Abraham, calling him lord"?', 'Sara', ['Hagar', 'Rebekah', 'Keturah'], '1 Peter 3:6'),
+  // Leg 2
+  c('1pe08', 4, 'Which of these places is NOT among those Peter writes to?', 'Macedonia', ['Pontus', 'Cappadocia', 'Bithynia'], '1 Peter 1:1', 'He writes to Pontus, Galatia, Cappadocia, Asia and Bithynia.'),
+  c('1pe09', 4, 'How many souls were saved by water in the ark, says Peter?', 'Eight', ['Seven', 'Ten', 'Twelve'], '1 Peter 3:20'),
+  c('1pe10', 4, 'Whom does Peter call "my son"?', 'Marcus', ['Timothy', 'Titus', 'Onesimus'], '1 Peter 5:13'),
+  c('1pe11', 5, 'By whom, "a faithful brother", did Peter write this letter?', 'Silvanus', ['Tertius', 'Sosthenes', 'Tychicus'], '1 Peter 5:12', 'Tertius wrote down Romans (Romans 16:22).'),
+  c('1pe12', 5, 'We are redeemed with the blood of Christ, "as of a lamb without blemish and…"', '"without spot"', ['"without guile"', '"without sin"', '"without number"'], '1 Peter 1:18–19'),
+  c('1pe13', 5, 'Peter sends greetings from the church at which place?', 'Babylon', ['Jerusalem', 'Antioch', 'Corinth'], '1 Peter 5:13'),
+  c('1pe14', 5, 'Christ preached to the spirits in prison who were disobedient in the days of whom?', 'Noah', ['Moses', 'Lot', 'Elijah'], '1 Peter 3:19–20'),
+  // Leg 3
+  c('1pe15', 5, 'When the chief Shepherd appears, faithful elders receive a crown of what?', 'Glory that fadeth not away', ['Life', 'Righteousness', 'Rejoicing'], '1 Peter 5:4'),
+  c('1pe16', 6, '"The grass withereth… But the word of the Lord…"', '"endureth for ever"', ['"standeth sure"', '"is a lamp unto my feet"', '"shall not return void"'], '1 Peter 1:24–25'),
+  c('1pe17', 6, 'Christ is "a stone of stumbling, and a rock of…"', 'Offence', ['Refuge', 'Ages', 'Salvation'], '1 Peter 2:8'),
+  c('1pe18', 6, 'Christ is "the Shepherd and ___ of your souls".', 'Bishop', ['Captain', 'Keeper', 'Lover'], '1 Peter 2:25'),
+  c('1pe19', 6, 'Peter says a wife\'s true adorning is "the ornament of…"', '"a meek and quiet spirit"', ['"a pure and holy heart"', '"a lowly and contrite spirit"', '"a gentle and patient soul"'], '1 Peter 3:4'),
+  c('1pe20', 6, 'Baptism saves, "not the putting away of the filth of the flesh, but…"', '"the answer of a good conscience toward God"', ['"the washing of a pure heart"', '"faith unfeigned toward God"', '"the renewing of the Holy Ghost"'], '1 Peter 3:21', '"The renewing of the Holy Ghost" is Titus 3:5.'),
+  c('1pe21', 6, 'Peter calls himself "also an elder, and a witness of…"', '"the sufferings of Christ"', ['"his resurrection"', '"his majesty"', '"the holy mount"'], '1 Peter 5:1', '"Eyewitnesses of his majesty" is 2 Peter 1:16.'),
 ];

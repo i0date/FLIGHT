@@ -1,4 +1,4 @@
-import { c } from './helpers';
+import { c, o } from './helpers';
 
 export const psalms = [
   // Leg 1
@@ -52,4 +52,31 @@ export const proverbs = [
   c('pro19', 6, 'Which is NOT among the four things that "say not, It is enough"?', 'The sea', ['The grave', 'The barren womb', 'The fire'], 'Proverbs 30:15–16', 'The fourth is the earth that is not filled with water.'),
   c('pro20', 6, 'Who says "The LORD possessed me in the beginning of his way"?', 'Wisdom', ['Solomon', 'Lemuel', 'Agur'], 'Proverbs 8:1, 22'),
   c('pro21', 6, 'In Proverbs 31, the virtuous woman considers a field and does what?', 'Buyeth it, and planteth a vineyard', ['Gleaneth it after the reapers', 'Selleth it to the merchant', 'Giveth it to the poor'], 'Proverbs 31:16'),
+];
+
+export const job = [
+  // Leg 1
+  c('job01', 2, 'In which land did Job live?', 'Uz', ['Ur', 'Haran', 'Teman'], 'Job 1:1'),
+  c('job02', 2, "Who questioned Job's faithfulness before the LORD?", 'Satan', ['Eliphaz', 'Michael', "Job's wife"], 'Job 1:6–12'),
+  c('job03', 3, "What did Job's wife tell him to do?", '"Curse God, and die"', ['"Bless God, and live"', '"Flee to the mountains"', '"Offer a sacrifice"'], 'Job 2:9'),
+  c('job04', 3, 'How long did the three friends sit with Job without speaking?', 'Seven days and seven nights', ['Three days', 'Forty days', 'One night'], 'Job 2:13'),
+  c('job05', 3, 'Who said, "I know that my redeemer liveth"?', 'Job', ['David', 'Isaiah', 'Eliphaz'], 'Job 19:25'),
+  c('job06', 3, 'The LORD asked Job, "Where wast thou when I laid…"', '"the foundations of the earth"', ['"the pillars of heaven"', '"the stars in their courses"', '"the bounds of the sea"'], 'Job 38:4'),
+  c('job07', 4, 'How many children did Job have at the start?', 'Seven sons and three daughters', ['Three sons and seven daughters', 'Ten sons and two daughters', 'Twelve sons and one daughter'], 'Job 1:2', 'He was given the same number again at the end (42:13).'),
+  // Leg 2
+  c('job08', 4, 'Which friend spoke first?', 'Eliphaz the Temanite', ['Bildad the Shuhite', 'Zophar the Naamathite', 'Elihu the Buzite'], 'Job 4:1'),
+  c('job09', 4, 'Bildad was called what?', 'The Shuhite', ['The Temanite', 'The Naamathite', 'The Buzite'], 'Job 2:11', 'Eliphaz was the Temanite, Zophar the Naamathite, Elihu the Buzite (32:2).'),
+  c('job10', 4, "Who carried away Job's camels?", 'The Chaldeans', ['The Sabeans', 'The fire of God', 'A great wind'], 'Job 1:17', 'Sabeans took the oxen and asses; fire burned the sheep; a wind killed his children.'),
+  c('job11', 5, '"Canst thou draw out ___ with an hook?" Which creature?', 'Leviathan', ['Behemoth', 'The unicorn', 'The ostrich'], 'Job 41:1', 'Behemoth is described in chapter 40.'),
+  c('job12', 5, 'At the end, how many sheep did the LORD give Job?', 'Fourteen thousand', ['Seven thousand', 'Ten thousand', 'Twenty-one thousand'], 'Job 1:3; 42:12', 'Twice the seven thousand he had at first.'),
+  c('job13', 5, "Which of these was NOT one of Job's daughters?", 'Dinah', ['Jemima', 'Kezia', 'Keren-happuch'], 'Job 42:14'),
+  c('job14', 5, "Why was Elihu angry with Job's three friends?", 'They had found no answer, yet had condemned Job', ['They had mocked his suffering', 'They spoke longer than he did', 'They had flattered Job'], 'Job 32:3'),
+  // Leg 3
+  o('job15', 5, 'Put these events from Job in order:', ['Job is struck with boils', 'The three friends arrive', 'Elihu speaks', 'The LORD answers from the whirlwind'], 'Job 2:7; 2:11; 32; 38'),
+  c('job16', 6, 'The LORD turned the captivity of Job when he did what?', 'Prayed for his friends', ['Offered a burnt offering', 'Repented in dust and ashes', 'Rent his mantle'], 'Job 42:10', 'He repented in dust and ashes earlier (42:6); the turning came when he prayed for them.'),
+  c('job17', 6, 'How long did Job live after his trial?', 'A hundred and forty years', ['A hundred and twenty years', 'Seventy years', 'A hundred and seventy-five years'], 'Job 42:16'),
+  c('job18', 6, 'What did the LORD tell the three friends to offer?', 'Seven bullocks and seven rams', ['Twelve lambs', 'A red heifer', 'Two turtledoves'], 'Job 42:8'),
+  c('job19', 6, '"Though he slay me, yet will I trust in him" is in which chapter of Job?', '13', ['1', '19', '42'], 'Job 13:15'),
+  c('job20', 6, '"Man that is born of a woman is of few days, and full of…"', '"trouble"', ['"sorrow"', '"vanity"', '"sin"'], 'Job 14:1'),
+  c('job21', 6, 'In Job 38, who "sang together" when the earth\'s foundations were laid?', 'The morning stars', ['The seraphim', 'The sons of the prophets', 'The heavens and the earth'], 'Job 38:7', '"…and all the sons of God shouted for joy."'),
 ];
