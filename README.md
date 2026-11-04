@@ -34,7 +34,7 @@ Questions are either multiple choice (`a` + `wrong`) or put-in-order (`kind: 'or
 
 **Daily questions:** add an entry with a `level`. Each day needs at least 2 questions at every level from 3 to 6, so keep every level well stocked. Put the correct answer in `a` and three wrong ones in `wrong`. Options are shuffled for you. Always include `ref`.
 
-**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 24 of 66 books are written so far: Genesis, Exodus, Leviticus, Numbers, Deuteronomy, Ruth, Esther, Psalms, Proverbs, Isaiah, Daniel, Jonah, Matthew, Mark, Luke, John, Acts, Romans, 1 Corinthians, Galatians, Ephesians, Philippians, James and Revelation.
+**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. All 66 books are written: 1,386 questions in all.
 
 **A new game (e.g. the crossword):**
 1. Build `src/screens/Crossword.tsx`.

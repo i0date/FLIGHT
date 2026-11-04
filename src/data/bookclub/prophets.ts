@@ -377,3 +377,57 @@ export const haggai = [
   c('hag20', 6, '"The heaven over you is stayed from…"', 'Dew', ['Rain', 'Light', 'Mercy'], 'Haggai 1:10'),
   c('hag21', 6, 'Haggai is called "the LORD\'s…"', 'Messenger', ['Watchman', 'Servant', 'Seer'], 'Haggai 1:13'),
 ];
+
+export const obadiah = [
+  // Leg 1
+  c('oba01', 2, 'Against which nation is Obadiah\'s prophecy?', 'Edom', ['Moab', 'Assyria', 'Philistia'], 'Obadiah 1'),
+  c('oba02', 2, 'Edom came from which brother of Jacob?', 'Esau', ['Ishmael', 'Lot', 'Laban'], 'Obadiah 6, 10'),
+  c('oba03', 3, 'Which is the shortest book of the Old Testament?', 'Obadiah', ['Haggai', 'Jonah', 'Nahum'], 'Obadiah'),
+  c('oba04', 3, '"Though thou exalt thyself as the eagle, and though thou set thy nest among the…"', 'Stars', ['Clouds', 'Mountains', 'Cedars'], 'Obadiah 4'),
+  c('oba05', 3, 'Edom was judged for violence against his brother. Who?', 'Jacob', ['Esau', 'Moab', 'Ammon'], 'Obadiah 10'),
+  c('oba06', 3, '"The pride of thine heart hath deceived thee, thou that dwellest in the clefts of the…"', 'Rock', ['Hills', 'Desert', 'Cave'], 'Obadiah 3'),
+  c('oba07', 4, '"As thou hast done, it shall be done unto thee: thy ___ shall return upon thine own head."', 'Reward', ['Sin', 'Curse', 'Sword'], 'Obadiah 15'),
+  // Leg 2
+  c('oba08', 4, '"The day of the LORD is near upon all the…"', 'Heathen', ['Earth', 'Mountains', 'Proud'], 'Obadiah 15'),
+  c('oba09', 4, '"Upon mount ___ shall be deliverance."', 'Zion', ['Seir', 'Moriah', 'Olivet'], 'Obadiah 17'),
+  c('oba10', 4, '"The house of Jacob shall be a fire, and the house of Joseph a flame, and the house of Esau for…"', 'Stubble', ['Ashes', 'Smoke', 'Chaff'], 'Obadiah 18'),
+  c('oba11', 5, '"Saviours shall come up on mount Zion to judge the mount of…"', 'Esau', ['Sinai', 'Carmel', 'Moab'], 'Obadiah 21'),
+  c('oba12', 5, 'How does Obadiah end? "And the kingdom shall be the…"', "LORD's", ["Saints'", "Israel's", "Son's"], 'Obadiah 21'),
+  c('oba13', 5, '"Thy mighty men, O ___, shall be dismayed."', 'Teman', ['Bozrah', 'Sela', 'Dedan'], 'Obadiah 9'),
+  c('oba14', 5, '"Thou shouldest not have entered into the gate of my people in the day of their…"', 'Calamity', ['Feast', 'Mourning', 'Exile'], 'Obadiah 13'),
+  // Leg 3
+  c('oba15', 5, '"If thieves came to thee… would they not have stolen till they had…"', 'Enough', ['All', 'Their fill', 'Nothing left'], 'Obadiah 5'),
+  c('oba16', 6, '"If the grapegatherers came to thee, would they not leave some…"', 'Grapes', ['Gleanings', 'Vines', 'Fruit'], 'Obadiah 5'),
+  c('oba17', 6, '"Neither shouldest thou have stood in the ___, to cut off those of his that did escape."', 'Crossway', ['Gate', 'Highway', 'Pass'], 'Obadiah 14'),
+  c('oba18', 6, 'Where are "the captivity of Jerusalem" said to be?', 'Sepharad', ['Babylon', 'Halah', 'Tarshish'], 'Obadiah 20'),
+  c('oba19', 6, 'The captivity of Israel shall possess the land of the Canaanites "even unto…"', 'Zarephath', ['Sidon', 'Dan', 'Hamath'], 'Obadiah 20'),
+  c('oba20', 6, '"The house of Jacob shall possess their…"', 'Possessions', ['Inheritance', 'Enemies', 'Land'], 'Obadiah 17'),
+  c('oba21', 6, 'When did Edom "stand on the other side"?', 'When strangers carried away the forces of Jerusalem', ['When Israel crossed the Jordan', 'When the temple was built', 'When Nineveh fell'], 'Obadiah 11'),
+];
+
+export const zephaniah = [
+  // Leg 1
+  c('zep01', 2, 'In the days of which king of Judah did Zephaniah prophesy?', 'Josiah', ['Hezekiah', 'Manasseh', 'Zedekiah'], 'Zephaniah 1:1'),
+  c('zep02', 2, '"The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with…"', 'Joy', ['Love', 'Mercy', 'Glory'], 'Zephaniah 3:17'),
+  c('zep03', 3, '"He will rest in his love, he will joy over thee with…"', 'Singing', ['Gladness', 'Dancing', 'Delight'], 'Zephaniah 3:17'),
+  c('zep04', 3, '"The great day of the LORD is near, it is near, and hasteth…"', 'Greatly', ['Swiftly', 'Surely', 'Quickly'], 'Zephaniah 1:14'),
+  c('zep05', 3, '"Seek ye the LORD, all ye meek of the earth… it may be ye shall be ___ in the day of the LORD\'s anger."', 'Hid', ['Spared', 'Saved', 'Forgiven'], 'Zephaniah 2:3'),
+  c('zep06', 3, '"That day is a day of…"', 'Wrath', ['Rejoicing', 'Rest', 'Visitation'], 'Zephaniah 1:15'),
+  c('zep07', 4, '"I will search Jerusalem with…"', 'Candles', ['Fire', 'A sword', 'A line'], 'Zephaniah 1:12'),
+  // Leg 2
+  c('zep08', 4, 'The LORD will make Nineveh "a desolation, and dry like a…"', 'Wilderness', ['Threshingfloor', 'Potsherd', 'Bone'], 'Zephaniah 2:13'),
+  c('zep09', 4, 'He will punish the men "that are settled on their…"', 'Lees', ['Riches', 'Beds', 'Pride'], 'Zephaniah 1:12', 'Like wine left undisturbed: complacent.'),
+  c('zep10', 4, '"Then will I turn to the people a pure…"', 'Language', ['Heart', 'Offering', 'Worship'], 'Zephaniah 3:9'),
+  c('zep11', 5, "Who was Zephaniah's father?", 'Cushi', ['Amoz', 'Buzi', 'Pethuel'], 'Zephaniah 1:1'),
+  c('zep12', 5, 'Zephaniah traces his line back to which king?', 'Hizkiah', ['Uzziah', 'Jehoshaphat', 'Asa'], 'Zephaniah 1:1', 'Hizkiah is Hezekiah.'),
+  c('zep13', 5, '"Her princes within her are roaring lions; her judges are evening…"', 'Wolves', ['Bears', 'Jackals', 'Serpents'], 'Zephaniah 3:3'),
+  c('zep14', 5, '"I will cut off the remnant of ___ from this place."', 'Baal', ['Ashtaroth', 'Dagon', 'Chemosh'], 'Zephaniah 1:4'),
+  // Leg 3
+  c('zep15', 5, '"Woe to her that is filthy and polluted, to the oppressing…"', 'City', ['King', 'Nation', 'Priest'], 'Zephaniah 3:1'),
+  c('zep16', 6, 'Zephaniah condemns those who swear by the LORD and by whom?', 'Malcham', ['Baal-peor', 'Tammuz', 'Dagon'], 'Zephaniah 1:5'),
+  c('zep17', 6, '"I will punish all those that leap on the…"', 'Threshold', ['Altar', 'Housetop', 'Mountains'], 'Zephaniah 1:9'),
+  c('zep18', 6, 'In which city shall "the cormorant and the bittern lodge in the upper lintels"?', 'Nineveh', ['Babylon', 'Tyre', 'Gaza'], 'Zephaniah 2:13–14'),
+  c('zep19', 6, '"Moab shall be as Sodom, and the children of Ammon as…"', 'Gomorrah', ['Admah', 'Zeboim', 'Edom'], 'Zephaniah 2:9'),
+  c('zep20', 6, '"From beyond the rivers of ___ my suppliants… shall bring mine offering."', 'Ethiopia', ['Egypt', 'Babylon', 'Assyria'], 'Zephaniah 3:10'),
+  c('zep21', 6, '"I will make you a name and a praise among all people of the earth, when I turn back your…"', 'Captivity', ['Enemies', 'Hearts', 'Steps'], 'Zephaniah 3:20'),
+];

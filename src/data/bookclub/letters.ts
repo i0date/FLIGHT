@@ -485,3 +485,111 @@ export const thessalonians2 = [
   c('2th20', 6, '"Pray for us, that the word of the Lord may have free…"', 'Course', ['Access', 'Speech', 'Entrance'], '2 Thessalonians 3:1'),
   c('2th21', 6, 'Paul worked night and day as "an ensample unto you to…"', 'Follow us', ['Work likewise', 'Remember us', 'Pray always'], '2 Thessalonians 3:8–9'),
 ];
+
+export const philemon = [
+  // Leg 1
+  c('phm01', 2, 'Which runaway servant is the subject of Philemon?', 'Onesimus', ['Onesiphorus', 'Tychicus', 'Epaphras'], 'Philemon 10'),
+  c('phm02', 2, 'Where was Paul when he wrote to Philemon?', 'In prison', ['In Athens', 'In Jerusalem', 'At sea'], 'Philemon 1, 9'),
+  c('phm03', 3, 'Onesimus was "in time past to thee unprofitable, but now…"', '"profitable to thee and to me"', ['"a free man"', '"a son of the church"', '"thy master"'], 'Philemon 11', 'The name Onesimus means "profitable".'),
+  c('phm04', 3, 'Paul asks Philemon to receive Onesimus "not now as a servant, but above a servant, a…"', 'Brother beloved', ['Free man', 'Fellowlabourer', 'Stranger'], 'Philemon 16'),
+  c('phm05', 3, '"If he hath wronged thee, or oweth thee ought, put that on…"', '"mine account"', ['"his account"', '"the church"', '"the Lord"'], 'Philemon 18'),
+  c('phm06', 3, 'What did Paul ask Philemon to prepare for him?', 'A lodging', ['A feast', 'A letter', 'A ship'], 'Philemon 22'),
+  c('phm07', 4, 'Paul describes himself as "such an one as Paul the…"', 'Aged', ['Apostle', 'Least', 'Prisoner of Rome'], 'Philemon 9', '"…and now also a prisoner of Jesus Christ" follows.'),
+  // Leg 2
+  c('phm08', 4, 'In whose house did a church meet, according to this letter?', "Philemon's", ["Paul's", "Apphia's", "Nymphas'"], 'Philemon 2'),
+  c('phm09', 4, 'Whom does Paul call "our fellowsoldier"?', 'Archippus', ['Epaphras', 'Demas', 'Aristarchus'], 'Philemon 2'),
+  c('phm10', 4, 'Which woman is greeted in the opening of Philemon?', 'Apphia', ['Priscilla', 'Phebe', 'Lydia'], 'Philemon 2'),
+  c('phm11', 5, '"Epaphras, my ___ in Christ Jesus."', 'Fellowprisoner', ['Fellowservant', 'Fellowsoldier', 'Fellowlabourer'], 'Philemon 23'),
+  c('phm12', 5, 'Which of these is NOT named among Paul\'s fellowlabourers in Philemon?', 'Titus', ['Marcus', 'Demas', 'Lucas'], 'Philemon 24', 'Aristarchus is the fourth.'),
+  c('phm13', 5, '"I Paul have written it with mine own…"', 'Hand', ['Pen', 'Heart', 'Ink'], 'Philemon 19'),
+  c('phm14', 5, 'Paul reminds Philemon that he owes Paul "even thine own…"', 'Self', ['Life', 'House', 'Faith'], 'Philemon 19'),
+  // Leg 3
+  c('phm15', 5, 'Paul says he begat Onesimus "in my…"', 'Bonds', ['Old age', 'Travels', 'Prayers'], 'Philemon 10'),
+  c('phm16', 6, 'From which city did Onesimus come?', 'Colosse', ['Ephesus', 'Laodicea', 'Philippi'], 'Colossians 4:9', 'Colossians calls him "one of you".'),
+  c('phm17', 6, 'Paul wanted to keep Onesimus, "that in thy stead he might have ___ unto me".', 'Ministered', ['Written', 'Witnessed', 'Laboured'], 'Philemon 13'),
+  c('phm18', 6, '"Yet for ___ sake I rather beseech thee."', "Love's", ["Christ's", "Peace's", "Mercy's"], 'Philemon 9'),
+  c('phm19', 6, '"Perhaps he therefore departed for a season, that thou shouldest receive him for…"', 'Ever', ['Good', 'Christ', 'A brother'], 'Philemon 15'),
+  c('phm20', 6, '"Refresh my ___ in the Lord."', 'Bowels', ['Spirit', 'Soul', 'Heart'], 'Philemon 20', '"Bowels" here means the inward affections.'),
+  c('phm21', 6, 'Who travelled with Onesimus, carrying Paul\'s letter to Colosse?', 'Tychicus', ['Epaphras', 'Mark', 'Timothy'], 'Colossians 4:7–9'),
+];
+
+export const john2 = [
+  // Leg 1
+  c('2jn01', 2, 'To whom is 2 John addressed?', 'The elect lady and her children', ['Gaius the beloved', 'The seven churches', 'Diotrephes'], '2 John 1', 'Gaius is the reader of 3 John.'),
+  c('2jn02', 2, 'What does the writer of 2 John call himself?', 'The elder', ['The apostle', 'The disciple whom Jesus loved', 'A servant of God'], '2 John 1'),
+  c('2jn03', 3, '"This is love, that we walk after his…"', 'Commandments', ['Spirit', 'Steps', 'Truth'], '2 John 6'),
+  c('2jn04', 3, 'Deceivers "confess not that Jesus Christ is come in the…"', 'Flesh', ['Spirit', 'Glory', 'Clouds'], '2 John 7'),
+  c('2jn05', 3, 'One who does not bring the doctrine of Christ should not be received into your what?', 'House', ['Church', 'Synagogue', 'Fellowship'], '2 John 10'),
+  c('2jn06', 3, '"Receive him not into your house, neither bid him God…"', 'Speed', ['Bless', 'Keep', 'Peace'], '2 John 10'),
+  c('2jn07', 4, 'He that biddeth him God speed "is partaker of his evil…"', 'Deeds', ['Ways', 'Words', 'Doctrine'], '2 John 11'),
+  // Leg 2
+  c('2jn08', 4, 'Why did the elder not write more "with paper and ink"?', 'He hoped to come and speak face to face', ['He had no more paper', 'He was in prison', 'The messenger was leaving'], '2 John 12'),
+  c('2jn09', 4, 'He hoped to come "that our ___ may be full".', 'Joy', ['Love', 'Fellowship', 'Faith'], '2 John 12'),
+  c('2jn10', 4, 'Who send greetings at the end of 2 John?', 'The children of thy elect sister', ['All the saints', 'The church at Ephesus', 'Gaius and Demetrius'], '2 John 13'),
+  c('2jn11', 5, '"I rejoiced greatly that I found of thy children walking in…"', 'Truth', ['Love', 'Light', 'Faith'], '2 John 4'),
+  c('2jn12', 5, '"Look to yourselves, that we lose not those things which we have…"', 'Wrought', ['Received', 'Heard', 'Taught'], '2 John 8'),
+  c('2jn13', 5, 'Whoever abides not in the doctrine of Christ "hath not…"', 'God', ['Life', 'The Spirit', 'Hope'], '2 John 9'),
+  c('2jn14', 5, 'Such a one "is a deceiver and an…"', 'Antichrist', ['Hypocrite', 'Idolater', 'Unbeliever'], '2 John 7'),
+  // Leg 3
+  c('2jn15', 5, 'Not a new commandment, "but that which we had from the…"', 'Beginning', ['Prophets', 'Lord', 'Fathers'], '2 John 5'),
+  c('2jn16', 6, 'How many verses are in 2 John?', 'Thirteen', ['Fourteen', 'Twenty-one', 'Twenty-five'], '2 John', '3 John has fourteen; Jude twenty-five.'),
+  c('2jn17', 6, '"Look to yourselves… that we receive a full…"', 'Reward', ['Joy', 'Measure', 'Crown'], '2 John 8'),
+  c('2jn18', 6, '"He that abideth in the doctrine of Christ, he hath both the Father and the…"', 'Son', ['Spirit', 'Truth', 'Church'], '2 John 9'),
+  c('2jn19', 6, '"Grace be with you, mercy, and peace… in truth and…"', 'Love', ['Spirit', 'Faith', 'Power'], '2 John 3'),
+  c('2jn20', 6, 'The elder loves them in the truth, "and not I only, but also all they that have known the…"', 'Truth', ['Lord', 'Gospel', 'Way'], '2 John 1'),
+  c('2jn21', 6, 'The truth "dwelleth in us, and shall be with us for…"', 'Ever', ['A season', 'Good', 'All generations'], '2 John 2'),
+];
+
+export const john3 = [
+  // Leg 1
+  c('3jn01', 2, 'To whom is 3 John written?', 'Gaius', ['The elect lady', 'Timothy', 'Titus'], '3 John 1'),
+  c('3jn02', 2, 'Who "loveth to have the preeminence"?', 'Diotrephes', ['Demetrius', 'Demas', 'Alexander'], '3 John 9'),
+  c('3jn03', 3, '"I have no greater joy than to hear that my children walk in…"', 'Truth', ['Love', 'Light', 'Peace'], '3 John 4'),
+  c('3jn04', 3, 'Who "hath good report of all men"?', 'Demetrius', ['Diotrephes', 'Gaius', 'Demas'], '3 John 12'),
+  c('3jn05', 3, '"Beloved, follow not that which is evil, but that which is…"', 'Good', ['True', 'Holy', 'Right'], '3 John 11'),
+  c('3jn06', 3, '"I wish above all things that thou mayest prosper and be in…"', 'Health', ['Peace', 'Joy', 'Truth'], '3 John 2'),
+  c('3jn07', 4, '"…be in health, even as thy ___ prospereth."', 'Soul', ['House', 'Church', 'Work'], '3 John 2'),
+  // Leg 2
+  c('3jn08', 4, 'What did Diotrephes do to the brethren?', 'Refused them and cast out those who received them', ['Received them gladly', 'Sent them to the elder', 'Took their money'], '3 John 10'),
+  c('3jn09', 4, 'Diotrephes was "prating against us with malicious…"', 'Words', ['Letters', 'Lies', 'Intent'], '3 John 10'),
+  c('3jn10', 4, 'The travelling brethren "went forth, taking nothing of the…"', 'Gentiles', ['Church', 'Rich', 'Elders'], '3 John 7'),
+  c('3jn11', 5, 'Gaius should bring them forward on their journey "after a godly…"', 'Sort', ['Manner', 'Fashion', 'Order'], '3 John 6'),
+  c('3jn12', 5, 'By receiving such, "we might be fellowhelpers to the…"', 'Truth', ['Gospel', 'Saints', 'Church'], '3 John 8'),
+  c('3jn13', 5, '"He that doeth evil hath not ___ God."', 'Seen', ['Known', 'Loved', 'Heard'], '3 John 11'),
+  c('3jn14', 5, 'How does 3 John end? "Greet the friends by…"', 'Name', ['A holy kiss', 'Letter', 'The elders'], '3 John 14'),
+  // Leg 3
+  c('3jn15', 5, '"Peace be to thee. Our ___ salute thee."', 'Friends', ['Brethren', 'Children', 'Elders'], '3 John 14'),
+  c('3jn16', 6, 'Diotrephes "casteth them out of the…"', 'Church', ['City', 'Synagogue', 'House'], '3 John 10'),
+  c('3jn17', 6, 'How many verses are in 3 John (King James)?', 'Fourteen', ['Thirteen', 'Twenty-one', 'Twenty-five'], '3 John'),
+  c('3jn18', 6, '"I had many things to write, but I will not with ink and ___ write unto thee."', 'Pen', ['Paper', 'Parchment', 'Reed'], '3 John 13', '2 John 12 says "paper and ink".'),
+  c('3jn19', 6, '"Thou doest faithfully whatsoever thou doest to the brethren, and to…"', 'Strangers', ['The poor', 'The saints', 'The elders'], '3 John 5'),
+  c('3jn20', 6, 'Demetrius has good report "of all men, and of the ___ itself".', 'Truth', ['Church', 'Gospel', 'Spirit'], '3 John 12'),
+  c('3jn21', 6, 'Why did the brethren go forth?', '"For his name\'s sake"', ['"To preach in Rome"', '"Because of persecution"', '"To gather an offering"'], '3 John 7'),
+];
+
+export const jude = [
+  // Leg 1
+  c('jud01', 2, 'Jude calls himself the brother of whom?', 'James', ['Peter', 'John', 'Andrew'], 'Jude 1'),
+  c('jud02', 2, '"Earnestly contend for the ___ which was once delivered unto the saints."', 'Faith', ['Truth', 'Gospel', 'Law'], 'Jude 3'),
+  c('jud03', 3, 'Which archangel disputed with the devil about the body of Moses?', 'Michael', ['Gabriel', 'Raphael', 'Uriel'], 'Jude 9'),
+  c('jud04', 3, 'Who prophesied, "Behold, the Lord cometh with ten thousands of his saints"?', 'Enoch', ['Elijah', 'Noah', 'Moses'], 'Jude 14'),
+  c('jud05', 3, 'Enoch is called "the ___ from Adam".', 'Seventh', ['Third', 'Tenth', 'Fifth'], 'Jude 14'),
+  c('jud06', 3, '"Now unto him that is able to keep you from…"', 'Falling', ['Evil', 'Sin', 'Temptation'], 'Jude 24'),
+  c('jud07', 4, 'What did Michael say to the devil?', '"The Lord rebuke thee"', ['"Get thee hence"', '"Thou art judged"', '"It is written"'], 'Jude 9'),
+  // Leg 2
+  c('jud08', 4, '"…and perished in the gainsaying of…"', 'Core', ['Cain', 'Balaam', 'Achan'], 'Jude 11', 'Core is Korah.'),
+  c('jud09', 4, '"Ran greedily after the error of ___ for reward."', 'Balaam', ['Cain', 'Core', 'Gehazi'], 'Jude 11'),
+  c('jud10', 4, '"For they have gone in the way of…"', 'Cain', ['Balaam', 'Core', 'Esau'], 'Jude 11'),
+  c('jud11', 5, '"Clouds they are without water, carried about of…"', 'Winds', ['Storms', 'Tempests', 'Darkness'], 'Jude 12', '2 Peter 2:17 has "carried with a tempest".'),
+  c('jud12', 5, '"Raging waves of the sea, foaming out their own…"', 'Shame', ['Sin', 'Pride', 'Lusts'], 'Jude 13'),
+  c('jud13', 5, '"Wandering stars, to whom is reserved the blackness of ___ for ever."', 'Darkness', ['Night', 'Death', 'The pit'], 'Jude 13'),
+  c('jud14', 5, '"These are spots in your feasts of…"', 'Charity', ['Passover', 'Tabernacles', 'Firstfruits'], 'Jude 12'),
+  // Leg 3
+  o('jud15', 5, 'Put these in the order Jude mentions them:', ['Angels which kept not their first estate', 'Sodom and Gomorrha', 'Michael and the devil', 'The way of Cain'], 'Jude 6; 7; 9; 11'),
+  c('jud16', 6, '"Trees whose fruit withereth, without fruit, twice…"', 'Dead', ['Cut down', 'Burned', 'Cursed'], 'Jude 12'),
+  c('jud17', 6, '"Building up yourselves on your most holy faith, praying in the…"', 'Holy Ghost', ['Name of Jesus', 'Spirit of truth', 'Morning'], 'Jude 20'),
+  c('jud18', 6, 'Some are to be saved with fear, "pulling them out of the…"', 'Fire', ['Pit', 'Mire', 'Snare'], 'Jude 23'),
+  c('jud19', 6, '"Hating even the garment spotted by the…"', 'Flesh', ['World', 'Blood', 'Wicked'], 'Jude 23'),
+  c('jud20', 6, 'The angels are kept in everlasting chains "unto the judgment of the great…"', 'Day', ['White throne', 'King', 'Assembly'], 'Jude 6'),
+  c('jud21', 6, 'After saving the people out of Egypt, whom did the Lord afterward destroy?', 'Them that believed not', ['The Canaanites', 'The Philistines', 'The priests of Baal'], 'Jude 5'),
+];
