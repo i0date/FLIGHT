@@ -269,3 +269,57 @@ export const ezra = [
   c('ezr20', 6, 'Which feast did the returned exiles keep after the temple was dedicated?', 'The passover', ['Purim', 'Pentecost', 'The day of atonement'], 'Ezra 6:16–19'),
   c('ezr21', 6, 'Within how many days were all the men of Judah to gather to Jerusalem over the foreign wives?', 'Three', ['Seven', 'Ten', 'Forty'], 'Ezra 10:7–9'),
 ];
+
+export const chronicles1 = [
+  // Leg 1
+  c('1ch01', 2, 'With which name do the genealogies of 1 Chronicles begin?', 'Adam', ['Abraham', 'Noah', 'Jacob'], '1 Chronicles 1:1'),
+  c('1ch02', 2, 'Who prayed, "Oh that thou wouldest bless me indeed, and enlarge my coast"?', 'Jabez', ['Jephthah', 'Jehoshaphat', 'Jethro'], '1 Chronicles 4:10'),
+  c('1ch03', 3, 'Why was Jabez given his name?', 'His mother bare him with sorrow', ['He was born at Jabesh', 'He was born in a year of jubilee', 'His father died before he was born'], '1 Chronicles 4:9'),
+  c('1ch04', 3, 'Why was David not allowed to build the temple?', 'He had been a man of war and shed blood', ['He was too old', 'He had numbered the people', 'The ark was not yet in Jerusalem'], '1 Chronicles 22:8; 28:3'),
+  c('1ch05', 3, 'How does 1 Chronicles say Saul died?', 'He fell upon his own sword', ['He was slain by David\'s men', 'He was killed by an Amalekite', 'He was stoned by the Philistines'], '1 Chronicles 10:4–5', 'An Amalekite later claimed to have killed him (2 Samuel 1:10).'),
+  c('1ch06', 3, "Who was David's eldest brother?", 'Eliab', ['Abinadab', 'Shimma', 'Nethaneel'], '1 Chronicles 2:13–15'),
+  c('1ch07', 4, 'In 1 Chronicles, whose threshingfloor did David buy for the altar?', 'Ornan the Jebusite', ['Obed-edom the Gittite', 'Boaz of Bethlehem', 'Nabal of Carmel'], '1 Chronicles 21:18–25', '2 Samuel 24 calls him Araunah.'),
+  // Leg 2
+  c('1ch08', 4, 'According to 1 Chronicles, who provoked David to number Israel?', 'Satan', ['Joab', 'Gad', 'Ahithophel'], '1 Chronicles 21:1'),
+  c('1ch09', 4, 'How many years did David reign over Israel in all?', 'Forty', ['Thirty-three', 'Fifty', 'Seven'], '1 Chronicles 29:27'),
+  c('1ch10', 4, 'Into how many courses did David divide the priests?', 'Twenty-four', ['Twelve', 'Seven', 'Forty'], '1 Chronicles 24:1–18'),
+  c('1ch11', 5, 'Which Levite was "instructed about the song, because he was skilful"?', 'Chenaniah', ['Asaph', 'Heman', 'Jeduthun'], '1 Chronicles 15:22'),
+  c('1ch12', 5, 'How much gold had David prepared for the house of the LORD?', 'A hundred thousand talents', ['Ten thousand talents', 'A thousand talents', 'Six hundred and sixty-six talents'], '1 Chronicles 22:14', "666 talents was Solomon's yearly gold (2 Chronicles 9:13)."),
+  c('1ch13', 5, 'The men of which tribe "had understanding of the times"?', 'Issachar', ['Zebulun', 'Levi', 'Benjamin'], '1 Chronicles 12:32'),
+  c('1ch14', 5, 'The Gadites who joined David had faces like the faces of what?', 'Lions', ['Eagles', 'Oxen', 'Angels'], '1 Chronicles 12:8'),
+  // Leg 3
+  c('1ch15', 5, 'When the ark came to Jerusalem, into whose hand did David first deliver a psalm of thanks?', 'Asaph and his brethren', ['Nathan the prophet', 'Zadok the priest', 'Gad the seer'], '1 Chronicles 16:7'),
+  c('1ch16', 6, 'In 1 Chronicles, at whose threshingfloor did Uzza put out his hand to the ark?', 'Chidon', ['Nachon', 'Ornan', 'Atad'], '1 Chronicles 13:9', '2 Samuel 6:6 calls it Nachon\'s.'),
+  c('1ch17', 6, "Who was Israel's firstborn, whose birthright was given to the sons of Joseph?", 'Reuben', ['Judah', 'Simeon', 'Levi'], '1 Chronicles 5:1–2'),
+  c('1ch18', 6, 'Which of David\'s mighty men slew a lion in a pit in a snowy day?', 'Benaiah', ['Abishai', 'Jashobeam', 'Eleazar'], '1 Chronicles 11:22'),
+  c('1ch19', 6, 'What did David do with the water his three mighty men brought from the well of Bethlehem?', 'Poured it out to the LORD', ['Drank it with thanksgiving', 'Gave it to the three', 'Sprinkled it on the altar'], '1 Chronicles 11:17–19'),
+  c('1ch20', 6, "Which three are named as writing down the acts of David?", 'Samuel, Nathan and Gad', ['Samuel, Nathan and Asaph', 'Gad, Iddo and Ahijah', 'Nathan, Ahijah and Iddo'], '1 Chronicles 29:29', "Nathan, Ahijah and Iddo recorded Solomon's acts (2 Chronicles 9:29)."),
+  c('1ch21', 6, 'Who prayed, "Thine, O LORD, is the greatness, and the power, and the glory"?', 'David', ['Solomon', 'Hezekiah', 'Jehoshaphat'], '1 Chronicles 29:10–11'),
+];
+
+export const chronicles2 = [
+  // Leg 1
+  c('2ch01', 2, 'What did Solomon ask God for at Gibeon?', 'Wisdom and knowledge', ['Riches and honour', 'Long life', 'Victory over his enemies'], '2 Chronicles 1:7–12'),
+  c('2ch02', 2, 'What filled the house of the LORD when the ark was brought in?', 'A cloud', ['Smoke', 'A great light', 'A mighty wind'], '2 Chronicles 5:13–14'),
+  c('2ch03', 3, '"If my people… shall humble themselves, and pray… then will I… forgive their sin, and will heal their…"', 'Land', ['Hearts', 'Sick', 'Nation'], '2 Chronicles 7:14'),
+  c('2ch04', 3, 'What came down when Solomon finished praying?', 'Fire from heaven', ['Manna', 'A dove', 'Rain'], '2 Chronicles 7:1'),
+  c('2ch05', 3, 'Which king was struck with leprosy for burning incense in the temple?', 'Uzziah', ['Ahaz', 'Jotham', 'Asa'], '2 Chronicles 26:16–19'),
+  c('2ch06', 3, 'Which king prayed, "We know not what to do: but our eyes are upon thee"?', 'Jehoshaphat', ['Hezekiah', 'Asa', 'Josiah'], '2 Chronicles 20:12'),
+  c('2ch07', 4, 'Which wicked king humbled himself as a captive in Babylon and was restored?', 'Manasseh', ['Jehoiachin', 'Zedekiah', 'Amon'], '2 Chronicles 33:11–13'),
+  // Leg 2
+  c('2ch08', 4, "Who went out before Jehoshaphat's army?", 'Singers praising the beauty of holiness', ['The ark of God', 'Levites with drawn swords', 'A pillar of fire'], '2 Chronicles 20:21–22'),
+  c('2ch09', 4, 'In his disease, Asa "sought not to the LORD, but to the…"', 'Physicians', ['Wizards', 'Prophets of Baal', 'Egyptians'], '2 Chronicles 16:12'),
+  c('2ch10', 4, 'Whose proclamation closes 2 Chronicles?', 'Cyrus king of Persia', ['Darius the Mede', 'Nebuchadnezzar', 'Artaxerxes'], '2 Chronicles 36:22–23'),
+  c('2ch11', 5, 'Which priest brought out the young Joash and crowned him king?', 'Jehoiada', ['Zechariah', 'Hilkiah', 'Azariah'], '2 Chronicles 22:11; 23:11', 'Jehoshabeath, the wife of Jehoiada, had hidden him for six years.'),
+  c('2ch12', 5, 'Which king commanded Zechariah the son of Jehoiada to be stoned?', 'Joash', ['Amaziah', 'Ahaz', 'Manasseh'], '2 Chronicles 24:20–22'),
+  c('2ch13', 5, 'In which month did Hezekiah keep his great passover?', 'The second month', ['The first month', 'The seventh month', 'The twelfth month'], '2 Chronicles 30:2, 13'),
+  c('2ch14', 5, 'Which Pharaoh fought Josiah at Megiddo?', 'Necho', ['Shishak', 'So', 'Hophra'], '2 Chronicles 35:20–24', 'Shishak came up against Rehoboam (12:2).'),
+  // Leg 3
+  o('2ch15', 5, 'Put these events from 2 Chronicles in order:', ['Solomon dedicates the temple', 'The kingdom divides', 'Uzziah is struck with leprosy', "Hezekiah's passover"], '2 Chronicles 7; 10; 26; 30'),
+  c('2ch16', 6, 'On which mount did Solomon build the house of the LORD?', 'Moriah', ['Olivet', 'Gerizim', 'Carmel'], '2 Chronicles 3:1'),
+  c('2ch17', 6, 'The land lay desolate "to fulfil the word of the LORD by the mouth of" which prophet?', 'Jeremiah', ['Isaiah', 'Ezekiel', 'Daniel'], '2 Chronicles 36:21'),
+  c('2ch18', 6, 'Who found the book of the law of the LORD in the temple?', 'Hilkiah the priest', ['Shaphan the scribe', 'Huldah the prophetess', 'Jehoiada the priest'], '2 Chronicles 34:14–15', 'Hilkiah gave it to Shaphan, who read it to the king.'),
+  c('2ch19', 6, 'Asa removed his mother from being queen because she made an idol in a grove. Who was she?', 'Maachah', ['Athaliah', 'Jezebel', 'Hamutal'], '2 Chronicles 15:16'),
+  c('2ch20', 6, 'Which prophet sent a writing to King Jehoram of Judah?', 'Elijah', ['Elisha', 'Isaiah', 'Micaiah'], '2 Chronicles 21:12'),
+  c('2ch21', 6, 'How did King Jehoram of Judah die?', 'His bowels fell out by an incurable disease', ['He was struck with leprosy', 'He was slain by an arrow', 'He was eaten of worms'], '2 Chronicles 21:18–20', 'He "departed without being desired".'),
+];

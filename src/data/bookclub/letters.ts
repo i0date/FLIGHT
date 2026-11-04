@@ -404,3 +404,57 @@ export const timothy2 = [
   c('2ti20', 6, '"God hath not given us the spirit of fear; but of power, and of love, and of a sound…"', 'Mind', ['Heart', 'Faith', 'Judgment'], '2 Timothy 1:7'),
   c('2ti21', 6, 'Where did Paul send Tychicus?', 'Ephesus', ['Crete', 'Thessalonica', 'Dalmatia'], '2 Timothy 4:12', 'Demas went to Thessalonica; Titus to Dalmatia.'),
 ];
+
+export const titus = [
+  // Leg 1
+  c('tit01', 2, 'Where did Paul leave Titus?', 'Crete', ['Ephesus', 'Corinth', 'Cyprus'], 'Titus 1:5'),
+  c('tit02', 2, '"Unto the pure all things are…"', 'Pure', ['Lawful', 'Holy', 'Good'], 'Titus 1:15'),
+  c('tit03', 3, '"The Cretians are alway liars, evil beasts, slow…"', 'Bellies', ['Hearts', 'Tongues', 'Minds'], 'Titus 1:12'),
+  c('tit04', 3, 'Who said "The Cretians are alway liars"?', 'A prophet of their own', ['Paul himself', 'Titus', 'Apollos'], 'Titus 1:12'),
+  c('tit05', 3, '"Looking for that blessed ___, and the glorious appearing of the great God."', 'Hope', ['Day', 'Kingdom', 'Rest'], 'Titus 2:13'),
+  c('tit06', 3, 'He saved us "by the washing of regeneration, and renewing of the…"', 'Holy Ghost', ['Mind', 'Covenant', 'Heart'], 'Titus 3:5'),
+  c('tit07', 4, 'Where did Paul plan to spend the winter?', 'Nicopolis', ['Troas', 'Miletum', 'Philippi'], 'Titus 3:12'),
+  // Leg 2
+  c('tit08', 4, '"Not by works of righteousness which we have done, but according to his ___ he saved us."', 'Mercy', ['Grace', 'Will', 'Love'], 'Titus 3:5'),
+  c('tit09', 4, 'When should a heretic be rejected?', 'After the first and second admonition', ['After the third admonition', 'After seven warnings', 'At once'], 'Titus 3:10'),
+  c('tit10', 4, 'Who was the lawyer that Titus was to bring on his journey with Apollos?', 'Zenas', ['Tertullus', 'Gamaliel', 'Erastus'], 'Titus 3:13'),
+  c('tit11', 5, 'Whom did Paul say he would send to Titus?', 'Artemas or Tychicus', ['Timothy or Luke', 'Demas or Mark', 'Zenas or Apollos'], 'Titus 3:12'),
+  c('tit12', 5, '"Avoid foolish questions, and genealogies, and contentions, and strivings about the…"', 'Law', ['Sabbath', 'Temple', 'Fathers'], 'Titus 3:9'),
+  c('tit13', 5, 'Titus was to "ordain elders in every…"', 'City', ['Church', 'House', 'Island'], 'Titus 1:5'),
+  c('tit14', 5, 'A bishop must be "not given to ___ lucre".', 'Filthy', ['Great', 'Worldly', 'Vain'], 'Titus 1:7'),
+  // Leg 3
+  c('tit15', 5, 'Christ gave himself to purify "a peculiar people, zealous of good…"', 'Works', ['Doctrine', 'Things', 'Report'], 'Titus 2:14'),
+  c('tit16', 6, 'Eternal life was promised by God, "that cannot lie", before the world…', 'Began', ['Was made', 'Was', 'Fell'], 'Titus 1:2'),
+  c('tit17', 6, 'Servants should show good fidelity, "that they may ___ the doctrine of God our Saviour".', 'Adorn', ['Keep', 'Defend', 'Teach'], 'Titus 2:10'),
+  c('tit18', 6, 'Paul calls Titus "mine own son after the common…"', 'Faith', ['Salvation', 'Hope', 'Grace'], 'Titus 1:4'),
+  c('tit19', 6, 'Titus was to rebuke those giving heed to "Jewish…"', 'Fables', ['Traditions', 'Genealogies', 'Teachers'], 'Titus 1:14'),
+  c('tit20', 6, '"The grace of God that bringeth salvation hath appeared to all…"', 'Men', ['Nations', 'Israel', 'The world'], 'Titus 2:11'),
+  c('tit21', 6, '"Being justified by his grace, we should be made ___ according to the hope of eternal life."', 'Heirs', ['Sons', 'Saints', 'Kings'], 'Titus 3:7'),
+];
+
+export const peter2 = [
+  // Leg 1
+  c('2pe01', 2, '"One day is with the Lord as a thousand…"', 'Years', ['Ages', 'Generations', 'Days'], '2 Peter 3:8'),
+  c('2pe02', 2, '"The Lord is not slack concerning his…"', 'Promise', ['Judgment', 'Coming', 'Word'], '2 Peter 3:9'),
+  c('2pe03', 3, 'Where did Peter hear the voice from heaven with Christ?', 'In the holy mount', ['By the sea of Galilee', 'In the temple', 'In the garden'], '2 Peter 1:17–18'),
+  c('2pe04', 3, '"The day of the Lord will come as a ___ in the night."', 'Thief', ['Fire', 'Storm', 'Trumpet'], '2 Peter 3:10'),
+  c('2pe05', 3, 'Whose ass spoke "with man\'s voice" to forbid his madness?', 'Balaam', ['Balak', 'Abraham', 'Saul'], '2 Peter 2:15–16'),
+  c('2pe06', 3, '"Holy men of God spake as they were moved by the…"', 'Holy Ghost', ['Angels', 'Law', 'Prophets'], '2 Peter 1:21'),
+  c('2pe07', 4, 'Whom does Peter call "a preacher of righteousness"?', 'Noah', ['Enoch', 'Lot', 'Abraham'], '2 Peter 2:5'),
+  // Leg 2
+  c('2pe08', 4, 'Which "just" man was "vexed with the filthy conversation of the wicked"?', 'Lot', ['Noah', 'Abraham', 'Job'], '2 Peter 2:7'),
+  c('2pe09', 4, '"The sow that was washed to her wallowing in the…"', 'Mire', ['Dust', 'Pit', 'Field'], '2 Peter 2:22'),
+  c('2pe10', 4, 'Peter knew he must shortly "put off this my…"', 'Tabernacle', ['Garment', 'Burden', 'Ministry'], '2 Peter 1:14'),
+  c('2pe11', 5, "Paul's letters contain \"some things hard to be…\"", 'Understood', ['Believed', 'Borne', 'Spoken'], '2 Peter 3:16'),
+  c('2pe12', 5, 'In 2 Peter, Balaam is called the son of whom?', 'Bosor', ['Zippor', 'Peor', 'Balak'], '2 Peter 2:15', 'Numbers 22:5 spells it Beor.'),
+  c('2pe13', 5, 'The angels that sinned were delivered "into chains of…"', 'Darkness', ['Iron', 'Fire', 'Judgment'], '2 Peter 2:4'),
+  c('2pe14', 5, '"Add to your faith virtue; and to virtue…"', 'Knowledge', ['Patience', 'Temperance', 'Charity'], '2 Peter 1:5'),
+  // Leg 3
+  o('2pe15', 5, 'Put these in the order Peter adds them to faith:', ['Virtue', 'Knowledge', 'Temperance', 'Patience'], '2 Peter 1:5–6'),
+  c('2pe16', 6, 'What is the last grace in the list of 2 Peter 1:5–7?', 'Charity', ['Godliness', 'Brotherly kindness', 'Patience'], '2 Peter 1:7'),
+  c('2pe17', 6, '"We have also a more sure word of…"', 'Prophecy', ['Promise', 'Testimony', 'Truth'], '2 Peter 1:19'),
+  c('2pe18', 6, '"Until the day dawn, and the ___ arise in your hearts."', 'Day star', ['Sun', 'Light', 'Morning'], '2 Peter 1:19'),
+  c('2pe19', 6, '"The elements shall melt with fervent…"', 'Heat', ['Fire', 'Wrath', 'Noise'], '2 Peter 3:10'),
+  c('2pe20', 6, '"New heavens and a new earth, wherein dwelleth…"', 'Righteousness', ['Peace', 'Glory', 'The Lamb'], '2 Peter 3:13'),
+  c('2pe21', 6, 'False teachers are "wells without water, clouds that are carried with a…"', 'Tempest', ['Wind', 'Whirlwind', 'Flood'], '2 Peter 2:17', 'Jude 12 has "clouds… carried about of winds".'),
+];

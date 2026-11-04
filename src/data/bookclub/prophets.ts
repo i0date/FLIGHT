@@ -242,3 +242,57 @@ export const malachi = [
   c('mal20', 6, '"Ye have wearied the LORD… when ye say… Where is the God of…"', 'Judgment', ['Israel', 'Mercy', 'Our fathers'], 'Malachi 2:17'),
   c('mal21', 6, 'In the King James Old Testament, what is the very last word?', 'Curse', ['Amen', 'Elijah', 'LORD'], 'Malachi 4:6'),
 ];
+
+export const joel = [
+  // Leg 1
+  c('joe01', 2, 'What plague opens the book of Joel?', 'Locusts and other insects devouring the land', ['Frogs', 'Hail', 'Boils'], 'Joel 1:4'),
+  c('joe02', 2, '"I will pour out my spirit upon all…"', 'Flesh', ['Nations', 'Israel', 'Believers'], 'Joel 2:28'),
+  c('joe03', 3, 'Who quoted Joel on the day of Pentecost?', 'Peter', ['Paul', 'Stephen', 'James'], 'Acts 2:14–21'),
+  c('joe04', 3, '"Rend your heart, and not your…"', 'Garments', ['Hands', 'Tents', 'Altars'], 'Joel 2:13'),
+  c('joe05', 3, '"Your old men shall dream dreams, your young men shall see…"', 'Visions', ['Signs', 'Wonders', 'Angels'], 'Joel 2:28'),
+  c('joe06', 3, 'In Joel, whosoever calls on the name of the LORD "shall be…"', 'Delivered', ['Blessed', 'Healed', 'Heard'], 'Joel 2:32', 'Paul quotes it in Romans 10:13 as "shall be saved".'),
+  c('joe07', 4, "Who was Joel's father?", 'Pethuel', ['Beeri', 'Amoz', 'Buzi'], 'Joel 1:1'),
+  // Leg 2
+  c('joe08', 4, '"Beat your plowshares into…"', 'Swords', ['Pruninghooks', 'Spears', 'Shields'], 'Joel 3:10', 'The reverse of Isaiah 2:4 and Micah 4:3.'),
+  c('joe09', 4, '"I will restore to you the years that the ___ hath eaten."', 'Locust', ['Moth', 'Sword', 'Enemy'], 'Joel 2:25'),
+  c('joe10', 4, 'In which valley will the LORD gather and judge all nations?', 'The valley of Jehoshaphat', ['The valley of Hinnom', 'The valley of Achor', 'The valley of Elah'], 'Joel 3:2, 12'),
+  c('joe11', 5, '"Multitudes, multitudes in the valley of…"', 'Decision', ['Judgment', 'Dry bones', 'Weeping'], 'Joel 3:14'),
+  c('joe12', 5, '"The sun shall be turned into darkness, and the moon into…"', 'Blood', ['Sackcloth', 'Fire', 'Ashes'], 'Joel 2:31'),
+  c('joe13', 5, '"Let the weak say, I am…"', 'Strong', ['Healed', 'Free', 'Saved'], 'Joel 3:10'),
+  c('joe14', 5, '"The day of the LORD is great and very terrible; and who can…"', '"abide it?"', ['"escape it?"', '"stand before it?"', '"declare it?"'], 'Joel 2:11'),
+  // Leg 3
+  o('joe15', 5, 'Put the devourers of Joel 1:4 in order:', ['Palmerworm', 'Locust', 'Cankerworm', 'Caterpiller'], 'Joel 1:4'),
+  c('joe16', 6, '"Blow the trumpet in Zion, sanctify a…"', 'Fast', ['Feast', 'Priest', 'Sabbath'], 'Joel 2:15'),
+  c('joe17', 6, 'Let the priests weep "between the porch and the…"', 'Altar', ['Veil', 'Laver', 'Gate'], 'Joel 2:17'),
+  c('joe18', 6, 'A fountain from the house of the LORD "shall water the valley of…"', 'Shittim', ['Kidron', 'Achor', 'Jezreel'], 'Joel 3:18'),
+  c('joe19', 6, 'Which cities sold the children of Judah to the Grecians?', 'Tyre and Zidon', ['Edom and Moab', 'Gaza and Ashdod', 'Damascus and Hamath'], 'Joel 3:4–6'),
+  c('joe20', 6, 'The nations "sold a girl for…"', 'Wine', ['Bread', 'Silver', 'A pair of shoes'], 'Joel 3:3', 'Selling the poor for a pair of shoes is Amos 2:6.'),
+  c('joe21', 6, '"Egypt shall be a desolation, and ___ shall be a desolate wilderness."', 'Edom', ['Moab', 'Assyria', 'Philistia'], 'Joel 3:19'),
+];
+
+export const zechariah = [
+  // Leg 1
+  c('zec01', 2, '"Not by might, nor by power, but by my…"', 'Spirit', ['Word', 'Hand', 'Name'], 'Zechariah 4:6'),
+  c('zec02', 2, 'Zion\'s King comes "lowly, and riding upon…"', 'An ass', ['A white horse', 'A chariot', 'A cloud'], 'Zechariah 9:9'),
+  c('zec03', 3, 'What price was weighed out for the shepherd\'s wages?', 'Thirty pieces of silver', ['Twenty pieces of silver', 'Fifty shekels', 'A talent of silver'], 'Zechariah 11:12'),
+  c('zec04', 3, 'Which prophet worked alongside Zechariah to stir up the temple building?', 'Haggai', ['Malachi', 'Daniel', 'Ezekiel'], 'Ezra 5:1'),
+  c('zec05', 3, '"Smite the shepherd, and the sheep shall be…"', 'Scattered', ['Lost', 'Slain', 'Afraid'], 'Zechariah 13:7; Matthew 26:31'),
+  c('zec06', 3, 'To whom was "Not by might, nor by power" spoken?', 'Zerubbabel', ['Joshua the high priest', 'Haggai', 'Darius'], 'Zechariah 4:6'),
+  c('zec07', 4, 'To whom were the thirty pieces of silver cast?', 'The potter', ['The priests', 'The poor', 'The money changers'], 'Zechariah 11:13; Matthew 27:7–10'),
+  // Leg 2
+  c('zec08', 4, 'Among which trees did the man on the red horse stand?', 'Myrtle trees', ['Olive trees', 'Palm trees', 'Fig trees'], 'Zechariah 1:8'),
+  c('zec09', 4, 'What stood between the two olive trees in the vision?', 'A candlestick all of gold', ['An altar of brass', 'The ark of the covenant', 'A throne of ivory'], 'Zechariah 4:2–3'),
+  c('zec10', 4, 'Who stood at the right hand of Joshua the high priest to resist him?', 'Satan', ['The Branch', 'Zerubbabel', 'The angel of the LORD'], 'Zechariah 3:1'),
+  c('zec11', 5, '"They shall look upon me whom they have…"', 'Pierced', ['Rejected', 'Sold', 'Forsaken'], 'Zechariah 12:10; John 19:37'),
+  c('zec12', 5, 'How large was the flying roll?', 'Twenty cubits by ten', ['Ten cubits by five', 'Thirty cubits by twenty', 'Twelve cubits by twelve'], 'Zechariah 5:2'),
+  c('zec13', 5, 'The woman sitting in the ephah was called what?', 'Wickedness', ['Folly', 'Babylon', 'Jezebel'], 'Zechariah 5:7–8'),
+  c('zec14', 5, 'What did the shepherd name his two staves?', 'Beauty and Bands', ['Mercy and Truth', 'Jachin and Boaz', 'Grace and Peace'], 'Zechariah 11:7'),
+  // Leg 3
+  c('zec15', 5, '"For who hath despised the day of small…"', 'Things', ['Beginnings', 'Numbers', 'Men'], 'Zechariah 4:10'),
+  c('zec16', 6, "Who was Zechariah's father?", 'Berechiah', ['Buzi', 'Hilkiah', 'Amoz'], 'Zechariah 1:1', 'Zechariah was the grandson of Iddo.'),
+  c('zec17', 6, 'Which mount shall "cleave in the midst thereof" when the LORD\'s feet stand on it?', 'The mount of Olives', ['Mount Zion', 'Mount Moriah', 'Mount Carmel'], 'Zechariah 14:4'),
+  c('zec18', 6, 'In that day, "HOLINESS UNTO THE LORD" will be written upon what?', 'The bells of the horses', ['The gates of the city', 'The foreheads of the priests', 'The walls of Jerusalem'], 'Zechariah 14:20'),
+  c('zec19', 6, 'When Joshua\'s filthy garments were taken away, what was set upon his head?', 'A fair mitre', ['A crown of gold', 'A garland', 'Ashes'], 'Zechariah 3:4–5'),
+  c('zec20', 6, 'Upon whose head were the crowns set, with the words "Behold the man whose name is The BRANCH"?', 'Joshua the high priest', ['Zerubbabel', 'Zechariah', 'Darius'], 'Zechariah 6:11–12'),
+  c('zec21', 6, 'Zechariah recalls people fleeing an earthquake in the days of which king?', 'Uzziah', ['Hezekiah', 'Ahab', 'Josiah'], 'Zechariah 14:5; Amos 1:1'),
+];
