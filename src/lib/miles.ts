@@ -5,14 +5,18 @@ import type { Profile } from './profile';
 export const MILES = {
   perDailyFlight: 250,
   perDailyCorrect: 100,
-  perBookRoute: 500,
-  perBookCorrect: 200,
+  perBookLeg: 300,
+  perBookCorrect: 150,
+  perStampEarned: 1_500,
   perBestStreakDay: 50,
 };
 
 export function milesFor(p: Profile): number {
   const daily = Object.values(p.daily).reduce((sum, score) => sum + MILES.perDailyFlight + score * MILES.perDailyCorrect, 0);
-  const book = Object.values(p.bookClub).reduce((sum, r) => sum + MILES.perBookRoute + r.best * MILES.perBookCorrect, 0);
+  const book = Object.values(p.bookClub).reduce(
+    (sum, r) => sum + r.legs.reduce<number>((s, l) => s + (l === null ? 0 : MILES.perBookLeg + l * MILES.perBookCorrect), 0) + (r.earnedAt ? MILES.perStampEarned : 0),
+    0,
+  );
   return daily + book + p.bestStreak * MILES.perBestStreakDay;
 }
 
@@ -31,7 +35,7 @@ export function tierFor(miles: number) {
 // Visas: book visas need stamps (Flight Club); streak visas are free for everyone.
 type Visa = { id: string; name: string; detail: string; earned: (p: Profile) => boolean; needsStamps: boolean };
 const sectionDone = (p: Profile, sections: string[]) =>
-  books.filter((b) => sections.includes(b.section)).every((b) => p.premium && p.bookClub[b.id]);
+  books.filter((b) => sections.includes(b.section)).every((b) => p.premium && p.bookClub[b.id]?.earnedAt);
 
 export const VISAS: Visa[] = [
   { id: 'streak7', name: 'Week Flyer', detail: '7-day streak', earned: (p) => p.bestStreak >= 7, needsStamps: false },
@@ -42,5 +46,5 @@ export const VISAS: Visa[] = [
   { id: 'wisdom', name: 'Wisdom', detail: 'Stamp Job to Song of Solomon', earned: (p) => sectionDone(p, ['Poetry & Wisdom']), needsStamps: true },
   { id: 'prophets', name: 'Prophets', detail: 'Stamp all 17 prophets', earned: (p) => sectionDone(p, ['Major Prophets', 'Minor Prophets']), needsStamps: true },
   { id: 'paul', name: "Paul's Letters", detail: 'Stamp Romans to Philemon', earned: (p) => sectionDone(p, ["Paul's Letters"]), needsStamps: true },
-  { id: 'canon', name: 'Whole Canon', detail: 'Stamp all 66 books', earned: (p) => books.every((b) => p.premium && p.bookClub[b.id]), needsStamps: true },
+  { id: 'canon', name: 'Whole Canon', detail: 'Stamp all 66 books', earned: (p) => books.every((b) => p.premium && p.bookClub[b.id]?.earnedAt), needsStamps: true },
 ];

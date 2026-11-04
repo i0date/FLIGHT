@@ -13,7 +13,7 @@ npm run dev
 | --- | --- |
 | **Daily Flight**: 10 questions a day that climb from level 1 to level 6. Everyone gets the same 10 for the date. | `src/screens/Daily.tsx`, bank in `src/data/dailyQuestions.ts` (levels 1–2) and `src/data/dailyHarder.ts` (levels 3–6) |
 | **Streaks**: playing on consecutive days builds the streak; missing a day resets it. | `src/lib/profile.tsx` (`recordDaily`, `liveStreak`) |
-| **Book Club**: join the book you're studying and take 5 questions at levels 3, 4, 5, 6, 6. Stamping the passport is a Flight Club perk; free players' completed books are stamped when they join. | `src/screens/BookClub.tsx`, questions in `src/data/bookClubQuestions.ts` |
+| **Book Club**: join the book you're studying. Each book has 21 questions flown as 3 legs of 7 (Departure, Cruise, Final approach), each harder than the last. Score 15 of 21 to earn the book's stamp; legs can be re-flown and the best score counts. Putting stamps in the passport is a Flight Club perk. | `src/screens/BookClub.tsx`, questions in `src/data/bookclub/` |
 | **Flight Club (paid)**: passport stamps, private leaderboards and a weekly streak shield. Plans: individual, family and church/group. | `src/screens/Premium.tsx`, `src/screens/Leaderboard.tsx` |
 | **Game gates**: the list of games on the home screen. | `src/games/registry.ts` |
 
@@ -34,7 +34,7 @@ Questions are either multiple choice (`a` + `wrong`) or put-in-order (`kind: 'or
 
 **Daily questions:** add an entry with a `level`. Each day needs at least 2 questions at every level from 3 to 6, so keep every level well stocked. Put the correct answer in `a` and three wrong ones in `wrong`. Options are shuffled for you. Always include `ref`.
 
-**A Book Club book:** add a 5-question array under the book's id (see `src/data/books.ts`) in `bookClubQuestions.ts`, at levels 3, 4, 5, 6, 6. The book unlocks automatically. 12 of 66 books are written so far: Genesis, Exodus, Ruth, Esther, Daniel, Jonah, Mark, John, Acts, Romans, Philippians and James.
+**A Book Club book:** write 21 questions in `src/data/bookclub/` (questions 1–7 are leg 1, 8–14 leg 2, 15–21 leg 3, with levels never going down), then add the book to `bookClubQuestions.ts`. It unlocks automatically. 12 of 66 books are written so far: Genesis, Exodus, Ruth, Esther, Daniel, Jonah, Mark, John, Acts, Romans, Philippians and James.
 
 **A new game (e.g. the crossword):**
 1. Build `src/screens/Crossword.tsx`.
@@ -50,10 +50,16 @@ Sign-in is by email code (no passwords). Each account gets a passport with a pas
 - Sign-in email: `supabase/templates/magic_link.html`.
 - Settings: copy `.env.example` to `.env.local` and fill in the project URL and anon key. Without them the app runs in device-only mode.
 
-**Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 500 per Book Club route plus 200 per correct answer, and 50 per day of your best streak. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
+**Frequent Flyer miles** come from what you've flown (`src/lib/miles.ts`): 250 per daily flight plus 100 per correct answer, 300 per Book Club leg plus 150 per correct answer, 1,500 per stamp earned, and 50 per day of your best streak. Status: Blue, Silver (5,000), Gold (20,000), Platinum (50,000).
+
+## Payments (Stripe)
+
+Flight Club plans: Individual, Family (6 seats) and Church & groups (30 seats), monthly or yearly, priced in USD with a CAD option. The server code is in `api/`: checkout, the Stripe webhook (the only thing that writes memberships), the billing page, and joining or leaving a plan by invite code.
+
+To switch payments on, create a Stripe account and run `npm run setup:payments`. Until then the plans are shown and checkout says "opening soon".
 
 ## Not wired up yet
 
 - **Shared leaderboards.** Accounts exist, but the leaderboard still shows sample travellers, and crews are not shared yet.
 - **Google and Apple sign-in.** These need a Google Cloud and an Apple Developer setup.
-- **Payments.** "Upgrade" is a demo toggle. Use Stripe on the web, or App Store / Play Store in-app purchases if this ships as a phone app (e.g. via Capacitor).
+- **Stripe keys.** Payments are built but switched off until `npm run setup:payments` is run. A phone-app version would need App Store / Play Store in-app purchases.

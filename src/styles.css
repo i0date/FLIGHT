@@ -310,3 +310,13 @@ main { padding-bottom: 96px; }
 .log { background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
 .log-row { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; padding: 10px 12px; font-size: 13px; border-top: 1px solid var(--line); }
 .log-row:first-child { border-top: 0; }
+
+/* Book Club legs */
+.leg-total { display: flex; flex-direction: column; gap: 6px; }
+.legs { display: flex; flex-direction: column; gap: 10px; }
+.leg { display: flex; align-items: center; gap: 12px; padding: 14px; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+.leg-num { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--amber); display: grid; place-items: center; font-weight: 700; flex: none; }
+.leg-body { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--muted); }
+.leg-body strong { color: var(--ink); font-size: 16px; }
+.leg-score { font-weight: 700; color: var(--teal); font-size: 14px; }
+.leg-locked { opacity: 0.5; }

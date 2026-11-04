@@ -2,6 +2,7 @@
 import { admin, json, stripe, userFrom } from './_lib.js';
 
 export async function POST(req: Request) {
+  if (!process.env.STRIPE_SECRET_KEY || !process.env.SUPABASE_SERVICE_ROLE_KEY) return json({ error: 'Billing opens soon.' }, 503);
   const user = await userFrom(req);
   if (!user) return json({ error: 'Sign in first.' }, 401);
   const { data } = await admin().from('stripe_customers').select('customer_id').eq('user_id', user.id).maybeSingle();

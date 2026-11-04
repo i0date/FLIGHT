@@ -1,9 +1,14 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { dayKey, daysBetween, weekKey } from './dates';
+import { LEGS, STAMP_PASS } from '../data/bookClubQuestions';
 import { supabase } from './supabase';
 import { loadMembership, loadRemote, merge, pushChanges, type Account } from './sync';
 
 export type Crew = { id: string; name: string; code: string; createdAt: string };
+
+// A book's three legs: best score out of 7 on each (null until flown), and the
+// day its stamp was earned (all three flown, 15 of 21 or better).
+export type BookProgress = { legs: (number | null)[]; attempts: number; lastFlown: string; earnedAt: string | null };
 
 export type Profile = {
   name: string;
@@ -13,7 +18,7 @@ export type Profile = {
   lastDaily: string | null;
   shieldUsedWeek: string | null;
   daily: Record<string, number>; // dayKey -> score out of 10
-  bookClub: Record<string, { best: number; completedAt: string; attempts: number }>;
+  bookClub: Record<string, BookProgress>;
   joinedBooks: string[];
   crews: Crew[];
 };
@@ -37,7 +42,11 @@ function load(): Profile {
   try {
     const raw = localStorage.getItem(KEY);
     // Membership is never trusted from the device; it's confirmed after sign-in.
-    return raw ? { ...fresh, ...JSON.parse(raw), premium: false } : fresh;
+    if (!raw) return fresh;
+    const saved = { ...fresh, ...JSON.parse(raw), premium: false } as Profile;
+    // Drop Book Club results from the old 5-question format.
+    saved.bookClub = Object.fromEntries(Object.entries(saved.bookClub).filter(([, r]) => Array.isArray(r?.legs)));
+    return saved;
   } catch {
     return fresh;
   }
@@ -75,19 +84,16 @@ export function recordDaily(p: Profile, score: number, today = dayKey()): Profil
   };
 }
 
-export function recordBook(p: Profile, bookId: string, score: number): Profile {
+export const bookScore = (r?: BookProgress) => (r ? r.legs.reduce<number>((sum, l) => sum + (l ?? 0), 0) : 0);
+export const legsFlown = (r?: BookProgress) => (r ? r.legs.filter((l) => l !== null).length : 0);
+
+export function recordLeg(p: Profile, bookId: string, leg: number, score: number): Profile {
   const prev = p.bookClub[bookId];
-  return {
-    ...p,
-    bookClub: {
-      ...p.bookClub,
-      [bookId]: {
-        best: Math.max(prev?.best ?? 0, score),
-        completedAt: prev?.completedAt ?? dayKey(),
-        attempts: (prev?.attempts ?? 0) + 1,
-      },
-    },
-  };
+  const legs = prev ? [...prev.legs] : LEGS.map(() => null);
+  legs[leg] = Math.max(legs[leg] ?? 0, score);
+  const next: BookProgress = { legs, attempts: (prev?.attempts ?? 0) + 1, lastFlown: dayKey(), earnedAt: prev?.earnedAt ?? null };
+  if (!next.earnedAt && legsFlown(next) === LEGS.length && bookScore(next) >= STAMP_PASS) next.earnedAt = dayKey();
+  return { ...p, bookClub: { ...p.bookClub, [bookId]: next } };
 }
 
 type SyncState = 'local' | 'syncing' | 'saved' | 'error';

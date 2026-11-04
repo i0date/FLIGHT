@@ -41,7 +41,7 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
   const [profile, daily, books, membership] = await Promise.all([
     db.from('profiles').select('*').eq('id', userId).single<ProfileRow>(),
     db.from('daily_results').select('day, score').eq('user_id', userId),
-    db.from('book_results').select('book_id, best, attempts, completed_at').eq('user_id', userId),
+    db.from('book_results').select('book_id, legs, attempts, last_flown, earned_at').eq('user_id', userId),
     loadMembership(),
   ]);
   if (profile.error) throw profile.error;
@@ -63,7 +63,7 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
       joinedBooks: p.joined_books,
       daily: Object.fromEntries((daily.data ?? []).map((r) => [r.day, r.score])),
       bookClub: Object.fromEntries(
-        (books.data ?? []).map((r) => [r.book_id, { best: r.best, attempts: r.attempts, completedAt: r.completed_at }]),
+        (books.data ?? []).map((r) => [r.book_id, { legs: r.legs, attempts: r.attempts, lastFlown: r.last_flown, earnedAt: r.earned_at }]),
       ),
     },
   };
@@ -76,7 +76,12 @@ export function merge(local: Profile, remote: Partial<Profile>): Profile {
   for (const [id, r] of Object.entries(local.bookClub)) {
     const o = bookClub[id];
     bookClub[id] = o
-      ? { best: Math.max(o.best, r.best), attempts: Math.max(o.attempts, r.attempts), completedAt: o.completedAt < r.completedAt ? o.completedAt : r.completedAt }
+      ? {
+          legs: o.legs.map((l, i) => (l === null && r.legs[i] === null ? null : Math.max(l ?? 0, r.legs[i] ?? 0))),
+          attempts: Math.max(o.attempts, r.attempts),
+          lastFlown: o.lastFlown > r.lastFlown ? o.lastFlown : r.lastFlown,
+          earnedAt: [o.earnedAt, r.earnedAt].filter(Boolean).sort()[0] ?? null,
+        }
       : r;
   }
   return {
@@ -120,7 +125,7 @@ export async function pushChanges(userId: string, prev: Profile | null, next: Pr
   if (changedBooks.length) {
     jobs.push(
       db.from('book_results').upsert(
-        changedBooks.map(([book_id, r]) => ({ user_id: userId, book_id, best: r.best, attempts: r.attempts, completed_at: r.completedAt })),
+        changedBooks.map(([book_id, r]) => ({ user_id: userId, book_id, legs: r.legs, attempts: r.attempts, last_flown: r.lastFlown, earned_at: r.earnedAt })),
         { onConflict: 'user_id,book_id' },
       ),
     );

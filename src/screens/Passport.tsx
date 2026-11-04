@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useProfile } from '../lib/profile';
+import { bookScore, useProfile } from '../lib/profile';
 import { milesFor, tierFor, VISAS } from '../lib/miles';
 import { books, bookById } from '../data/books';
 import { PlaneMascot } from '../components/Aircraft';
@@ -11,10 +11,11 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
   const [name, setName] = useState(profile.name);
   const miles = milesFor(profile);
   const { tier, next } = tierFor(miles);
-  const stamped = profile.premium ? books.filter((b) => profile.bookClub[b.id]) : [];
+  const earned = books.filter((b) => profile.bookClub[b.id]?.earnedAt);
+  const stamped = profile.premium ? earned : [];
   const log = [
     ...Object.entries(profile.daily).map(([day, score]) => ({ day, what: 'Daily Flight', score: `${score}/10` })),
-    ...Object.entries(profile.bookClub).map(([id, r]) => ({ day: r.completedAt, what: `Book Club · ${bookById(id)?.name ?? id}`, score: `${r.best}/5` })),
+    ...Object.entries(profile.bookClub).map(([id, r]) => ({ day: r.lastFlown, what: `Book Club · ${bookById(id)?.name ?? id}${r.earnedAt ? ' · stamp earned' : ''}`, score: `${bookScore(r)}/21` })),
   ]
     .sort((a, b) => b.day.localeCompare(a.day))
     .slice(0, 12);
@@ -67,7 +68,7 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
         ) : (
           <p className="small">Platinum: the highest status there is.</p>
         )}
-        <p className="ff-earn small">Earn 250 per daily flight + 100 per correct answer · 500 per Book Club route + 200 per correct answer · 50 per day of your best streak</p>
+        <p className="ff-earn small">Earn 250 per daily flight + 100 per correct answer · 300 per Book Club leg + 150 per correct answer · 1,500 per stamp earned · 50 per day of your best streak</p>
       </section>
 
       <h3 className="section-title">Stamps · {stamped.length} / {books.length}</h3>
@@ -77,16 +78,16 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
             {stamped.map((b, i) => (
               <div key={b.id} className="pp-stamp" style={{ transform: `rotate(${((i * 37) % 24) - 12}deg)` }}>
                 <span className="mono">{b.code}</span>
-                <small>{profile.bookClub[b.id].completedAt}</small>
+                <small>{profile.bookClub[b.id].earnedAt}</small>
               </div>
             ))}
           </div>
         ) : (
-          <p className="muted">No stamps yet. Complete a Book Club route to earn your first.</p>
+          <p className="muted">No stamps yet. Score 15 of 21 across a book's three Book Club legs to earn your first.</p>
         )
       ) : (
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>Stamps are a Flight Club perk. {Object.keys(profile.bookClub).length} completed route(s) are waiting to be stamped.</span>
+          <Lock /> <span>Stamps are a Flight Club perk. {earned.length ? `${earned.length} earned stamp${earned.length === 1 ? ' is' : 's are'} waiting to go in your passport.` : 'Earn them in Book Club: 15 of 21 on a book.'}</span>
         </button>
       )}
 

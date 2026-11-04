@@ -11,7 +11,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
   const { profile } = useProfile();
   const streak = liveStreak(profile);
   const todayScore = profile.daily[dayKey()];
-  const stamps = Object.keys(profile.bookClub).length;
+  const stamps = Object.values(profile.bookClub).filter((r) => r.earnedAt).length;
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
@@ -100,7 +100,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
               <span className="gate-id mono">{g.gate}</span>
               <span className="gate-body">
                 <strong>{g.title}</strong>
-                <span>{g.id === 'bookclub' ? `${stamps}/${books.length} routes flown · ${g.blurb}` : g.blurb}</span>
+                <span>{g.id === 'bookclub' ? `${stamps}/${books.length} stamps earned · ${g.blurb}` : g.blurb}</span>
               </span>
               <span className={`gate-status mono ${live ? 'on' : ''}`}>{live ? 'BOARDING' : 'DELAYED'}</span>
             </button>
@@ -115,7 +115,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
       )}
 
       <p className="fineprint">
-        {Object.keys(bookClubQuestions).length} Book Club routes open · more books boarding through the year
+        {Object.keys(bookClubQuestions).length} Book Club books open · more boarding through the year
       </p>
     </div>
   );
