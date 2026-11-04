@@ -1,0 +1,27 @@
+// Starts a Stripe Checkout for a Flight Club plan and returns the page to send the traveller to.
+import { customerFor, isPlan, json, lookupKey, stripe, userFrom } from './_lib.js';
+
+export async function POST(req: Request) {
+  const user = await userFrom(req);
+  if (!user) return json({ error: 'Sign in first.' }, 401);
+
+  const { plan, interval } = (await req.json().catch(() => ({}))) as { plan?: unknown; interval?: unknown };
+  if (!isPlan(plan) || (interval !== 'monthly' && interval !== 'yearly')) return json({ error: 'Unknown plan.' }, 400);
+
+  const s = stripe();
+  const { data: prices } = await s.prices.list({ lookup_keys: [lookupKey(plan, interval)], active: true });
+  if (!prices[0]) return json({ error: 'That plan is not on sale yet.' }, 503);
+
+  const origin = new URL(req.url).origin;
+  const session = await s.checkout.sessions.create({
+    mode: 'subscription',
+    customer: await customerFor(user),
+    line_items: [{ price: prices[0].id, quantity: 1 }],
+    client_reference_id: user.id,
+    subscription_data: { metadata: { user_id: user.id, plan } },
+    allow_promotion_codes: true,
+    success_url: `${origin}/?checkout=success`,
+    cancel_url: `${origin}/?checkout=cancel`,
+  });
+  return json({ url: session.url });
+}

@@ -1,13 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { dayKey, daysBetween, weekKey } from './dates';
 import { supabase } from './supabase';
-import { loadRemote, merge, pushChanges, type Account } from './sync';
+import { loadMembership, loadRemote, merge, pushChanges, type Account } from './sync';
 
 export type Crew = { id: string; name: string; code: string; createdAt: string };
 
 export type Profile = {
   name: string;
-  premium: boolean; // demo switch until payments arrive; account members are premium too
+  premium: boolean; // set from the account's Flight Club membership
   streak: number;
   bestStreak: number;
   lastDaily: string | null;
@@ -36,7 +36,8 @@ const fresh: Profile = {
 function load(): Profile {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? { ...fresh, ...JSON.parse(raw) } : fresh;
+    // Membership is never trusted from the device; it's confirmed after sign-in.
+    return raw ? { ...fresh, ...JSON.parse(raw), premium: false } : fresh;
   } catch {
     return fresh;
   }
@@ -98,6 +99,7 @@ type Ctx = {
   sync: SyncState;
   accountsEnabled: boolean;
   sendLink: (email: string) => Promise<void>;
+  refreshMembership: () => Promise<void>;
   signOut: () => Promise<void>;
 };
 const ProfileContext = createContext<Ctx | null>(null);
@@ -131,7 +133,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
         await pushChanges(userId, { ...merged, ...remote } as Profile, merged);
         saved.current = merged;
         setAccount(account);
-        setProfile((p) => ({ ...merged, premium: p.premium || account.member }));
+        setProfile({ ...merged, premium: !!account.membership });
         setSync('saved');
       } catch {
         setSync('error');
@@ -171,6 +173,14 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     if (error) throw error;
   }, []);
 
+  // After checkout or joining a plan, re-read the membership the server recorded.
+  const refreshMembership = useCallback(async () => {
+    if (!supabase) return;
+    const membership = await loadMembership();
+    setAccount((a) => (a ? { ...a, membership } : a));
+    setProfile((p) => ({ ...p, premium: !!membership }));
+  }, []);
+
   const signOut = useCallback(async () => {
     await supabase?.auth.signOut();
     // Progress stays with the account; this device starts fresh.
@@ -178,7 +188,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, signOut }}>
+    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, refreshMembership, signOut }}>
       {children}
     </ProfileContext.Provider>
   );

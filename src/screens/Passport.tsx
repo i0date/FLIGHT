@@ -7,7 +7,8 @@ import { Lock } from '../components/Icons';
 import type { Screen } from '../types';
 
 export function Passport({ go }: { go: (s: Screen) => void }) {
-  const { profile, account, sync, accountsEnabled, signOut } = useProfile();
+  const { profile, update, account, sync, accountsEnabled, signOut } = useProfile();
+  const [name, setName] = useState(profile.name);
   const miles = milesFor(profile);
   const { tier, next } = tierFor(miles);
   const stamped = profile.premium ? books.filter((b) => profile.bookClub[b.id]) : [];
@@ -117,6 +118,12 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
       ) : (
         <p className="muted">No flights yet — your first boards from the terminal.</p>
       )}
+
+      <h3 className="section-title">Passenger name</h3>
+      <form className="card row" onSubmit={(e) => { e.preventDefault(); update((p) => ({ ...p, name: name.trim() || 'Traveller' })); }}>
+        <input value={name} onChange={(e) => setName(e.target.value)} maxLength={24} aria-label="Passenger name" />
+        <button className="btn btn-primary" disabled={name.trim() === profile.name}>Save</button>
+      </form>
 
       {account && (
         <div className="card">

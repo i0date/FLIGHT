@@ -1,7 +1,28 @@
 import { supabase } from './supabase';
 import type { Profile } from './profile';
 
-export type Account = { userId: string; email: string; passengerNo: string; memberSince: string; member: boolean };
+export type Membership = {
+  plan: 'individual' | 'family' | 'group';
+  role: 'owner' | 'member';
+  activeUntil: string;
+  seats: number;
+  members: number;
+  inviteCode: string | null;
+};
+
+export type Account = { userId: string; email: string; passengerNo: string; memberSince: string; membership: Membership | null };
+
+type MembershipRow = { plan: Membership['plan']; role: Membership['role']; active_until: string; seats: number; members: number; invite_code: string | null };
+
+// The Flight Club membership that applies to the signed-in traveller (their own or a family/group seat).
+export async function loadMembership(): Promise<Membership | null> {
+  const { data, error } = await supabase!.rpc('my_membership');
+  if (error) throw error;
+  const row = (data as MembershipRow[] | null)?.[0];
+  return row
+    ? { plan: row.plan, role: row.role, activeUntil: row.active_until, seats: row.seats, members: row.members, inviteCode: row.invite_code }
+    : null;
+}
 
 type ProfileRow = {
   display_name: string;
@@ -21,7 +42,7 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
     db.from('profiles').select('*').eq('id', userId).single<ProfileRow>(),
     db.from('daily_results').select('day, score').eq('user_id', userId),
     db.from('book_results').select('book_id, best, attempts, completed_at').eq('user_id', userId),
-    db.from('memberships').select('active_until').eq('user_id', userId).maybeSingle(),
+    loadMembership(),
   ]);
   if (profile.error) throw profile.error;
   const p = profile.data;
@@ -31,7 +52,7 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
       email,
       passengerNo: p.passenger_no,
       memberSince: p.created_at.slice(0, 10),
-      member: !!membership.data && new Date(membership.data.active_until) > new Date(),
+      membership,
     },
     remote: {
       name: p.display_name,

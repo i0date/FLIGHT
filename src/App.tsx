@@ -18,7 +18,12 @@ const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
 ];
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>({ name: 'home' });
+  // Coming back from Stripe (?checkout=success|cancel|return) opens the Club page.
+  const [checkout] = useState(() => new URLSearchParams(window.location.search).get('checkout'));
+  const [screen, setScreen] = useState<Screen>(checkout ? { name: 'premium' } : { name: 'home' });
+  useEffect(() => {
+    if (checkout) window.history.replaceState(null, '', window.location.pathname);
+  }, [checkout]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [screen]);
@@ -35,7 +40,7 @@ export default function App() {
           {screen.name === 'book' && <BookQuiz key={screen.bookId} bookId={screen.bookId} go={go} />}
           {screen.name === 'passport' && <PassportScreen go={go} />}
           {screen.name === 'leaderboard' && <Leaderboard go={go} />}
-          {screen.name === 'premium' && <Premium />}
+          {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (
