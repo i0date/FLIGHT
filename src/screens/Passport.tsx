@@ -129,24 +129,11 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
 }
 
 function SignIn({ enabled }: { enabled: boolean }) {
-  const { sendCode, verifyCode } = useProfile();
+  const { sendLink } = useProfile();
   const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
-  const [stage, setStage] = useState<'email' | 'code'>('email');
+  const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-
-  const run = async (fn: () => Promise<void>) => {
-    setBusy(true);
-    setError('');
-    try {
-      await fn();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
-    } finally {
-      setBusy(false);
-    }
-  };
 
   if (!enabled) {
     return (
@@ -157,35 +144,40 @@ function SignIn({ enabled }: { enabled: boolean }) {
     );
   }
 
+  const send = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await sendLink(email.trim());
+      setSent(true);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (sent) {
+    return (
+      <div className="card signin">
+        <strong>Check your email</strong>
+        <p className="small muted">
+          We sent a sign-in link to <strong>{email}</strong>. Open it on this device and you'll land back here, signed in. Progress on this device comes with you.
+        </p>
+        {error && <p className="form-error small">{error}</p>}
+        <button className="btn btn-ghost" disabled={busy} onClick={send}>{busy ? 'Sending…' : 'Send it again'}</button>
+        <button className="btn btn-ghost" onClick={() => { setSent(false); setError(''); }}>Use a different email</button>
+      </div>
+    );
+  }
+
   return (
-    <form
-      className="card signin"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (stage === 'email') run(async () => { await sendCode(email.trim()); setStage('code'); });
-        else run(() => verifyCode(email.trim(), code.trim()));
-      }}
-    >
-      <strong>{stage === 'email' ? 'Get your passport issued' : 'Check your email'}</strong>
-      <p className="small muted">
-        {stage === 'email'
-          ? 'Sign in to save your streak, miles and stamps to your account and keep them on any device. Progress on this device comes with you.'
-          : `We sent a 6-digit code to ${email}. Enter it below, or tap the link in the email.`}
-      </p>
-      {stage === 'email' ? (
-        <input type="email" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-      ) : (
-        <input inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} required placeholder="123456" value={code} onChange={(e) => setCode(e.target.value)} className="mono code-input" />
-      )}
+    <form className="card signin" onSubmit={(e) => { e.preventDefault(); send(); }}>
+      <strong>Get your passport issued</strong>
+      <p className="small muted">Sign in to save your streak, miles and stamps to your account and keep them on any device. No password — we email you a link.</p>
+      <input type="email" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
       {error && <p className="form-error small">{error}</p>}
-      <button className="btn btn-primary" disabled={busy}>
-        {busy ? 'Please wait…' : stage === 'email' ? 'Email me a code' : 'Sign in'}
-      </button>
-      {stage === 'code' && (
-        <button type="button" className="btn btn-ghost" onClick={() => { setStage('email'); setCode(''); setError(''); }}>
-          Use a different email
-        </button>
-      )}
+      <button className="btn btn-primary" disabled={busy}>{busy ? 'Please wait…' : 'Email me a sign-in link'}</button>
     </form>
   );
 }

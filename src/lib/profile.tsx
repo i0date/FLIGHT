@@ -97,8 +97,7 @@ type Ctx = {
   account: Account | null;
   sync: SyncState;
   accountsEnabled: boolean;
-  sendCode: (email: string) => Promise<void>;
-  verifyCode: (email: string, code: string) => Promise<void>;
+  sendLink: (email: string) => Promise<void>;
   signOut: () => Promise<void>;
 };
 const ProfileContext = createContext<Ctx | null>(null);
@@ -109,6 +108,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   const [sync, setSync] = useState<SyncState>('local');
   // The last version known to be saved on the server, so only changes are sent.
   const saved = useRef<Profile | null>(null);
+  const connecting = useRef(false);
 
   useEffect(() => {
     try {
@@ -122,6 +122,8 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!supabase) return;
     const connect = async (userId: string, email: string) => {
+      if (connecting.current || saved.current) return;
+      connecting.current = true;
       setSync('syncing');
       try {
         const { account, remote } = await loadRemote(userId, email);
@@ -133,13 +135,15 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
         setSync('saved');
       } catch {
         setSync('error');
+      } finally {
+        connecting.current = false;
       }
     };
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) connect(data.session.user.id, data.session.user.email ?? '');
     });
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' && session && saved.current === null) connect(session.user.id, session.user.email ?? '');
+      if (event === 'SIGNED_IN' && session) connect(session.user.id, session.user.email ?? '');
       if (event === 'SIGNED_OUT') {
         saved.current = null;
         setAccount(null);
@@ -162,13 +166,8 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
       .catch(() => setSync('error'));
   }, [profile, account]);
 
-  const sendCode = useCallback(async (email: string) => {
+  const sendLink = useCallback(async (email: string) => {
     const { error } = await supabase!.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
-    if (error) throw error;
-  }, []);
-
-  const verifyCode = useCallback(async (email: string, code: string) => {
-    const { error } = await supabase!.auth.verifyOtp({ email, token: code, type: 'email' });
     if (error) throw error;
   }, []);
 
@@ -179,7 +178,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendCode, verifyCode, signOut }}>
+    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, signOut }}>
       {children}
     </ProfileContext.Provider>
   );
