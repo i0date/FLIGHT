@@ -269,3 +269,57 @@ export const corinthians2 = [
   c('2co20', 6, '"Behold, now is the accepted time; behold, now is the day of…"', 'Salvation', ['The Lord', 'Redemption', 'Grace'], '2 Corinthians 6:2'),
   c('2co21', 6, 'He was made sin for us, who knew no sin, "that we might be made…"', '"the righteousness of God in him"', ['"heirs of the kingdom"', '"partakers of his glory"', '"the sons of God by faith"'], '2 Corinthians 5:21'),
 ];
+
+export const timothy1 = [
+  // Leg 1
+  c('1ti01', 2, '"The love of money is the root of all…"', 'Evil', ['Sorrow', 'Sin', 'Strife'], '1 Timothy 6:10'),
+  c('1ti02', 2, '"Let no man despise thy…"', 'Youth', ['Gift', 'Faith', 'Doctrine'], '1 Timothy 4:12'),
+  c('1ti03', 3, '"Fight the good fight of…"', 'Faith', ['Truth', 'Hope', 'Righteousness'], '1 Timothy 6:12'),
+  c('1ti04', 3, 'Christ came to save sinners, "of whom I am…"', 'Chief', ['Least', 'Last', 'One'], '1 Timothy 1:15'),
+  c('1ti05', 3, 'A bishop must be "the husband of one…"', 'Wife', ['Church', 'Mind', 'Heart'], '1 Timothy 3:2'),
+  c('1ti06', 3, 'What did Paul tell Timothy to take "for thy stomach\'s sake"?', 'A little wine', ['Bitter herbs', 'A little oil', 'Honey'], '1 Timothy 5:23'),
+  c('1ti07', 4, '"One mediator between God and men, the man…"', 'Christ Jesus', ['Jesus of Nazareth', 'The Son of God', 'The Lamb of God'], '1 Timothy 2:5'),
+  // Leg 2
+  c('1ti08', 4, '"Godliness with contentment is great…"', 'Gain', ['Riches', 'Peace', 'Reward'], '1 Timothy 6:6'),
+  c('1ti09', 4, 'Where did Paul leave Timothy?', 'Ephesus', ['Corinth', 'Crete', 'Philippi'], '1 Timothy 1:3', 'Titus was left in Crete (Titus 1:5).'),
+  c('1ti10', 4, 'Whom did Paul deliver unto Satan, "that they may learn not to blaspheme"?', 'Hymenaeus and Alexander', ['Demas and Crescens', 'Phygellus and Hermogenes', 'Euodias and Syntyche'], '1 Timothy 1:20'),
+  c('1ti11', 5, '"Bodily exercise profiteth…"', 'Little', ['Nothing', 'Much', 'For a season'], '1 Timothy 4:8'),
+  c('1ti12', 5, 'A widow taken into the number had to be at least how old?', 'Threescore years', ['Forty years', 'Fifty years', 'Seventy years'], '1 Timothy 5:9'),
+  c('1ti13', 5, '"Thou shalt not muzzle the ox that treadeth out the corn. And, The labourer is worthy of his…"', 'Reward', ['Food', 'Honour', 'Rest'], '1 Timothy 5:18'),
+  c('1ti14', 5, '"God was manifest in the flesh, justified in the Spirit, seen of…"', 'Angels', ['Men', 'Witnesses', 'The apostles'], '1 Timothy 3:16'),
+  // Leg 3
+  c('1ti15', 5, "Timothy's gift came with the laying on of the hands of the…", 'Presbytery', ['Apostles', 'Church', 'Saints'], '1 Timothy 4:14'),
+  c('1ti16', 6, '"Lay hands suddenly on no man, neither be partaker of other men\'s…"', 'Sins', ['Goods', 'Errors', 'Sorrows'], '1 Timothy 5:22'),
+  c('1ti17', 6, 'Before Pontius Pilate, Christ "witnessed a good…"', 'Confession', ['Testimony', 'Fight', 'Work'], '1 Timothy 6:13'),
+  c('1ti18', 6, 'God dwells "in the light which no man can…"', 'Approach unto', ['Comprehend', 'Enter', 'Measure'], '1 Timothy 6:16'),
+  c('1ti19', 6, 'Avoid "profane and vain babblings, and oppositions of ___ falsely so called."', 'Science', ['Wisdom', 'Doctrine', 'Prophecy'], '1 Timothy 6:20'),
+  c('1ti20', 6, 'The church of the living God is "the pillar and ___ of the truth".', 'Ground', ['Foundation', 'Light', 'Keeper'], '1 Timothy 3:15'),
+  c('1ti21', 6, 'In the latter times some shall give heed "to seducing spirits, and doctrines of…"', 'Devils', ['Men', 'The world', 'Balaam'], '1 Timothy 4:1'),
+];
+
+export const john1 = [
+  // Leg 1
+  c('1jn01', 2, '"He that loveth not knoweth not God; for God is…"', 'Love', ['Holy', 'Faithful', 'Just'], '1 John 4:8'),
+  c('1jn02', 2, '"If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all…"', 'Unrighteousness', ['Guilt', 'Shame', 'Evil'], '1 John 1:9'),
+  c('1jn03', 3, '"There is no fear in love; but perfect love casteth out…"', 'Fear', ['Sin', 'Darkness', 'Doubt'], '1 John 4:18'),
+  c('1jn04', 3, '"God is light, and in him is no ___ at all."', 'Darkness', ['Sin', 'Shadow', 'Change'], '1 John 1:5', '"No variableness, neither shadow of turning" is James 1:17.'),
+  c('1jn05', 3, '"The lust of the flesh, and the lust of the eyes, and the ___ of life."', 'Pride', ['Cares', 'Riches', 'Vanity'], '1 John 2:16'),
+  c('1jn06', 3, 'How does 1 John end? "Little children, keep yourselves from…"', 'Idols', ['Sin', 'The world', 'Evil'], '1 John 5:21'),
+  c('1jn07', 4, '"Behold, what manner of love the Father hath bestowed upon us, that we should be called the ___ of God."', 'Sons', ['Children', 'Heirs', 'Friends'], '1 John 3:1'),
+  // Leg 2
+  c('1jn08', 4, '"Greater is he that is in you, than he that is in the…"', 'World', ['Flesh', 'Darkness', 'Air'], '1 John 4:4'),
+  c('1jn09', 4, '"Try the spirits whether they are of God: because many false ___ are gone out into the world."', 'Prophets', ['Christs', 'Teachers', 'Apostles'], '1 John 4:1'),
+  c('1jn10', 4, 'Who does John say "is antichrist"?', 'He that denieth the Father and the Son', ['He that hateth his brother', 'He that loveth the world', 'He that committeth sin'], '1 John 2:22'),
+  c('1jn11', 5, '"Whosoever hateth his brother is a…"', 'Murderer', ['Thief', 'Fool', 'Hypocrite'], '1 John 3:15'),
+  c('1jn12', 5, 'Which three "bear witness in earth"?', 'The spirit, the water and the blood', ['The Father, the Word and the Holy Ghost', 'Faith, hope and charity', 'Moses, Elias and Jesus'], '1 John 5:8', 'The Father, the Word and the Holy Ghost bear record in heaven (5:7).'),
+  c('1jn13', 5, 'Which Old Testament person is named in 1 John?', 'Cain', ['Abraham', 'Moses', 'Abel'], '1 John 3:12', 'Abel is meant by "his brother" but not named.'),
+  c('1jn14', 5, '"We have an advocate with the Father, Jesus Christ the…"', 'Righteous', ['Lord', 'Saviour', 'Faithful'], '1 John 2:1'),
+  // Leg 3
+  c('1jn15', 5, '"The world passeth away… but he that doeth the will of God abideth…"', 'For ever', ['In the light', 'In love', 'In him'], '1 John 2:17'),
+  c('1jn16', 6, '"There is a sin unto death: I do not say that he shall ___ for it."', 'Pray', ['Die', 'Answer', 'Repent'], '1 John 5:16'),
+  c('1jn17', 6, '"Little children, it is the last…"', 'Time', ['Day', 'Age', 'Trumpet'], '1 John 2:18'),
+  c('1jn18', 6, '"Ye have an unction from the Holy One, and ye know…"', 'All things', ['The truth', 'Him', 'The way'], '1 John 2:20'),
+  c('1jn19', 6, '"That which… our hands have handled, of the Word of…"', 'Life', ['God', 'Truth', 'Grace'], '1 John 1:1'),
+  c('1jn20', 6, '"For this purpose the Son of God was manifested, that he might destroy the works of the…"', 'Devil', ['Flesh', 'Law', 'World'], '1 John 3:8'),
+  c('1jn21', 6, '"This is the victory that overcometh the world, even our…"', 'Faith', ['Love', 'Hope', 'Lord'], '1 John 5:4'),
+];

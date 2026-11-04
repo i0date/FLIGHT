@@ -80,3 +80,30 @@ export const job = [
   c('job20', 6, '"Man that is born of a woman is of few days, and full of…"', '"trouble"', ['"sorrow"', '"vanity"', '"sin"'], 'Job 14:1'),
   c('job21', 6, 'In Job 38, who "sang together" when the earth\'s foundations were laid?', 'The morning stars', ['The seraphim', 'The sons of the prophets', 'The heavens and the earth'], 'Job 38:7', '"…and all the sons of God shouted for joy."'),
 ];
+
+export const ecclesiastes = [
+  // Leg 1
+  c('ecc01', 2, '"Vanity of vanities, saith the Preacher; all is…"', 'Vanity', ['Dust', 'Sorrow', 'Wind'], 'Ecclesiastes 1:2'),
+  c('ecc02', 2, '"To every thing there is a season, and a time to every ___ under the heaven."', 'Purpose', ['Creature', 'Nation', 'Labour'], 'Ecclesiastes 3:1'),
+  c('ecc03', 3, '"There is no new thing under the…"', 'Sun', ['Heaven', 'Moon', 'Earth'], 'Ecclesiastes 1:9'),
+  c('ecc04', 3, 'What does the writer of Ecclesiastes call himself?', 'The Preacher', ['The Seer', 'The Psalmist', 'The Prophet'], 'Ecclesiastes 1:1'),
+  c('ecc05', 3, '"Cast thy bread upon the waters: for thou shalt find it after many…"', 'Days', ['Years', 'Waters', 'Seasons'], 'Ecclesiastes 11:1'),
+  c('ecc06', 3, '"Remember now thy Creator in the days of thy…"', 'Youth', ['Strength', 'Trouble', 'Old age'], 'Ecclesiastes 12:1'),
+  c('ecc07', 4, '"A threefold cord is not quickly…"', 'Broken', ['Loosed', 'Untied', 'Worn'], 'Ecclesiastes 4:12'),
+  // Leg 2
+  c('ecc08', 4, '"Of making many books there is no…"', 'End', ['Profit', 'Wisdom', 'Rest'], 'Ecclesiastes 12:12'),
+  c('ecc09', 4, '"Fear God, and keep his commandments: for this is the whole duty of…"', 'Man', ['Israel', 'The wise', 'The priest'], 'Ecclesiastes 12:13'),
+  c('ecc10', 4, '"Two are better than…"', 'One', ['Three', 'Many', 'None'], 'Ecclesiastes 4:9'),
+  c('ecc11', 5, '"Better is a poor and a wise child than an old and foolish…"', 'King', ['Man', 'Priest', 'Judge'], 'Ecclesiastes 4:13'),
+  c('ecc12', 5, 'What do dead flies make "to send forth a stinking savour"?', 'The ointment of the apothecary', ['The wine of the king', 'The bread of the poor', 'The honey of the field'], 'Ecclesiastes 10:1'),
+  c('ecc13', 5, '"A living dog is better than a dead…"', 'Lion', ['King', 'Ox', 'Eagle'], 'Ecclesiastes 9:4'),
+  c('ecc14', 5, '"The race is not to the swift, nor the battle to the…"', 'Strong', ['Brave', 'Many', 'Bold'], 'Ecclesiastes 9:11'),
+  // Leg 3
+  c('ecc15', 5, '"Be not righteous over much; neither make thyself over…"', 'Wise', ['Holy', 'Rich', 'Proud'], 'Ecclesiastes 7:16'),
+  c('ecc16', 6, '"Better is the end of a thing than the…"', 'Beginning', ['Middle', 'Promise', 'Labour'], 'Ecclesiastes 7:8'),
+  c('ecc17', 6, '"It is better to go to the house of mourning, than to go to the house of…"', 'Feasting', ['Laughter', 'Mirth', 'Wine'], 'Ecclesiastes 7:2', 'Mirth comes two verses later: "the heart of fools is in the house of mirth" (7:4).'),
+  c('ecc18', 6, '"Or the silver cord be loosed, or the golden bowl be broken, or the pitcher be broken at the…"', 'Fountain', ['Well', 'River', 'Gate'], 'Ecclesiastes 12:6', 'Then "the wheel broken at the cistern".'),
+  c('ecc19', 6, '"The words of the wise are as goads, and as ___ fastened by the masters of assemblies."', 'Nails', ['Pegs', 'Pins', 'Stakes'], 'Ecclesiastes 12:11'),
+  c('ecc20', 6, '"As the crackling of thorns under a pot, so is the laughter of the…"', 'Fool', ['Scorner', 'Wicked', 'Sluggard'], 'Ecclesiastes 7:6'),
+  c('ecc21', 6, '"Wisdom is good with an…"', 'Inheritance', ['Understanding', 'Old age', 'Humble heart'], 'Ecclesiastes 7:11'),
+];

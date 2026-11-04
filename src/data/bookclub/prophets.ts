@@ -107,3 +107,57 @@ export const jeremiah = [
   c('jer20', 6, 'What did Jeremiah write to the exiles in Babylon?', '"Build ye houses, and dwell in them"', ['"Make ready to return within two years"', '"Pray not for the city"', '"Build no houses, for ye shall return"'], 'Jeremiah 29:5–7', 'Hananiah falsely promised a return within two years (28:3).'),
   c('jer21', 6, 'In the vision of two baskets, whom did the good figs stand for?', 'The captives carried away to Babylon', ['Zedekiah and those left in the land', 'Those who fled to Egypt', 'The Rechabites'], 'Jeremiah 24:5–8'),
 ];
+
+export const ezekiel = [
+  // Leg 1
+  c('eze01', 2, 'What did Ezekiel see filling a valley?', 'Dry bones', ['A burning bush', 'Four beasts from the sea', 'A flying roll'], 'Ezekiel 37:1–2', 'The four beasts are Daniel 7; the flying roll Zechariah 5.'),
+  c('eze02', 2, 'By which river was Ezekiel among the captives?', 'Chebar', ['Ulai', 'Ahava', 'Jordan'], 'Ezekiel 1:1–3'),
+  c('eze03', 3, 'What was Ezekiel told to eat, which was sweet as honey in his mouth?', 'A roll', ['Locusts and wild honey', 'Unleavened bread', 'Manna'], 'Ezekiel 3:1–3'),
+  c('eze04', 3, 'How many faces did each of the four living creatures have?', 'Four', ['Two', 'Six', 'One'], 'Ezekiel 1:6, 10'),
+  c('eze05', 3, 'The LORD made Ezekiel a ___ unto the house of Israel.', 'Watchman', ['Shepherd', 'Judge', 'Priest'], 'Ezekiel 3:17; 33:7'),
+  c('eze06', 3, '"I will take away the stony heart out of your flesh, and I will give you an heart of…"', 'Flesh', ['Gold', 'Wisdom', 'Fire'], 'Ezekiel 36:26'),
+  c('eze07', 4, 'How many days did Ezekiel lie on his left side?', 'Three hundred and ninety', ['Forty', 'Seventy', 'Three hundred and sixty-five'], 'Ezekiel 4:4–9', 'Then forty days on his right side for Judah.'),
+  // Leg 2
+  c('eze08', 4, 'Which way did the waters flow from under the threshold of the temple?', 'Eastward', ['Northward', 'Westward', 'Southward'], 'Ezekiel 47:1, 8'),
+  c('eze09', 4, 'At the north gate, women were weeping for whom?', 'Tammuz', ['Baal', 'Molech', 'Dagon'], 'Ezekiel 8:14'),
+  c('eze10', 4, "When Ezekiel's wife died, what was he told?", 'Not to mourn or weep', ['To mourn seven days', 'To shave his head', 'To return to Jerusalem'], 'Ezekiel 24:16–18'),
+  c('eze11', 5, 'Which three men "should deliver but their own souls by their righteousness"?', 'Noah, Daniel and Job', ['Abraham, Moses and David', 'Enoch, Elijah and Samuel', 'Moses, Samuel and Jeremiah'], 'Ezekiel 14:14'),
+  c('eze12', 5, 'Gog is "of the land of" where?', 'Magog', ['Edom', 'Sheba', 'Elam'], 'Ezekiel 38:2'),
+  c('eze13', 5, 'Which city does Ezekiel lament as a great ship that sinks?', 'Tyrus', ['Sidon', 'Babylon', 'Nineveh'], 'Ezekiel 27'),
+  c('eze14', 5, '"The fathers have eaten sour grapes, and the children\'s teeth are…"', '"set on edge"', ['"broken"', '"made sour"', '"worn down"'], 'Ezekiel 18:2'),
+  // Leg 3
+  o('eze15', 5, 'Put these in the order they appear in Ezekiel:', ['The vision by the river Chebar', 'Ezekiel made a watchman', 'The valley of dry bones', 'The new temple measured'], 'Ezekiel 1; 3; 37; 40'),
+  c('eze16', 6, 'The two sticks joined in Ezekiel\'s hand were for which two?', 'Judah and Joseph', ['Judah and Benjamin', 'Israel and Edom', 'Levi and Ephraim'], 'Ezekiel 37:16–19'),
+  c('eze17', 6, 'The sisters Aholah and Aholibah stand for which two cities?', 'Samaria and Jerusalem', ['Sodom and Gomorrah', 'Tyre and Sidon', 'Nineveh and Babylon'], 'Ezekiel 23:4'),
+  c('eze18', 6, 'The man with the writer\'s inkhorn set a mark on the foreheads of whom?', 'The men that sigh and cry for the abominations', ['The priests', 'The firstborn', 'The elders of Israel'], 'Ezekiel 9:4'),
+  c('eze19', 6, 'What is the name of the city at the very end of Ezekiel?', '"The LORD is there"', ['"The LORD our righteousness"', '"The LORD will provide"', '"The LORD is peace"'], 'Ezekiel 48:35', '"The LORD our righteousness" is Jeremiah 23:6.'),
+  c('eze20', 6, "Who was Ezekiel's father?", 'Buzi', ['Hilkiah', 'Amoz', 'Berechiah'], 'Ezekiel 1:3', "Hilkiah was Jeremiah's father, Amoz Isaiah's, Berechiah Zechariah's."),
+  c('eze21', 6, 'Into how many parts did Ezekiel divide the hair he shaved off?', 'Three', ['Two', 'Four', 'Seven'], 'Ezekiel 5:1–2'),
+];
+
+export const amos = [
+  // Leg 1
+  c('amo01', 2, 'What was Amos before the LORD called him?', 'A herdman and a gatherer of sycomore fruit', ['A priest of Bethel', 'A scribe of the king', 'A fisherman'], 'Amos 7:14'),
+  c('amo02', 2, '"Let judgment run down as waters, and righteousness as a mighty…"', 'Stream', ['River', 'Flood', 'Sea'], 'Amos 5:24'),
+  c('amo03', 3, 'Which town was Amos from?', 'Tekoa', ['Anathoth', 'Moresheth', 'Bethel'], 'Amos 1:1'),
+  c('amo04', 3, '"Can two walk together, except they be…"', 'Agreed', ['Friends', 'Brethren', 'Equal'], 'Amos 3:3'),
+  c('amo05', 3, 'What did Amos see in a basket?', 'Summer fruit', ['Good and bad figs', 'Bread', 'Grapes'], 'Amos 8:1–2', 'The baskets of figs were shown to Jeremiah (Jeremiah 24).'),
+  c('amo06', 3, 'Which priest of Bethel told Amos to flee to Judah?', 'Amaziah', ['Hilkiah', 'Pashur', 'Eli'], 'Amos 7:10–12'),
+  c('amo07', 4, 'Amos prophesied two years before what?', 'The earthquake', ['The fall of Samaria', 'The exile to Babylon', 'The death of Uzziah'], 'Amos 1:1; Zechariah 14:5'),
+  // Leg 2
+  c('amo08', 4, '"Prepare to meet thy…"', '"God, O Israel"', ['"judge, O Judah"', '"end, O Samaria"', '"King, O Jacob"'], 'Amos 4:12'),
+  c('amo09', 4, 'Amos foretold a famine "not a famine of bread" but of what?', 'Hearing the words of the LORD', ['Water from heaven', 'Justice in the gate', 'Prophets in the land'], 'Amos 8:11'),
+  c('amo10', 4, 'Amos called the women of Samaria "ye kine of" where?', 'Bashan', ['Gilead', 'Sharon', 'Carmel'], 'Amos 4:1'),
+  c('amo11', 5, 'Complete Amos\'s repeated words of judgment: "For three transgressions… and for…"', 'Four', ['Seven', 'Five', 'Ten'], 'Amos 1:3'),
+  c('amo12', 5, 'What did the Lord hold as he stood upon a wall?', 'A plumbline', ['A measuring reed', 'A sword', 'A line of flax'], 'Amos 7:7–8', 'The measuring reed and line of flax are in Ezekiel 40:3.'),
+  c('amo13', 5, 'Amos prophesied in the days of which king of Israel?', 'Jeroboam the son of Joash', ['Ahab', 'Jehu', 'Omri'], 'Amos 1:1'),
+  c('amo14', 5, '"In that day will I raise up the tabernacle of ___ that is fallen."', 'David', ['Moses', 'Solomon', 'Jacob'], 'Amos 9:11'),
+  // Leg 3
+  c('amo15', 5, 'Israel sold the righteous for silver, "and the poor for…"', '"a pair of shoes"', ['"a measure of wheat"', '"a piece of bread"', '"thirty pieces"'], 'Amos 2:6'),
+  o('amo16', 6, 'Put the visions of Amos in order:', ['Locusts', 'Fire', 'A plumbline', 'A basket of summer fruit'], 'Amos 7:1; 7:4; 7:7; 8:1'),
+  c('amo17', 6, 'Amos prophesied in the days of which king of Judah?', 'Uzziah', ['Hezekiah', 'Ahaz', 'Jotham'], 'Amos 1:1'),
+  c('amo18', 6, 'Whose transgressions are judged first in Amos?', 'Damascus', ['Gaza', 'Tyrus', 'Edom'], 'Amos 1:3–11'),
+  c('amo19', 6, 'Who quoted Amos 9:11 at the council in Jerusalem?', 'James', ['Peter', 'Paul', 'Stephen'], 'Acts 15:13–16'),
+  c('amo20', 6, 'Stephen quoted Amos about Israel taking up "the tabernacle of" whom?', 'Moloch', ['Baal', 'Chemosh', 'Dagon'], 'Acts 7:43; Amos 5:26'),
+  c('amo21', 6, '"I was no prophet, neither was I a prophet\'s…"', 'Son', ['Servant', 'Disciple', 'Friend'], 'Amos 7:14'),
+];

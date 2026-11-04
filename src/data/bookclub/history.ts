@@ -242,3 +242,30 @@ export const nehemiah = [
   c('neh20', 6, 'What did Nehemiah do to the Jews who had married foreign wives?', 'Plucked off their hair', ['Shaved their beards', 'Sold them as servants', 'Banished them to Babylon'], 'Nehemiah 13:23–25', 'In Ezra 9:3 Ezra plucked off his own hair.'),
   c('neh21', 6, "For how many years did Nehemiah govern without eating the governor's bread?", 'Twelve', ['Seven', 'Twenty', 'Forty'], 'Nehemiah 5:14'),
 ];
+
+export const ezra = [
+  // Leg 1
+  c('ezr01', 2, 'Which Persian king proclaimed that the Jews could go up and build the house of the LORD?', 'Cyrus', ['Darius', 'Artaxerxes', 'Ahasuerus'], 'Ezra 1:1–3'),
+  c('ezr02', 2, 'Ezra was "a ready scribe in the law of" whom?', 'Moses', ['David', 'Solomon', 'Samuel'], 'Ezra 7:6'),
+  c('ezr03', 3, 'What did the returned exiles build first, before the temple foundation?', 'The altar', ['The wall', 'The gates', "The governor's house"], 'Ezra 3:2–3, 6'),
+  c('ezr04', 3, 'When the foundation was laid, why did many old men weep?', 'They had seen the first house', ['They were too old to help', 'Their enemies mocked them', 'The work had been stopped'], 'Ezra 3:12'),
+  c('ezr05', 3, 'Which two prophets stirred up the building of the temple?', 'Haggai and Zechariah', ['Ezekiel and Daniel', 'Malachi and Joel', 'Jeremiah and Obadiah'], 'Ezra 5:1'),
+  c('ezr06', 3, 'In the reign of which king was the temple finished?', 'Darius', ['Cyrus', 'Artaxerxes', 'Ahasuerus'], 'Ezra 6:15'),
+  c('ezr07', 4, 'Cyrus gave the temple vessels to which "prince of Judah"?', 'Sheshbazzar', ['Nehemiah', 'Ezra', 'Mordecai'], 'Ezra 1:8, 11'),
+  // Leg 2
+  c('ezr08', 4, 'Who led the rebuilding of the temple with Jeshua the priest?', 'Zerubbabel', ['Nehemiah', 'Ezra', 'Shethar-boznai'], 'Ezra 3:2, 8'),
+  c('ezr09', 4, 'What did the adversaries of Judah first ask Zerubbabel?', '"Let us build with you"', ['To be paid tribute', 'To be left in peace', 'For the vessels to be returned'], 'Ezra 4:1–3'),
+  c('ezr10', 4, 'At which river did Ezra proclaim a fast before the journey?', 'Ahava', ['Chebar', 'Ulai', 'Hiddekel'], 'Ezra 8:21', 'Chebar is where Ezekiel saw his visions; Ulai is where Daniel saw his.'),
+  c('ezr11', 5, 'Where was the decree of Cyrus finally found?', 'At Achmetha, in the province of the Medes', ['At Shushan the palace', 'At Nineveh', 'At Damascus'], 'Ezra 6:1–2', 'The search began in the house of the rolls in Babylon.'),
+  c('ezr12', 5, 'What did Ezra do when he heard of the mixed marriages?', 'Plucked off the hair of his head and beard', ['Put on sackcloth for forty days', 'Burned the marriage records', 'Lay on the ground seven days'], 'Ezra 9:3', 'Nehemiah plucked off the hair of the offenders (Nehemiah 13:25).'),
+  c('ezr13', 5, 'Why was Ezra ashamed to ask the king for soldiers?', "He had told the king God's hand is on all who seek him", ['The king had refused him before', 'The road was known to be safe', 'The soldiers would be unclean'], 'Ezra 8:22'),
+  c('ezr14', 5, 'Which governor beyond the river wrote to Darius asking who had allowed the building?', 'Tatnai', ['Sanballat', 'Haman', 'Rehum'], 'Ezra 5:3–6', 'Rehum wrote against the Jews to Artaxerxes earlier (4:8).'),
+  // Leg 3
+  o('ezr15', 5, 'Put these events from Ezra in order:', ['The decree of Cyrus', 'The altar is rebuilt', 'The temple is finished', 'Ezra arrives in Jerusalem'], 'Ezra 1; 3; 6; 7'),
+  c('ezr16', 6, 'How large was the whole congregation in the first return?', '42,360', ['70,000', '12,000', '50,000'], 'Ezra 2:64'),
+  c('ezr17', 6, 'Ezra traced his priestly line back to whom, "the chief priest"?', 'Aaron', ['Moses', 'Samuel', 'Eli'], 'Ezra 7:1–5'),
+  c('ezr18', 6, 'In what tongue was the letter against Jerusalem written to Artaxerxes?', 'The Syrian tongue', ['The Hebrew tongue', 'The tongue of the Chaldeans', 'The Greek tongue'], 'Ezra 4:7'),
+  c('ezr19', 6, 'Why did the people sit trembling in the street of the house of God?', 'Because of this matter, and the great rain', ['Because of an earthquake', 'Because an army approached', 'Because of a famine'], 'Ezra 10:9'),
+  c('ezr20', 6, 'Which feast did the returned exiles keep after the temple was dedicated?', 'The passover', ['Purim', 'Pentecost', 'The day of atonement'], 'Ezra 6:16–19'),
+  c('ezr21', 6, 'Within how many days were all the men of Judah to gather to Jerusalem over the foreign wives?', 'Three', ['Seven', 'Ten', 'Forty'], 'Ezra 10:7–9'),
+];
