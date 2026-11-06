@@ -15,6 +15,8 @@ import Stripe from 'stripe';
 const SITE = 'https://flight-roan-three.vercel.app';
 const SUPABASE_REF = 'izbtudngvxquegluyums';
 const LIVE = process.argv.includes('--live');
+// Stripe Managed Payments needs a tax code on every product: a browser game sold by subscription.
+const TAX_CODE = 'txcd_10201004';
 const ENV_FILE = '.env.local';
 
 const PLANS = [
@@ -75,7 +77,11 @@ for (const plan of PLANS) {
   const keys = ['monthly', 'yearly'].map((i) => `flight_${plan.id}_${i}`);
   const { data: existing } = await stripe.prices.list({ lookup_keys: keys, active: true, expand: ['data.product'] });
   let product = existing[0]?.product;
-  if (!product) product = await stripe.products.create({ name: plan.name, metadata: { flight_plan: plan.id } });
+  if (!product) product = await stripe.products.create({ name: plan.name, tax_code: TAX_CODE, metadata: { flight_plan: plan.id } });
+  else if ((product.tax_code?.id ?? product.tax_code) !== TAX_CODE) {
+    await stripe.products.update(product.id, { tax_code: TAX_CODE });
+    console.log(`  ✓ tax code set on ${plan.name}`);
+  }
   const priceIds = [];
   for (const interval of ['monthly', 'yearly']) {
     const lookup = `flight_${plan.id}_${interval}`;

@@ -1,5 +1,5 @@
 // Starts a Stripe Checkout for a Flight Club plan and returns the page to send the traveller to.
-import { customerFor, isPlan, json, lookupKey, stripe, userFrom } from './_lib.js';
+import { customerFor, isPlan, json, lookupKey, stripe, userFrom, type Plan } from './_lib.js';
 
 export async function POST(req: Request) {
   // Until the Stripe keys are added, the plans show but can't be bought yet.
@@ -12,9 +12,18 @@ export async function POST(req: Request) {
   const { plan, interval } = (await req.json().catch(() => ({}))) as { plan?: unknown; interval?: unknown };
   if (!isPlan(plan) || (interval !== 'monthly' && interval !== 'yearly')) return json({ error: 'Unknown plan.' }, 400);
 
+  try {
+    return json({ url: await startSession(req, user, plan, interval) });
+  } catch (e) {
+    console.error(e);
+    return json({ error: 'Checkout could not open. Try again in a moment.' }, 502);
+  }
+}
+
+async function startSession(req: Request, user: { id: string; email?: string }, plan: Plan, interval: 'monthly' | 'yearly') {
   const s = stripe();
   const { data: prices } = await s.prices.list({ lookup_keys: [lookupKey(plan, interval)], active: true });
-  if (!prices[0]) return json({ error: 'That plan is not on sale yet.' }, 503);
+  if (!prices[0]) throw new Error(`No active price for ${lookupKey(plan, interval)}`);
 
   const origin = new URL(req.url).origin;
   const session = await s.checkout.sessions.create({
@@ -27,5 +36,5 @@ export async function POST(req: Request) {
     success_url: `${origin}/?checkout=success`,
     cancel_url: `${origin}/?checkout=cancel`,
   });
-  return json({ url: session.url });
+  return session.url;
 }

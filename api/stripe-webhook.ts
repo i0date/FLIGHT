@@ -33,7 +33,10 @@ async function save(sub: Stripe.Subscription) {
   const plan = sub.items.data[0]?.price.lookup_key?.match(/^flight_([a-z]+)_/)?.[1] ?? sub.metadata.plan;
   if (!owner || !isPlan(plan)) return; // not a Flight Club subscription
   const ended = sub.status === 'canceled' || sub.status === 'incomplete_expired';
-  const until = ended ? (sub.ended_at ?? Math.floor(Date.now() / 1000)) : sub.current_period_end;
+  // Newer Stripe API versions keep the period end on the item; older webhook payloads keep it on the subscription.
+  const periodEnd = sub.items.data[0]?.current_period_end ?? (sub as unknown as { current_period_end?: number }).current_period_end;
+  const until = ended ? (sub.ended_at ?? Math.floor(Date.now() / 1000)) : periodEnd;
+  if (!until) throw new Error(`Subscription ${sub.id} has no period end`);
   const { error } = await admin()
     .from('subscriptions')
     .upsert(
