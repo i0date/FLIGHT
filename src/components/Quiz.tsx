@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { PlayQuestion } from '../types';
 import { Altimeter, FlightMap } from './Aircraft';
-import { chime, setSound, soundOn } from '../lib/sound';
+import { chime, setSound, soundOn, testChime } from '../lib/sound';
 
 // Typeset straight quotes as curly ones, so every question reads the same.
 const curly = (s: string) => s.replace(/"([^"]*)"/g, '\u201c$1\u201d').replace(/'/g, '\u2019');
@@ -65,6 +65,7 @@ export function Quiz({ questions, route, onFinish }: Props) {
   const toggleSound = () => {
     setSound(!sound);
     setSoundState(!sound);
+    if (!sound) testChime();
   };
 
   return (

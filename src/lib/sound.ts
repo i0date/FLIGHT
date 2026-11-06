@@ -18,11 +18,11 @@ export function setSound(on: boolean) {
   }
 }
 
-function tone(freq: number, start: number, length: number, gain = 0.12) {
+function tone(freq: number, start: number, length: number, gain = 0.2, type: OscillatorType = 'sine') {
   if (!ctx) return;
   const osc = ctx.createOscillator();
   const g = ctx.createGain();
-  osc.type = 'sine';
+  osc.type = type;
   osc.frequency.value = freq;
   g.gain.setValueAtTime(0, ctx.currentTime + start);
   g.gain.linearRampToValueAtTime(gain, ctx.currentTime + start + 0.02);
@@ -32,18 +32,41 @@ function tone(freq: number, start: number, length: number, gain = 0.12) {
   osc.stop(ctx.currentTime + start + length);
 }
 
-// Correct: the two-note seatbelt-sign chime. Wrong: a low single bump.
-export function chime(correct: boolean) {
-  if (!soundOn()) return;
+// Phones start audio paused, pause it again when the app is in the background, and on iPhone
+// mute web audio with the silent switch. Ask for media playback and resume before every sound.
+function audio(): AudioContext | null {
   try {
+    const session = (navigator as Navigator & { audioSession?: { type: string } }).audioSession;
+    if (session) session.type = 'playback';
     ctx ??= new AudioContext();
-    if (correct) {
-      tone(988, 0, 0.9);
-      tone(784, 0.28, 1.1);
-    } else {
-      tone(196, 0, 0.35, 0.08);
-    }
+    if (ctx.state !== 'running') void ctx.resume();
+    return ctx;
   } catch {
-    /* audio unavailable */
+    return null;
   }
+}
+
+// Wake the audio on the first tap anywhere, so the first answer already has sound.
+if (typeof window !== 'undefined') {
+  const unlock = () => {
+    if (soundOn()) audio();
+  };
+  window.addEventListener('pointerdown', unlock, { once: true, capture: true });
+}
+
+// Correct: the two-note seatbelt-sign chime. Wrong: a soft low double bump, pitched high enough for phone speakers.
+export function chime(correct: boolean) {
+  if (!soundOn() || !audio()) return;
+  if (correct) {
+    tone(988, 0, 0.9);
+    tone(784, 0.28, 1.1);
+  } else {
+    tone(294, 0, 0.22, 0.14, 'triangle');
+    tone(220, 0.16, 0.4, 0.14, 'triangle');
+  }
+}
+
+// Played when sound is switched on, so the traveller hears it working.
+export function testChime() {
+  if (audio()) tone(988, 0, 0.6, 0.16);
 }
