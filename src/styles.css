@@ -159,6 +159,14 @@ main { padding-bottom: 96px; }
 .toggle button.on { background: var(--navy); color: #fff; }
 .notice { padding: 12px 14px; border-radius: 12px; background: #e6f2f0; color: var(--teal); font-weight: 500; }
 .notice-error { background: #fbe9e4; color: var(--bad); }
+
+/* Streak calls on the terminal: don't miss your flight / you missed your flight. */
+.streak-call { display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; border: 1px solid var(--amber); border-left-width: 4px; background: #fffaf0; color: var(--ink); border-radius: 12px; padding: 12px 14px; font: inherit; font-size: 14px; line-height: 1.4; cursor: pointer; }
+.streak-call strong { display: block; font-size: 15px; color: var(--navy); margin-bottom: 2px; }
+.streak-call.final { border-color: var(--coral); background: #fdf0ea; }
+.streak-call.missed { border-color: var(--line); border-left-color: var(--bad); background: var(--card); }
+.streak-call.missed strong { color: var(--bad); }
+.streak-call.missed .flame-off { color: var(--muted); opacity: 1; }
 .member-card { border-color: var(--amber); background: #fffaf0; }
 .member-plan { font-size: 22px; color: var(--navy); }
 .invite { background: var(--sky); border-radius: 10px; padding: 10px 12px; }

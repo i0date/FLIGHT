@@ -68,6 +68,20 @@ export function liveStreak(p: Profile, today = dayKey()): number {
   return 0;
 }
 
+// What the terminal should say about the streak before today's flight:
+// 'due' while a streak is waiting on today, 'shielded' when Flight Club's shield is covering
+// yesterday, 'missed' once a streak has lapsed (until the next flight starts a new one).
+export type StreakStatus = { kind: 'due' | 'shielded' | 'missed'; streak: number; lastDaily: string } | null;
+
+export function streakStatus(p: Profile, today = dayKey()): StreakStatus {
+  if (!p.lastDaily || p.streak === 0 || p.daily[today] !== undefined) return null;
+  const gap = daysBetween(p.lastDaily, today);
+  if (gap <= 0) return null;
+  const live = liveStreak(p, today);
+  const kind = live === 0 ? 'missed' : gap === 2 ? 'shielded' : 'due';
+  return { kind, streak: p.streak, lastDaily: p.lastDaily };
+}
+
 export function recordDaily(p: Profile, score: number, today = dayKey()): Profile {
   if (p.daily[today] !== undefined) return p;
   let streak = 1;

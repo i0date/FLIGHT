@@ -6,6 +6,7 @@ import { bookClubQuestions } from '../data/bookClubQuestions';
 import { Flame, Lock, Plane } from '../components/Icons';
 import { PlaneWindow } from '../components/Aircraft';
 import { InstallCard } from '../components/InstallCard';
+import { StreakCall } from '../components/StreakCall';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
@@ -47,6 +48,8 @@ export function Home({ go }: { go: (s: Screen) => void }) {
           <PlaneWindow streak={streak} />
         </div>
       </header>
+
+      <StreakCall profile={profile} onBoard={() => go({ name: 'daily' })} />
 
       <button className="pass" onClick={() => go({ name: 'daily' })}>
         <div className="pass-main">
