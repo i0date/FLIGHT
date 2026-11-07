@@ -42,4 +42,6 @@ export type Screen =
   | { name: 'archive' }
   | { name: 'leaderboard' }
   | { name: 'premium' }
-  | { name: 'connecting'; code?: string };
+  | { name: 'connecting'; code?: string }
+  | { name: 'privacy' }
+  | { name: 'terms' };

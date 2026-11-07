@@ -43,5 +43,6 @@ async function save(sub: Stripe.Subscription) {
       { id: sub.id, owner_id: owner, plan, seats: PLANS[plan].seats, status: sub.status, active_until: new Date(until * 1000).toISOString(), updated_at: new Date().toISOString() },
       { onConflict: 'id' },
     );
-  if (error) throw error;
+  // 23503: the owner deleted their account (which cancels the plan), so there is nothing left to update.
+  if (error && error.code !== '23503') throw error;
 }

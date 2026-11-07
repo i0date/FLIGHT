@@ -161,7 +161,11 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
               Sign in to join Flight Club
             </button>
           )}
-          <p className="fineprint">Prices in {currency}. Payments are handled securely by Stripe. Cancel anytime.</p>
+          <p className="fineprint">
+            Prices in {currency}. Renews automatically until you cancel; cancel anytime. Payments are handled securely by Stripe. By joining you agree to the{' '}
+            <button className="link" onClick={() => go({ name: 'terms' })}>terms</button> and{' '}
+            <button className="link" onClick={() => go({ name: 'privacy' })}>privacy policy</button>.
+          </p>
 
           {account && (
             <div className="card">

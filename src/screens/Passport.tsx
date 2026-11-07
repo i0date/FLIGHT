@@ -3,6 +3,7 @@ import { useProfile } from '../lib/profile';
 import { milesFor, tierFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
+import { callApi } from '../lib/billing';
 import { IdentityPage, LogPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
 import type { Screen } from '../types';
@@ -93,8 +94,12 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
             <p className="small muted">Signed in as {account.email}</p>
             <button className="btn btn-ghost" onClick={signOut}>Sign out</button>
           </div>
+          <DeleteAccount owner={account.membership?.role === 'owner'} onDeleted={signOut} />
         </>
       )}
+      <p className="fineprint legal-links">
+        <button onClick={() => go({ name: 'privacy' })}>Privacy</button> · <button onClick={() => go({ name: 'terms' })}>Terms</button>
+      </p>
     </div>
   );
 }
@@ -185,6 +190,53 @@ function PassportOffice({ fileInput, photoUrl }: { fileInput: React.RefObject<HT
       </form>
       {message && <p className="small office-ok">{message}</p>}
       {error && <p className="form-error small">{error}</p>}
+    </section>
+  );
+}
+
+// Permanently delete the account, after typing DELETE to confirm.
+function DeleteAccount({ owner, onDeleted }: { owner: boolean; onDeleted: () => Promise<void> }) {
+  const [open, setOpen] = useState(false);
+  const [typed, setTyped] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+
+  const remove = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await callApi('delete-account', {});
+      // Clear this device too, so nothing of the account is left behind.
+      try {
+        Object.keys(localStorage).filter((k) => k.startsWith('flight.')).forEach((k) => localStorage.removeItem(k));
+      } catch {
+        /* nothing stored */
+      }
+      await onDeleted().catch(() => undefined);
+      window.location.replace('/');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
+      setBusy(false);
+    }
+  };
+
+  if (!open) {
+    return (
+      <button className="btn btn-ghost danger-link" onClick={() => setOpen(true)}>Delete my account</button>
+    );
+  }
+  return (
+    <section className="card danger">
+      <strong>Delete your account?</strong>
+      <p className="small">This permanently removes your passport: streak, miles, stamps, Book Club progress, photo, crews and leaderboard entries. It cannot be undone.</p>
+      {owner && <p className="small"><strong>Your Flight Club plan will be cancelled straight away</strong>, with no further charges, and anyone who joined it with your invite code will lose Flight Club too.</p>}
+      <label className="small">
+        Type DELETE to confirm
+        <input value={typed} onChange={(e) => setTyped(e.target.value)} autoCapitalize="characters" autoComplete="off" />
+      </label>
+      {error && <p className="form-error small">{error}</p>}
+      <button className="btn btn-danger" disabled={busy || typed.trim().toUpperCase() !== 'DELETE'} onClick={remove}>{busy ? 'Deleting…' : 'Delete my account forever'}</button>
+      <button className="btn btn-ghost" disabled={busy} onClick={() => { setOpen(false); setTyped(''); }}>Keep my account</button>
     </section>
   );
 }

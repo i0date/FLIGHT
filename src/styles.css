@@ -477,3 +477,18 @@ main { padding-bottom: 96px; }
 .cf-timer-bar div { height: 100%; background: var(--teal); transition: width 0.1s linear; }
 .cf-timer-bar div.low { background: var(--coral); }
 .cf-play-score { text-align: center; margin: 0; }
+
+/* Privacy policy and terms. */
+.legal-body { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 20px 20px; line-height: 1.6; }
+.legal-body h2 { font-size: 19px; margin: 24px 0 6px; color: var(--navy); }
+.legal-body h3 { font-size: 15px; margin: 16px 0 4px; }
+.legal-body p, .legal-body ul { margin: 0 0 10px; }
+.legal-body ul { padding-left: 20px; }
+.legal-body li { margin-bottom: 4px; }
+.legal-body a { color: var(--teal); }
+.legal-links button, button.link { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.danger { border-color: var(--bad); display: grid; gap: 10px; }
+.danger label { display: grid; gap: 4px; }
+.btn-danger { background: var(--bad); color: #fff; }
+.btn-danger:disabled { opacity: 0.5; }
+.danger-link { color: var(--bad); }

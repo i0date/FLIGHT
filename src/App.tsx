@@ -9,6 +9,7 @@ import { Passport as PassportScreen } from './screens/Passport';
 import { NightFlight } from './screens/NightFlight';
 import { Archive } from './screens/Archive';
 import { ConnectingFlights } from './screens/ConnectingFlights';
+import { Privacy, Terms } from './screens/Legal';
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -25,12 +26,20 @@ export default function App() {
   const [checkout] = useState(() => new URLSearchParams(window.location.search).get('checkout'));
   // An invite link (?flight=ABCD) opens Connecting Flights with the code filled in.
   const [flightCode] = useState(() => new URLSearchParams(window.location.search).get('flight'));
-  const [screen, setScreen] = useState<Screen>(checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' });
+  // The legal pages have their own addresses (/privacy, /terms) so they can be linked from Stripe and elsewhere.
+  const [screen, setScreen] = useState<Screen>(() => {
+    const path = window.location.pathname.replace(/\/$/, '');
+    if (path === '/privacy') return { name: 'privacy' };
+    if (path === '/terms') return { name: 'terms' };
+    return checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' };
+  });
   useEffect(() => {
-    if (checkout || flightCode) window.history.replaceState(null, '', window.location.pathname);
+    if (checkout || flightCode) window.history.replaceState(null, '', '/');
   }, [checkout, flightCode]);
   useEffect(() => {
     window.scrollTo(0, 0);
+    const path = screen.name === 'privacy' || screen.name === 'terms' ? `/${screen.name}` : '/';
+    if (window.location.pathname !== path) window.history.replaceState(null, '', path);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
   const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name;
@@ -49,6 +58,8 @@ export default function App() {
           {screen.name === 'leaderboard' && <Leaderboard go={go} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
           {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
+          {screen.name === 'privacy' && <Privacy go={go} />}
+          {screen.name === 'terms' && <Terms go={go} />}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (
