@@ -41,4 +41,5 @@ export type Screen =
   | { name: 'night' }
   | { name: 'archive' }
   | { name: 'leaderboard' }
-  | { name: 'premium' };
+  | { name: 'premium' }
+  | { name: 'connecting'; code?: string };

@@ -8,6 +8,7 @@ import { Premium } from './screens/Premium';
 import { Passport as PassportScreen } from './screens/Passport';
 import { NightFlight } from './screens/NightFlight';
 import { Archive } from './screens/Archive';
+import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -22,15 +23,17 @@ const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
 export default function App() {
   // Coming back from Stripe (?checkout=success|cancel|return) opens the Club page.
   const [checkout] = useState(() => new URLSearchParams(window.location.search).get('checkout'));
-  const [screen, setScreen] = useState<Screen>(checkout ? { name: 'premium' } : { name: 'home' });
+  // An invite link (?flight=ABCD) opens Connecting Flights with the code filled in.
+  const [flightCode] = useState(() => new URLSearchParams(window.location.search).get('flight'));
+  const [screen, setScreen] = useState<Screen>(checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' });
   useEffect(() => {
-    if (checkout) window.history.replaceState(null, '', window.location.pathname);
-  }, [checkout]);
+    if (checkout || flightCode) window.history.replaceState(null, '', window.location.pathname);
+  }, [checkout, flightCode]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive'].includes(screen.name) ? 'home' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name;
 
   return (
     <ProfileProvider>
@@ -45,6 +48,7 @@ export default function App() {
           {screen.name === 'archive' && <Archive go={go} />}
           {screen.name === 'leaderboard' && <Leaderboard go={go} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
+          {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (

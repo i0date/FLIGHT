@@ -18,5 +18,6 @@ export const gates: Gate[] = [
   { id: 'bookclub', gate: 'B4', title: 'Book Club', blurb: 'Studying a book? 21 questions over three flights. Score 15 to earn its stamp.', status: 'live', screen: { name: 'bookclub' } },
   { id: 'night', gate: 'N1', title: 'Night Flight', blurb: 'Ten stratosphere questions. A new flight every Monday.', status: 'live', premium: true, screen: { name: 'night' } },
   { id: 'archive', gate: 'A2', title: 'Flight archive', blurb: 'Replay any of the last 30 Daily Flights.', status: 'live', premium: true, screen: { name: 'archive' } },
+  { id: 'connecting', gate: 'C1', title: 'Connecting Flights', blurb: 'A live race for your group: same 10 questions, scrambled, 60 seconds.', status: 'live', screen: { name: 'connecting' } },
   { id: 'crossword', gate: 'C2', title: 'Crossword', blurb: 'Scripture crossword. Arriving soon.', status: 'soon' },
 ];

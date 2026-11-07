@@ -449,3 +449,31 @@ main { padding-bottom: 96px; }
 .customs-a::before { content: '✓ '; }
 .customs-note { margin: 0; font-size: 14px; color: var(--muted); }
 .customs-clear { margin: 0; padding: 14px 16px; color: var(--muted); }
+
+/* Connecting Flights: the live group game. */
+.cf-board { display: grid; gap: 12px; }
+.cf-board label { display: grid; gap: 4px; }
+.cf-code-input { font-size: 28px; letter-spacing: 0.4em; text-align: center; text-transform: uppercase; }
+.cf-head { text-align: center; display: grid; gap: 4px; }
+.cf-head p { margin: 0; }
+.cf-code { font-size: 56px; font-weight: 700; letter-spacing: 0.25em; color: var(--navy); padding-left: 0.25em; }
+.cf-players { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.cf-players li { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; border-top: 1px solid var(--line); }
+.cf-players li:first-child { border-top: 0; }
+.cf-players li.me { background: var(--sky); }
+.cf-players li.winner .cf-pos { color: var(--amber); font-size: 18px; }
+.cf-pos { color: var(--muted); font-weight: 700; text-align: center; }
+.cf-name { display: grid; gap: 6px; min-width: 0; }
+.cf-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cf-track { position: relative; display: flex; align-items: center; height: 14px; background: var(--line); border-radius: 7px; }
+.cf-track > span { height: 100%; background: var(--teal); border-radius: 7px; transition: width 0.4s; }
+.cf-track svg { margin-left: -8px; color: var(--navy); }
+.cf-score { text-align: right; font-weight: 700; display: grid; }
+.cf-score small { font-weight: 500; color: var(--muted); }
+.cf-countdown { align-items: center; text-align: center; padding-top: 80px; }
+.cf-count { font-size: 120px; font-weight: 700; color: var(--navy); line-height: 1; }
+.cf-timer { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; font-weight: 700; }
+.cf-timer-bar { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.cf-timer-bar div { height: 100%; background: var(--teal); transition: width 0.1s linear; }
+.cf-timer-bar div.low { background: var(--coral); }
+.cf-play-score { text-align: center; margin: 0; }
