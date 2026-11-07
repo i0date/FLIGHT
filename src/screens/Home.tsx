@@ -5,6 +5,7 @@ import { books } from '../data/books';
 import { bookClubQuestions } from '../data/bookClubQuestions';
 import { Flame, Lock, Plane } from '../components/Icons';
 import { PlaneWindow } from '../components/Aircraft';
+import { InstallCard } from '../components/InstallCard';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
@@ -90,6 +91,8 @@ export function Home({ go }: { go: (s: Screen) => void }) {
           )}
         </div>
       </button>
+
+      {Object.keys(profile.daily).length > 0 && <InstallCard />}
 
       <h3 className="section-title">Departures</h3>
       <div className="gates">

@@ -8,3 +8,8 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Offline support and a faster start from the Home Screen. Only in the built app, so development always loads fresh.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => undefined));
+}
