@@ -47,6 +47,8 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       </ul>
       <h3>Connecting Flights</h3>
       <p>When you board a Connecting Flight we keep the name you type, your answers count, your score and time, and a random code that identifies your device in that flight. You do not need an account. Flights are deleted after a day.</p>
+      <h3>Question reports</h3>
+      <p>If you use “Something wrong with this question?”, we keep the question, the reason and any note you write, the time, a random code for your device and, if you are signed in, your account. We use reports only to fix questions. They are never shown to other players.</p>
       <h3>Payments</h3>
       <p>Flight Club payments are handled by Stripe. Stripe collects your card details and billing information and handles sales tax; we never see or store your card number. We receive a customer reference, your plan and whether it is active. Stripe’s own privacy policy is at <a href="https://stripe.com/privacy" target="_blank" rel="noreferrer">stripe.com/privacy</a>.</p>
 
@@ -55,7 +57,7 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
         <li><strong>Public leaderboard</strong>: your passenger name, streak and today’s score, unless you turn it off in your Passport.</li>
         <li><strong>Crews</strong>: members of a crew see each other’s name, streak and today’s score.</li>
         <li><strong>Connecting Flights</strong>: everyone in the flight sees the names and scores on its board.</li>
-        <li><strong>Your passport photo, email and home church</strong> are never shown to other players.</li>
+        <li><strong>Your passport photo, email, home church and question reports</strong> are never shown to other players.</li>
       </ul>
 
       <h2>Why we use it</h2>

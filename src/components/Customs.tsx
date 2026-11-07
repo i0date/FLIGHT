@@ -1,4 +1,5 @@
 import { curly } from '../lib/text';
+import { ReportQuestion } from './ReportQuestion';
 import type { PlayQuestion } from '../types';
 
 // After landing, "declare" the questions you missed: the right answer, where to read it, and the note.
@@ -20,6 +21,7 @@ export function Customs({ questions, results }: { questions: PlayQuestion[]; res
               <p className="customs-a">{q.kind === 'choice' ? curly(q.options[q.answer]) : q.order.join(' → ')}</p>
               <span className="mono ref">{q.ref}</span>
               {q.note && <p className="customs-note">{curly(q.note)}</p>}
+              <ReportQuestion question={q} />
             </li>
           ))}
         </ol>
