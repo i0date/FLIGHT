@@ -436,3 +436,16 @@ main { padding-bottom: 96px; }
 .log { background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
 .log-row { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; padding: 10px 12px; font-size: 13px; border-top: 1px solid var(--line); }
 .log-row:first-child { border-top: 0; }
+
+/* Customs: the questions you missed, declared after landing. */
+.customs { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); text-align: left; overflow: hidden; }
+.customs-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 16px; background: var(--sky); }
+.customs-head .mono { color: var(--navy); letter-spacing: 0.12em; }
+.customs-list { list-style: none; margin: 0; padding: 0; }
+.customs-list li { padding: 14px 16px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.customs-list li:first-child { border-top: 0; }
+.customs-q { margin: 0; font-weight: 500; }
+.customs-a { margin: 0; color: var(--good); font-weight: 700; }
+.customs-a::before { content: '✓ '; }
+.customs-note { margin: 0; font-size: 14px; color: var(--muted); }
+.customs-clear { margin: 0; padding: 14px 16px; color: var(--muted); }

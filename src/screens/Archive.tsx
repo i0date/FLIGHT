@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Customs } from '../components/Customs';
 import { Quiz } from '../components/Quiz';
 import { Lock } from '../components/Icons';
 import { dailySet } from './Daily';
@@ -24,6 +25,7 @@ export function Archive({ go }: { go: (s: Screen) => void }) {
   const days = useMemo(pastDays, []);
   const [day, setDay] = useState<string | null>(null);
   const [replay, setReplay] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<boolean[]>([]);
   const questions = useMemo(() => (day ? dailySet(day) : []), [day]);
 
   if (!profile.premium) {
@@ -45,6 +47,7 @@ export function Archive({ go }: { go: (s: Screen) => void }) {
         <p className="landed-msg">
           {profile.daily[day] !== undefined ? `On the day you scored ${profile.daily[day]}/10.` : 'You didn\'t fly this one on the day.'} Replays don't change your streak or miles.
         </p>
+        <Customs questions={questions} results={answers} />
         <button className="btn btn-primary" onClick={() => { setDay(null); setReplay(null); }}>Back to the archive</button>
       </div>
     );
@@ -54,7 +57,7 @@ export function Archive({ go }: { go: (s: Screen) => void }) {
     return (
       <div className="screen">
         <p className="mono muted small">REPLAY · {day}</p>
-        <Quiz questions={questions} route={{ from: 'GEN', to: 'REV' }} onFinish={setReplay} />
+        <Quiz questions={questions} route={{ from: 'GEN', to: 'REV' }} onFinish={(score, a) => { setAnswers(a); setReplay(score); }} />
       </div>
     );
   }

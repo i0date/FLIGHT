@@ -6,6 +6,9 @@ import { dayKey, flightNumber } from '../lib/dates';
 import { liveStreak, recordDaily, useProfile } from '../lib/profile';
 import { seeded, shuffle, toPlay } from '../lib/random';
 import { Flame } from '../components/Icons';
+import { Customs } from '../components/Customs';
+import { loadResults, saveResults } from '../lib/customs';
+import { sharePass } from '../lib/share';
 import type { Level, Screen } from '../types';
 
 // Ten questions that climb from a warm-up to the stratosphere.
@@ -24,10 +27,17 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
   const questions = useMemo(() => dailySet(today), [today]);
   const already = profile.daily[today];
   const [justLanded, setJustLanded] = useState<number | null>(null);
+  const [results, setResults] = useState(() => loadResults(today));
+  const [shareState, setShareState] = useState<'idle' | 'busy' | 'copied'>('idle');
 
   if (already !== undefined || justLanded !== null) {
     const score = justLanded ?? already;
     const streak = liveStreak(profile);
+    const share = async () => {
+      setShareState('busy');
+      const how = await sharePass({ flight: flightNumber(), date: today, score, results, streak }).catch(() => 'cancelled' as const);
+      setShareState(how === 'copied' ? 'copied' : 'idle');
+    };
     return (
       <div className="screen landed">
         <Landing />
@@ -48,7 +58,13 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
             <span>Your next flight boards at midnight.</span>
           </div>
         </div>
-        <button className="btn btn-primary" onClick={() => go({ name: 'bookclub' })}>
+        {results.length === 10 && (
+          <button className="btn btn-primary" disabled={shareState === 'busy'} onClick={share}>
+            {shareState === 'copied' ? 'Copied — paste it anywhere' : 'Share your boarding pass'}
+          </button>
+        )}
+        <Customs questions={questions} results={results} />
+        <button className="btn btn-ghost" onClick={() => go({ name: 'bookclub' })}>
           Continue to Book Club
         </button>
         <button className="btn btn-ghost" onClick={() => go({ name: 'home' })}>
@@ -63,7 +79,9 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
       <Quiz
         questions={questions}
         route={{ from: 'GEN', to: 'REV' }}
-        onFinish={(score) => {
+        onFinish={(score, answers) => {
+          saveResults(today, answers);
+          setResults(answers);
           update((p) => recordDaily(p, score, today));
           setJustLanded(score);
         }}

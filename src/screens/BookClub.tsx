@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Customs } from '../components/Customs';
 import { books, bookById } from '../data/books';
 import { LEGS, LEG_SIZE, STAMP_PASS, STAMP_TOTAL, bookClubQuestions, legQuestions } from '../data/bookClubQuestions';
 import { bookScore, legsFlown, recordLeg, useProfile, type BookProgress } from '../lib/profile';
@@ -106,7 +107,7 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
   const progress = profile.bookClub[bookId];
   const [leg, setLeg] = useState<number | null>(null);
   const [attempt, setAttempt] = useState(0);
-  const [result, setResult] = useState<{ leg: number; score: number; justEarned: boolean } | null>(null);
+  const [result, setResult] = useState<{ leg: number; score: number; justEarned: boolean; answers: boolean[] } | null>(null);
   const questions = useMemo(() => (leg === null ? [] : legQuestions(bookId, leg).map((q) => toPlay(q))), [bookId, leg, attempt]);
 
   if (!book || !bookClubQuestions[bookId]) {
@@ -151,6 +152,7 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
             <Lock /> <span>Stamp earned! Join Flight Club to put {book.name} in your passport.</span>
           </button>
         )}
+        <Customs questions={questions} results={result.answers} />
         {nextLeg !== null && <button className="btn btn-primary" onClick={() => fly(nextLeg)}>Fly leg {nextLeg + 1} · {LEGS[nextLeg].name}</button>}
         <button className={nextLeg !== null ? 'btn btn-ghost' : 'btn btn-primary'} onClick={() => { setResult(null); setLeg(null); }}>Back to {book.name}</button>
       </div>
@@ -168,11 +170,11 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
           key={attempt}
           questions={questions}
           route={{ from: book.code, to: nextCode(book.id) }}
-          onFinish={(score) => {
+          onFinish={(score, answers) => {
             const before = profile.bookClub[bookId]?.earnedAt;
             const next = recordLeg(profile, bookId, leg, score);
             update((p) => recordLeg(p, bookId, leg, score));
-            setResult({ leg, score, justEarned: !before && !!next.bookClub[bookId].earnedAt });
+            setResult({ leg, score, justEarned: !before && !!next.bookClub[bookId].earnedAt, answers });
           }}
         />
       </div>

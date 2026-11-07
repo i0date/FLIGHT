@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import type { PlayQuestion } from '../types';
 import { Altimeter, FlightMap } from './Aircraft';
+import { curly } from '../lib/text';
 import { chime, setSound, soundOn, testChime } from '../lib/sound';
-
-// Typeset straight quotes as curly ones, so every question reads the same.
-const curly = (s: string) => s.replace(/"([^"]*)"/g, '\u201c$1\u201d').replace(/'/g, '\u2019');
 
 type Props = {
   questions: PlayQuestion[];
   route: { from: string; to: string };
-  onFinish: (score: number) => void;
+  onFinish: (score: number, results: boolean[]) => void;
 };
 
 // Shared quiz engine: one question at a time, reveal + reference, seat-back map progress.
@@ -59,7 +57,7 @@ export function Quiz({ questions, route, onFinish }: Props) {
     setChoice(null);
     setSequence([]);
     if (index + 1 < questions.length) setIndex(index + 1);
-    else onFinish(results.filter(Boolean).length);
+    else onFinish(results.filter(Boolean).length, results);
   };
 
   const toggleSound = () => {

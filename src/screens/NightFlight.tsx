@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Customs } from '../components/Customs';
 import { Quiz } from '../components/Quiz';
 import { PlaneWindow } from '../components/Aircraft';
 import { Lock } from '../components/Icons';
@@ -26,6 +27,7 @@ export function NightFlight({ go }: { go: (s: Screen) => void }) {
   const flown = profile.nightFlights[week];
   const [justLanded, setJustLanded] = useState<number | null>(null);
   const [flying, setFlying] = useState(false);
+  const [answers, setAnswers] = useState<boolean[]>([]);
 
   const header = (
     <header className="night-head">
@@ -60,6 +62,7 @@ export function NightFlight({ go }: { go: (s: Screen) => void }) {
           <p>{score >= 8 ? 'Remarkable. Few fly this high.' : score >= 5 ? 'A strong showing in thin air.' : 'Thin air up here. The next Night Flight boards on Monday.'}</p>
           <p className="small muted">+{score * 200} Frequent Flyer miles</p>
         </div>
+        <Customs questions={questions} results={answers} />
         <button className="btn btn-ghost" onClick={() => go({ name: 'home' })}>Back to the terminal</button>
       </div>
     );
@@ -79,7 +82,8 @@ export function NightFlight({ go }: { go: (s: Screen) => void }) {
       <Quiz
         questions={questions}
         route={{ from: 'DSK', to: 'DWN' }}
-        onFinish={(s) => {
+        onFinish={(s, a) => {
+          setAnswers(a);
           update((p) => ({ ...p, nightFlights: { ...p.nightFlights, [week]: s } }));
           setJustLanded(s);
         }}
