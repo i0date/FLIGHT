@@ -125,7 +125,8 @@ function Flight({ code, onLeave }: { code: string; onLeave: () => void }) {
         setOffset(new Date(s.server_now).getTime() - (asked + Date.now()) / 2);
         setState(s);
         setError('');
-        const done = s.started_at && s.players.every((p) => p.finished_ms !== null);
+        const over = s.started_at && new Date(s.server_now).getTime() > new Date(s.started_at).getTime() + (CF_SECONDS + 10) * 1000;
+        const done = s.started_at && (over || s.players.every((p) => p.finished_ms !== null));
         if (!done) timer = window.setTimeout(poll, s.started_at ? 1000 : 2000);
       } catch (e) {
         if (!alive) return;
@@ -226,7 +227,7 @@ function Board({ players, started, landed }: { players: CfPlayer[]; started: boo
           {started && (
             <span className="cf-score mono">
               {p.score}/{CF_SIZE}
-              <small>{p.finished_ms !== null ? `${(p.finished_ms / 1000).toFixed(1)}s` : `${p.answered}/${CF_SIZE}`}</small>
+              <small>{p.finished_ms !== null ? `${(p.finished_ms / 1000).toFixed(1)}s` : landed ? 'Out of time' : `${p.answered}/${CF_SIZE} answered`}</small>
             </span>
           )}
         </li>
