@@ -500,3 +500,20 @@ main { padding-bottom: 96px; }
 .install-head span { display: block; }
 .install-steps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 .install .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* Verse for the journey before the Daily Flight. */
+.announcement { padding-top: 24px; }
+.journey { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 20px; display: grid; gap: 12px; }
+.journey-label { margin: 0; color: var(--amber); font-size: 12px; letter-spacing: 0.12em; }
+.journey blockquote { margin: 0; }
+.journey blockquote p { margin: 0 0 10px; font-size: 20px; line-height: 1.45; font-weight: 500; }
+.journey cite { font-style: normal; color: var(--amber); font-size: 14px; }
+.smallcaps { font-variant: small-caps; }
+.announcement .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* Gate change: the bonus question mid-flight. */
+.gate-change { display: flex; flex-direction: column; gap: 16px; }
+.gate-board { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--amber); border-radius: 10px; padding: 12px 16px; font-weight: 700; letter-spacing: 0.08em; }
+.gate-flip { color: #fff; animation: gate-flip 0.6s ease-out; }
+@keyframes gate-flip { from { transform: rotateX(90deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.gate-intro { margin: 0; color: var(--muted); }

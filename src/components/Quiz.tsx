@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { PlayQuestion } from '../types';
 import { Altimeter, FlightMap } from './Aircraft';
 import { curly } from '../lib/text';
@@ -8,10 +8,12 @@ type Props = {
   questions: PlayQuestion[];
   route: { from: string; to: string };
   onFinish: (score: number, results: boolean[]) => void;
+  // A stop between questions (the Gate change): shown once, after question `after`.
+  interlude?: { after: number; render: (resume: () => void) => ReactNode };
 };
 
 // Shared quiz engine: one question at a time, reveal + reference, seat-back map progress.
-export function Quiz({ questions, route, onFinish }: Props) {
+export function Quiz({ questions, route, onFinish, interlude }: Props) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<boolean[]>([]);
   const [choice, setChoice] = useState<number | null>(null);
@@ -22,6 +24,7 @@ export function Quiz({ questions, route, onFinish }: Props) {
   const revealed = results[index] !== undefined;
   const correct = results[index];
   const revealRef = useRef<HTMLDivElement>(null);
+  const [stopover, setStopover] = useState<'ahead' | 'now' | 'done'>(interlude ? 'ahead' : 'done');
 
   // On a phone the answer card lands below the tab bar: bring it into view, and start each new question at the top.
   useEffect(() => {
@@ -56,6 +59,11 @@ export function Quiz({ questions, route, onFinish }: Props) {
   const advance = () => {
     setChoice(null);
     setSequence([]);
+    if (interlude && stopover === 'ahead' && index + 1 === interlude.after) {
+      setStopover('now');
+      window.scrollTo({ top: 0 });
+      return;
+    }
     if (index + 1 < questions.length) setIndex(index + 1);
     else onFinish(results.filter(Boolean).length, results);
   };
@@ -65,6 +73,17 @@ export function Quiz({ questions, route, onFinish }: Props) {
     setSoundState(!sound);
     if (!sound) testChime();
   };
+
+  if (interlude && stopover === 'now') {
+    return (
+      <>
+        {interlude.render(() => {
+          setStopover('done');
+          setIndex(index + 1);
+        })}
+      </>
+    );
+  }
 
   return (
     <div className={`quiz ${shake ? 'turbulence' : ''}`}>

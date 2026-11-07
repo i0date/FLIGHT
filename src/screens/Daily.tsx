@@ -3,12 +3,15 @@ import { Quiz } from '../components/Quiz';
 import { Landing } from '../components/Aircraft';
 import { dailyQuestions } from '../data/dailyQuestions';
 import { dayKey, flightNumber } from '../lib/dates';
-import { liveStreak, recordDaily, useProfile } from '../lib/profile';
+import { liveStreak, recordDaily, recordGateChange, useProfile } from '../lib/profile';
 import { seeded, shuffle, toPlay } from '../lib/random';
 import { Flame } from '../components/Icons';
 import { Customs } from '../components/Customs';
 import { loadResults, saveResults } from '../lib/customs';
 import { sharePass } from '../lib/share';
+import { Announcement } from '../components/Announcement';
+import { GateChange } from '../components/GateChange';
+import { GATE_AFTER, gateChangeFor } from '../lib/gate';
 import type { Level, Screen } from '../types';
 
 // Ten questions that climb from a warm-up to the stratosphere.
@@ -28,6 +31,8 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
   const already = profile.daily[today];
   const [justLanded, setJustLanded] = useState<number | null>(null);
   const [results, setResults] = useState(() => loadResults(today));
+  const [boarded, setBoarded] = useState(false);
+  const gateChange = useMemo(() => gateChangeFor(today, questions), [today, questions]);
   const [shareState, setShareState] = useState<'idle' | 'busy' | 'copied'>('idle');
 
   if (already !== undefined || justLanded !== null) {
@@ -74,9 +79,21 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
     );
   }
 
+  if (!boarded) return <Announcement day={today} flight={flightNumber()} onBoard={() => setBoarded(true)} />;
+
   return (
     <div className="screen">
       <Quiz
+        interlude={
+          gateChange
+            ? {
+                after: GATE_AFTER,
+                render: (resume) => (
+                  <GateChange gate={gateChange.gate} question={gateChange.question} onAnswer={(ok) => update((p) => recordGateChange(p, ok, today))} onContinue={resume} />
+                ),
+              }
+            : undefined
+        }
         questions={questions}
         route={{ from: 'GEN', to: 'REV' }}
         onFinish={(score, answers) => {

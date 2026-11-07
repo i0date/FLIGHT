@@ -20,6 +20,7 @@ export type Profile = {
   joinedBooks: string[];
   onLeaderboard: boolean; // shown on the public leaderboard
   nightFlights: Record<string, number>; // ISO week -> score out of 10 (Flight Club)
+  gateChanges: Record<string, boolean>; // day -> whether the Gate change bonus was answered right
   homeChurch: string;
   photoUpdatedAt: string | null; // set when a passport photo is uploaded (account only)
 };
@@ -38,6 +39,7 @@ const fresh: Profile = {
   joinedBooks: [],
   onLeaderboard: true,
   nightFlights: {},
+  gateChanges: {},
   homeChurch: '',
   photoUpdatedAt: null,
 };
@@ -86,6 +88,12 @@ export function recordDaily(p: Profile, score: number, today = dayKey()): Profil
     shieldUsedWeek,
     daily: { ...p.daily, [today]: score },
   };
+}
+
+// The Gate change bonus counts once per day, whatever happens on a replay.
+export function recordGateChange(p: Profile, ok: boolean, today = dayKey()): Profile {
+  if (p.gateChanges[today] !== undefined) return p;
+  return { ...p, gateChanges: { ...p.gateChanges, [today]: ok } };
 }
 
 export const bookScore = (r?: BookProgress) => (r ? r.legs.reduce<number>((sum, l) => sum + (l ?? 0), 0) : 0);

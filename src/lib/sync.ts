@@ -34,6 +34,7 @@ type ProfileRow = {
   joined_books: string[];
   on_leaderboard: boolean;
   night_flights: Record<string, number>;
+  gate_changes: Record<string, boolean>;
   home_church: string | null;
   photo_updated_at: string | null;
   created_at: string;
@@ -67,6 +68,7 @@ export async function loadRemote(userId: string, email: string): Promise<{ accou
       joinedBooks: p.joined_books,
       onLeaderboard: p.on_leaderboard,
       nightFlights: p.night_flights,
+      gateChanges: p.gate_changes ?? {},
       homeChurch: p.home_church ?? '',
       photoUpdatedAt: p.photo_updated_at,
       daily: Object.fromEntries((daily.data ?? []).map((r) => [r.day, r.score])),
@@ -102,6 +104,7 @@ export function merge(local: Profile, remote: Partial<Profile>): Profile {
     joinedBooks: [...new Set([...(remote.joinedBooks ?? []), ...local.joinedBooks])],
     onLeaderboard: remote.onLeaderboard ?? local.onLeaderboard,
     nightFlights: { ...local.nightFlights, ...remote.nightFlights },
+    gateChanges: { ...local.gateChanges, ...remote.gateChanges },
     homeChurch: remote.homeChurch || local.homeChurch,
     photoUpdatedAt: remote.photoUpdatedAt ?? null,
     daily: { ...local.daily, ...remote.daily },
@@ -123,6 +126,7 @@ export async function pushChanges(userId: string, prev: Profile | null, next: Pr
     joined_books: p.joinedBooks,
     on_leaderboard: p.onLeaderboard,
     night_flights: p.nightFlights,
+    gate_changes: p.gateChanges,
     home_church: p.homeChurch.trim() || null,
     photo_updated_at: p.photoUpdatedAt,
   });

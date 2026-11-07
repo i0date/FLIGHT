@@ -10,6 +10,7 @@ export const MILES = {
   perStampEarned: 1_500,
   perNightCorrect: 200,
   perBestStreakDay: 50,
+  perGateChange: 500,
 };
 
 export function milesFor(p: Profile): number {
@@ -19,7 +20,8 @@ export function milesFor(p: Profile): number {
     0,
   );
   const night = Object.values(p.nightFlights).reduce((sum, score) => sum + score * MILES.perNightCorrect, 0);
-  return daily + book + night + p.bestStreak * MILES.perBestStreakDay;
+  const gate = Object.values(p.gateChanges).filter(Boolean).length * MILES.perGateChange;
+  return daily + book + night + gate + p.bestStreak * MILES.perBestStreakDay;
 }
 
 export const TIERS = [
