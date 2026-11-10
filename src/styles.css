@@ -573,3 +573,9 @@ main { padding-bottom: 96px; }
 .pc-arrival { display: grid; gap: 10px; }
 .pc-night .pc-greetings { color: #fff3c4; }
 .postcard-thumb .pc-front { border-width: 4px; }
+
+/* Streak reminders card in the Passport. */
+.reminders { gap: 8px; }
+.reminders > p { margin: 0; }
+.reminder-row { border-top: 1px solid var(--line); padding-top: 10px; }
+.reminder-hint { margin: 0; background: var(--sky); color: var(--navy); border-radius: 10px; padding: 10px 12px; }

@@ -8,7 +8,8 @@
     "build": "tsc -b && tsc -p tsconfig.api.json && vite build",
     "setup:payments": "node scripts/setup-payments.mjs",
     "preview": "vite preview",
-    "reports": "node --env-file=.env.local scripts/reports.mjs"
+    "reports": "node --env-file=.env.local scripts/reports.mjs",
+    "setup:reminders": "node scripts/setup-reminders.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.4",

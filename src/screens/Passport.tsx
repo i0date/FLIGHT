@@ -3,6 +3,7 @@ import { useProfile } from '../lib/profile';
 import { milesFor, tierFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
+import { Reminders } from '../components/Reminders';
 import { callApi } from '../lib/billing';
 import { IdentityPage, LogPage, PostcardsPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
@@ -88,6 +89,7 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
 
       {account && (
         <>
+          <Reminders userId={account.userId} />
           <label className="card switch-row">
             <span>
               <strong>Show me on the public leaderboard</strong>

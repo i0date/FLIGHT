@@ -10,6 +10,7 @@ import { NightFlight } from './screens/NightFlight';
 import { Archive } from './screens/Archive';
 import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Privacy, Terms } from './screens/Legal';
+import { Unsubscribe } from './screens/Unsubscribe';
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -26,16 +27,19 @@ export default function App() {
   const [checkout] = useState(() => new URLSearchParams(window.location.search).get('checkout'));
   // An invite link (?flight=ABCD) opens Connecting Flights with the code filled in.
   const [flightCode] = useState(() => new URLSearchParams(window.location.search).get('flight'));
+  // The "Unsubscribe" link in reminder emails (?unsubscribe=<token>).
+  const [unsubToken] = useState(() => new URLSearchParams(window.location.search).get('unsubscribe'));
   // The legal pages have their own addresses (/privacy, /terms) so they can be linked from Stripe and elsewhere.
   const [screen, setScreen] = useState<Screen>(() => {
     const path = window.location.pathname.replace(/\/$/, '');
     if (path === '/privacy') return { name: 'privacy' };
     if (path === '/terms') return { name: 'terms' };
+    if (unsubToken) return { name: 'unsubscribe', token: unsubToken };
     return checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' };
   });
   useEffect(() => {
-    if (checkout || flightCode) window.history.replaceState(null, '', '/');
-  }, [checkout, flightCode]);
+    if (checkout || flightCode || unsubToken) window.history.replaceState(null, '', '/');
+  }, [checkout, flightCode, unsubToken]);
   useEffect(() => {
     window.scrollTo(0, 0);
     const path = screen.name === 'privacy' || screen.name === 'terms' ? `/${screen.name}` : '/';
@@ -60,6 +64,7 @@ export default function App() {
           {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
           {screen.name === 'privacy' && <Privacy go={go} />}
           {screen.name === 'terms' && <Terms go={go} />}
+          {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (

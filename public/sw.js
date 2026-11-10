@@ -46,3 +46,29 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+
+// Streak reminders ("Final boarding call", "You missed your flight") sent by the reminders function.
+self.addEventListener('push', (event) => {
+  const data = event.data ? event.data.json() : {};
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'FLIGHT', {
+      body: data.body,
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
+      tag: data.tag,
+      data: { url: data.url || '/' },
+    }),
+  );
+});
+
+// Tapping one opens FLIGHT, or brings it to the front if it's already open.
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const url = new URL(event.notification.data?.url || '/', self.location.origin).href;
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((open) => {
+      const app = open.find((c) => new URL(c.url).origin === self.location.origin);
+      return app ? app.focus() : self.clients.openWindow(url);
+    }),
+  );
+});

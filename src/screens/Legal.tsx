@@ -47,6 +47,8 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       </ul>
       <h3>Connecting Flights</h3>
       <p>When you board a Connecting Flight we keep the name you type, your answers count, your score and time, and a random code that identifies your device in that flight. You do not need an account. Flights are deleted after a day.</p>
+      <h3>Reminders</h3>
+      <p>If you turn on streak reminders, we keep your time zone (so they arrive at the right hour) and what we last sent you. For phone notifications we keep an address your phone’s browser gives us for sending to that device; turning notifications off, or removing the app, deletes it. Email reminders go to your account’s email only if you tick the box, and every one has an unsubscribe link.</p>
       <h3>Question reports</h3>
       <p>If you use “Something wrong with this question?”, we keep the question, the reason and any note you write, the time, a random code for your device and, if you are signed in, your account. We use reports only to fix questions. They are never shown to other players.</p>
       <h3>Payments</h3>
@@ -65,7 +67,9 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
 
       <h2>Services we rely on</h2>
       <ul>
-        <li><strong>Supabase</strong> stores accounts, progress and photos and sends sign-in emails.</li>
+        <li><strong>Supabase</strong> stores accounts, progress and photos, and sends reminders.</li>
+        <li><strong>Resend</strong> delivers our emails (sign-in codes and reminders).</li>
+        <li><strong>Apple, Google and Mozilla</strong> deliver phone notifications to your device, if you turn them on.</li>
         <li><strong>Vercel</strong> hosts the app.</li>
         <li><strong>Stripe</strong> handles payments and billing.</li>
         <li><strong>Google Fonts</strong> supplies the typefaces, so your browser asks Google for the font files.</li>
