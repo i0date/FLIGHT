@@ -1,7 +1,7 @@
 // The boarding pass you share after a Daily Flight: an image where the phone can share one, and text everywhere.
 export type PassResult = { flight: string; date: string; score: number; results: boolean[]; streak: number };
 
-const SITE = 'https://flight-roan-three.vercel.app';
+const SITE = 'https://theflightgame.com';
 const C = { paper: '#f5f1e8', card: '#fffdf8', navy: '#16243b', muted: '#6b7486', line: '#e4ddcf', good: '#3d8a85', bad: '#c8553d', amber: '#f2b544' };
 
 // Smooth air or turbulence for each question, climbing from take-off to the stratosphere.

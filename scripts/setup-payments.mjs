@@ -12,6 +12,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import Stripe from 'stripe';
 
+// Stripe's webhook stays on the Vercel address: it never moves, whatever happens to the domain.
 const SITE = 'https://flight-roan-three.vercel.app';
 const SUPABASE_REF = 'izbtudngvxquegluyums';
 const LIVE = process.argv.includes('--live');
