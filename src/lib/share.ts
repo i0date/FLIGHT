@@ -128,3 +128,81 @@ export async function sharePass(r: PassResult): Promise<'shared' | 'copied' | 'c
   await navigator.clipboard.writeText(text);
   return 'copied';
 }
+
+// A Book Club postcard: the picture side as an image, the verse in the text.
+type PostcardShare = { book: { id: string; name: string; section: string }; verse: { ref: string; text: string; scene: import('../data/postcards').Scene }; earnedAt: string };
+
+export async function postcardImage({ book, verse }: PostcardShare): Promise<Blob | null> {
+  const [{ sceneSvg, DARK_SCENES }, { INK }] = await Promise.all([import('./scenes'), import('./ink')]);
+  await document.fonts?.ready;
+  const W = 1500;
+  const H = 1000;
+  const canvas = document.createElement('canvas');
+  canvas.width = W;
+  canvas.height = H;
+  const g = canvas.getContext('2d');
+  if (!g) return null;
+  const ink = INK[book.section];
+
+  // The scene, drawn from the same SVG the app shows.
+  const svg = new Blob([sceneSvg(verse.scene, ink)], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(svg);
+  try {
+    const img = new Image();
+    img.src = url;
+    await img.decode();
+    g.drawImage(img, 0, 0, W, H);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+
+  // White border, like a printed card.
+  g.strokeStyle = C.card;
+  g.lineWidth = 36;
+  g.strokeRect(0, 0, W, H);
+
+  // "Greetings from" and the book's name in big outlined letters.
+  g.textAlign = 'center';
+  g.fillStyle = DARK_SCENES.has(verse.scene) ? '#fff3c4' : C.navy;
+  g.font = `600 84px 'Caveat', cursive`;
+  g.fillText('Greetings from', W / 2, 170);
+  let size = 200;
+  g.font = `700 ${size}px 'DM Sans', system-ui, sans-serif`;
+  const name = book.name.toUpperCase();
+  while (g.measureText(name).width > W - 160 && size > 80) {
+    size -= 10;
+    g.font = `700 ${size}px 'DM Sans', system-ui, sans-serif`;
+  }
+  g.lineJoin = 'round';
+  g.lineWidth = size / 9;
+  g.strokeStyle = C.card;
+  g.strokeText(name, W / 2, 170 + size * 0.95);
+  g.fillStyle = ink;
+  g.fillText(name, W / 2, 170 + size * 0.95);
+
+  // Footer tag.
+  g.font = `700 30px 'JetBrains Mono', ui-monospace, monospace`;
+  g.fillStyle = C.card;
+  g.fillText('FLIGHT · BOOK CLUB · theflightgame.com', W / 2, H - 60);
+  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+}
+
+export async function sharePostcard(p: PostcardShare): Promise<'shared' | 'copied' | 'cancelled'> {
+  const text = `Greetings from ${p.book.name}! ✉️ I earned my FLIGHT Book Club postcard.\n\n“${p.verse.text}” — ${p.verse.ref} (KJV)\n\n${SITE}`;
+  const blob = await postcardImage(p).catch(() => null);
+  const file = blob && new File([blob], `flight-postcard-${p.book.id}.png`, { type: 'image/png' });
+  try {
+    if (file && navigator.canShare?.({ files: [file] })) {
+      await navigator.share({ files: [file], text });
+      return 'shared';
+    }
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      await navigator.share({ text });
+      return 'shared';
+    }
+  } catch (e) {
+    if (e instanceof DOMException && e.name === 'AbortError') return 'cancelled';
+  }
+  await navigator.clipboard.writeText(text);
+  return 'copied';
+}

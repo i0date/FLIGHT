@@ -8,7 +8,7 @@ export function todaysAnnouncement(day: string) {
 }
 
 // LORD is printed in small capitals, as in the King James Bible.
-function Verse({ text }: { text: string }) {
+export function Verse({ text }: { text: string }) {
   return (
     <>
       {text.split(/(LORD)/).map((part, i) => (part === 'LORD' ? <span key={i} className="smallcaps">Lord</span> : part))}

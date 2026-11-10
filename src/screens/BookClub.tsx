@@ -7,6 +7,7 @@ import { toPlay } from '../lib/random';
 import { Quiz } from '../components/Quiz';
 import { Landing } from '../components/Aircraft';
 import { Lock } from '../components/Icons';
+import { Postcard } from '../components/Postcard';
 import type { Screen } from '../types';
 
 const sections = [...new Set(books.map((b) => b.section))];
@@ -147,6 +148,12 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
                 ? `Stamp already earned. Best total ${total}/${STAMP_TOTAL}.`
                 : `${total}/${STAMP_TOTAL} — you need ${STAMP_PASS}. Re-fly any leg to raise your score.`}
         </p>
+        {result.justEarned && progress?.earnedAt && (
+          <section className="pc-arrival">
+            <p className="mono small muted">✉ YOU'VE GOT MAIL · A POSTCARD FROM {book.name.toUpperCase()}</p>
+            <Postcard book={book} name={profile.name} earnedAt={progress.earnedAt} score={total} />
+          </section>
+        )}
         {result.justEarned && !profile.premium && (
           <button className="upsell" onClick={() => go({ name: 'premium' })}>
             <Lock /> <span>Stamp earned! Join Flight Club to put {book.name} in your passport.</span>
@@ -209,6 +216,12 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
           );
         })}
       </div>
+      {progress?.earnedAt && (
+        <section className="pc-arrival">
+          <h3 className="section-title">Your postcard</h3>
+          <Postcard book={book} name={profile.name} earnedAt={progress.earnedAt} score={total} />
+        </section>
+      )}
       <button className="btn btn-ghost" onClick={() => go({ name: 'bookclub' })}>Back to Book Club</button>
     </div>
   );

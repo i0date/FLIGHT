@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { books, bookById } from '../data/books';
 import { LEGS } from '../data/bookClubQuestions';
 import { bookClubQuestions } from '../data/bookClubQuestions';
@@ -7,19 +8,10 @@ import type { Account } from '../lib/sync';
 import { weekMonday } from '../lib/dates';
 import type { Screen } from '../types';
 import { Lock, Plane } from './Icons';
+import { INK } from '../lib/ink';
+import { Postcard, PostcardFront } from './Postcard';
 
 const SECTIONS = [...new Set(books.map((b) => b.section))];
-// Each section of the Bible stamps in its own ink.
-const INK: Record<string, string> = {
-  Law: '#b5523b',
-  History: '#2f7f7a',
-  'Poetry & Wisdom': '#7a4f9a',
-  'Major Prophets': '#1f4f8a',
-  'Minor Prophets': '#3d6e9c',
-  'Gospels & Acts': '#c0392b',
-  "Paul's Letters": '#2c6e49',
-  'General Letters & Revelation': '#8a5a1f',
-};
 const SHAPES = ['round', 'oval', 'rect', 'octagon'];
 
 function MrzLine({ text }: { text: string }) {
@@ -166,7 +158,7 @@ export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) 
 
 export function VisasPage({ profile, go }: { profile: Profile; go: (s: Screen) => void }) {
   return (
-    <Page n={4} title="VISAS">
+    <Page n={5} title="VISAS">
       <div className="visa-list">
         {VISAS.map((v) => {
           const granted = v.earned(profile);
@@ -203,7 +195,7 @@ export function LogPage({ profile }: { profile: Profile }) {
     .slice(0, 40);
 
   return (
-    <Page n={5} title="FLIGHT LOG">
+    <Page n={6} title="FLIGHT LOG">
       {rows.length ? (
         <div className="pp-log">
           {rows.map((r, i) => (
@@ -217,6 +209,38 @@ export function LogPage({ profile }: { profile: Profile }) {
       ) : (
         <p className="muted">No flights yet. Your first boards from the terminal.</p>
       )}
+    </Page>
+  );
+}
+
+// Postcards: free for everyone, one for each book earned in Book Club. Newest first.
+export function PostcardsPage({ profile, go }: { profile: Profile; go: (s: Screen) => void }) {
+  const earned = books
+    .filter((b) => profile.bookClub[b.id]?.earnedAt)
+    .sort((a, b) => profile.bookClub[b.id].earnedAt!.localeCompare(profile.bookClub[a.id].earnedAt!));
+  const [open, setOpen] = useState<string | null>(earned[0]?.id ?? null);
+  const shown = earned.find((b) => b.id === open);
+
+  return (
+    <Page n={4} title="POSTCARDS">
+      <p className="pp-count mono">{earned.length} / {books.length} RECEIVED</p>
+      {shown ? (
+        <Postcard key={shown.id} book={shown} name={profile.name} earnedAt={profile.bookClub[shown.id].earnedAt!} score={bookScore(profile.bookClub[shown.id])} />
+      ) : (
+        <p className="muted small">Earn a book in Book Club (15 of 21) and its postcard arrives here, with a verse from that book on the back.</p>
+      )}
+      <div className="postcard-grid">
+        {earned.map((b) => (
+          <button key={b.id} className="postcard-thumb" onClick={() => setOpen(b.id)} aria-label={`Postcard from ${b.name}`} aria-pressed={open === b.id}>
+            <PostcardFront book={b} />
+          </button>
+        ))}
+        {earned.length < books.length && (
+          <button className="postcard-empty" onClick={() => go({ name: 'bookclub' })}>
+            {earned.length ? `${books.length - earned.length} more to collect` : 'Go to Book Club'}
+          </button>
+        )}
+      </div>
     </Page>
   );
 }

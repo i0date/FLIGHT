@@ -4,13 +4,14 @@ import { milesFor, tierFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
 import { callApi } from '../lib/billing';
-import { IdentityPage, LogPage, StampsPage, VisasPage } from '../components/PassportPages';
+import { IdentityPage, LogPage, PostcardsPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
 import type { Screen } from '../types';
 
 const PAGES = [
   { id: 'id', label: 'Identity' },
   { id: 'stamps', label: 'Stamps' },
+  { id: 'postcards', label: 'Postcards' },
   { id: 'visas', label: 'Visas' },
   { id: 'log', label: 'Log' },
 ] as const;
@@ -70,6 +71,7 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
           <div className="pp-book" key={page}>
             {page === 'id' && <IdentityPage profile={profile} account={account} photoUrl={photoUrl} onPhotoTap={account ? () => fileInput.current?.click() : undefined} />}
             {page === 'stamps' && <StampsPage profile={profile} go={go} />}
+            {page === 'postcards' && <PostcardsPage profile={profile} go={go} />}
             {page === 'visas' && <VisasPage profile={profile} go={go} />}
             {page === 'log' && <LogPage profile={profile} />}
           </div>
