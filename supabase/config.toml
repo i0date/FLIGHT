@@ -256,10 +256,14 @@ otp_expiry = 3600
 # subject = "Your password has been changed"
 # content_path = "./supabase/templates/password_changed_notification.html"
 
-# Needs a custom SMTP provider (free-tier projects can't change templates on the default sender).
-# [auth.email.template.magic_link]
-# subject = "Your Flight boarding code"
-# content_path = "./supabase/templates/magic_link.html"
+# Sent through Resend (custom SMTP set in the dashboard). New and returning players get the same email.
+[auth.email.template.magic_link]
+subject = "Your FLIGHT sign-in link"
+content_path = "./supabase/templates/magic_link.html"
+
+[auth.email.template.confirmation]
+subject = "Your FLIGHT sign-in link"
+content_path = "./supabase/templates/magic_link.html"
 
 [auth.sms]
 # Allow/disallow the phone provider. When false, users can't sign up or sign in with SMS.
