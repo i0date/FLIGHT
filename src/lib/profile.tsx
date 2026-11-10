@@ -131,6 +131,7 @@ type Ctx = {
   sync: SyncState;
   accountsEnabled: boolean;
   sendLink: (email: string) => Promise<void>;
+  verifyCode: (email: string, code: string) => Promise<void>;
   refreshMembership: () => Promise<void>;
   signOut: () => Promise<void>;
 };
@@ -205,6 +206,13 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     if (error) throw error;
   }, []);
 
+  // The code from the same email, typed in by hand. Email links always open in the browser,
+  // so this is how the home-screen app signs in.
+  const verifyCode = useCallback(async (email: string, code: string) => {
+    const { error } = await supabase!.auth.verifyOtp({ email, token: code, type: 'email' });
+    if (error) throw new Error(/expired|invalid/i.test(error.message) ? 'That code didn’t work. Check it, or send a new one.' : error.message);
+  }, []);
+
   // After checkout or joining a plan, re-read the membership the server recorded.
   const refreshMembership = useCallback(async () => {
     if (!supabase) return;
@@ -220,7 +228,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, refreshMembership, signOut }}>
+    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, verifyCode, refreshMembership, signOut }}>
       {children}
     </ProfileContext.Provider>
   );

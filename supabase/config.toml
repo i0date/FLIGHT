@@ -258,11 +258,11 @@ otp_expiry = 3600
 
 # Sent through Resend (custom SMTP set in the dashboard). New and returning players get the same email.
 [auth.email.template.magic_link]
-subject = "Your FLIGHT sign-in link"
+subject = "Your FLIGHT sign-in code"
 content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.confirmation]
-subject = "Your FLIGHT sign-in link"
+subject = "Your FLIGHT sign-in code"
 content_path = "./supabase/templates/magic_link.html"
 
 [auth.sms]
