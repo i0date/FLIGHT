@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useProfile } from '../lib/profile';
 import { milesFor, tierFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
 import { Reminders } from '../components/Reminders';
+import { isOwner } from '../lib/owner';
 import { callApi } from '../lib/billing';
 import { IdentityPage, LogPage, PostcardsPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
@@ -34,6 +35,12 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
   const photoUrl = usePassportPhoto(account?.userId, profile.photoUpdatedAt);
   const fileInput = useRef<HTMLInputElement>(null);
   const { tier } = tierFor(milesFor(profile));
+  // The control tower link shows only for the people who run FLIGHT (the server checks again).
+  const [owner, setOwner] = useState(false);
+  useEffect(() => {
+    if (account) isOwner().then(setOwner);
+    else setOwner(false);
+  }, [account]);
 
   const setOpenRemembered = (value: boolean) => {
     setOpen(value);
@@ -89,6 +96,12 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
 
       {account && (
         <>
+          {owner && (
+            <button className="card ow-link" onClick={() => go({ name: 'owner' })}>
+              <strong>Control tower</strong>
+              <span className="small muted">How FLIGHT is doing: players, flights, Flight Club and question reports.</span>
+            </button>
+          )}
           <Reminders userId={account.userId} />
           <label className="card switch-row">
             <span>

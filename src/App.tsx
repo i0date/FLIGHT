@@ -11,6 +11,7 @@ import { Archive } from './screens/Archive';
 import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Privacy, Terms } from './screens/Legal';
 import { Unsubscribe } from './screens/Unsubscribe';
+import { Owner } from './screens/Owner';
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -34,6 +35,7 @@ export default function App() {
     const path = window.location.pathname.replace(/\/$/, '');
     if (path === '/privacy') return { name: 'privacy' };
     if (path === '/terms') return { name: 'terms' };
+    if (path === '/owner') return { name: 'owner' };
     if (unsubToken) return { name: 'unsubscribe', token: unsubToken };
     return checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' };
   });
@@ -42,11 +44,11 @@ export default function App() {
   }, [checkout, flightCode, unsubToken]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    const path = screen.name === 'privacy' || screen.name === 'terms' ? `/${screen.name}` : '/';
+    const path = screen.name === 'privacy' || screen.name === 'terms' || screen.name === 'owner' ? `/${screen.name}` : '/';
     if (window.location.pathname !== path) window.history.replaceState(null, '', path);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' ? 'passport' : screen.name;
 
   return (
     <ProfileProvider>
@@ -65,6 +67,7 @@ export default function App() {
           {screen.name === 'privacy' && <Privacy go={go} />}
           {screen.name === 'terms' && <Terms go={go} />}
           {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
+          {screen.name === 'owner' && <Owner go={go} />}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (

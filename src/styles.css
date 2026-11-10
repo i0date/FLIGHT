@@ -579,3 +579,31 @@ main { padding-bottom: 96px; }
 .reminders > p { margin: 0; }
 .reminder-row { border-top: 1px solid var(--line); padding-top: 10px; }
 .reminder-hint { margin: 0; background: var(--sky); color: var(--navy); border-radius: 10px; padding: 10px 12px; }
+
+/* Control tower: the owner's dashboard. */
+.ow-link { text-align: left; border-color: var(--navy); display: grid; gap: 2px; font: inherit; color: inherit; cursor: pointer; }
+.ow-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ow-tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.ow-tile-label { font-size: 12px; color: var(--muted); }
+.ow-tile-value { font-size: 28px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+.ow-tile-sub { font-size: 12px; color: var(--muted); }
+.ow-chart { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 8px; }
+.ow-chart figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 14px; color: var(--ink); }
+.ow-chart-total { font-size: 12px; color: var(--muted); }
+.ow-bars { display: flex; align-items: flex-end; gap: 2px; height: 110px; border-bottom: 1px solid var(--line); }
+.ow-bar { position: relative; flex: 1; height: 100%; display: flex; align-items: flex-end; border: 0; padding: 0; background: none; cursor: default; }
+.ow-bar-fill { display: block; width: 100%; background: var(--teal); border-radius: 4px 4px 0 0; }
+.ow-bar:hover .ow-bar-fill, .ow-bar:focus .ow-bar-fill { background: var(--navy); }
+.ow-tip { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 11px; line-height: 1.35; padding: 6px 8px; border-radius: 8px; white-space: nowrap; z-index: 2; pointer-events: none; text-align: center; }
+.ow-bar:first-child .ow-tip { left: 0; transform: none; }
+.ow-bar:last-child .ow-tip { left: auto; right: 0; transform: none; }
+.ow-bar:hover .ow-tip, .ow-bar:focus .ow-tip { display: block; }
+.ow-axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+.ow-list { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 6px; }
+.ow-list li { display: flex; justify-content: space-between; gap: 8px; }
+.ow-reports { list-style: none; margin: 6px 0 0; padding: 0; display: grid; }
+.ow-reports li { border-top: 1px solid var(--line); padding: 10px 0; display: grid; gap: 4px; }
+.ow-reports p { margin: 0; }
+.ow-q { font-weight: 500; }
+.ow-note { color: var(--ink); background: var(--sky); border-radius: 8px; padding: 6px 8px; }
+.ow-actions { display: flex; gap: 8px; justify-content: flex-end; }

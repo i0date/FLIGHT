@@ -45,4 +45,5 @@ export type Screen =
   | { name: 'connecting'; code?: string }
   | { name: 'privacy' }
   | { name: 'terms' }
-  | { name: 'unsubscribe'; token: string };
+  | { name: 'unsubscribe'; token: string }
+  | { name: 'owner' };
