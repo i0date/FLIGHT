@@ -43,7 +43,8 @@ function ask(question, hidden = false) {
 
 const b64url = (buf) => Buffer.from(buf).toString('base64url');
 const step = (msg) => console.log(`\n✈  ${msg}`);
-const supabase = (args, opts = {}) => spawnSync('npx', ['--yes', 'supabase@latest', ...args, '--project-ref', PROJECT], { encoding: 'utf8', ...opts });
+// --remote picks the project; --yes confirms the change (the CLI asks for both on anything hosted).
+const supabase = (args, opts = {}) => spawnSync('npx', ['--yes', 'supabase@latest', ...args, `--remote=${PROJECT}`, '--yes'], { encoding: 'utf8', ...opts });
 
 // --- 1. Notification keys: made once and kept, because changing them silences every device already signed up. ---
 step('Notification keys');
@@ -90,7 +91,8 @@ try {
 
 // --- 4. Deploy the function ---
 step('Deploying the reminders function');
-const d = supabase(['functions', 'deploy', 'reminders', '--no-verify-jwt'], { stdio: 'inherit' });
+// --use-api bundles on Supabase's side, so Docker isn't needed on this computer.
+const d = supabase(['functions', 'deploy', 'reminders', '--no-verify-jwt', '--use-api'], { stdio: 'inherit' });
 if (d.status !== 0) throw new Error('Deploy failed (see above).');
 
 // --- 5. The app's side ---
