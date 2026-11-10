@@ -36,7 +36,7 @@ export function tierFor(miles: number) {
   return { tier: TIERS[index], next: TIERS[index + 1] ?? null };
 }
 
-// Visas: book visas need stamps (Flight Club); streak visas are free for everyone.
+// Visas: book visas need stamps (Frequent Flyers); streak visas are free for everyone.
 type Visa = { id: string; name: string; detail: string; earned: (p: Profile) => boolean; needsStamps: boolean };
 const sectionDone = (p: Profile, sections: string[]) =>
   books.filter((b) => sections.includes(b.section)).every((b) => p.premium && p.bookClub[b.id]?.earnedAt);

@@ -5,7 +5,7 @@ import { crewBoard, myCrews, type BoardRow, type CrewInfo } from '../lib/boards'
 import { books } from '../data/books';
 import type { Screen } from '../types';
 
-// The Lounge: Flight Club's home. Everything a member has, in one place: this week's Night Flight,
+// The Lounge: Frequent Flyers' home. Everything a member has, in one place: this week's Night Flight,
 // the streak shield, stamps, the archive, hosting a Connecting Flight, and their crews' boards today.
 
 function Perk({ code, title, status, action, onClick }: { code: string; title: string; status: string; action: string; onClick: () => void }) {
@@ -74,9 +74,9 @@ export function Lounge({ go }: { go: (s: Screen) => void }) {
   return (
     <>
       <header className="lounge-head">
-        <p className="mono small">FLIGHT CLUB · THE LOUNGE</p>
+        <p className="mono small">FREQUENT FLYERS · THE LOUNGE</p>
         <h1>{greeting}, {profile.name}.</h1>
-        <p>Welcome to the Lounge. Everything Flight Club gives you is here.</p>
+        <p>Welcome to the Lounge. Everything Frequent Flyers get is here.</p>
       </header>
 
       <section className="lounge-perks">

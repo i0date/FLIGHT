@@ -1,10 +1,10 @@
-// Starts a Stripe Checkout for a Flight Club plan and returns the page to send the traveller to.
+// Starts a Stripe Checkout for a Frequent Flyers plan and returns the page to send the traveller to.
 import { customerFor, isPlan, json, lookupKey, stripe, userFrom, type Plan } from './_lib.js';
 
 export async function POST(req: Request) {
   // Until the Stripe keys are added, the plans show but can't be bought yet.
   if (!process.env.STRIPE_SECRET_KEY || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return json({ error: 'Flight Club opens soon — payments are still being set up.' }, 503);
+    return json({ error: 'Memberships open soon — payments are still being set up.' }, 503);
   }
   const user = await userFrom(req);
   if (!user) return json({ error: 'Sign in first.' }, 401);

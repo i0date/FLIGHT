@@ -61,7 +61,7 @@ export function OwnerLink({ go }: { go: (s: Screen) => void }) {
   return (
     <button className="card ow-link" onClick={() => go({ name: 'owner' })}>
       <strong>Control tower</strong>
-      <span className="small muted">How FLIGHT is doing: players, flights, Flight Club and question reports.</span>
+      <span className="small muted">How FLIGHT is doing: players, flights, Frequent Flyers and question reports.</span>
     </button>
   );
 }
@@ -112,9 +112,9 @@ export function Owner({ go }: { go: (s: Screen) => void }) {
         <Tile label="Accounts" value={s.accounts.total} sub={`+${s.accounts.new_7d} this week · +${s.accounts.new_today} today`} />
         <Tile label="Flew today" value={s.accounts.active_today} sub={`${s.accounts.active_7d} in the last 7 days`} />
         <Tile label="Live streaks" value={s.streaks.live} sub={`longest ${s.streaks.longest_live} · best ever ${s.streaks.best_ever}`} />
-        <Tile label="Flight Club" value={paying} sub={`${plans.map(([p, n]) => `${n} ${p}`).join(' · ') || 'no plans yet'}${s.club.seat_members ? ` · +${s.club.seat_members} seats` : ''}`} />
+        <Tile label="Frequent Flyers" value={paying} sub={`${plans.map(([p, n]) => `${n} ${p}`).join(' · ') || 'no plans yet'}${s.club.seat_members ? ` · +${s.club.seat_members} seats` : ''}`} />
       </section>
-      {s.club.past_due > 0 && <p className="notice notice-error small">{s.club.past_due} Flight Club plan{s.club.past_due === 1 ? ' has' : 's have'} a failed payment. Stripe will retry.</p>}
+      {s.club.past_due > 0 && <p className="notice notice-error small">{s.club.past_due} Frequent Flyer plan{s.club.past_due === 1 ? ' has' : 's have'} a failed payment. Stripe will retry.</p>}
 
       <Bars title="Daily Flights, last 14 days" unit="flights" rows={byDay(s.daily.by_day, 'flights')} />
       <Bars title="New accounts, last 14 days" unit="sign-ups" rows={byDay(s.accounts.signups_by_day, 'n')} />

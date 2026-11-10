@@ -31,7 +31,7 @@ async function save(sub: Stripe.Subscription) {
   const owner = sub.metadata.user_id;
   // The price's lookup key (flight_family_yearly) wins, so plan switches in the billing page count.
   const plan = sub.items.data[0]?.price.lookup_key?.match(/^flight_([a-z]+)_/)?.[1] ?? sub.metadata.plan;
-  if (!owner || !isPlan(plan)) return; // not a Flight Club subscription
+  if (!owner || !isPlan(plan)) return; // not a Frequent Flyers subscription
   const ended = sub.status === 'canceled' || sub.status === 'incomplete_expired';
   // Newer Stripe API versions keep the period end on the item; older webhook payloads keep it on the subscription.
   const periodEnd = sub.items.data[0]?.current_period_end ?? (sub as unknown as { current_period_end?: number }).current_period_end;

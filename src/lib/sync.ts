@@ -14,7 +14,7 @@ export type Account = { userId: string; email: string; passengerNo: string; memb
 
 type MembershipRow = { plan: Membership['plan']; role: Membership['role']; active_until: string; seats: number; members: number; invite_code: string | null };
 
-// The Flight Club membership that applies to the signed-in traveller (their own or a family/group seat).
+// The Frequent Flyers membership that applies to the signed-in traveller (their own or a family/group seat).
 export async function loadMembership(): Promise<Membership | null> {
   const { data, error } = await supabase!.rpc('my_membership');
   if (error) throw error;

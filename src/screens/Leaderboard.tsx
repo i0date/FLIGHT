@@ -167,7 +167,7 @@ export function Leaderboard({ go, crewId }: { go: (s: Screen) => void; crewId?: 
             </form>
           ) : (
             <button className="card locked" onClick={() => go({ name: 'premium' })}>
-              <Lock /> <span>Starting a crew is a Flight Club perk. Joining one is free.</span>
+              <Lock /> <span>Starting a crew is a Frequent Flyer perk. Joining one is free.</span>
             </button>
           )}
         </>

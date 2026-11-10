@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// One-time Stripe setup for Flight Club. Run from the project folder:
+// One-time Stripe setup for Frequent Flyers. Run from the project folder:
 //   npm run setup:payments
 // It asks for your Stripe secret key (test mode unless you pass --live), then:
-//   1. creates the Flight Club products and prices (USD with a CAD option)
+//   1. creates the Frequent Flyers products and prices (USD with a CAD option)
 //   2. creates the webhook that tells Flight when someone pays or cancels
 //   3. turns on Stripe's billing page (change card, switch plan, cancel)
 //   4. saves the server settings to .env.local and to Vercel (as sensitive values)
@@ -21,9 +21,9 @@ const TAX_CODE = 'txcd_10201004';
 const ENV_FILE = '.env.local';
 
 const PLANS = [
-  { id: 'individual', name: 'Flight Club — Individual', usd: { monthly: 399, yearly: 2999 }, cad: { monthly: 499, yearly: 3999 } },
-  { id: 'family', name: 'Flight Club — Family (6)', usd: { monthly: 699, yearly: 4999 }, cad: { monthly: 899, yearly: 6499 } },
-  { id: 'group', name: 'Flight Club — Church & groups (30)', usd: { monthly: 1999, yearly: 17999 }, cad: { monthly: 2699, yearly: 23999 } },
+  { id: 'individual', name: 'Frequent Flyers — Individual', usd: { monthly: 399, yearly: 2999 }, cad: { monthly: 499, yearly: 3999 } },
+  { id: 'family', name: 'Frequent Flyers — Family (6)', usd: { monthly: 699, yearly: 4999 }, cad: { monthly: 899, yearly: 6499 } },
+  { id: 'group', name: 'Frequent Flyers — Church & groups (30)', usd: { monthly: 1999, yearly: 17999 }, cad: { monthly: 2699, yearly: 23999 } },
 ];
 
 const readEnv = () =>
@@ -115,7 +115,7 @@ if (oldHook && readEnv().STRIPE_WEBHOOK_SECRET) {
 } else {
   // A signing secret is only shown once, so replace any webhook we don't have the secret for.
   if (oldHook) await stripe.webhookEndpoints.del(oldHook.id);
-  const hook = await stripe.webhookEndpoints.create({ url: hookUrl, enabled_events: events, description: 'Flight Club memberships' });
+  const hook = await stripe.webhookEndpoints.create({ url: hookUrl, enabled_events: events, description: 'Frequent Flyer memberships' });
   saveEnv('STRIPE_WEBHOOK_SECRET', hook.secret);
   console.log('  ✓ webhook created');
 }
@@ -123,7 +123,7 @@ if (oldHook && readEnv().STRIPE_WEBHOOK_SECRET) {
 // --- Billing page ---
 step('Billing page');
 await stripe.billingPortal.configurations.create({
-  business_profile: { headline: 'Flight Club' },
+  business_profile: { headline: 'Frequent Flyers' },
   default_return_url: `${SITE}/?checkout=return`,
   features: {
     customer_update: { enabled: true, allowed_updates: ['email', 'address'] },

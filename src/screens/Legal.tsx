@@ -43,7 +43,7 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
         <li><strong>Your passenger name</strong> and, if you add them, <strong>your home church</strong> and <strong>a passport photo</strong>.</li>
         <li><strong>Your game progress</strong>: Daily Flight scores, streaks, Book Club and Night Flight results, and the passenger number we give you.</li>
         <li><strong>Your choices</strong>: whether you appear on the public leaderboard, and the crews you run or join.</li>
-        <li><strong>Your Flight Club membership</strong>: plan, status and renewal date, and the plan you joined with an invite code.</li>
+        <li><strong>Your Frequent Flyer membership</strong>: plan, status and renewal date, and the plan you joined with an invite code.</li>
       </ul>
       <h3>Connecting Flights</h3>
       <p>When you board a Connecting Flight we keep the name you type, your answers count, your score and time, and a random code that identifies your device in that flight. You do not need an account. Flights are deleted after a day.</p>
@@ -52,7 +52,7 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       <h3>Question reports</h3>
       <p>If you use “Something wrong with this question?”, we keep the question, the reason and any note you write, the time, a random code for your device and, if you are signed in, your account. We use reports only to fix questions. They are never shown to other players.</p>
       <h3>Payments</h3>
-      <p>Flight Club payments are handled by Stripe. Stripe collects your card details and billing information and handles sales tax; we never see or store your card number. We receive a customer reference, your plan and whether it is active. Stripe’s own privacy policy is at <a href="https://stripe.com/privacy" target="_blank" rel="noreferrer">stripe.com/privacy</a>.</p>
+      <p>Frequent Flyer payments are handled by Stripe. Stripe collects your card details and billing information and handles sales tax; we never see or store your card number. We receive a customer reference, your plan and whether it is active. Stripe’s own privacy policy is at <a href="https://stripe.com/privacy" target="_blank" rel="noreferrer">stripe.com/privacy</a>.</p>
 
       <h2>Who can see what</h2>
       <ul>
@@ -63,7 +63,7 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       </ul>
 
       <h2>Why we use it</h2>
-      <p>Only to run the game: to sign you in, keep your progress across devices, show leaderboards, provide Flight Club, and answer you when you contact us. We do not use your data for advertising or sell it to anyone.</p>
+      <p>Only to run the game: to sign you in, keep your progress across devices, show leaderboards, provide Frequent Flyer memberships, and answer you when you contact us. We do not use your data for advertising or sell it to anyone.</p>
 
       <h2>Services we rely on</h2>
       <ul>
@@ -102,13 +102,13 @@ export function Terms({ go }: { go: (s: Screen) => void }) {
       <h2>Your account</h2>
       <p>You can play without an account. If you make one, use an email address you control and keep access to it private: anyone who can open your email can sign in as you. One account is for one person.</p>
 
-      <h2>Flight Club</h2>
+      <h2>Frequent Flyers</h2>
       <ul>
-        <li>Flight Club is a paid subscription. The price and what it includes are shown before you pay.</li>
+        <li>Frequent Flyer membership is a paid subscription. The price and what it includes are shown before you pay.</li>
         <li>It <strong>renews automatically</strong> each month or year, at the price shown, until you cancel.</li>
-        <li>You can cancel at any time from the billing page in the app. You keep Flight Club until the end of the period you have paid for, and you will not be charged again.</li>
+        <li>You can cancel at any time from the billing page in the app. You keep your membership until the end of the period you have paid for, and you will not be charged again.</li>
         <li>We do not refund part-used periods, except where the law requires it or where Stripe issues a refund under its own policies.</li>
-        <li>Family and church plans are paid by the person who set them up. Members who join with an invite code keep Flight Club while that plan is active.</li>
+        <li>Family and church plans are paid by the person who set them up. Members who join with an invite code keep their membership while that plan is active.</li>
         <li>If we change the price, we will tell you before your next renewal, and you can cancel before it takes effect.</li>
       </ul>
       <p>Payments are handled by Stripe, and Stripe’s terms also apply to the payment.</p>
@@ -130,7 +130,7 @@ export function Terms({ go }: { go: (s: Screen) => void }) {
       <p>As far as the law allows, we are not responsible for indirect losses, and our total responsibility to you is limited to what you paid us in the 12 months before the problem. Nothing in these terms takes away rights you have under consumer protection law, including Ontario’s Consumer Protection Act.</p>
 
       <h2>Ending</h2>
-      <p>You can stop using FLIGHT and delete your account at any time from your Passport. Deleting your account cancels any Flight Club plan you pay for. We may end or suspend accounts that seriously or repeatedly break these terms.</p>
+      <p>You can stop using FLIGHT and delete your account at any time from your Passport. Deleting your account cancels any Frequent Flyer plan you pay for. We may end or suspend accounts that seriously or repeatedly break these terms.</p>
 
       <h2>The law</h2>
       <p>These terms are governed by the laws of Ontario and of Canada that apply there, and disputes are handled by the courts of Ontario, unless consumer law gives you the right to use the courts where you live.</p>

@@ -44,7 +44,7 @@ export function BookClub({ go }: { go: (s: Screen) => void }) {
 
       {!profile.premium && (
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>Passport stamps are a Flight Club perk. {earned > 0 ? `Your ${earned} earned stamp${earned === 1 ? '' : 's'} will go into your passport the moment you join.` : 'Earn stamps by flying, then join to put them in your passport.'}</span>
+          <Lock /> <span>Passport stamps are a Frequent Flyer perk. {earned > 0 ? `Your ${earned} earned stamp${earned === 1 ? '' : 's'} will go into your passport the moment you join.` : 'Earn stamps by flying, then join to put them in your passport.'}</span>
         </button>
       )}
 
@@ -156,7 +156,7 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
         )}
         {result.justEarned && !profile.premium && (
           <button className="upsell" onClick={() => go({ name: 'premium' })}>
-            <Lock /> <span>Stamp earned! Join Flight Club to put {book.name} in your passport.</span>
+            <Lock /> <span>Stamp earned! Become a Frequent Flyer to put {book.name} in your passport.</span>
           </button>
         )}
         <Customs questions={questions} results={result.answers} />

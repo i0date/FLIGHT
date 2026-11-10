@@ -90,7 +90,7 @@ export function ConnectingFlights({ go, code: linkCode }: { go: (s: Screen) => v
         <button className="btn btn-ghost" disabled={busy || !name.trim()} onClick={open}>Open a new flight for your group</button>
       ) : (
         <button className="upsell" onClick={() => go({ name: account ? 'premium' : 'passport' })}>
-          <Lock /> <span>{account ? 'Opening a flight for your group is a Flight Club perk. Boarding is free.' : 'Sign in with Flight Club to open a flight. Boarding with a code is free.'}</span>
+          <Lock /> <span>{account ? 'Opening a flight for your group is a Frequent Flyer perk. Boarding is free.' : 'Sign in as a Frequent Flyer to open a flight. Boarding with a code is free.'}</span>
         </button>
       )}
       {error && <p className="form-error small">{error}</p>}

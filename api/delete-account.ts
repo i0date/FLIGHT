@@ -1,4 +1,4 @@
-// Delete the signed-in traveller's account: stop any Flight Club billing, remove their photo,
+// Delete the signed-in traveller's account: stop any Frequent Flyers billing, remove their photo,
 // then delete the user, which removes every row tied to them (profile, results, crews, plans).
 import { admin, json, stripe, userFrom } from './_lib.js';
 

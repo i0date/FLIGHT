@@ -8,6 +8,7 @@ import { Premium } from './screens/Premium';
 import { Passport as PassportScreen } from './screens/Passport';
 import { NightFlight } from './screens/NightFlight';
 import { Archive } from './screens/Archive';
+import { Practice } from './screens/Practice';
 import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Privacy, Terms } from './screens/Legal';
 import { Unsubscribe } from './screens/Unsubscribe';
@@ -21,7 +22,7 @@ const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
   { screen: { name: 'bookclub' }, label: 'Book Club', Icon: Book },
   { screen: { name: 'passport' }, label: 'Passport', Icon: Passport },
   { screen: { name: 'leaderboard' }, label: 'Ranks', Icon: Trophy },
-  { screen: { name: 'premium' }, label: 'Club', Icon: Seat },
+  { screen: { name: 'premium' }, label: 'Lounge', Icon: Seat },
 ];
 
 export default function App() {
@@ -49,7 +50,7 @@ export default function App() {
     if (window.location.pathname !== path) window.history.replaceState(null, '', path);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' ? 'passport' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' ? 'passport' : screen.name;
 
   return (
     <ProfileProvider>
@@ -62,6 +63,7 @@ export default function App() {
           {screen.name === 'passport' && <PassportScreen go={go} />}
           {screen.name === 'night' && <NightFlight go={go} />}
           {screen.name === 'archive' && <Archive go={go} />}
+          {screen.name === 'practice' && <Practice go={go} />}
           {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
           {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}

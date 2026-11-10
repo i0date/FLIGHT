@@ -5,7 +5,7 @@ export type PlanId = 'individual' | 'family' | 'group';
 
 // Shown in the app; Stripe holds the real prices (same amounts, USD with a CAD option).
 export const PLAN_INFO: { id: PlanId; name: string; seats: number; body: string; prices: Record<'USD' | 'CAD', Record<Interval, number>> }[] = [
-  { id: 'individual', name: 'Individual', seats: 1, body: 'Flight Club for one traveller.', prices: { USD: { monthly: 3.99, yearly: 29.99 }, CAD: { monthly: 4.99, yearly: 39.99 } } },
+  { id: 'individual', name: 'Individual', seats: 1, body: 'Frequent Flyers for one traveller.', prices: { USD: { monthly: 3.99, yearly: 29.99 }, CAD: { monthly: 4.99, yearly: 39.99 } } },
   { id: 'family', name: 'Family', seats: 6, body: 'Up to 6 travellers. Share an invite code.', prices: { USD: { monthly: 6.99, yearly: 49.99 }, CAD: { monthly: 8.99, yearly: 64.99 } } },
   { id: 'group', name: 'Church & groups', seats: 30, body: 'Up to 30 travellers for a church or study group.', prices: { USD: { monthly: 19.99, yearly: 179.99 }, CAD: { monthly: 26.99, yearly: 239.99 } } },
 ];

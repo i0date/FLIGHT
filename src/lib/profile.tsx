@@ -10,7 +10,7 @@ export type BookProgress = { legs: (number | null)[]; attempts: number; lastFlow
 
 export type Profile = {
   name: string;
-  premium: boolean; // set from the account's Flight Club membership
+  premium: boolean; // set from the account's Frequent Flyers membership
   streak: number;
   bestStreak: number;
   lastDaily: string | null;
@@ -19,7 +19,7 @@ export type Profile = {
   bookClub: Record<string, BookProgress>;
   joinedBooks: string[];
   onLeaderboard: boolean; // shown on the public leaderboard
-  nightFlights: Record<string, number>; // ISO week -> score out of 10 (Flight Club)
+  nightFlights: Record<string, number>; // ISO week -> score out of 10 (Frequent Flyers)
   gateChanges: Record<string, boolean>; // day -> whether the Gate change bonus was answered right
   homeChurch: string;
   photoUpdatedAt: string | null; // set when a passport photo is uploaded (account only)
@@ -59,7 +59,7 @@ function load(): Profile {
 }
 
 // The streak shown on screen: it lapses once a full day has been missed
-// (or two for Flight Club with an unused shield this week).
+// (or two for Frequent Flyers with an unused shield this week).
 export function liveStreak(p: Profile, today = dayKey()): number {
   if (!p.lastDaily) return 0;
   const gap = daysBetween(p.lastDaily, today);
@@ -69,7 +69,7 @@ export function liveStreak(p: Profile, today = dayKey()): number {
 }
 
 // What the terminal should say about the streak before today's flight:
-// 'due' while a streak is waiting on today, 'shielded' when Flight Club's shield is covering
+// 'due' while a streak is waiting on today, 'shielded' when Frequent Flyers' shield is covering
 // yesterday, 'missed' once a streak has lapsed (until the next flight starts a new one).
 export type StreakStatus = { kind: 'due' | 'shielded' | 'missed'; streak: number; lastDaily: string } | null;
 

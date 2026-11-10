@@ -33,7 +33,7 @@ export function Archive({ go }: { go: (s: Screen) => void }) {
       <div className="screen">
         <header className="page-head"><h1>Flight archive</h1><p>Replay any of the last {DAYS_BACK} Daily Flights.</p></header>
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>The flight archive is a Flight Club perk.</span>
+          <Lock /> <span>The flight archive is a Frequent Flyer perk.</span>
         </button>
       </div>
     );

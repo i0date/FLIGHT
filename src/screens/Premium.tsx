@@ -6,7 +6,7 @@ import type { Screen } from '../types';
 import { Lounge } from './Lounge';
 
 const PERKS = [
-  { title: 'The Lounge', body: 'Your Club home: crews, Night Flight, shield and stamps in one place.' },
+  { title: 'The Lounge', body: 'Your members’ home: crews, Night Flight, shield and stamps in one place.' },
   { title: 'Passport stamps', body: 'Every Book Club route you complete is stamped in your passport.' },
   { title: 'Private leaderboards', body: 'Boards for your friends, family or church.' },
   { title: 'Streak shield', body: 'Miss a day? One shield a week keeps your streak alive.' },
@@ -41,7 +41,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
   }, [checkout, account?.userId, refreshMembership]);
 
   useEffect(() => {
-    if (membership && checkout === 'success') setNotice('Welcome to Flight Club!');
+    if (membership && checkout === 'success') setNotice('Welcome aboard, Frequent Flyer!');
   }, [membership, checkout]);
 
   const run = async (key: string, fn: () => Promise<void>) => {
@@ -72,7 +72,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
     run('join', async () => {
       await callApi('membership', { action: 'join', code });
       await refreshMembership();
-      setNotice('You joined the plan. Welcome to Flight Club!');
+      setNotice('You joined the plan. Welcome aboard, Frequent Flyer!');
       setCode('');
     });
 
@@ -108,7 +108,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
       </div>
   );
 
-  // Members: the Club tab is the Lounge, with their membership at the bottom.
+  // Members: the Lounge tab is the Lounge itself, with their membership at the bottom.
   // (The local demo switch below shows it too, when developing without an account.)
   if (membership || (import.meta.env.DEV && !account && profile.premium)) {
     return (
@@ -119,7 +119,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
         {memberCard && <h3 className="section-title">Your membership</h3>}
         {memberCard}
         {import.meta.env.DEV && !account && (
-          <button className="btn btn-ghost" onClick={() => update((p) => ({ ...p, premium: false }))}>Leave Flight Club (local demo)</button>
+          <button className="btn btn-ghost" onClick={() => update((p) => ({ ...p, premium: false }))}>Leave Frequent Flyers (local demo)</button>
         )}
       </div>
     );
@@ -129,8 +129,8 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
     <div className="screen">
       <header className="page-head flight-club">
         <p className="mono small">MEMBERSHIP</p>
-        <h1>Flight Club</h1>
-        <p>The daily flight, streaks and miles are free for everyone. Flight Club adds:</p>
+        <h1>Frequent Flyers</h1>
+        <p>The daily flight, streaks and miles are free for everyone. Frequent Flyers get:</p>
         <PlaneMascot width={200} className="club-plane" />
       </header>
 
@@ -177,7 +177,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
           </div>
           {!account && accountsEnabled && (
             <button className="btn btn-primary" onClick={() => go({ name: 'passport' })}>
-              Sign in to join Flight Club
+              Sign in to become a Frequent Flyer
             </button>
           )}
           <p className="fineprint">
@@ -203,7 +203,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
 
       {import.meta.env.DEV && !account && (
         <button className="btn btn-ghost" onClick={() => update((p) => ({ ...p, premium: !p.premium }))}>
-          {profile.premium ? 'Leave' : 'Join'} Flight Club (local demo)
+          {profile.premium ? 'Leave' : 'Join'} Frequent Flyers (local demo)
         </button>
       )}
     </div>

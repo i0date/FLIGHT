@@ -2,7 +2,7 @@
 import { admin, json, userFrom } from './_lib.js';
 
 export async function POST(req: Request) {
-  if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return json({ error: 'Flight Club opens soon — payments are still being set up.' }, 503);
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return json({ error: 'Memberships open soon — payments are still being set up.' }, 503);
   const user = await userFrom(req);
   if (!user) return json({ error: 'Sign in first.' }, 401);
   const body = (await req.json().catch(() => ({}))) as { action?: string; code?: string };

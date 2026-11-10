@@ -247,7 +247,7 @@ function DeleteAccount({ owner, onDeleted }: { owner: boolean; onDeleted: () => 
     <section className="card danger">
       <strong>Delete your account?</strong>
       <p className="small">This permanently removes your passport: streak, miles, stamps, Book Club progress, photo, crews and leaderboard entries. It cannot be undone.</p>
-      {owner && <p className="small"><strong>Your Flight Club plan will be cancelled straight away</strong>, with no further charges, and anyone who joined it with your invite code will lose Flight Club too.</p>}
+      {owner && <p className="small"><strong>Your Frequent Flyer plan will be cancelled straight away</strong>, with no further charges, and anyone who joined it with your invite code will lose their membership too.</p>}
       <label className="small">
         Type DELETE to confirm
         <input value={typed} onChange={(e) => setTyped(e.target.value)} autoCapitalize="characters" autoComplete="off" />

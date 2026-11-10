@@ -45,7 +45,7 @@ export function NightFlight({ go }: { go: (s: Screen) => void }) {
       <div className="screen">
         {header}
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>Night Flight is a Flight Club perk.</span>
+          <Lock /> <span>Night Flight is a Frequent Flyer perk.</span>
         </button>
       </div>
     );

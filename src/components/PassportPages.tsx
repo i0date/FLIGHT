@@ -120,7 +120,7 @@ export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) 
       <p className="pp-count mono">{stamped} / {books.length} STAMPED</p>
       {!profile.premium && (
         <button className="upsell" onClick={() => go({ name: 'premium' })}>
-          <Lock /> <span>{earned ? `${earned} earned stamp${earned === 1 ? ' is' : 's are'} waiting. ` : ''}Stamps go in your passport with Flight Club. Earn them in Book Club with 15 of 21.</span>
+          <Lock /> <span>{earned ? `${earned} earned stamp${earned === 1 ? ' is' : 's are'} waiting. ` : ''}Stamps go in your passport with Frequent Flyers. Earn them in Book Club with 15 of 21.</span>
         </button>
       )}
       {SECTIONS.map((section) => (
@@ -170,7 +170,7 @@ export function VisasPage({ profile, go }: { profile: Profile; go: (s: Screen) =
               {granted ? (
                 <span className="visa-granted mono">GRANTED</span>
               ) : v.needsStamps && !profile.premium ? (
-                <button className="visa-lock" onClick={() => go({ name: 'premium' })}><Lock size={12} /> Flight Club</button>
+                <button className="visa-lock" onClick={() => go({ name: 'premium' })}><Lock size={12} /> Frequent Flyers</button>
               ) : (
                 <span className="visa-pending mono">NOT YET</span>
               )}
