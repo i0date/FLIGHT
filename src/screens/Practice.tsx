@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Customs } from '../components/Customs';
 import { Quiz } from '../components/Quiz';
-import { dailyQuestions } from '../data/dailyQuestions';
+import { dailyBank } from '../data/dailyBank';
 import { bookClubQuestions } from '../data/bookClubQuestions';
 import { bookById } from '../data/books';
 import { LEVELS, formatFt } from '../lib/levels';
@@ -24,7 +24,7 @@ const BEST_KEY = 'flight-practice-best';
 
 // Every question in the app, each Book Club one tagged with its book so it reads on its own.
 const BANK: { raw: RawQuestion; book?: string }[] = [
-  ...dailyQuestions.map((raw) => ({ raw })),
+  ...dailyBank.map((raw) => ({ raw })),
   ...Object.entries(bookClubQuestions).flatMap(([id, qs]) => qs.map((raw) => ({ raw, book: bookById(id)?.name }))),
 ];
 

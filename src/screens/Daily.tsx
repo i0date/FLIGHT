@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Quiz } from '../components/Quiz';
 import { Landing } from '../components/Aircraft';
 import { dailyQuestions } from '../data/dailyQuestions';
+import { ROTATION_START, dailyRotation } from '../data/dailyBank';
 import { dayKey, flightNumber } from '../lib/dates';
 import { liveStreak, recordDaily, recordGateChange, useProfile } from '../lib/profile';
 import { seeded, shuffle, toPlay } from '../lib/random';
@@ -19,6 +20,8 @@ const RAMP: Level[] = [1, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 
 export function dailySet(day = dayKey()) {
   const rand = seeded(`flight-daily-${day}`);
+  if (day >= ROTATION_START) return dailyRotation(day).map((q) => toPlay(q, rand));
+  // Days before the rotation keep the random draw they were flown with.
   const pools = new Map<Level, typeof dailyQuestions>();
   for (const q of shuffle(dailyQuestions, rand)) pools.set(q.level, [...(pools.get(q.level) ?? []), q]);
   return RAMP.map((level) => toPlay(pools.get(level)!.pop()!, rand));
