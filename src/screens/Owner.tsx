@@ -56,6 +56,16 @@ function Bars({ title, rows, unit }: { title: string; rows: { label: string; val
 const byDay = (rows: DayCount[], key: 'n' | 'flights') =>
   rows.map((r) => ({ label: shortDay(r.day), value: r[key] ?? 0, detail: key === 'flights' && r.avg != null ? `avg ${r.avg}/10` : undefined }));
 
+// The Passport card that opens the dashboard (shown only to owners).
+export function OwnerLink({ go }: { go: (s: Screen) => void }) {
+  return (
+    <button className="card ow-link" onClick={() => go({ name: 'owner' })}>
+      <strong>Control tower</strong>
+      <span className="small muted">How FLIGHT is doing: players, flights, Flight Club and question reports.</span>
+    </button>
+  );
+}
+
 export function Owner({ go }: { go: (s: Screen) => void }) {
   const [stats, setStats] = useState<OwnerStats | null>(null);
   const [error, setError] = useState('');
@@ -79,16 +89,11 @@ export function Owner({ go }: { go: (s: Screen) => void }) {
     }
   };
 
-  if (error && !stats) {
-    return (
-      <div className="screen">
-        <header className="page-head compact"><h1>Control tower</h1></header>
-        <p className="notice notice-error">{error === 'Not allowed.' ? 'This page is only for the people who run FLIGHT.' : error}</p>
-        <button className="btn btn-ghost" onClick={() => go({ name: 'passport' })}>Back to Passport</button>
-      </div>
-    );
-  }
-  if (!stats) return <div className="screen"><p className="muted">Loading the control tower…</p></div>;
+  // Anyone else who finds this address just lands on the terminal, with no sign the page exists.
+  useEffect(() => {
+    if (error && !stats) go({ name: 'home' });
+  }, [error, stats, go]);
+  if (!stats) return <div className="screen" />;
 
   const s = stats;
   const plans = Object.entries(s.club.by_plan);

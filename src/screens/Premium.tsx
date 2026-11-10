@@ -3,8 +3,10 @@ import { useProfile } from '../lib/profile';
 import { PlaneMascot } from '../components/Aircraft';
 import { PLAN_INFO, callApi, formatPrice, localCurrency, type Interval, type PlanId } from '../lib/billing';
 import type { Screen } from '../types';
+import { Lounge } from './Lounge';
 
 const PERKS = [
+  { title: 'The Lounge', body: 'Your Club home: crews, Night Flight, shield and stamps in one place.' },
   { title: 'Passport stamps', body: 'Every Book Club route you complete is stamped in your passport.' },
   { title: 'Private leaderboards', body: 'Boards for your friends, family or church.' },
   { title: 'Streak shield', body: 'Miss a day? One shield a week keeps your streak alive.' },
@@ -81,6 +83,48 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
       setNotice('You left the plan.');
     });
 
+  const memberCard = membership && (
+      <div className="card member-card">
+        <p className="mono small muted">YOUR MEMBERSHIP</p>
+        <strong className="member-plan">{PLAN_NAMES[membership.plan]}</strong>
+        <p className="small muted">
+          {membership.role === 'owner' ? 'Renews or ends' : 'Active until'} {new Date(membership.activeUntil).toLocaleDateString()}
+        </p>
+        {membership.role === 'owner' && membership.plan !== 'individual' && (
+          <div className="invite">
+            <p className="small">Share this code so others can join your plan ({membership.members} of {membership.seats} seats used):</p>
+            <p className="invite-code mono">{membership.inviteCode}</p>
+          </div>
+        )}
+        {membership.role === 'owner' ? (
+          <button className="btn btn-ghost" disabled={busy === 'billing'} onClick={openBilling}>
+            {busy === 'billing' ? 'Opening…' : 'Manage billing, switch plan or cancel'}
+          </button>
+        ) : (
+          <button className="btn btn-ghost" disabled={busy === 'leave'} onClick={leave}>
+            {busy === 'leave' ? 'Leaving…' : 'Leave this plan'}
+          </button>
+        )}
+      </div>
+  );
+
+  // Members: the Club tab is the Lounge, with their membership at the bottom.
+  // (The local demo switch below shows it too, when developing without an account.)
+  if (membership || (import.meta.env.DEV && !account && profile.premium)) {
+    return (
+      <div className="screen">
+        {notice && <div className="notice">{notice}</div>}
+        {error && <div className="notice notice-error">{error}</div>}
+        <Lounge go={go} />
+        {memberCard && <h3 className="section-title">Your membership</h3>}
+        {memberCard}
+        {import.meta.env.DEV && !account && (
+          <button className="btn btn-ghost" onClick={() => update((p) => ({ ...p, premium: false }))}>Leave Flight Club (local demo)</button>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="screen">
       <header className="page-head flight-club">
@@ -92,31 +136,6 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
 
       {notice && <div className="notice">{notice}</div>}
       {error && <div className="notice notice-error">{error}</div>}
-
-      {membership && (
-        <div className="card member-card">
-          <p className="mono small muted">YOUR MEMBERSHIP</p>
-          <strong className="member-plan">{PLAN_NAMES[membership.plan]}</strong>
-          <p className="small muted">
-            {membership.role === 'owner' ? 'Renews or ends' : 'Active until'} {new Date(membership.activeUntil).toLocaleDateString()}
-          </p>
-          {membership.role === 'owner' && membership.plan !== 'individual' && (
-            <div className="invite">
-              <p className="small">Share this code so others can join your plan ({membership.members} of {membership.seats} seats used):</p>
-              <p className="invite-code mono">{membership.inviteCode}</p>
-            </div>
-          )}
-          {membership.role === 'owner' ? (
-            <button className="btn btn-ghost" disabled={busy === 'billing'} onClick={openBilling}>
-              {busy === 'billing' ? 'Opening…' : 'Manage billing, switch plan or cancel'}
-            </button>
-          ) : (
-            <button className="btn btn-ghost" disabled={busy === 'leave'} onClick={leave}>
-              {busy === 'leave' ? 'Leaving…' : 'Leave this plan'}
-            </button>
-          )}
-        </div>
-      )}
 
       <div className="perks">
         {PERKS.map((p) => (

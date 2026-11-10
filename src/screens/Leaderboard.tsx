@@ -7,7 +7,7 @@ import type { Screen } from '../types';
 
 type View = { kind: 'today' } | { kind: 'streak' } | { kind: 'crew'; crew: CrewInfo };
 
-export function Leaderboard({ go }: { go: (s: Screen) => void }) {
+export function Leaderboard({ go, crewId }: { go: (s: Screen) => void; crewId?: string }) {
   const { profile, account, accountsEnabled } = useProfile();
   const [view, setView] = useState<View>({ kind: 'today' });
   const [rows, setRows] = useState<BoardRow[] | null>(null);
@@ -25,6 +25,12 @@ export function Leaderboard({ go }: { go: (s: Screen) => void }) {
   useEffect(() => {
     loadCrews();
   }, [loadCrews]);
+
+  // Opened from the Lounge on a particular crew: show that crew's board once the crews load.
+  useEffect(() => {
+    const crew = crewId && crews.find((c) => c.id === crewId);
+    if (crew) setView({ kind: 'crew', crew });
+  }, [crewId, crews]);
 
   useEffect(() => {
     if (!accountsEnabled) return;

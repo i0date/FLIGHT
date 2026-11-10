@@ -40,7 +40,7 @@ export type Screen =
   | { name: 'passport' }
   | { name: 'night' }
   | { name: 'archive' }
-  | { name: 'leaderboard' }
+  | { name: 'leaderboard'; crewId?: string }
   | { name: 'premium' }
   | { name: 'connecting'; code?: string }
   | { name: 'privacy' }

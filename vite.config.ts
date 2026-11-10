@@ -40,5 +40,9 @@ function localApi(): Plugin {
 export default defineConfig(({ mode }) => {
   // Server-side settings (Stripe, service role) come from .env.local in dev.
   Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
-  return { plugins: [react(), localApi()] };
+  return {
+    plugins: [react(), localApi()],
+    // Split-off files get plain names, so file names don't describe what's inside.
+    build: { rollupOptions: { output: { chunkFileNames: 'assets/c-[hash].js' } } },
+  };
 });

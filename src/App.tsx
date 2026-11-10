@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { ProfileProvider } from './lib/profile';
 import { Home } from './screens/Home';
 import { Daily } from './screens/Daily';
@@ -11,7 +11,8 @@ import { Archive } from './screens/Archive';
 import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Privacy, Terms } from './screens/Legal';
 import { Unsubscribe } from './screens/Unsubscribe';
-import { Owner } from './screens/Owner';
+// Loaded only when opened, so the owner's dashboard isn't part of everyone's download.
+const Owner = lazy(() => import('./screens/Owner').then((m) => ({ default: m.Owner })));
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import type { Screen } from './types';
 
@@ -61,13 +62,13 @@ export default function App() {
           {screen.name === 'passport' && <PassportScreen go={go} />}
           {screen.name === 'night' && <NightFlight go={go} />}
           {screen.name === 'archive' && <Archive go={go} />}
-          {screen.name === 'leaderboard' && <Leaderboard go={go} />}
+          {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
           {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
           {screen.name === 'privacy' && <Privacy go={go} />}
           {screen.name === 'terms' && <Terms go={go} />}
           {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
-          {screen.name === 'owner' && <Owner go={go} />}
+          {screen.name === 'owner' && <Suspense fallback={null}><Owner go={go} /></Suspense>}
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (

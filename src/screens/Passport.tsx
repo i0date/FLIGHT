@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { useProfile } from '../lib/profile';
 import { milesFor, tierFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
 import { Reminders } from '../components/Reminders';
 import { isOwner } from '../lib/owner';
+
+// Only fetched for the owner, so the card isn't in anyone else's download.
+const OwnerLink = lazy(() => import('./Owner').then((m) => ({ default: m.OwnerLink })));
 import { callApi } from '../lib/billing';
 import { IdentityPage, LogPage, PostcardsPage, StampsPage, VisasPage } from '../components/PassportPages';
 import { PlaneMascot } from '../components/Aircraft';
@@ -96,12 +99,7 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
 
       {account && (
         <>
-          {owner && (
-            <button className="card ow-link" onClick={() => go({ name: 'owner' })}>
-              <strong>Control tower</strong>
-              <span className="small muted">How FLIGHT is doing: players, flights, Flight Club and question reports.</span>
-            </button>
-          )}
+          {owner && <Suspense fallback={null}><OwnerLink go={go} /></Suspense>}
           <Reminders userId={account.userId} />
           <label className="card switch-row">
             <span>

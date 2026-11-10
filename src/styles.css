@@ -607,3 +607,21 @@ main { padding-bottom: 96px; }
 .ow-q { font-weight: 500; }
 .ow-note { color: var(--ink); background: var(--sky); border-radius: 8px; padding: 6px 8px; }
 .ow-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* The Lounge: Flight Club's home on the Club tab. */
+.lounge-head { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; border-radius: 20px; padding: 18px; display: grid; gap: 4px; }
+.lounge-head .mono { color: var(--amber); letter-spacing: 0.12em; margin: 0; }
+.lounge-head h1 { margin: 0; font-size: 24px; }
+.lounge-head p { margin: 0; opacity: 0.85; }
+.lounge-perks { display: grid; gap: 8px; }
+.lounge-perk { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font: inherit; color: inherit; cursor: pointer; }
+.lounge-perk-code { background: var(--navy); color: var(--amber); border-radius: 8px; padding: 6px 8px; font-size: 13px; font-weight: 700; }
+.lounge-perk-body { display: grid; gap: 2px; min-width: 0; }
+.lounge-perk-body span { font-size: 13px; color: var(--muted); }
+.lounge-perk-action { font-size: 11px; letter-spacing: 0.08em; color: var(--teal); font-weight: 700; }
+.lounge-crew { gap: 8px; }
+.lounge-crew-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.lounge-crew-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.lounge-crew-rows li { display: grid; grid-template-columns: 24px 1fr auto; gap: 8px; padding: 6px 8px; border-radius: 8px; }
+.lounge-crew-rows li.me { background: var(--sky); font-weight: 600; }
+.lounge-empty { text-align: left; display: grid; gap: 2px; font: inherit; color: inherit; cursor: pointer; }
