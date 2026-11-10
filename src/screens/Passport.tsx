@@ -60,13 +60,16 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
         </button>
       ) : (
         <>
+          <div className="pp-top">
+            <span className="mono small muted">PASSPORT</span>
+            <button className="pp-close" onClick={() => setOpenRemembered(false)}>Close ✕</button>
+          </div>
           <div className="pp-tabs" role="tablist" aria-label="Passport pages">
             {PAGES.map((p) => (
               <button key={p.id} role="tab" aria-selected={page === p.id} className={page === p.id ? 'on' : ''} onClick={() => setPage(p.id)}>
                 {p.label}
               </button>
             ))}
-            <button className="pp-close" onClick={() => setOpenRemembered(false)} aria-label="Close passport">Close</button>
           </div>
           <div className="pp-book" key={page}>
             {page === 'id' && <IdentityPage profile={profile} account={account} photoUrl={photoUrl} onPhotoTap={account ? () => fileInput.current?.click() : undefined} />}
