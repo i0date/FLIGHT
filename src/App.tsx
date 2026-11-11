@@ -12,6 +12,7 @@ import { Practice } from './screens/Practice';
 import { ConnectingFlights } from './screens/ConnectingFlights';
 import { Privacy, Terms } from './screens/Legal';
 import { Unsubscribe } from './screens/Unsubscribe';
+import { Settings } from './screens/Settings';
 // Loaded only when opened, so the owner's dashboard isn't part of everyone's download.
 const Owner = lazy(() => import('./screens/Owner').then((m) => ({ default: m.Owner })));
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
@@ -50,7 +51,7 @@ export default function App() {
     if (window.location.pathname !== path) window.history.replaceState(null, '', path);
   }, [screen]);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' ? 'passport' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' || screen.name === 'settings' ? 'passport' : screen.name;
 
   return (
     <ProfileProvider>
@@ -67,6 +68,7 @@ export default function App() {
           {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
           {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
           {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
+          {screen.name === 'settings' && <Settings go={go} />}
           {screen.name === 'privacy' && <Privacy go={go} />}
           {screen.name === 'terms' && <Terms go={go} />}
           {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}

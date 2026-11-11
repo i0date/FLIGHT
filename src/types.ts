@@ -44,6 +44,7 @@ export type Screen =
   | { name: 'leaderboard'; crewId?: string }
   | { name: 'premium' }
   | { name: 'connecting'; code?: string }
+  | { name: 'settings' }
   | { name: 'privacy' }
   | { name: 'terms' }
   | { name: 'unsubscribe'; token: string }

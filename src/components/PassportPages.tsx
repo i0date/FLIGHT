@@ -101,7 +101,7 @@ export function IdentityPage({ profile, account, photoUrl, onPhotoTap }: { profi
               <tr><td>Each correct Book Club answer (best score per leg)</td><td className="mono">+{MILES.perBookCorrect}</td></tr>
               <tr><td>Each Book Club stamp earned (15 of 21)</td><td className="mono">+{MILES.perStampEarned.toLocaleString('en-GB')}</td></tr>
               <tr><td>Each correct Night Flight answer</td><td className="mono">{MILES.perNightCorrect}</td></tr>
-              <tr><td>Each Gate change bonus answered right</td><td className="mono">+{MILES.perGateChange}</td></tr>
+              <tr><td>Each bonus question answered right</td><td className="mono">+{MILES.perGateChange}</td></tr>
               <tr><td>Each day of your best streak</td><td className="mono">{MILES.perBestStreakDay}</td></tr>
             </tbody>
           </table>

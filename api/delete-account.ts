@@ -11,7 +11,9 @@ export async function POST(req: Request) {
   try {
     // Billing first, so nobody is charged for an account that no longer exists.
     const { data: customer } = await db.from('stripe_customers').select('customer_id').eq('user_id', user.id).maybeSingle();
-    if (customer && process.env.STRIPE_SECRET_KEY) {
+    // A customer left over from test mode doesn't exist in live Stripe, so there is nothing to cancel.
+    const live = customer && process.env.STRIPE_SECRET_KEY ? await stripe().customers.retrieve(customer.customer_id).catch(() => null) : null;
+    if (customer && live && !live.deleted) {
       const s = stripe();
       const subs = await s.subscriptions.list({ customer: customer.customer_id, status: 'all', limit: 100 });
       for (const sub of subs.data) {

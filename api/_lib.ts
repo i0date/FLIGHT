@@ -37,9 +37,13 @@ export async function userFrom(req: Request) {
 export async function customerFor(user: { id: string; email?: string }) {
   const db = admin();
   const { data } = await db.from('stripe_customers').select('customer_id').eq('user_id', user.id).maybeSingle();
-  if (data) return data.customer_id as string;
+  // A customer made with test keys doesn't exist once Stripe is live: make a fresh one in that case.
+  if (data) {
+    const found = await stripe().customers.retrieve(data.customer_id).catch(() => null);
+    if (found && !found.deleted) return data.customer_id as string;
+  }
   const customer = await stripe().customers.create({ email: user.email, metadata: { user_id: user.id } });
-  const { error } = await db.from('stripe_customers').insert({ user_id: user.id, customer_id: customer.id });
+  const { error } = await db.from('stripe_customers').upsert({ user_id: user.id, customer_id: customer.id });
   if (error) throw error;
   return customer.id;
 }

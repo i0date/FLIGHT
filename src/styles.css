@@ -574,7 +574,7 @@ main { padding-bottom: 96px; }
 .pc-night .pc-greetings { color: #fff3c4; }
 .postcard-thumb .pc-front { border-width: 4px; }
 
-/* Streak reminders card in the Passport. */
+/* Streak reminders card in Settings. */
 .reminders { gap: 8px; }
 .reminders > p { margin: 0; }
 .reminder-row { border-top: 1px solid var(--line); padding-top: 10px; }
@@ -639,3 +639,8 @@ main { padding-bottom: 96px; }
 .practice-body span { font-size: 13px; opacity: 0.85; }
 .practice-best { font-size: 11px; letter-spacing: 0.08em; font-weight: 700; }
 .practice-high .practice-best { color: var(--amber); }
+
+/* Settings: one link from the Passport. */
+.settings-link { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.settings .section-title { margin-bottom: -4px; }
+.legal-links a { color: inherit; }

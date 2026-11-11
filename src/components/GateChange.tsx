@@ -5,7 +5,7 @@ import { MILES } from '../lib/miles';
 import type { PlayQuestion } from '../types';
 
 // The Gate change stop: a bonus question mid-flight. Answer it for extra miles; the flight's score is untouched.
-export function GateChange({ gate, question, onAnswer, onContinue }: { gate: string; question: PlayQuestion; onAnswer: (ok: boolean) => void; onContinue: () => void }) {
+export function GateChange({ question, onAnswer, onContinue }: { gate?: string; question: PlayQuestion; onAnswer: (ok: boolean) => void; onContinue: () => void }) {
   const [choice, setChoice] = useState<number | null>(null);
   const revealed = choice !== null;
   const correct = choice === question.answer;
@@ -20,10 +20,10 @@ export function GateChange({ gate, question, onAnswer, onContinue }: { gate: str
   return (
     <div className="gate-change">
       <div className="gate-board mono" role="status">
-        <span>GATE CHANGE</span>
-        <span className="gate-flip">A1 → {gate}</span>
+        <span>BONUS QUESTION</span>
+        <span className="gate-flip">+{MILES.perGateChange} MILES</span>
       </div>
-      <p className="gate-intro">Attention passengers: this flight now departs from gate {gate}. On your way, one bonus question from the stratosphere, worth <strong>+{MILES.perGateChange} miles</strong>. It won’t change your score.</p>
+      <p className="gate-intro">A harder one, for {MILES.perGateChange} extra miles if you get it right. It doesn’t count toward today’s score.</p>
       <h2 className="quiz-prompt">{curly(question.prompt)}</h2>
       <div className="options">
         {question.options.map((opt, i) => {
@@ -44,7 +44,7 @@ export function GateChange({ gate, question, onAnswer, onContinue }: { gate: str
           <strong>{correct ? `+${MILES.perGateChange} miles.` : 'No bonus this time.'}</strong>
           <span className="mono ref">{question.ref}</span>
           {question.note && <p>{curly(question.note)}</p>}
-          <button className="btn btn-primary" onClick={onContinue}>Continue to gate {gate}</button>
+          <button className="btn btn-primary" onClick={onContinue}>Back to the flight</button>
         </div>
       )}
     </div>

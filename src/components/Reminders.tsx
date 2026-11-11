@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { disablePush, emailEnabled, enablePush, pushEnabled, pushSupport, saveTimeZone, setEmail } from '../lib/reminders';
 import { MAILING_ADDRESS } from '../lib/legal';
 
-// "Don't miss your flight": streak reminders at 8 pm (final boarding call) and 9 am after a missed day.
+// Streak reminders at 8 pm (final boarding call) and 9 am after a missed day.
 export function Reminders({ userId }: { userId: string }) {
   const support = pushSupport();
   const emailReady = !!MAILING_ADDRESS;
@@ -41,7 +41,6 @@ export function Reminders({ userId }: { userId: string }) {
 
   return (
     <section className="card reminders">
-      <strong>Don’t miss your flight</strong>
       <p className="small muted">A final boarding call at 8 pm if your streak is waiting on today, and a note the morning after if you miss one.</p>
 
       {support === 'ok' && (

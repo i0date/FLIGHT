@@ -62,12 +62,19 @@ function toVercel(name, value) {
 const step = (msg) => console.log(`\n✈  ${msg}`);
 
 // --- Stripe key ---
-let key = readEnv().STRIPE_SECRET_KEY;
-if (!key) key = await askHidden('Paste your Stripe secret key (Developers → API keys), then press Enter: ');
+// Live mode always asks, and keeps its secrets out of .env.local so local testing stays on test keys.
+let key = LIVE ? '' : readEnv().STRIPE_SECRET_KEY;
+if (!key) key = await askHidden(`Paste your Stripe ${LIVE ? 'LIVE ' : ''}secret key (Developers → API keys), then press Enter: `);
 const mode = key.startsWith('sk_test_') || key.startsWith('rk_test_') ? 'test' : key.startsWith('sk_live_') || key.startsWith('rk_live_') ? 'live' : null;
 if (!mode) throw new Error('That does not look like a Stripe secret key (it should start with sk_test_ or sk_live_).');
 if (mode === 'live' && !LIVE) throw new Error('That is a LIVE key. Use a test key for now, or run again with --live when you are ready to take real payments.');
-saveEnv('STRIPE_SECRET_KEY', key);
+if (mode === 'test' && LIVE) throw new Error('That is a TEST key. For --live, paste the key that starts with sk_live_.');
+const secrets = { STRIPE_SECRET_KEY: key };
+const keep = (name, value) => {
+  secrets[name] = value;
+  if (!LIVE) saveEnv(name, value);
+};
+keep('STRIPE_SECRET_KEY', key);
 const stripe = new Stripe(key);
 console.log(`Using Stripe in ${mode.toUpperCase()} mode.`);
 
@@ -110,13 +117,14 @@ const hookUrl = `${SITE}/api/stripe-webhook`;
 const events = ['checkout.session.completed', 'customer.subscription.created', 'customer.subscription.updated', 'customer.subscription.deleted'];
 const { data: hooks } = await stripe.webhookEndpoints.list({ limit: 100 });
 const oldHook = hooks.find((h) => h.url === hookUrl);
-if (oldHook && readEnv().STRIPE_WEBHOOK_SECRET) {
+if (oldHook && !LIVE && readEnv().STRIPE_WEBHOOK_SECRET) {
+  secrets.STRIPE_WEBHOOK_SECRET = readEnv().STRIPE_WEBHOOK_SECRET;
   console.log('  · webhook already exists');
 } else {
   // A signing secret is only shown once, so replace any webhook we don't have the secret for.
   if (oldHook) await stripe.webhookEndpoints.del(oldHook.id);
   const hook = await stripe.webhookEndpoints.create({ url: hookUrl, enabled_events: events, description: 'Frequent Flyer memberships' });
-  saveEnv('STRIPE_WEBHOOK_SECRET', hook.secret);
+  keep('STRIPE_WEBHOOK_SECRET', hook.secret);
   console.log('  ✓ webhook created');
 }
 
@@ -141,12 +149,11 @@ const keysJson = execFileSync('npx', ['--yes', 'supabase@latest', 'projects', 'a
 const parsed = JSON.parse(keysJson);
 const service = (Array.isArray(parsed) ? parsed : parsed.keys).find((k) => k.name === 'service_role')?.api_key;
 if (!service) throw new Error('Could not read the Supabase service key. Run `npx supabase login` and try again.');
-saveEnv('SUPABASE_SERVICE_ROLE_KEY', service);
-console.log('  ✓ saved to .env.local');
+keep('SUPABASE_SERVICE_ROLE_KEY', service);
+console.log(LIVE ? '  ✓ read' : '  ✓ saved to .env.local');
 
 // --- Vercel ---
 step('Vercel');
-const env = readEnv();
-for (const name of ['STRIPE_SECRET_KEY', 'STRIPE_WEBHOOK_SECRET', 'SUPABASE_SERVICE_ROLE_KEY']) toVercel(name, env[name]);
+for (const name of ['STRIPE_SECRET_KEY', 'STRIPE_WEBHOOK_SECRET', 'SUPABASE_SERVICE_ROLE_KEY']) toVercel(name, secrets[name]);
 
 console.log(`\n✅ Payments are set up in ${mode.toUpperCase()} mode. Tell Claude it's done so it can redeploy and test.\n`);
