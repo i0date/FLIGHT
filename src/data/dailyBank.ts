@@ -3,6 +3,7 @@ import { seeded } from '../lib/random';
 import { dailyQuestions } from './dailyQuestions';
 import { dailyBatch2 } from './dailyBatch2';
 import { dailyBatch3 } from './dailyBatch3';
+import { dailyBatch4 } from './dailyBatch4';
 
 // The Daily Flight's questions from 12 November 2026 on. Instead of a fresh random draw each day,
 // every level is a fixed queue that each day takes the next few from, so a question never comes
@@ -17,7 +18,7 @@ const RETIRED = new Set([
   'h523', 'h602', 'h604', 'h605', 'h608', 'h611', 'h613', 'h617', 'h620',
 ]);
 
-const BATCHES: RawQuestion[][] = [dailyQuestions.filter((q) => !RETIRED.has(q.id)), dailyBatch2, dailyBatch3];
+const BATCHES: RawQuestion[][] = [dailyQuestions.filter((q) => !RETIRED.has(q.id)), dailyBatch2, dailyBatch3, dailyBatch4];
 
 export const dailyBank: RawQuestion[] = BATCHES.flat();
 

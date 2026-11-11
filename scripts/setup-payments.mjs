@@ -21,9 +21,9 @@ const TAX_CODE = 'txcd_10201004';
 const ENV_FILE = '.env.local';
 
 const PLANS = [
-  { id: 'individual', name: 'Frequent Flyers — Individual', usd: { monthly: 399, yearly: 2999 }, cad: { monthly: 499, yearly: 3999 } },
-  { id: 'family', name: 'Frequent Flyers — Family (6)', usd: { monthly: 699, yearly: 4999 }, cad: { monthly: 899, yearly: 6499 } },
-  { id: 'group', name: 'Frequent Flyers — Church & groups (30)', usd: { monthly: 1999, yearly: 17999 }, cad: { monthly: 2699, yearly: 23999 } },
+  { id: 'individual', name: 'Frequent Flyers — Individual', usd: { monthly: 499, yearly: 3999 }, cad: { monthly: 649, yearly: 4999 } },
+  { id: 'family', name: 'Frequent Flyers — Family (6)', usd: { monthly: 999, yearly: 6999 }, cad: { monthly: 1299, yearly: 8999 } },
+  { id: 'group', name: 'Frequent Flyers — Church & groups (30)', usd: { monthly: 2499, yearly: 22999 }, cad: { monthly: 3299, yearly: 29999 } },
 ];
 
 const readEnv = () =>
@@ -83,7 +83,7 @@ step('Products and prices');
 const portalProducts = [];
 for (const plan of PLANS) {
   const keys = ['monthly', 'yearly'].map((i) => `flight_${plan.id}_${i}`);
-  const { data: existing } = await stripe.prices.list({ lookup_keys: keys, active: true, expand: ['data.product'] });
+  const { data: existing } = await stripe.prices.list({ lookup_keys: keys, active: true, expand: ['data.product', 'data.currency_options'] });
   let product = existing[0]?.product;
   if (!product) product = await stripe.products.create({ name: plan.name, tax_code: TAX_CODE, metadata: { flight_plan: plan.id } });
   else if ((product.tax_code?.id ?? product.tax_code) !== TAX_CODE) {
@@ -94,7 +94,14 @@ for (const plan of PLANS) {
   for (const interval of ['monthly', 'yearly']) {
     const lookup = `flight_${plan.id}_${interval}`;
     let price = existing.find((p) => p.lookup_key === lookup);
-    if (!price) {
+    // A price whose amount has changed is replaced: the new one takes over the lookup key and the old
+    // one is archived (current subscribers keep paying what they signed up for until they change plan).
+    const stale = price && (price.unit_amount !== plan.usd[interval] || price.currency_options?.cad?.unit_amount !== plan.cad[interval]);
+    if (stale) {
+      await stripe.prices.update(price.id, { active: false });
+      console.log(`  ✓ archived old ${lookup}`);
+    }
+    if (!price || stale) {
       price = await stripe.prices.create({
         product: typeof product === 'string' ? product : product.id,
         currency: 'usd',
@@ -102,6 +109,7 @@ for (const plan of PLANS) {
         currency_options: { cad: { unit_amount: plan.cad[interval] } },
         recurring: { interval: interval === 'monthly' ? 'month' : 'year' },
         lookup_key: lookup,
+        transfer_lookup_key: true,
         metadata: { flight_plan: plan.id },
       });
       console.log(`  ✓ created ${lookup}`);
