@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { useProfile } from '../lib/profile';
-import { milesFor, tierFor } from '../lib/miles';
+import { statusFor } from '../lib/miles';
 import { preparePhoto, removePhoto, uploadPhoto, usePassportPhoto } from '../lib/photo';
 import { SignIn } from '../components/SignIn';
 import { Gear } from '../components/Icons';
@@ -36,7 +36,7 @@ export function Passport({ go }: { go: (s: Screen) => void }) {
   const [page, setPage] = useState<PageId>('id');
   const photoUrl = usePassportPhoto(account?.userId, profile.photoUpdatedAt);
   const fileInput = useRef<HTMLInputElement>(null);
-  const { tier } = tierFor(milesFor(profile));
+  const { tier } = statusFor(profile);
   // The control tower link shows only for the people who run FLIGHT (the server checks again).
   const [owner, setOwner] = useState(false);
   useEffect(() => {

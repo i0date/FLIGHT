@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useProfile } from '../lib/profile';
+import { MAX_SHIELDS, SHIELD_STREAK, useProfile } from '../lib/profile';
+import { Shield } from '../components/Icons';
 import { callApi } from '../lib/billing';
 import { CONTACT_EMAIL } from '../lib/legal';
 import { setSound, soundOn } from '../lib/sound';
@@ -18,7 +19,28 @@ export function Settings({ go }: { go: (s: Screen) => void }) {
         <h1>Settings</h1>
       </header>
 
-      <h3 className="section-title">Streak reminders</h3>
+      <h3 className="section-title">Streak</h3>
+      <section className="card shields">
+        <div className="shields-head">
+          <strong>Streak shields</strong>
+          <span className="shield-row" aria-label={`${profile.shields} of ${MAX_SHIELDS} shields held`}>
+            {Array.from({ length: MAX_SHIELDS }, (_, i) => (
+              <Shield key={i} size={22} className={i < profile.shields ? 'shield-on' : 'shield-off'} />
+            ))}
+          </span>
+        </div>
+        <p className="small muted">
+          Each shield covers one missed day. You can hold {MAX_SHIELDS}. Everyone earns one at every {SHIELD_STREAK}-day streak
+          {profile.premium ? ', and Frequent Flyers get a new one every Monday.' : '; Frequent Flyers also get one every week.'}
+        </p>
+        <label className="switch-row">
+          <span>
+            <strong>Use shields automatically</strong>
+            <span className="small muted">{profile.shieldAuto ? 'A missed day is covered without asking.' : 'After a missed day, the Terminal asks before using one.'}</span>
+          </span>
+          <input type="checkbox" checked={profile.shieldAuto} onChange={(e) => update((p) => ({ ...p, shieldAuto: e.target.checked }))} />
+        </label>
+      </section>
       {account ? <Reminders userId={account.userId} /> : <p className="small muted">Sign in to get a reminder before your streak runs out.</p>}
 
       <h3 className="section-title">In flight</h3>

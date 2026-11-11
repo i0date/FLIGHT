@@ -14,7 +14,9 @@ export type Profile = {
   streak: number;
   bestStreak: number;
   lastDaily: string | null;
-  shieldUsedWeek: string | null;
+  shields: number; // streak shields held, up to MAX_SHIELDS; each covers one missed day
+  shieldWeek: string | null; // ISO week of the last Frequent Flyer weekly shield
+  shieldAuto: boolean; // use shields without asking when a day is missed
   daily: Record<string, number>; // dayKey -> score out of 10
   bookClub: Record<string, BookProgress>;
   joinedBooks: string[];
@@ -33,7 +35,9 @@ const fresh: Profile = {
   streak: 0,
   bestStreak: 0,
   lastDaily: null,
-  shieldUsedWeek: null,
+  shields: 0,
+  shieldWeek: null,
+  shieldAuto: true,
   daily: {},
   bookClub: {},
   joinedBooks: [],
@@ -58,48 +62,70 @@ function load(): Profile {
   }
 }
 
-// The streak shown on screen: it lapses once a full day has been missed
-// (or two for Frequent Flyers with an unused shield this week).
+// Streak shields: held up to three at a time. Frequent Flyers get one each week; everyone earns one
+// at every 30-day streak. Each shield covers one missed day, automatically or when the traveller chooses.
+export const MAX_SHIELDS = 3;
+export const SHIELD_STREAK = 30;
+const addShields = (held: number, n: number) => Math.min(MAX_SHIELDS, held + n);
+
+// Days missed between the last flight and today (0 when the streak is waiting on today).
+const missedDays = (p: Profile, today: string) => (p.lastDaily ? daysBetween(p.lastDaily, today) - 1 : 0);
+
+// The streak shown on screen: it lapses once a day is missed, unless there are shields enough to cover
+// every missed day (used automatically, or still on offer until the traveller decides).
 export function liveStreak(p: Profile, today = dayKey()): number {
   if (!p.lastDaily) return 0;
-  const gap = daysBetween(p.lastDaily, today);
-  if (gap <= 1) return p.streak;
-  if (gap === 2 && p.premium && p.shieldUsedWeek !== weekKey()) return p.streak;
-  return 0;
+  const missed = missedDays(p, today);
+  return missed <= 0 || missed <= p.shields ? p.streak : 0;
 }
 
 // What the terminal should say about the streak before today's flight:
-// 'due' while a streak is waiting on today, 'shielded' when Frequent Flyers' shield is covering
-// yesterday, 'missed' once a streak has lapsed (until the next flight starts a new one).
-export type StreakStatus = { kind: 'due' | 'shielded' | 'missed'; streak: number; lastDaily: string } | null;
+// 'due' while a streak is waiting on today, 'shielded' when shields will cover the missed days,
+// 'rescue' when shields could cover them but the traveller decides, 'missed' once a streak has lapsed.
+export type StreakStatus = { kind: 'due' | 'shielded' | 'rescue' | 'missed'; streak: number; lastDaily: string; missed: number; shields: number } | null;
 
 export function streakStatus(p: Profile, today = dayKey()): StreakStatus {
   if (!p.lastDaily || p.streak === 0 || p.daily[today] !== undefined) return null;
-  const gap = daysBetween(p.lastDaily, today);
-  if (gap <= 0) return null;
-  const live = liveStreak(p, today);
-  const kind = live === 0 ? 'missed' : gap === 2 ? 'shielded' : 'due';
-  return { kind, streak: p.streak, lastDaily: p.lastDaily };
+  const missed = missedDays(p, today);
+  if (missed < 0) return null;
+  const coverable = missed > 0 && missed <= p.shields;
+  const kind = missed === 0 ? 'due' : coverable ? (p.shieldAuto ? 'shielded' : 'rescue') : 'missed';
+  return { kind, streak: p.streak, lastDaily: p.lastDaily, missed, shields: p.shields };
+}
+
+// Spend shields on the missed days by hand, so the streak waits on today again.
+export function spendShields(p: Profile, today = dayKey()): Profile {
+  const missed = missedDays(p, today);
+  if (missed <= 0 || missed > p.shields) return p;
+  const [y, m, d] = today.split('-').map(Number);
+  return { ...p, shields: p.shields - missed, lastDaily: dayKey(new Date(y, m - 1, d - 1)) };
+}
+
+// A Frequent Flyer's weekly shield, once per ISO week.
+export function grantWeeklyShield(p: Profile): Profile {
+  if (!p.premium || p.shieldWeek === weekKey()) return p;
+  return { ...p, shields: addShields(p.shields, 1), shieldWeek: weekKey() };
 }
 
 export function recordDaily(p: Profile, score: number, today = dayKey()): Profile {
   if (p.daily[today] !== undefined) return p;
   let streak = 1;
-  let shieldUsedWeek = p.shieldUsedWeek;
+  let shields = p.shields;
   if (p.lastDaily) {
-    const gap = daysBetween(p.lastDaily, today);
-    if (gap === 1) streak = p.streak + 1;
-    else if (gap === 2 && p.premium && p.shieldUsedWeek !== weekKey()) {
+    const missed = missedDays(p, today);
+    if (missed === 0) streak = p.streak + 1;
+    else if (missed > 0 && p.shieldAuto && missed <= shields) {
       streak = p.streak + 1;
-      shieldUsedWeek = weekKey();
+      shields -= missed;
     }
   }
+  if (streak % SHIELD_STREAK === 0) shields = addShields(shields, 1);
   return {
     ...p,
     streak,
     bestStreak: Math.max(p.bestStreak, streak),
     lastDaily: today,
-    shieldUsedWeek,
+    shields,
     daily: { ...p.daily, [today]: score },
   };
 }
@@ -200,6 +226,11 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
       })
       .catch(() => setSync('error'));
   }, [profile, account]);
+
+  // Frequent Flyers collect their weekly shield once the account (and its shields) has loaded.
+  useEffect(() => {
+    if (account && saved.current && profile.premium && profile.shieldWeek !== weekKey()) setProfile(grantWeeklyShield);
+  }, [account, profile.premium, profile.shieldWeek]);
 
   const sendLink = useCallback(async (email: string) => {
     const { error } = await supabase!.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });

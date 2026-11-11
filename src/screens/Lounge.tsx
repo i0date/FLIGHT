@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useProfile } from '../lib/profile';
+import { MAX_SHIELDS, useProfile } from '../lib/profile';
 import { dayKey, weekKey } from '../lib/dates';
 import { crewBoard, myCrews, type BoardRow, type CrewInfo } from '../lib/boards';
 import { books } from '../data/books';
@@ -66,7 +66,6 @@ export function Lounge({ go }: { go: (s: Screen) => void }) {
 
   const week = weekKey();
   const night = profile.nightFlights[week];
-  const shieldUsed = profile.shieldUsedWeek === week;
   const stamped = books.filter((b) => profile.bookClub[b.id]?.earnedAt).length;
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
@@ -81,7 +80,7 @@ export function Lounge({ go }: { go: (s: Screen) => void }) {
 
       <section className="lounge-perks">
         <Perk code="N1" title="Night Flight" status={night === undefined ? 'This week’s flight is boarding.' : `Flown this week · ${night}/10. A new one lands Monday.`} action={night === undefined ? 'BOARD' : 'REPLAY'} onClick={() => go({ name: 'night' })} />
-        <Perk code="SH" title="Streak shield" status={shieldUsed ? 'Used this week. It’s back on Monday.' : 'Ready. Miss one day this week and your streak holds.'} action={shieldUsed ? 'USED' : 'READY'} onClick={() => go({ name: 'home' })} />
+        <Perk code="SH" title="Streak shields" status={profile.shields >= MAX_SHIELDS ? `${MAX_SHIELDS} held, the most you can carry. Each covers a missed day.` : `${profile.shields} of ${MAX_SHIELDS} held. Another arrives on Monday.`} action={`${profile.shields}/${MAX_SHIELDS}`} onClick={() => go({ name: 'settings' })} />
         <Perk code="PP" title="Passport stamps" status={`${stamped} of ${books.length} books stamped.`} action="OPEN" onClick={() => go({ name: 'passport' })} />
         <Perk code="A2" title="Flight archive" status="Replay any of the last 30 Daily Flights." action="OPEN" onClick={() => go({ name: 'archive' })} />
         <Perk code="C1" title="Host a Connecting Flight" status="A live 60-second race for your group." action="HOST" onClick={() => go({ name: 'connecting' })} />

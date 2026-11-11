@@ -9,7 +9,7 @@ const PERKS = [
   { title: 'The Lounge', body: 'Your members’ home: crews, Night Flight, shield and stamps in one place.' },
   { title: 'Passport stamps', body: 'Every Book Club route you complete is stamped in your passport.' },
   { title: 'Private leaderboards', body: 'Boards for your friends, family or church.' },
-  { title: 'Streak shield', body: 'Miss a day? One shield a week keeps your streak alive.' },
+  { title: 'Streak shields', body: 'A new shield every week, up to three held. Each one covers a missed day.' },
   { title: 'Night Flight', body: 'A weekly challenge flown entirely in the stratosphere.' },
   { title: 'Flight archive', body: 'Replay any of the last 30 Daily Flights.' },
 ];

@@ -644,3 +644,13 @@ main { padding-bottom: 96px; }
 .settings-link { display: flex; align-items: center; justify-content: center; gap: 8px; }
 .settings .section-title { margin-bottom: -4px; }
 .legal-links a { color: inherit; }
+
+/* Streak shields: held in Settings, offered on the Terminal after a missed day. */
+.shields { gap: 8px; }
+.shields .switch-row { display: flex; }
+.shields-head { display: flex; justify-content: space-between; align-items: center; }
+.shield-row { display: flex; gap: 4px; }
+.shield-on { color: var(--navy); }
+.shield-off { color: var(--line); }
+.streak-call.rescue { cursor: default; border-color: var(--navy); background: var(--sky); }
+.streak-call-actions { display: flex; gap: 8px; margin-top: 10px; }

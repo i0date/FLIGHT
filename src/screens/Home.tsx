@@ -1,5 +1,5 @@
 import { gates } from '../games/registry';
-import { liveStreak, useProfile } from '../lib/profile';
+import { liveStreak, spendShields, useProfile } from '../lib/profile';
 import { dayKey, flightNumber } from '../lib/dates';
 import { books } from '../data/books';
 import { bookClubQuestions } from '../data/bookClubQuestions';
@@ -10,7 +10,7 @@ import { StreakCall } from '../components/StreakCall';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
-  const { profile } = useProfile();
+  const { profile, update } = useProfile();
   const streak = liveStreak(profile);
   const todayScore = profile.daily[dayKey()];
   const stamps = Object.values(profile.bookClub).filter((r) => r.earnedAt).length;
@@ -49,7 +49,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
         </div>
       </header>
 
-      <StreakCall profile={profile} onBoard={() => go({ name: 'daily' })} />
+      <StreakCall profile={profile} onBoard={() => go({ name: 'daily' })} onUseShields={() => update((p) => spendShields(p))} />
 
       <button className="pass" onClick={() => go({ name: 'daily' })}>
         <div className="pass-main">

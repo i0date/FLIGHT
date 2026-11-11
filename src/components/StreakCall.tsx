@@ -19,8 +19,9 @@ function longDate(key: string) {
   return new Date(y, m - 1, d).toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
-// "Don't miss your flight" while a streak waits on today; "You missed your flight" once it lapses.
-export function StreakCall({ profile, onBoard }: { profile: Profile; onBoard: () => void }) {
+// "Don't miss your flight" while a streak waits on today; an offer to spend shields when the traveller
+// decides; "You missed your flight" once it lapses.
+export function StreakCall({ profile, onBoard, onUseShields }: { profile: Profile; onBoard: () => void; onUseShields: () => void }) {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 60_000);
@@ -32,6 +33,24 @@ export function StreakCall({ profile, onBoard }: { profile: Profile; onBoard: ()
   const days = `${status.streak}-day streak`;
   const mins = minutesToMidnight(now);
   const final = mins <= 180;
+
+  const shieldWord = (n: number) => (n === 1 ? 'a shield' : `${n} shields`);
+
+  // Shields could save the streak, and the traveller has chosen to decide each time.
+  if (status.kind === 'rescue') {
+    return (
+      <div className="streak-call rescue">
+        <Flame size={22} className="flame-on" />
+        <span>
+          <strong>Save your {days}?</strong>
+          You missed {status.missed === 1 ? 'a day' : `${status.missed} days`}. Use {shieldWord(status.missed)} (you hold {status.shields}) to keep it going, or fly today and start again.
+          <span className="streak-call-actions">
+            <button className="btn btn-primary btn-small" onClick={onUseShields}>Use {shieldWord(status.missed)}</button>
+          </span>
+        </span>
+      </div>
+    );
+  }
 
   if (status.kind === 'missed') {
     return (
@@ -51,7 +70,7 @@ export function StreakCall({ profile, onBoard }: { profile: Profile; onBoard: ()
       <span>
         <strong>{final ? 'Final boarding call' : 'Don’t miss your flight'}</strong>
         {status.kind === 'shielded'
-          ? `Your streak shield is holding your ${days}. Fly today or it’s gone. ${timeLeft(mins)} left.`
+          ? `${status.missed === 1 ? 'A shield is' : `${status.missed} shields are`} covering your ${days}. Fly today to keep it. ${timeLeft(mins)} left.`
           : `Your ${days} departs at midnight. ${timeLeft(mins)} left to board.`}
       </span>
     </button>

@@ -3,7 +3,7 @@ import { books, bookById } from '../data/books';
 import { LEGS } from '../data/bookClubQuestions';
 import { bookClubQuestions } from '../data/bookClubQuestions';
 import { bookScore, legsFlown, type Profile } from '../lib/profile';
-import { MILES, TIERS, milesFor, tierFor, VISAS } from '../lib/miles';
+import { MILES, STATUS_DAYS, TIERS, statusFor, VISAS } from '../lib/miles';
 import type { Account } from '../lib/sync';
 import { weekMonday } from '../lib/dates';
 import type { Screen } from '../types';
@@ -33,8 +33,8 @@ function Page({ n, title, children }: { n: number; title: string; children: Reac
 }
 
 export function IdentityPage({ profile, account, photoUrl, onPhotoTap }: { profile: Profile; account: Account | null; photoUrl: string | null; onPhotoTap?: () => void }) {
-  const miles = milesFor(profile);
-  const { tier, next } = tierFor(miles);
+  const { tier, next, lifetime: miles, recent } = statusFor(profile);
+  const fmt = (n: number) => n.toLocaleString('en-GB');
   const name = profile.name.toUpperCase().replace(/[^A-Z]/g, '<');
   const passportNo = account?.passengerNo ?? 'FL0000000';
 
@@ -78,21 +78,35 @@ export function IdentityPage({ profile, account, photoUrl, onPhotoTap }: { profi
             <div key={t.name} className={`ff-stage ${t.name === tier.name ? 'on' : ''} ${miles >= t.from ? 'reached' : ''}`}>
               <span className="ff-dot" style={{ background: t.color }} />
               <strong>{t.name}</strong>
-              <small className="mono">{t.from.toLocaleString('en-GB')}</small>
+              <small className="mono">{fmt(t.from)}</small>
             </div>
           ))}
         </div>
         {next ? (
           <>
-            <div className="ff-bar"><div style={{ width: `${((miles - tier.from) / (next.from - tier.from)) * 100}%` }} /></div>
-            <p className="small">{(next.from - miles).toLocaleString('en-GB')} miles to {next.name}</p>
+            {miles < next.from ? (
+              <>
+                <div className="ff-bar"><div style={{ width: `${Math.min(100, ((miles - tier.from) / (next.from - tier.from)) * 100)}%` }} /></div>
+                <p className="small">{fmt(next.from - miles)} miles to {next.name}{next.keep ? `, then ${fmt(next.keep)} in any ${STATUS_DAYS} days to keep it` : ''}</p>
+              </>
+            ) : (
+              <>
+                <div className="ff-bar"><div style={{ width: `${Math.min(100, (recent / next.keep) * 100)}%` }} /></div>
+                <p className="small">{fmt(next.keep - recent)} more miles in the last {STATUS_DAYS} days to hold {next.name} ({fmt(recent)} of {fmt(next.keep)})</p>
+              </>
+            )}
+            {tier.keep > 0 && <p className="small muted">Keeping {tier.name}: {fmt(recent)} of {fmt(tier.keep)} miles in the last {STATUS_DAYS} days.</p>}
           </>
         ) : (
-          <p className="small">Platinum: the highest status there is.</p>
+          <>
+            <div className="ff-bar"><div style={{ width: `${Math.min(100, (recent / tier.keep) * 100)}%` }} /></div>
+            <p className="small">Platinum, the highest status. Keep it with {fmt(tier.keep)} miles in any {STATUS_DAYS} days: you have {fmt(recent)}.</p>
+          </>
         )}
         <details className="ff-how">
           <summary>How miles work</summary>
           <p className="small">Miles are earned by flying — never bought. They're worked out from your flights, so replays in the archive earn nothing.</p>
+          <p className="small">Lifetime miles unlock each status. Gold and Platinum are kept by flying: {fmt(TIERS[2].keep)} and {fmt(TIERS[3].keep)} miles in the last {STATUS_DAYS} days. Fall short and your status steps down until you fly it back.</p>
           <table className="ff-table">
             <tbody>
               <tr><td>Each Daily Flight</td><td className="mono">{MILES.perDailyFlight}</td></tr>
