@@ -6,7 +6,7 @@ type BaseQuestion = {
   q: string;
   ref: string;
   note?: string;
-  cat?: 'Passages' | 'Books' | 'Themes' | 'People' | 'Connections' | 'Order';
+  cat?: 'Passages' | 'Books' | 'Themes' | 'People' | 'Places' | 'Connections' | 'Order';
 };
 
 // Pick one answer. The correct answer is kept apart from the wrong ones so
