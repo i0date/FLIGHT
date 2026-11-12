@@ -2,7 +2,6 @@ import { gates } from '../games/registry';
 import { liveStreak, spendShields, useProfile } from '../lib/profile';
 import { dayKey, flightNumber } from '../lib/dates';
 import { books } from '../data/books';
-import { bookClubQuestions } from '../data/bookClubQuestions';
 import { Flame, Lock, Plane } from '../components/Icons';
 import { PlaneWindow } from '../components/Aircraft';
 import { InstallCard } from '../components/InstallCard';
@@ -123,7 +122,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
       )}
 
       <p className="fineprint">
-        {Object.keys(bookClubQuestions).length === 66 ? 'All 66 books of the Bible are open in Book Club' : `${Object.keys(bookClubQuestions).length} of 66 Book Club books open`}
+        All 66 books of the Bible are open in Book Club
       </p>
       <p className="fineprint legal-links">
         <button onClick={() => go({ name: 'privacy' })}>Privacy</button> · <button onClick={() => go({ name: 'terms' })}>Terms</button>

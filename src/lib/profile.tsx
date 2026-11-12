@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { dayKey, daysBetween, weekKey } from './dates';
-import { LEGS, STAMP_PASS } from '../data/bookClubQuestions';
+import { LEGS, STAMP_PASS } from '../data/bookClubRules';
 import { supabase } from './supabase';
 import { loadMembership, loadRemote, merge, pushChanges, type Account, type ServerStreak } from './sync';
 

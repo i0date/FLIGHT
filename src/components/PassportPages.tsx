@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { books, bookById } from '../data/books';
-import { LEGS } from '../data/bookClubQuestions';
-import { bookClubQuestions } from '../data/bookClubQuestions';
+import { LEGS } from '../data/bookClubRules';
 import { bookScore, legsFlown, type Profile } from '../lib/profile';
 import { MILES, STATUS_DAYS, TIERS, statusFor, VISAS } from '../lib/miles';
 import type { Account } from '../lib/sync';
@@ -143,7 +142,6 @@ export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) 
           <div className="pp-stamp-grid">
             {books.filter((b) => b.section === section).map((b) => {
               const r = profile.bookClub[b.id];
-              const open = !!bookClubQuestions[b.id];
               const index = books.indexOf(b);
               const style = { color: INK[section], transform: `rotate(${((index * 47) % 22) - 11}deg)` };
               if (r?.earnedAt) {
@@ -157,9 +155,9 @@ export function StampsPage({ profile, go }: { profile: Profile; go: (s: Screen) 
                 );
               }
               return (
-                <button key={b.id} className={`ink-slot ${open ? '' : 'ink-soon'}`} disabled={!open} onClick={() => go({ name: 'book', bookId: b.id })} title={b.name}>
+                <button key={b.id} className="ink-slot" onClick={() => go({ name: 'book', bookId: b.id })} title={b.name}>
                   <span className="mono">{b.code}</span>
-                  {(!open || r) && <small>{!open ? 'Soon' : `Leg ${legsFlown(r!)}/${LEGS.length}`}</small>}
+                  {r && <small>Leg {legsFlown(r)}/{LEGS.length}</small>}
                 </button>
               );
             })}
