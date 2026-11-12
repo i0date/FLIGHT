@@ -2,7 +2,7 @@ import { supabase } from './supabase';
 import type { Profile } from './profile';
 
 export type Membership = {
-  plan: 'individual' | 'family' | 'group';
+  plan: 'individual' | 'family' | 'group' | 'church';
   role: 'owner' | 'member';
   activeUntil: string;
   seats: number;

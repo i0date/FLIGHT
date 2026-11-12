@@ -7,6 +7,7 @@ export const PLANS = {
   individual: { seats: 1 },
   family: { seats: 6 },
   group: { seats: 30 },
+  church: { seats: 100 },
 } as const;
 export type Plan = keyof typeof PLANS;
 export const isPlan = (p: unknown): p is Plan => typeof p === 'string' && p in PLANS;

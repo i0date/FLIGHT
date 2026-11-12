@@ -4,6 +4,7 @@ import { PlaneMascot } from '../components/Aircraft';
 import { PLAN_INFO, callApi, formatPrice, localCurrency, type Interval, type PlanId } from '../lib/billing';
 import type { Screen } from '../types';
 import { Lounge } from './Lounge';
+import { CONTACT_EMAIL } from '../lib/legal';
 
 const PERKS = [
   { title: 'The Lounge', body: 'Your members’ home: crews, Night Flight, shield and stamps in one place.' },
@@ -14,7 +15,7 @@ const PERKS = [
   { title: 'Flight archive', body: 'Replay any of the last 30 Daily Flights.' },
 ];
 
-const PLAN_NAMES: Record<PlanId, string> = { individual: 'Individual', family: 'Family', group: 'Church & groups' };
+const PLAN_NAMES: Record<PlanId, string> = { individual: 'Individual', family: 'Family', group: 'Church & groups', church: 'Large church' };
 
 export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: string | null }) {
   const { profile, update, account, accountsEnabled, refreshMembership } = useProfile();
@@ -175,6 +176,9 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
               </div>
             ))}
           </div>
+          {CONTACT_EMAIL && (
+            <p className="small muted">More than 100 travellers? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we’ll set up a plan for your church.</p>
+          )}
           {!account && accountsEnabled && (
             <button className="btn btn-primary" onClick={() => go({ name: 'passport' })}>
               Sign in to become a Frequent Flyer

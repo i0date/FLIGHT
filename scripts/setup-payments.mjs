@@ -24,6 +24,7 @@ const PLANS = [
   { id: 'individual', name: 'Frequent Flyers — Individual', usd: { monthly: 499, yearly: 3999 }, cad: { monthly: 649, yearly: 4999 } },
   { id: 'family', name: 'Frequent Flyers — Family (6)', usd: { monthly: 999, yearly: 6999 }, cad: { monthly: 1299, yearly: 8999 } },
   { id: 'group', name: 'Frequent Flyers — Church & groups (30)', usd: { monthly: 2499, yearly: 22999 }, cad: { monthly: 3299, yearly: 29999 } },
+  { id: 'church', name: 'Frequent Flyers — Large church (100)', usd: { monthly: 5999, yearly: 54999 }, cad: { monthly: 7799, yearly: 71999 } },
 ];
 
 const readEnv = () =>
