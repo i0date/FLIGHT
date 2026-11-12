@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { dayKey } from './dates';
 import type { Profile } from './profile';
 
 export type Membership = {
@@ -119,18 +120,21 @@ export function merge(local: Profile, remote: Partial<Profile>): Profile {
   };
 }
 
-// Save only what changed between two versions of the profile.
-export async function pushChanges(userId: string, prev: Profile | null, next: Profile) {
+// The streak as the server worked it out. Streaks, shields and Daily Flight results are kept by the
+// server (supabase/migrations/*_server_streaks.sql) so the boards can't be filled with made-up numbers.
+export type ServerStreak = { streak: number; best_streak: number; last_daily: string | null; shields: number; shield_week: string | null };
+
+// A flight that is too old to save is left on this device (it was played offline, or before signing in).
+const tooOld = (e: { message?: string } | null) => !!e?.message?.includes('Only today');
+
+// Save only what changed between two versions of the profile. Returns the server's streak when it changed.
+export async function pushChanges(userId: string, prev: Profile | null, next: Profile): Promise<ServerStreak | null> {
   const db = supabase!;
   const jobs: PromiseLike<unknown>[] = [];
+  let server: ServerStreak | null = null;
 
   const fields = (p: Profile) => ({
     display_name: p.name,
-    streak: p.streak,
-    best_streak: p.bestStreak,
-    last_daily: p.lastDaily,
-    shields: p.shields,
-    shield_week: p.shieldWeek,
     shield_auto: p.shieldAuto,
     joined_books: p.joinedBooks,
     on_leaderboard: p.onLeaderboard,
@@ -143,11 +147,32 @@ export async function pushChanges(userId: string, prev: Profile | null, next: Pr
     jobs.push(db.from('profiles').update(fields(next)).eq('id', userId));
   }
 
-  const newDays = Object.entries(next.daily).filter(([day]) => prev?.daily[day] === undefined);
-  if (newDays.length) {
-    jobs.push(
-      db.from('daily_results').upsert(newDays.map(([day, score]) => ({ user_id: userId, day, score })), { onConflict: 'user_id,day', ignoreDuplicates: true }),
-    );
+  // Daily Flights, one at a time and in order, so each streak step builds on the last.
+  const newDays = Object.entries(next.daily).filter(([day]) => prev?.daily[day] === undefined).sort(([a], [b]) => a.localeCompare(b));
+  if (newDays.length > 1 && prev && Object.keys(prev.daily).length === 0) {
+    // A new account bringing in what this device flew before signing up.
+    const { data, error } = await db.rpc('import_history', { p_days: Object.fromEntries(newDays) });
+    if (error) throw error;
+    server = data as ServerStreak;
+  } else {
+    for (const [day, score] of newDays) {
+      const { data, error } = await db.rpc('submit_daily', { p_day: day, p_score: score });
+      if (error && !tooOld(error)) throw error;
+      if (data) server = data as ServerStreak;
+    }
+  }
+
+  // Shields spent by hand, and a Frequent Flyer's weekly shield.
+  const today = dayKey();
+  if (!newDays.length && prev && next.shields < prev.shields && next.lastDaily !== prev.lastDaily) {
+    const { data, error } = await db.rpc('spend_shields', { p_today: today });
+    if (error) throw error;
+    server = data as ServerStreak;
+  }
+  if (next.shieldWeek && next.shieldWeek !== prev?.shieldWeek) {
+    const { data, error } = await db.rpc('claim_weekly_shield', { p_week: next.shieldWeek });
+    if (error) throw error;
+    server = data as ServerStreak;
   }
 
   const changedBooks = Object.entries(next.bookClub).filter(([id, r]) => JSON.stringify(prev?.bookClub[id]) !== JSON.stringify(r));
@@ -163,4 +188,5 @@ export async function pushChanges(userId: string, prev: Profile | null, next: Pr
   const results = await Promise.all(jobs);
   const failed = results.find((r) => (r as { error?: unknown }).error);
   if (failed) throw (failed as { error: unknown }).error;
+  return server;
 }

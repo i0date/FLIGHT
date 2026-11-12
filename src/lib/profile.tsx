@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, ty
 import { dayKey, daysBetween, weekKey } from './dates';
 import { LEGS, STAMP_PASS } from '../data/bookClubQuestions';
 import { supabase } from './supabase';
-import { loadMembership, loadRemote, merge, pushChanges, type Account } from './sync';
+import { loadMembership, loadRemote, merge, pushChanges, type Account, type ServerStreak } from './sync';
 
 // A book's three legs: best score out of 7 on each (null until flown), and the
 // day its stamp was earned (all three flown, 15 of 21 or better).
@@ -150,6 +150,10 @@ export function recordLeg(p: Profile, bookId: string, leg: number, score: number
 
 type SyncState = 'local' | 'syncing' | 'saved' | 'error';
 
+// Once signed in, the streak and shields are whatever the server worked out.
+const withServer = (p: Profile, s: ServerStreak | null): Profile =>
+  s ? { ...p, streak: s.streak, bestStreak: s.best_streak, lastDaily: s.last_daily, shields: s.shields, shieldWeek: s.shield_week ?? p.shieldWeek } : p;
+
 type Ctx = {
   profile: Profile;
   update: (fn: (p: Profile) => Profile) => void;
@@ -188,8 +192,8 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
       setSync('syncing');
       try {
         const { account, remote } = await loadRemote(userId, email);
-        const merged = merge(load(), remote);
-        await pushChanges(userId, { ...merged, ...remote } as Profile, merged);
+        const local = merge(load(), remote);
+        const merged = withServer(local, await pushChanges(userId, { ...local, ...remote } as Profile, local));
         saved.current = merged;
         setAccount(account);
         setProfile({ ...merged, premium: !!account.membership });
@@ -220,8 +224,9 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     const prev = saved.current;
     setSync('syncing');
     pushChanges(account.userId, prev, profile)
-      .then(() => {
-        saved.current = profile;
+      .then((server) => {
+        saved.current = withServer(profile, server);
+        if (server) setProfile((p) => withServer(p, server));
         setSync('saved');
       })
       .catch(() => setSync('error'));
