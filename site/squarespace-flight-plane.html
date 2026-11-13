@@ -1,0 +1,65 @@
+<!--
+  FLIGHT plane for adeotischrestomathy.com (Squarespace).
+  Paste everything below into a Code block (Edit page → + → Code), with "Display source" off.
+  No JavaScript, so it works on every Squarespace plan. Delete the .fg-board part if you only want the plane.
+-->
+<style>
+  .fg-sky { position: relative; overflow: hidden; height: 220px; border-radius: 20px;
+    background: linear-gradient(170deg, #16243b 0%, #2c3f63 55%, #4a6a8f 100%); }
+  .fg-cloud { position: absolute; height: 18px; border-radius: 18px; background: rgba(255,255,255,0.10);
+    animation: fg-drift linear infinite; }
+  .fg-cloud::before { content: ""; position: absolute; left: 22%; top: -10px; width: 40%; height: 22px; border-radius: 50%; background: inherit; }
+  .fg-c1 { top: 40px; width: 120px; animation-duration: 38s; animation-delay: -6s; }
+  .fg-c2 { top: 120px; width: 170px; animation-duration: 52s; animation-delay: -30s; }
+  .fg-c3 { top: 170px; width: 90px; animation-duration: 44s; animation-delay: -18s; }
+  .fg-track { position: absolute; inset: 0; animation: fg-cross 16s linear infinite; }
+  .fg-plane { position: absolute; left: 0; top: 70px; width: 220px; animation: fg-bob 4s ease-in-out infinite; }
+  .fg-trail { position: absolute; top: 112px; right: 100%; width: 60vw; max-width: 600px; margin-right: -12px;
+    border-top: 2px dashed rgba(255,255,255,0.25); }
+  .fg-board { position: absolute; left: 24px; bottom: 20px; right: 24px; display: flex; align-items: center;
+    justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .fg-board p { margin: 0; color: #f2b544; font: 600 13px/1.3 ui-monospace, Menlo, monospace; letter-spacing: 0.14em; }
+  .fg-board a { background: #e07a5f; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 999px;
+    font: 700 15px/1 system-ui, sans-serif; }
+  @keyframes fg-cross { from { transform: translateX(-240px); } to { transform: translateX(100%); } }
+  @keyframes fg-bob { 50% { transform: translateY(-8px) rotate(-1.5deg); } }
+  @keyframes fg-drift { from { left: 100%; } to { left: -200px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .fg-track, .fg-plane, .fg-cloud { animation: none; }
+    .fg-track { transform: translateX(30%); }
+  }
+</style>
+<div class="fg-sky" role="img" aria-label="A FLIGHT aeroplane flying across the sky">
+  <span class="fg-cloud fg-c1"></span>
+  <span class="fg-cloud fg-c2"></span>
+  <span class="fg-cloud fg-c3"></span>
+  <div class="fg-track">
+    <span class="fg-trail"></span>
+    <svg class="fg-plane" viewBox="0 0 240 90" aria-hidden="true">
+      <path d="M126 44 L150 24 L162 24 L146 44 Z" fill="#24395a" />
+      <path d="M30 42 L16 8 L36 8 L66 40 Z" fill="#16243b" />
+      <path d="M24 14 L34 14 L40 26 L30 26 Z" fill="#f2b544" />
+      <path d="M22 46 L4 38 L16 38 L44 46 Z" fill="#24395a" />
+      <path d="M22 44 C22 36 40 32 70 32 L192 32 C214 32 230 38 236 46 C230 53 214 58 192 58 L44 58 C30 58 22 52 22 44 Z" fill="#fffdf8" stroke="#16243b" stroke-width="2.5" />
+      <path d="M26 50 L232 50 C230 53 214 58 192 58 L44 58 C34 58 28 55 26 50 Z" fill="#16243b" />
+      <path d="M27 47 L233 47 L231 50 L26 50 Z" fill="#e07a5f" />
+      <g fill="#16243b" opacity="0.8">
+        <rect x="70" y="38" width="5" height="6" rx="2" /><rect x="79" y="38" width="5" height="6" rx="2" />
+        <rect x="88" y="38" width="5" height="6" rx="2" /><rect x="97" y="38" width="5" height="6" rx="2" />
+        <rect x="106" y="38" width="5" height="6" rx="2" /><rect x="115" y="38" width="5" height="6" rx="2" />
+        <rect x="124" y="38" width="5" height="6" rx="2" /><rect x="133" y="38" width="5" height="6" rx="2" />
+        <rect x="142" y="38" width="5" height="6" rx="2" /><rect x="151" y="38" width="5" height="6" rx="2" />
+        <rect x="160" y="38" width="5" height="6" rx="2" /><rect x="169" y="38" width="5" height="6" rx="2" />
+        <rect x="178" y="38" width="5" height="6" rx="2" />
+      </g>
+      <path d="M212 37 L224 37 L230 43 L212 43 Z" fill="#16243b" />
+      <path d="M112 54 L150 82 L166 82 L148 54 Z" fill="#16243b" />
+      <rect x="128" y="60" width="26" height="10" rx="5" fill="#24395a" />
+      <rect x="150" y="62" width="4" height="6" rx="1" fill="#e07a5f" />
+    </svg>
+  </div>
+  <div class="fg-board">
+    <p>FLIGHT &middot; A DAILY BIBLE QUIZ</p>
+    <a href="https://theflightgame.com">Board now</a>
+  </div>
+</div>

@@ -609,10 +609,11 @@ main { padding-bottom: 96px; }
 .ow-actions { display: flex; gap: 8px; justify-content: flex-end; }
 
 /* The Lounge: Frequent Flyers' home on the Lounge tab. */
-.lounge-head { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; border-radius: 20px; padding: 18px; display: grid; gap: 4px; }
+.lounge-head { background: linear-gradient(160deg, var(--navy), #2c3f63 60%, #4a6a8f); color: #fff; border-radius: 20px; padding: 18px 18px 8px; display: grid; gap: 4px; overflow: hidden; }
 .lounge-head .mono { color: var(--amber); letter-spacing: 0.12em; margin: 0; }
 .lounge-head h1 { margin: 0; font-size: 24px; }
 .lounge-head p { margin: 0; opacity: 0.85; }
+.lounge-head .club-plane { justify-self: end; margin: 4px -24px 0 0; }
 .lounge-perks { display: grid; gap: 8px; }
 .lounge-perk { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font: inherit; color: inherit; cursor: pointer; }
 .lounge-perk-code { background: var(--navy); color: var(--amber); border-radius: 8px; padding: 6px 8px; font-size: 13px; font-weight: 700; }
