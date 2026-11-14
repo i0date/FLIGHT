@@ -37,6 +37,8 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       <h2>What we keep</h2>
       <h3>Without an account</h3>
       <p>Your streak, scores, miles and settings (such as sound) are saved in your browser’s storage on your device. They are not sent to us.</p>
+      <h3>When something goes wrong</h3>
+      <p>If the app crashes, it sends us a crash report: what went wrong, on which screen, and your browser and device type. Crash reports never include your name, email, scores or anything you typed.</p>
       <h3>With an account</h3>
       <ul>
         <li><strong>Your email address</strong>, to sign you in.</li>
@@ -71,13 +73,14 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
         <li><strong>Resend</strong> delivers our emails (sign-in codes and reminders).</li>
         <li><strong>Apple, Google and Mozilla</strong> deliver phone notifications to your device, if you turn them on.</li>
         <li><strong>Vercel</strong> hosts the app.</li>
+        <li><strong>Sentry</strong> receives crash reports, so we can fix problems.</li>
         <li><strong>Stripe</strong> handles payments and billing.</li>
         <li><strong>Google Fonts</strong> supplies the typefaces, so your browser asks Google for the font files.</li>
       </ul>
       <p>These companies may store or process data outside Canada, including in the United States, where it is subject to local law. We only share what each one needs to do its job.</p>
 
       <h2>How long we keep it</h2>
-      <p>Account data is kept until you delete your account. Connecting Flights are deleted after a day. Stripe keeps payment records for as long as the law requires.</p>
+      <p>Account data is kept until you delete your account. Connecting Flights are deleted after a day. Crash reports are deleted within 90 days. Stripe keeps payment records for as long as the law requires.</p>
 
       <h2>Your rights</h2>
       <p>You can see and correct your details in the Passport Office, and delete your account at any time from your Passport. You can also ask us for a copy of what we hold or for anything to be corrected or removed by contacting <Contact />. If you are unhappy with how we handled your information, you can complain to the Office of the Privacy Commissioner of Canada at <a href="https://www.priv.gc.ca" target="_blank" rel="noreferrer">priv.gc.ca</a>.</p>

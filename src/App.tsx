@@ -48,6 +48,7 @@ const Archive = lazy(() => loadArchive().then((m) => ({ default: m.Archive })));
 const Practice = lazy(() => loadPractice().then((m) => ({ default: m.Practice })));
 const ConnectingFlights = lazy(() => loadConnecting().then((m) => ({ default: m.ConnectingFlights })));
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
+import { Turbulence } from './components/Turbulence';
 import type { Screen } from './types';
 
 const TABS: { screen: Screen; label: string; Icon: typeof HomeIcon }[] = [
@@ -95,24 +96,26 @@ export default function App() {
     <ProfileProvider>
       <div className="app">
         <main>
-          <Suspense fallback={<div className="screen"><p className="mono muted small">BOARDING…</p></div>}>
-            {screen.name === 'home' && <Home go={go} />}
-            {screen.name === 'daily' && <Daily go={go} />}
-            {screen.name === 'bookclub' && <BookClub go={go} />}
-            {screen.name === 'book' && <BookQuiz key={screen.bookId} bookId={screen.bookId} go={go} />}
-            {screen.name === 'passport' && <PassportScreen go={go} />}
-            {screen.name === 'night' && <NightFlight go={go} />}
-            {screen.name === 'archive' && <Archive go={go} />}
-            {screen.name === 'practice' && <Practice go={go} />}
-            {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
-            {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
-            {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
-            {screen.name === 'settings' && <Settings go={go} />}
-            {screen.name === 'privacy' && <Privacy go={go} />}
-            {screen.name === 'terms' && <Terms go={go} />}
-            {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
-            {screen.name === 'owner' && <Owner go={go} />}
-          </Suspense>
+          <Turbulence key={screen.name} screen={screen.name} onHome={() => go({ name: 'home' })}>
+            <Suspense fallback={<div className="screen"><p className="mono muted small">BOARDING…</p></div>}>
+              {screen.name === 'home' && <Home go={go} />}
+              {screen.name === 'daily' && <Daily go={go} />}
+              {screen.name === 'bookclub' && <BookClub go={go} />}
+              {screen.name === 'book' && <BookQuiz key={screen.bookId} bookId={screen.bookId} go={go} />}
+              {screen.name === 'passport' && <PassportScreen go={go} />}
+              {screen.name === 'night' && <NightFlight go={go} />}
+              {screen.name === 'archive' && <Archive go={go} />}
+              {screen.name === 'practice' && <Practice go={go} />}
+              {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
+              {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
+              {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}
+              {screen.name === 'settings' && <Settings go={go} />}
+              {screen.name === 'privacy' && <Privacy go={go} />}
+              {screen.name === 'terms' && <Terms go={go} />}
+              {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
+              {screen.name === 'owner' && <Owner go={go} />}
+            </Suspense>
+          </Turbulence>
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (

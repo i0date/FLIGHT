@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { startErrorReports } from './lib/errors';
 import './styles.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -8,6 +9,8 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+startErrorReports();
 
 // Offline support and a faster start from the Home Screen. Only in the built app, so development always loads fresh.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {

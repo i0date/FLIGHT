@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 
 // In local dev, serve /api/* from the same files Vercel deploys as functions.
 function localApi(): Plugin {
@@ -40,9 +41,27 @@ function localApi(): Plugin {
 export default defineConfig(({ mode }) => {
   // Server-side settings (Stripe, service role) come from .env.local in dev.
   Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
+  // Which version a crash report came from: the commit Vercel is building.
+  const release = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? 'local';
   return {
-    plugins: [react(), localApi()],
+    plugins: [
+      react(),
+      localApi(),
+      // With a Sentry token (set in Vercel only), crash reports show our real code instead of the minified
+      // build. The maps go to Sentry and are removed from the site.
+      process.env.SENTRY_AUTH_TOKEN
+        ? sentryVitePlugin({
+          org: process.env.SENTRY_ORG,
+          project: process.env.SENTRY_PROJECT,
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          release: { name: release },
+          sourcemaps: { filesToDeleteAfterUpload: ['dist/**/*.map'] },
+          telemetry: false,
+        })
+        : null,
+    ],
+    define: { __RELEASE__: JSON.stringify(release) },
     // Split-off files get plain names, so file names don't describe what's inside.
-    build: { rollupOptions: { output: { chunkFileNames: 'assets/c-[hash].js' } } },
+    build: { sourcemap: process.env.SENTRY_AUTH_TOKEN ? 'hidden' : false, rollupOptions: { output: { chunkFileNames: 'assets/c-[hash].js' } } },
   };
 });
