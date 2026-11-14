@@ -4,6 +4,7 @@ import { dailyQuestions } from './dailyQuestions';
 import { dailyBatch2 } from './dailyBatch2';
 import { dailyBatch3 } from './dailyBatch3';
 import { dailyBatch4 } from './dailyBatch4';
+import { dailyBatch5 } from './dailyBatch5';
 
 // The Daily Flight's questions from 12 November 2026 on. Instead of a fresh random draw each day,
 // every level is a fixed queue that each day takes the next few from, so a question never comes
@@ -18,9 +19,17 @@ const RETIRED = new Set([
   'h523', 'h602', 'h604', 'h605', 'h608', 'h611', 'h613', 'h617', 'h620',
 ]);
 
-const BATCHES: RawQuestion[][] = [dailyQuestions.filter((q) => !RETIRED.has(q.id)), dailyBatch2, dailyBatch3, dailyBatch4];
+// Each batch with the first day it is flown. A batch added after ROTATION_START gets the day it went out,
+// so days before it keep exactly the questions (and Gate change bonuses) they had.
+const BATCHES: { from: string; questions: RawQuestion[] }[] = [
+  { from: ROTATION_START, questions: dailyQuestions.filter((q) => !RETIRED.has(q.id)) },
+  { from: ROTATION_START, questions: dailyBatch2 },
+  { from: ROTATION_START, questions: dailyBatch3 },
+  { from: ROTATION_START, questions: dailyBatch4 },
+  { from: '2026-11-15', questions: dailyBatch5 },
+];
 
-export const dailyBank: RawQuestion[] = BATCHES.flat();
+export const dailyBank: RawQuestion[] = BATCHES.flatMap((b) => b.questions);
 
 // A fixed, well-mixed order inside each batch, so neighbouring days don't share a topic.
 function mix(id: string): number {
@@ -29,9 +38,10 @@ function mix(id: string): number {
   return h >>> 0;
 }
 
+const mixed = (questions: RawQuestion[]) => [...questions].sort((a, b) => mix(a.id) - mix(b.id));
 const queues = new Map<Level, RawQuestion[]>();
 for (const batch of BATCHES) {
-  for (const q of [...batch].sort((a, b) => mix(a.id) - mix(b.id))) queues.set(q.level, [...(queues.get(q.level) ?? []), q]);
+  for (const q of mixed(batch.questions)) queues.set(q.level, [...(queues.get(q.level) ?? []), q]);
 }
 
 export const dayIndex = (day: string) => {
@@ -59,13 +69,20 @@ export function dailyRotation(day: string) {
   return ([1, 2, 3, 4, 5, 6] as Level[]).flatMap((l) => takeFromQueue(l, day, PER_DAY[l]));
 }
 
-// The Gate change bonus for a day (null on days without one): a level-6 multiple-choice question.
+// The Gate change bonus for a day (null on days without one): a level-6 multiple-choice question, taken
+// from the back of the level-6 queue as it stood that day. Each new batch restarts the count at its own
+// back end, so the bonus questions of days already flown never change.
 export function dailySpare(day: string): ChoiceQuestion | null {
   if (day < ROTATION_START || !isGateDay(day)) return null;
-  const choices = [...(queues.get(6) ?? [])].reverse().filter((q): q is ChoiceQuestion => q.kind !== 'order');
-  const [y, m, d] = ROTATION_START.split('-').map(Number);
+  const live = BATCHES.filter((b) => b.from <= day);
+  const since = live[live.length - 1].from;
+  const choices = live
+    .flatMap((b) => mixed(b.questions).filter((q) => q.level === 6))
+    .reverse()
+    .filter((q): q is ChoiceQuestion => q.kind !== 'order');
+  const [y, m, d] = since.split('-').map(Number);
   let before = 0;
-  for (let i = 0; i < dayIndex(day); i++) if (isGateDay(new Date(Date.UTC(y, m - 1, d + i)).toISOString().slice(0, 10))) before++;
+  for (let i = 0; i < dayIndex(day) - dayIndex(since); i++) if (isGateDay(new Date(Date.UTC(y, m - 1, d + i)).toISOString().slice(0, 10))) before++;
   return choices[before % choices.length] ?? null;
 }
 
