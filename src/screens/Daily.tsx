@@ -9,6 +9,7 @@ import { seeded, shuffle, toPlay } from '../lib/random';
 import { Flame } from '../components/Icons';
 import { Customs } from '../components/Customs';
 import { loadResults, saveResults } from '../lib/customs';
+import { countDailyAnswers } from '../lib/stats';
 import { sharePass } from '../lib/share';
 import { Announcement } from '../components/Announcement';
 import { GateChange } from '../components/GateChange';
@@ -101,6 +102,7 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
         route={{ from: 'GEN', to: 'REV' }}
         onFinish={(score, answers) => {
           saveResults(today, answers);
+          countDailyAnswers(today, questions.map((q) => q.id), answers);
           setResults(answers);
           update((p) => recordDaily(p, score, today));
           setJustLanded(score);

@@ -39,6 +39,8 @@ export function Privacy({ go }: { go: (s: Screen) => void }) {
       <p>Your streak, scores, miles and settings (such as sound) are saved in your browser’s storage on your device. They are not sent to us.</p>
       <h3>When something goes wrong</h3>
       <p>If the app crashes, it sends us a crash report: what went wrong, on which screen, and your browser and device type. Crash reports never include your name, email, scores or anything you typed.</p>
+      <h3>Which questions are hard</h3>
+      <p>When you fly the Daily Flight signed in, we count whether each question was answered right, so we can set questions at the right level and fix unclear ones. Only the totals for each question are kept, never who answered what.</p>
       <h3>With an account</h3>
       <ul>
         <li><strong>Your email address</strong>, to sign you in.</li>

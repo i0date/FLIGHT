@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { closeReport, ownerStats, type DayCount, type OwnerStats } from '../lib/owner';
+import { closeReport, ownerStats, questionReport, type DayCount, type OwnerStats, type QuestionReport, type QuestionStat } from '../lib/owner';
+import { dailyBank } from '../data/dailyBank';
+import { LEVELS } from '../lib/levels';
 import { bookById } from '../data/books';
 import { REASONS } from '../lib/report';
 import type { Screen } from '../types';
@@ -167,9 +169,48 @@ export function Owner({ go }: { go: (s: Screen) => void }) {
         )}
       </section>
 
+      <QuestionStats />
+
       {error && <p className="notice notice-error small">{error}</p>}
       <p className="small muted">Updated {new Date(s.generated_at).toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit' })} · <button className="link" onClick={load}>Refresh</button></p>
       <button className="btn btn-ghost" onClick={() => go({ name: 'passport' })}>Back to Passport</button>
     </div>
+  );
+}
+
+// Which Daily Flight questions travellers find easiest and hardest, against the level each one is set at.
+const daily = new Map(dailyBank.map((q) => [q.id, q]));
+
+function QuestionStats() {
+  const [report, setReport] = useState<QuestionReport | null>(null);
+  useEffect(() => {
+    questionReport().then(setReport, () => setReport(null));
+  }, []);
+  if (!report) return null;
+
+  const row = (s: QuestionStat) => {
+    const q = daily.get(s.id);
+    return (
+      <li key={s.id}>
+        <span className="mono small muted">{s.id} · L{q?.level ?? '?'} {q ? LEVELS[q.level].name : ''} · {Math.round((s.correct / s.asked) * 100)}% of {s.asked}</span>
+        <span className="small">{q?.q ?? 'No longer in the Daily Flight'}</span>
+      </li>
+    );
+  };
+
+  return (
+    <section className="card">
+      <strong>Questions · {report.counted.toLocaleString('en-CA')} answers counted</strong>
+      {report.questions === 0 ? (
+        <p className="small muted">Each question needs 10 answers from signed-in travellers before it shows here.</p>
+      ) : (
+        <>
+          <p className="small muted">Easiest: a high level here may belong lower.</p>
+          <ol className="ow-questions">{report.easiest.map(row)}</ol>
+          <p className="small muted">Hardest: a low level here may belong higher, or the question may be unclear.</p>
+          <ol className="ow-questions">{report.hardest.map(row)}</ol>
+        </>
+      )}
+    </section>
   );
 }

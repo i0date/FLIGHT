@@ -23,6 +23,15 @@ export async function isOwner(): Promise<boolean> {
   return !!data;
 }
 
+export type QuestionStat = { id: string; asked: number; correct: number };
+export type QuestionReport = { counted: number; questions: number; easiest: QuestionStat[]; hardest: QuestionStat[] };
+
+export async function questionReport(): Promise<QuestionReport> {
+  const { data, error } = await supabase!.rpc('question_report', { p_min: 10 });
+  if (error) throw new Error(error.message);
+  return data as QuestionReport;
+}
+
 export async function ownerStats(): Promise<OwnerStats> {
   const { data, error } = await supabase!.rpc('owner_stats');
   if (error) throw new Error(error.message);
