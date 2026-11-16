@@ -4,6 +4,7 @@ import { Shield } from '../components/Icons';
 import { callApi } from '../lib/billing';
 import { CONTACT_EMAIL } from '../lib/legal';
 import { setSound, soundOn } from '../lib/sound';
+import { setThemeChoice, themeChoice } from '../lib/theme';
 import { Reminders } from '../components/Reminders';
 import { SignIn } from '../components/SignIn';
 import type { Screen } from '../types';
@@ -12,6 +13,7 @@ import type { Screen } from '../types';
 export function Settings({ go }: { go: (s: Screen) => void }) {
   const { profile, update, account, accountsEnabled, signOut } = useProfile();
   const [sound, setSoundState] = useState(soundOn);
+  const [theme, setTheme] = useState(themeChoice);
 
   return (
     <div className="screen settings">
@@ -58,6 +60,18 @@ export function Settings({ go }: { go: (s: Screen) => void }) {
           }}
         />
       </label>
+
+      <h3 className="section-title">Appearance</h3>
+      <div className="card">
+        <div className="toggle" role="group" aria-label="Colours">
+          {(['auto', 'light', 'dark'] as const).map((c) => (
+            <button key={c} className={theme === c ? 'on' : ''} aria-pressed={theme === c} onClick={() => { setThemeChoice(c); setTheme(c); }}>
+              {c === 'auto' ? 'Automatic' : c === 'light' ? 'Day' : 'Night'}
+            </button>
+          ))}
+        </div>
+        <p className="small muted">Automatic follows your phone’s light or dark setting.</p>
+      </div>
 
       {account && (
         <>
