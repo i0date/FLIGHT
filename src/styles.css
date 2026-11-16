@@ -655,3 +655,18 @@ main { padding-bottom: 96px; }
 .shield-off { color: var(--line); }
 .streak-call.rescue { cursor: default; border-color: var(--navy); background: var(--sky); }
 .streak-call-actions { display: flex; gap: 8px; margin-top: 10px; }
+
+/* First-time welcome */
+.welcome-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(15, 26, 44, 0.55); display: grid; place-items: end center; padding: 16px; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+.welcome { width: 100%; max-width: 440px; background: var(--card, #fffdf8); border-radius: 22px; overflow: hidden; display: grid; gap: 8px; padding: 0 20px 20px; box-shadow: 0 20px 50px rgba(15, 26, 44, 0.35); animation: welcome-up 0.3s ease-out; }
+.welcome-art { margin: 0 -20px 8px; height: 150px; background: linear-gradient(160deg, var(--navy), #2c3f63 60%, #4a6a8f); display: grid; place-items: center; overflow: hidden; }
+.welcome-art .club-plane { align-self: center; margin: 0; }
+.welcome-levels { list-style: none; margin: 0; padding: 0 24px; width: 100%; display: flex; flex-direction: column-reverse; gap: 2px; color: #fff; font-size: 13px; }
+.welcome-levels .mono { color: var(--amber); font-size: 11px; display: inline-block; width: 74px; }
+.welcome-step { margin: 0; color: var(--muted); letter-spacing: 0.12em; }
+.welcome h2 { margin: 0; font-size: 24px; color: var(--navy); outline: none; }
+.welcome p { margin: 0; line-height: 1.5; }
+.welcome-actions { display: grid; gap: 8px; margin-top: 10px; }
+@keyframes welcome-up { from { transform: translateY(24px); opacity: 0; } }
+@media (min-width: 600px) { .welcome-backdrop { place-items: center; } }
+@media (prefers-reduced-motion: reduce) { .welcome { animation: none; } }

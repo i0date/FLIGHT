@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { gates } from '../games/registry';
 import { liveStreak, spendShields, useProfile } from '../lib/profile';
 import { dayKey, flightNumber } from '../lib/dates';
@@ -6,6 +7,7 @@ import { Flame, Lock, Plane } from '../components/Icons';
 import { PlaneWindow } from '../components/Aircraft';
 import { InstallCard } from '../components/InstallCard';
 import { StreakCall } from '../components/StreakCall';
+import { Welcome, hasBeenWelcomed } from '../components/Welcome';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
@@ -15,9 +17,12 @@ export function Home({ go }: { go: (s: Screen) => void }) {
   const stamps = Object.values(profile.bookClub).filter((r) => r.earnedAt).length;
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  // First visit on this device, and nothing flown yet: a short welcome.
+  const [welcome, setWelcome] = useState(() => Object.keys(profile.daily).length === 0 && !hasBeenWelcomed());
 
   return (
     <div className="screen">
+      {welcome && <Welcome onBoard={() => go({ name: 'daily' })} onClose={() => setWelcome(false)} />}
       <header className="board">
         <div className="board-row">
           <span className="board-brand">
