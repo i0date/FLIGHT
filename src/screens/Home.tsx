@@ -125,7 +125,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
                 <span>{g.id === 'bookclub' ? `${stamps}/${books.length} stamps earned · ${g.blurb}` : g.blurb}</span>
               </span>
               <span className={`gate-status mono ${live ? 'on' : ''}`}>
-                {!live ? 'DELAYED' : g.premium && !profile.premium ? <><Lock size={12} /> MEMBERS</> : 'BOARDING'}
+                {!live ? 'DELAYED' : g.premium && !profile.premium ? <><Lock size={12} /> {g.premium === 'host' ? 'MEMBERS HOST' : 'MEMBERS'}</> : 'BOARDING'}
               </span>
             </button>
           );

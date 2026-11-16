@@ -9,7 +9,7 @@ export type Gate = {
   title: string;
   blurb: string;
   status: 'live' | 'soon';
-  premium?: boolean;
+  premium?: boolean | 'host'; // 'host': members open it, anyone can join
   screen?: Screen;
 };
 
@@ -19,6 +19,6 @@ export const gates: Gate[] = [
   { id: 'practice', gate: 'P1', title: 'Practice', blurb: 'Pick your altitude: low, cruising or high. Ten questions, as often as you like.', status: 'live', screen: { name: 'practice' } },
   { id: 'night', gate: 'N1', title: 'Night Flight', blurb: 'Ten stratosphere questions. A new flight every Monday.', status: 'live', premium: true, screen: { name: 'night' } },
   { id: 'archive', gate: 'A2', title: 'Flight archive', blurb: 'Replay any of the last 30 Daily Flights.', status: 'live', premium: true, screen: { name: 'archive' } },
-  { id: 'connecting', gate: 'C1', title: 'Connecting Flights', blurb: 'A live race for your group: same 10 questions, scrambled, 60 seconds.', status: 'live', screen: { name: 'connecting' } },
+  { id: 'connecting', gate: 'C1', title: 'Connecting Flights', blurb: 'A live race for your group: same 10 questions, scrambled, 60 seconds. Frequent Flyers open a flight; anyone with the code can board.', status: 'live', premium: 'host', screen: { name: 'connecting' } },
   { id: 'crossword', gate: 'C2', title: 'Crossword', blurb: 'Scripture crossword. Arriving soon.', status: 'soon' },
 ];
