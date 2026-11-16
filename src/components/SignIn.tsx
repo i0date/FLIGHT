@@ -75,7 +75,7 @@ export function SignIn({ enabled }: { enabled: boolean }) {
     <form className="card signin" onSubmit={(e) => { e.preventDefault(); send(); }}>
       <strong>Get your passport issued</strong>
       <p className="small muted">Sign in to save your streak, miles and stamps to your account and keep them on any device. No password — we email you a code.</p>
-      <input type="email" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="email" aria-label="Email address" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
       {error && <p className="form-error small">{error}</p>}
       <button className="btn btn-primary" disabled={busy}>{busy ? 'Please wait…' : 'Email me a sign-in code'}</button>
     </form>

@@ -122,7 +122,7 @@ export default function App() {
         </main>
         <nav className="tabbar">
           {TABS.map(({ screen: s, label, Icon }) => (
-            <button key={label} className={tabActive === s.name ? 'active' : ''} onClick={() => go(s)}>
+            <button key={label} className={tabActive === s.name ? 'active' : ''} aria-current={tabActive === s.name ? 'page' : undefined} onClick={() => go(s)}>
               <Icon />
               <span>{label}</span>
             </button>

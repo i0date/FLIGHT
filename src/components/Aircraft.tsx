@@ -47,7 +47,7 @@ export function PlaneWindow({ streak, hour = new Date().getHours() }: { streak: 
 
   return (
     <div className="window">
-      <svg viewBox="0 0 160 200" className="window-svg" aria-label={`Window view at ${formatFt(ft)}`}>
+      <svg viewBox="0 0 160 200" className="window-svg" role="img" aria-label={`Window view at ${formatFt(ft)}`}>
         <defs>
           <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor={top} />
@@ -120,7 +120,7 @@ export function FlightMap({ from, to, progress, step, total, level }: { from: st
 
   return (
     <div className="seatback">
-      <svg viewBox="0 0 320 120" className="seatback-map" aria-label={`Question ${step} of ${total}`}>
+      <svg viewBox="0 0 320 120" className="seatback-map" role="img" aria-label={`Question ${step} of ${total}`}>
         {Array.from({ length: 9 }, (_, i) => <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="120" className="map-grid" />)}
         {Array.from({ length: 4 }, (_, i) => <line key={`h${i}`} x1="0" y1={i * 40} x2="320" y2={i * 40} className="map-grid" />)}
         <path d="M0 96 C40 70 70 108 120 92 S200 70 240 96 S300 110 320 92 L320 120 L0 120 Z" className="map-land" />

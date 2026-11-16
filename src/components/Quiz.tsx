@@ -30,14 +30,22 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
   const revealed = results[index] !== undefined;
   const correct = results[index];
   const revealRef = useRef<HTMLDivElement>(null);
+  const promptRef = useRef<HTMLHeadingElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const moved = useRef(false);
   const [stopover, setStopover] = useState<'ahead' | 'now' | 'done'>(interlude ? 'ahead' : 'done');
 
   // On a phone the answer card lands below the tab bar: bring it into view, and start each new question at the top.
+  // Keyboard and screen-reader users land on "Next" after answering, and on the new question after that.
   useEffect(() => {
-    if (revealed) revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (!revealed) return;
+    revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    nextRef.current?.focus({ preventScroll: true });
   }, [revealed]);
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    if (moved.current) promptRef.current?.focus({ preventScroll: true });
+    moved.current = true;
   }, [index]);
   // Fetch the book behind this question now, so its verse opens instantly after answering.
   useEffect(() => {
@@ -110,7 +118,10 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
         </div>
       </div>
 
-      <h2 className="quiz-prompt">{curly(q.prompt)}</h2>
+      <h2 className="quiz-prompt" ref={promptRef} tabIndex={-1}>{curly(q.prompt)}</h2>
+      <p className="sr-only" aria-live="polite">
+        {revealed && (correct ? 'Correct.' : q.kind === 'choice' ? `Not quite. The answer is ${q.options[q.answer]}.` : `Not quite. The order is ${q.order.join(', ')}.`)}
+      </p>
 
       {q.kind === 'choice' ? (
         <div className="options">
@@ -123,6 +134,8 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
               <button key={i} className={cls} onClick={() => pick(i)} disabled={revealed}>
                 <span className="option-key mono">{'ABCD'[i]}</span>
                 <span>{curly(opt)}</span>
+                {revealed && i === q.answer && <span className="sr-only"> (the answer)</span>}
+                {revealed && i === choice && i !== q.answer && <span className="sr-only"> (your answer)</span>}
               </button>
             );
           })}
@@ -157,7 +170,7 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
           <Verse key={q.id} reference={q.ref} />
           {q.note && <p>{curly(q.note)}</p>}
           <ReportQuestion key={q.id} question={q} />
-          <button className="btn btn-primary" onClick={advance}>
+          <button ref={nextRef} className="btn btn-primary" onClick={advance}>
             {index + 1 < questions.length ? 'Next question' : 'Begin descent'}
           </button>
         </div>

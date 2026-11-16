@@ -34,7 +34,7 @@ export function InstallCard() {
 // Safari's share symbol: a box with an arrow pointing up.
 function ShareIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" aria-label="Share" style={{ verticalAlign: '-3px' }}>
+    <svg width="16" height="16" viewBox="0 0 24 24" role="img" aria-label="Share" style={{ verticalAlign: '-3px' }}>
       <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 7l4-4 4 4M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" />
     </svg>
   );

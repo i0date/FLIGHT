@@ -195,7 +195,7 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
               <strong>Have an invite code?</strong>
               <p className="small muted">Join a family or church plan someone else pays for.</p>
               <div className="row">
-                <input value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="e.g. 7F3K9Q2A" maxLength={8} className="mono" />
+                <input aria-label="Invite code" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="e.g. 7F3K9Q2A" maxLength={8} className="mono" />
                 <button className="btn btn-primary" disabled={code.length < 8 || busy === 'join'} onClick={join}>
                   {busy === 'join' ? 'Joining…' : 'Join'}
                 </button>
