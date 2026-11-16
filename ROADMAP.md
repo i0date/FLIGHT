@@ -15,14 +15,32 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
 
 ## 🟠 Important (in this order)
 
-1. **Sign in with Google and Apple.** One tap instead of an emailed code. Next up, before more questions.
-   Adeoti creates the Google and Apple keys; Claude builds the app side.
+1. **Sign in with Google and Apple: the keys.** The app side is built: each button appears on its own once
+   its provider is switched on in Supabase. Steps are under "Waiting on Adeoti".
 2. **A page for church leaders at theflightgame.com/churches.** What a pastor or youth leader gets, how one
    invite code covers 100 people, and running a Connecting Flight on a Sunday. After sign-in.
 3. **Crossword.** Start with a new crossword every two weeks, made by Adeoti. Until it's ready, the "Arriving
    soon" Crossword row on Departures could be hidden.
 
 ## Waiting on Adeoti
+
+- **Sign in with Google** (about 15 minutes, free):
+  1. Google Cloud Console → APIs & Services → OAuth consent screen: app name FLIGHT, home page
+     theflightgame.com, privacy and terms links, publish the app.
+  2. Credentials → Create credentials → OAuth client ID → Web application.
+     Authorized JavaScript origins: `https://theflightgame.com`.
+     Authorized redirect URI: `https://izbtudngvxquegluyums.supabase.co/auth/v1/callback`.
+  3. Supabase → Authentication → Sign In / Providers → Google: paste the client ID and secret, switch on.
+- **Sign in with Apple** (needs the Apple Developer account, US$99/year):
+  1. Certificates, IDs & Profiles → Identifiers: an App ID with "Sign in with Apple", then a Services ID
+     (e.g. `com.theflightgame.web`). Configure it: domain `theflightgame.com`, return URL
+     `https://izbtudngvxquegluyums.supabase.co/auth/v1/callback`.
+  2. Keys → a new key with "Sign in with Apple"; download the .p8 file (it downloads once only).
+  3. Supabase → Authentication → Sign In / Providers → Apple: the Services ID as the client ID, and the
+     secret made from the .p8 key (Supabase's Apple page explains how). **That secret expires every six
+     months**: put a reminder in the calendar to make a new one.
+- **Then test** both on a phone, in the browser and from the Home Screen app. Signing in with the same email
+  as an existing account should open that same account. Apple may hide the email; that makes a new account.
 
 - **Readable crash reports.** In Vercel → Project → Settings → Environment Variables, add (for Production):
   - `SENTRY_AUTH_TOKEN`: made in Sentry under Settings → Auth Tokens. It is a secret: add it in Vercel only, never in chat or the repo.

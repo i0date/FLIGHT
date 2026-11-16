@@ -1,15 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useProfile } from '../lib/profile';
+import { enabledProviders, type Provider } from '../lib/supabase';
+import { AppleLogo, GoogleG } from './Icons';
 
-// Email sign-in card, shown on the Passport page until a traveller signs in. The email has a link
-// and a code: the link suits a browser, the code suits the home-screen app (links open in the browser).
+// A refused or failed Google/Apple sign-in comes back as #error_description=… on the address.
+function returnedError(): string {
+  const hash = new URLSearchParams(window.location.hash.slice(1));
+  if (!hash.get('error')) return '';
+  window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  return hash.get('error') === 'access_denied' ? 'Sign-in was cancelled. Try again, or use your email.' : hash.get('error_description') ?? 'Something went wrong. Try again.';
+}
+
+// Sign-in card, shown on the Passport page until a traveller signs in: Google or Apple in one tap,
+// once switched on in Supabase, or an emailed code. The email has a link and a code: the link suits
+// a browser, the code suits the home-screen app (links open in the browser).
 export function SignIn({ enabled }: { enabled: boolean }) {
-  const { sendLink, verifyCode } = useProfile();
+  const { sendLink, verifyCode, signInWith } = useProfile();
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(returnedError);
   const [code, setCode] = useState('');
+  const [providers, setProviders] = useState<Provider[]>([]);
+
+  useEffect(() => {
+    if (enabled) enabledProviders().then(setProviders);
+  }, [enabled]);
 
   if (!enabled) {
     return (
@@ -29,6 +45,17 @@ export function SignIn({ enabled }: { enabled: boolean }) {
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
     } finally {
+      setBusy(false);
+    }
+  };
+
+  const oneTap = async (provider: Provider) => {
+    setBusy(true);
+    setError('');
+    try {
+      await signInWith(provider);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Something went wrong. Try again.');
       setBusy(false);
     }
   };
@@ -74,7 +101,24 @@ export function SignIn({ enabled }: { enabled: boolean }) {
   return (
     <form className="card signin" onSubmit={(e) => { e.preventDefault(); send(); }}>
       <strong>Get your passport issued</strong>
-      <p className="small muted">Sign in to save your streak, miles and stamps to your account and keep them on any device. No password — we email you a code.</p>
+      <p className="small muted">Sign in to save your streak, miles and stamps to your account and keep them on any device. No password needed.</p>
+      {providers.length > 0 && (
+        <>
+          <div className="signin-providers">
+            {providers.includes('apple') && (
+              <button type="button" className="btn btn-provider apple" disabled={busy} onClick={() => oneTap('apple')}>
+                <AppleLogo /> Sign in with Apple
+              </button>
+            )}
+            {providers.includes('google') && (
+              <button type="button" className="btn btn-provider" disabled={busy} onClick={() => oneTap('google')}>
+                <GoogleG /> Sign in with Google
+              </button>
+            )}
+          </div>
+          <p className="signin-or small">or</p>
+        </>
+      )}
       <input type="email" aria-label="Email address" required autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
       {error && <p className="form-error small">{error}</p>}
       <button className="btn btn-primary" disabled={busy}>{busy ? 'Please wait…' : 'Email me a sign-in code'}</button>

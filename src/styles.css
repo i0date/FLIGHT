@@ -771,3 +771,9 @@ body.in-flight .tabbar { display: none; }
 .quiz-question { display: grid; gap: inherit; animation: next-question 0.28s ease-out; }
 @keyframes next-question { from { opacity: 0; transform: translateX(18px); } }
 @media (prefers-reduced-motion: reduce) { .quiz-question { animation: none; } }
+.signin-providers { display: grid; gap: 8px; }
+.btn-provider { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #1f1f1f; border: 1.5px solid #747775; }
+.btn-provider.apple { background: #000; color: #fff; border-color: #000; }
+:root[data-theme='dark'] .btn-provider.apple { background: #fff; color: #000; border-color: #fff; }
+.signin-or { display: flex; align-items: center; gap: 10px; color: var(--muted); }
+.signin-or::before, .signin-or::after { content: ''; flex: 1; border-top: 1px solid var(--line); }

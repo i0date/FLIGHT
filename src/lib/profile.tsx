@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { dayKey, daysBetween, weekKey } from './dates';
 import { LEGS, STAMP_PASS } from '../data/bookClubRules';
-import { supabase } from './supabase';
+import { supabase, type Provider } from './supabase';
 import { loadMembership, loadRemote, merge, pushChanges, type Account, type ServerStreak } from './sync';
 
 // A book's three legs: best score out of 7 on each (null until flown), and the
@@ -162,6 +162,7 @@ type Ctx = {
   accountsEnabled: boolean;
   sendLink: (email: string) => Promise<void>;
   verifyCode: (email: string, code: string) => Promise<void>;
+  signInWith: (provider: Provider) => Promise<void>;
   refreshMembership: () => Promise<void>;
   signOut: () => Promise<void>;
 };
@@ -249,6 +250,13 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     if (error) throw new Error(/expired|invalid/i.test(error.message) ? 'That code didn’t work. Check it, or send a new one.' : error.message);
   }, []);
 
+  // Google or Apple: off to the provider and back to FLIGHT signed in. An existing account with
+  // the same email address is the same account.
+  const signInWith = useCallback(async (provider: Provider) => {
+    const { error } = await supabase!.auth.signInWithOAuth({ provider, options: { redirectTo: window.location.origin } });
+    if (error) throw error;
+  }, []);
+
   // After checkout or joining a plan, re-read the membership the server recorded.
   const refreshMembership = useCallback(async () => {
     if (!supabase) return;
@@ -264,7 +272,7 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, verifyCode, refreshMembership, signOut }}>
+    <ProfileContext.Provider value={{ profile, update: setProfile, account, sync, accountsEnabled: !!supabase, sendLink, verifyCode, signInWith, refreshMembership, signOut }}>
       {children}
     </ProfileContext.Provider>
   );
