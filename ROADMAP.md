@@ -17,6 +17,11 @@
 ## Next to build
 
 - Daily Flight questions toward nine months without a repeat (about 2,000 more).
-- Automated tests for streaks, shields, the daily rotation and miles.
 - Book Club: a quality pass and a check for questions the Daily Flight also asks.
 - Later: questions served by the server, so answers can't be looked up in the app.
+- Later: the review flight and night-mode choice are kept per device; they could follow the account.
+
+## Done (November 2026)
+
+- Link previews, a first-time welcome, the KJV verse behind every answer, the review flight,
+  accessibility fixes, night mode, and automated tests that run before every deploy.
