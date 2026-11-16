@@ -4,6 +4,8 @@ import { Altimeter, FlightMap } from './Aircraft';
 import { curly } from '../lib/text';
 import { ReportQuestion } from './ReportQuestion';
 import { Verse } from './Verse';
+import { Quoted } from './Scripture';
+import { Bell } from './Icons';
 import { prefetchRef } from '../lib/verses';
 import { noteAnswer } from '../lib/review';
 import { chime, setSound, soundOn, testChime } from '../lib/sound';
@@ -36,6 +38,12 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
   const [stopover, setStopover] = useState<'ahead' | 'now' | 'done'>(interlude ? 'ahead' : 'done');
 
   // On a phone the answer card lands below the tab bar: bring it into view, and start each new question at the top.
+  // Seatbelt sign on: the tab bar steps aside while a flight is under way.
+  useEffect(() => {
+    document.body.classList.add('in-flight');
+    return () => document.body.classList.remove('in-flight');
+  }, []);
+
   // Keyboard and screen-reader users land on "Next" after answering, and on the new question after that.
   useEffect(() => {
     if (!revealed) return;
@@ -113,55 +121,57 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
         <div className="quiz-meta-side">
           {q.tag && <span className="pill">{q.tag}</span>}
           <button className="sound-toggle" onClick={toggleSound} aria-pressed={sound} title="Cabin sounds">
-            {sound ? '🔔 On' : '🔕 Off'}
+            <Bell off={!sound} /> {sound ? 'On' : 'Off'}
           </button>
         </div>
       </div>
 
-      <h2 className="quiz-prompt" ref={promptRef} tabIndex={-1}>{curly(q.prompt)}</h2>
-      <p className="sr-only" aria-live="polite">
-        {revealed && (correct ? 'Correct.' : q.kind === 'choice' ? `Not quite. The answer is ${q.options[q.answer]}.` : `Not quite. The order is ${q.order.join(', ')}.`)}
-      </p>
+      <div key={index} className="quiz-question">
+        <h2 className="quiz-prompt" ref={promptRef} tabIndex={-1}><Quoted text={curly(q.prompt)} /></h2>
+        <p className="sr-only" aria-live="polite">
+          {revealed && (correct ? 'Correct.' : q.kind === 'choice' ? `Not quite. The answer is ${q.options[q.answer]}.` : `Not quite. The order is ${q.order.join(', ')}.`)}
+        </p>
 
-      {q.kind === 'choice' ? (
-        <div className="options">
-          {q.options.map((opt, i) => {
-            let cls = 'option';
-            if (revealed && i === q.answer) cls += ' correct';
-            else if (revealed && i === choice) cls += ' wrong';
-            else if (revealed) cls += ' dim';
-            return (
-              <button key={i} className={cls} onClick={() => pick(i)} disabled={revealed}>
-                <span className="option-key mono">{'ABCD'[i]}</span>
-                <span>{curly(opt)}</span>
-                {revealed && i === q.answer && <span className="sr-only"> (the answer)</span>}
-                {revealed && i === choice && i !== q.answer && <span className="sr-only"> (your answer)</span>}
+        {q.kind === 'choice' ? (
+          <div className="options">
+            {q.options.map((opt, i) => {
+              let cls = 'option';
+              if (revealed && i === q.answer) cls += ' correct';
+              else if (revealed && i === choice) cls += ' wrong';
+              else if (revealed) cls += ' dim';
+              return (
+                <button key={i} className={cls} onClick={() => pick(i)} disabled={revealed}>
+                  <span className="option-key mono">{'ABCD'[i]}</span>
+                  <span>{curly(opt)}</span>
+                  {revealed && i === q.answer && <span className="sr-only"> (the answer)</span>}
+                  {revealed && i === choice && i !== q.answer && <span className="sr-only"> (your answer)</span>}
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="options">
+            <p className="hint">Tap the items in order — first to last. Tap again to undo.</p>
+            {(revealed ? q.order : q.options).map((item) => {
+              const pos = sequence.indexOf(item);
+              let cls = 'option';
+              if (revealed) cls += sequence[q.order.indexOf(item)] === item ? ' correct' : ' wrong';
+              else if (pos >= 0) cls += ' placed';
+              return (
+                <button key={item} className={cls} onClick={() => tapOrderItem(item)} disabled={revealed}>
+                  <span className="option-key mono">{revealed ? q.order.indexOf(item) + 1 : pos >= 0 ? pos + 1 : '·'}</span>
+                  <span>{item}</span>
+                </button>
+              );
+            })}
+            {!revealed && (
+              <button className="btn btn-primary" disabled={sequence.length < q.order.length} onClick={() => settle(sequence.every((s, i) => s === q.order[i]))}>
+                Lock in order
               </button>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="options">
-          <p className="hint">Tap the items in order — first to last. Tap again to undo.</p>
-          {(revealed ? q.order : q.options).map((item) => {
-            const pos = sequence.indexOf(item);
-            let cls = 'option';
-            if (revealed) cls += sequence[q.order.indexOf(item)] === item ? ' correct' : ' wrong';
-            else if (pos >= 0) cls += ' placed';
-            return (
-              <button key={item} className={cls} onClick={() => tapOrderItem(item)} disabled={revealed}>
-                <span className="option-key mono">{revealed ? q.order.indexOf(item) + 1 : pos >= 0 ? pos + 1 : '·'}</span>
-                <span>{item}</span>
-              </button>
-            );
-          })}
-          {!revealed && (
-            <button className="btn btn-primary" disabled={sequence.length < q.order.length} onClick={() => settle(sequence.every((s, i) => s === q.order[i]))}>
-              Lock in order
-            </button>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        )}
+      </div>
 
       {revealed && (
         <div ref={revealRef} className={`reveal ${correct ? 'reveal-good' : 'reveal-bad'}`}>

@@ -58,6 +58,7 @@ export function Archive({ go }: { go: (s: Screen) => void }) {
       <div className="screen">
         <p className="mono muted small">REPLAY · {day}</p>
         <Quiz questions={questions} route={{ from: 'GEN', to: 'REV' }} onFinish={(score, a) => { setAnswers(a); setReplay(score); }} />
+        <button className="btn btn-ghost" onClick={() => setDay(null)}>Leave this flight</button>
       </div>
     );
   }

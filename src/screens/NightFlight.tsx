@@ -88,6 +88,7 @@ export function NightFlight({ go }: { go: (s: Screen) => void }) {
           setJustLanded(s);
         }}
       />
+      <button className="btn btn-ghost" onClick={() => go({ name: 'home' })}>Leave this flight</button>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { liveStreak, recordDaily, recordGateChange, useProfile } from '../lib/pr
 import { seeded, shuffle, toPlay } from '../lib/random';
 import { Flame } from '../components/Icons';
 import { Customs } from '../components/Customs';
+import { FlightPath, useCountUp } from '../components/FlightPath';
 import { loadResults, saveResults } from '../lib/customs';
 import { countDailyAnswers } from '../lib/stats';
 import { sharePass } from '../lib/share';
@@ -55,10 +56,8 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
           <span>GEN → REV</span>
           <span className="arrivals-status">LANDED</span>
         </div>
-        <h1 className="landed-score">
-          {score}
-          <span>/10</span>
-        </h1>
+        <LandedScore score={score} />
+        {results.length === questions.length && <FlightPath results={results} levels={questions.map((q) => q.level)} />}
         <p className="landed-msg">{verdict(score)}</p>
         <div className="landed-streak">
           <Flame size={30} className="flame-on" />
@@ -108,6 +107,7 @@ export function Daily({ go }: { go: (s: Screen) => void }) {
           setJustLanded(score);
         }}
       />
+      <button className="btn btn-ghost" onClick={() => go({ name: 'home' })}>Leave this flight</button>
     </div>
   );
 }
@@ -117,4 +117,14 @@ function verdict(score: number) {
   if (score >= 8) return 'Smooth flight, even at altitude.';
   if (score >= 5) return 'Solid journey. The upper air got bumpy.';
   return 'A rough ride up high, but you landed. Back on board tomorrow.';
+}
+
+function LandedScore({ score }: { score: number }) {
+  const shown = useCountUp(score);
+  return (
+    <h1 className="landed-score" aria-label={`${score} out of 10`}>
+      {shown}
+      <span>/10</span>
+    </h1>
+  );
 }

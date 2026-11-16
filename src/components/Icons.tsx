@@ -63,3 +63,11 @@ export const Shield = ({ size = 22, className }: P) => (
     <path fill="currentColor" d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z" />
   </svg>
 );
+
+export const Bell = ({ size = 14, off = false }: P & { off?: boolean }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z" />
+    <path d="M10 21h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    {off && <path d="M4 4l16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />}
+  </svg>
+);

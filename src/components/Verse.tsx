@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { parseRef, passages, type Passage } from '../lib/verses';
+import { Kjv } from './Scripture';
 
 // A question's reference, opening onto the KJV text it points to. References to whole chapters or books
 // (too long to show here) stay as a plain reference.
@@ -43,7 +44,7 @@ export function Verse({ reference, open: startOpen = false }: { reference: strin
                   {p.verses.map((v) => (
                     <span key={v.n}>
                       <sup>{v.n}</sup>
-                      {v.text}{' '}
+                      <Kjv text={v.text} />{' '}
                     </span>
                   ))}
                 </p>

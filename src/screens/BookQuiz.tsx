@@ -98,6 +98,7 @@ export function BookQuiz({ bookId, go }: { bookId: string; go: (s: Screen) => vo
             setResult({ leg, score, justEarned: !before && !!next.bookClub[bookId].earnedAt, answers });
           }}
         />
+        <button className="btn btn-ghost" onClick={() => setLeg(null)}>Leave this flight</button>
       </div>
     );
   }
