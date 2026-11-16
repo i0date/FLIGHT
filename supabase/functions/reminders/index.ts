@@ -4,7 +4,7 @@
 // Also takes email apps' one-click unsubscribe (POST ?unsubscribe=<token>); the link people tap
 // opens theflightgame.com/?unsubscribe=<token>, which asks them to confirm.
 //
-// Safe to call by anyone: it only ever sends what is due this hour, once.
+// Only the hourly job can run it: it sends a key the database keeps privately (see *_reminders_key.sql).
 import { createClient } from 'npm:@supabase/supabase-js@2.45.4';
 import webpush from 'npm:web-push@3.6.7';
 
@@ -114,6 +114,8 @@ Deno.serve(async (req) => {
     if (/^[0-9a-f-]{36}$/i.test(token)) await db.from('profiles').update({ remind_email: false }).eq('unsub_token', token);
     return Response.json({ unsubscribed: true });
   }
+  const { data: allowed } = await db.rpc('reminders_key_ok', { k: req.headers.get('x-reminders-key') ?? '' });
+  if (!allowed) return new Response('Not found', { status: 404 });
   try {
     const result = await run();
     console.log('reminders', result);
