@@ -167,7 +167,7 @@ export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
         <div ref={revealRef} className={`reveal ${correct ? 'reveal-good' : 'reveal-bad'}`}>
           <strong>{correct ? 'Smooth air.' : 'Turbulence.'}</strong>
           {q.kind === 'order' && !correct && <p>The list above now shows the correct order.</p>}
-          <Verse key={q.id} reference={q.ref} />
+          <Verse key={`verse-${q.id}`} reference={q.ref} />
           {q.note && <p>{curly(q.note)}</p>}
           <ReportQuestion key={q.id} question={q} />
           <button ref={nextRef} className="btn btn-primary" onClick={advance}>
