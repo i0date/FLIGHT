@@ -48,5 +48,6 @@ export type Screen =
   | { name: 'settings' }
   | { name: 'privacy' }
   | { name: 'terms' }
+  | { name: 'churches' }
   | { name: 'unsubscribe'; token: string }
   | { name: 'owner' };

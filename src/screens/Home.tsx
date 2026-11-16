@@ -142,7 +142,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
         All 66 books of the Bible are open in Book Club
       </p>
       <p className="fineprint legal-links">
-        <button onClick={() => go({ name: 'privacy' })}>Privacy</button> · <button onClick={() => go({ name: 'terms' })}>Terms</button>
+        <button onClick={() => go({ name: 'privacy' })}>Privacy</button> · <button onClick={() => go({ name: 'terms' })}>Terms</button> · <button onClick={() => go({ name: 'churches' })}>For churches</button>
       </p>
     </div>
   );

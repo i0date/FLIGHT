@@ -17,9 +17,7 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
 
 1. **Sign in with Google and Apple: the keys.** The app side is built: each button appears on its own once
    its provider is switched on in Supabase. Steps are under "Waiting on Adeoti".
-2. **A page for church leaders at theflightgame.com/churches.** What a pastor or youth leader gets, how one
-   invite code covers 100 people, and running a Connecting Flight on a Sunday. After sign-in.
-3. **Crossword.** Start with a new crossword every two weeks, made by Adeoti. Until it's ready, the "Arriving
+2. **Crossword.** Start with a new crossword every two weeks, made by Adeoti. Until it's ready, the "Arriving
    soon" Crossword row on Departures could be hidden.
 
 ## Waiting on Adeoti
@@ -73,3 +71,5 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
   accessibility fixes, night mode, and automated tests that run before every deploy.
 - Visual polish: the gate before take-off, Scripture in Source Serif, the landing flight path, amber buttons at night.
 - Security: enforced security headers, a cap on guest question reports, and a key on the reminders function.
+- A page for church leaders at theflightgame.com/churches: what the church plans give, one invite code for
+  100 people, and running a Connecting Flight on a Sunday. Linked from the Terminal footer and the plans.

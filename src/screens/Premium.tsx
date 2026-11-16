@@ -176,6 +176,9 @@ export function Premium({ go, checkout }: { go: (s: Screen) => void; checkout?: 
               </div>
             ))}
           </div>
+          <p className="small muted">
+            Leading a church or youth group? <button className="link" onClick={() => go({ name: 'churches' })}>See how FLIGHT works for churches</button>.
+          </p>
           {CONTACT_EMAIL && (
             <p className="small muted">More than 100 travellers? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we’ll set up a plan for your church.</p>
           )}

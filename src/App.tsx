@@ -6,6 +6,7 @@ import { Leaderboard } from './screens/Leaderboard';
 import { Premium } from './screens/Premium';
 import { Passport as PassportScreen } from './screens/Passport';
 import { Privacy, Terms } from './screens/Legal';
+import { Churches } from './screens/Churches';
 import { Unsubscribe } from './screens/Unsubscribe';
 import { Settings } from './screens/Settings';
 // Loaded only when opened, so the owner's dashboard isn't part of everyone's download.
@@ -68,11 +69,12 @@ export default function App() {
   const [flightCode] = useState(() => new URLSearchParams(window.location.search).get('flight'));
   // The "Unsubscribe" link in reminder emails (?unsubscribe=<token>).
   const [unsubToken] = useState(() => new URLSearchParams(window.location.search).get('unsubscribe'));
-  // The legal pages have their own addresses (/privacy, /terms) so they can be linked from Stripe and elsewhere.
+  // The legal pages and the churches page have their own addresses (/privacy, /terms, /churches) so they can be linked from Stripe and elsewhere.
   const [screen, setScreen] = useState<Screen>(() => {
     const path = window.location.pathname.replace(/\/$/, '');
     if (path === '/privacy') return { name: 'privacy' };
     if (path === '/terms') return { name: 'terms' };
+    if (path === '/churches') return { name: 'churches' };
     if (path === '/owner') return { name: 'owner' };
     if (unsubToken) return { name: 'unsubscribe', token: unsubToken };
     return checkout ? { name: 'premium' } : flightCode ? { name: 'connecting', code: flightCode } : { name: 'home' };
@@ -82,7 +84,7 @@ export default function App() {
   }, [checkout, flightCode, unsubToken]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    const path = screen.name === 'privacy' || screen.name === 'terms' || screen.name === 'owner' ? `/${screen.name}` : '/';
+    const path = screen.name === 'privacy' || screen.name === 'terms' || screen.name === 'churches' || screen.name === 'owner' ? `/${screen.name}` : '/';
     if (window.location.pathname !== path) window.history.replaceState(null, '', path);
   }, [screen]);
   useEffect(() => {
@@ -92,7 +94,7 @@ export default function App() {
     return () => clearTimeout(t);
   }, []);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'review', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' || screen.name === 'settings' ? 'passport' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'review', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'churches' ? 'premium' : screen.name === 'owner' || screen.name === 'settings' ? 'passport' : screen.name;
 
   return (
     <ProfileProvider>
@@ -115,6 +117,7 @@ export default function App() {
               {screen.name === 'settings' && <Settings go={go} />}
               {screen.name === 'privacy' && <Privacy go={go} />}
               {screen.name === 'terms' && <Terms go={go} />}
+              {screen.name === 'churches' && <Churches go={go} />}
               {screen.name === 'unsubscribe' && <Unsubscribe token={screen.token} go={go} />}
               {screen.name === 'owner' && <Owner go={go} />}
             </Suspense>
