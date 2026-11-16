@@ -670,3 +670,13 @@ main { padding-bottom: 96px; }
 @keyframes welcome-up { from { transform: translateY(24px); opacity: 0; } }
 @media (min-width: 600px) { .welcome-backdrop { place-items: center; } }
 @media (prefers-reduced-motion: reduce) { .welcome { animation: none; } }
+
+/* The verse behind a question */
+.verse { display: grid; gap: 6px; }
+.verse-toggle { display: flex; align-items: center; gap: 10px; justify-content: space-between; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; color: inherit; font: inherit; }
+.verse-action { font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap; }
+.verse-text { margin: 0; padding: 10px 12px; border-left: 3px solid var(--amber); background: rgba(242, 181, 68, 0.1); border-radius: 0 10px 10px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.55; color: var(--navy); }
+.verse-text p { margin: 0 0 6px; }
+.verse-text sup { font-family: var(--mono); font-size: 9px; color: var(--muted); margin-right: 3px; }
+.verse-text cite { display: block; font-style: normal; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.verse-text footer { font-size: 9px; letter-spacing: 0.14em; color: var(--muted); text-align: right; }

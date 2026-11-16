@@ -3,6 +3,8 @@ import type { PlayQuestion } from '../types';
 import { Altimeter, FlightMap } from './Aircraft';
 import { curly } from '../lib/text';
 import { ReportQuestion } from './ReportQuestion';
+import { Verse } from './Verse';
+import { prefetchRef } from '../lib/verses';
 import { chime, setSound, soundOn, testChime } from '../lib/sound';
 
 type Props = {
@@ -34,6 +36,10 @@ export function Quiz({ questions, route, onFinish, interlude }: Props) {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [index]);
+  // Fetch the book behind this question now, so its verse opens instantly after answering.
+  useEffect(() => {
+    if (q) prefetchRef(q.ref);
+  }, [q]);
 
   const settle = (ok: boolean) => {
     const next = [...results];
@@ -144,7 +150,7 @@ export function Quiz({ questions, route, onFinish, interlude }: Props) {
         <div ref={revealRef} className={`reveal ${correct ? 'reveal-good' : 'reveal-bad'}`}>
           <strong>{correct ? 'Smooth air.' : 'Turbulence.'}</strong>
           {q.kind === 'order' && !correct && <p>The list above now shows the correct order.</p>}
-          <span className="mono ref">{q.ref}</span>
+          <Verse key={q.id} reference={q.ref} />
           {q.note && <p>{curly(q.note)}</p>}
           <ReportQuestion key={q.id} question={q} />
           <button className="btn btn-primary" onClick={advance}>
