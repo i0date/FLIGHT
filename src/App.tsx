@@ -41,11 +41,13 @@ const loadNight = screen(() => import('./screens/NightFlight'));
 const loadArchive = screen(() => import('./screens/Archive'));
 const loadPractice = screen(() => import('./screens/Practice'));
 const loadConnecting = screen(() => import('./screens/ConnectingFlights'));
+const loadReview = screen(() => import('./screens/Review'));
 const Daily = lazy(() => loadDaily().then((m) => ({ default: m.Daily })));
 const BookQuiz = lazy(() => loadBookQuiz().then((m) => ({ default: m.BookQuiz })));
 const NightFlight = lazy(() => loadNight().then((m) => ({ default: m.NightFlight })));
 const Archive = lazy(() => loadArchive().then((m) => ({ default: m.Archive })));
 const Practice = lazy(() => loadPractice().then((m) => ({ default: m.Practice })));
+const Review = lazy(() => loadReview().then((m) => ({ default: m.Review })));
 const ConnectingFlights = lazy(() => loadConnecting().then((m) => ({ default: m.ConnectingFlights })));
 import { Book, Home as HomeIcon, Passport, Seat, Trophy } from './components/Icons';
 import { Turbulence } from './components/Turbulence';
@@ -85,12 +87,12 @@ export default function App() {
   }, [screen]);
   useEffect(() => {
     const t = setTimeout(() => {
-      for (const load of [loadDaily, loadBookQuiz, loadNight, loadArchive, loadPractice, loadConnecting]) load().catch(() => undefined);
+      for (const load of [loadDaily, loadBookQuiz, loadNight, loadArchive, loadPractice, loadConnecting, loadReview]) load().catch(() => undefined);
     }, 1500);
     return () => clearTimeout(t);
   }, []);
   const go = (s: Screen) => setScreen(s);
-  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' || screen.name === 'settings' ? 'passport' : screen.name;
+  const tabActive = screen.name === 'book' ? 'bookclub' : ['daily', 'practice', 'review', 'night', 'archive', 'connecting'].includes(screen.name) ? 'home' : screen.name === 'owner' || screen.name === 'settings' ? 'passport' : screen.name;
 
   return (
     <ProfileProvider>
@@ -106,6 +108,7 @@ export default function App() {
               {screen.name === 'night' && <NightFlight go={go} />}
               {screen.name === 'archive' && <Archive go={go} />}
               {screen.name === 'practice' && <Practice go={go} />}
+              {screen.name === 'review' && <Review go={go} />}
               {screen.name === 'leaderboard' && <Leaderboard go={go} crewId={screen.crewId} />}
               {screen.name === 'premium' && <Premium go={go} checkout={checkout} />}
               {screen.name === 'connecting' && <ConnectingFlights go={go} code={screen.code} />}

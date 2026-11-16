@@ -5,18 +5,21 @@ import { curly } from '../lib/text';
 import { ReportQuestion } from './ReportQuestion';
 import { Verse } from './Verse';
 import { prefetchRef } from '../lib/verses';
+import { noteAnswer } from '../lib/review';
 import { chime, setSound, soundOn, testChime } from '../lib/sound';
 
 type Props = {
   questions: PlayQuestion[];
   route: { from: string; to: string };
   onFinish: (score: number, results: boolean[]) => void;
+  // The review flight scores its own answers; every other flight sends misses to review.
+  review?: boolean;
   // A stop between questions (the Gate change): shown once, after question `after`.
   interlude?: { after: number; render: (resume: () => void) => ReactNode };
 };
 
 // Shared quiz engine: one question at a time, reveal + reference, seat-back map progress.
-export function Quiz({ questions, route, onFinish, interlude }: Props) {
+export function Quiz({ questions, route, onFinish, interlude, review }: Props) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<boolean[]>([]);
   const [choice, setChoice] = useState<number | null>(null);
@@ -45,6 +48,7 @@ export function Quiz({ questions, route, onFinish, interlude }: Props) {
     const next = [...results];
     next[index] = ok;
     setResults(next);
+    if (!review) noteAnswer(q.id, ok);
     chime(ok);
     if (!ok) {
       setShake(true);

@@ -8,6 +8,7 @@ import { PlaneWindow } from '../components/Aircraft';
 import { InstallCard } from '../components/InstallCard';
 import { StreakCall } from '../components/StreakCall';
 import { Welcome, hasBeenWelcomed } from '../components/Welcome';
+import { dueForReview } from '../lib/review';
 import type { Screen } from '../types';
 
 export function Home({ go }: { go: (s: Screen) => void }) {
@@ -18,6 +19,7 @@ export function Home({ go }: { go: (s: Screen) => void }) {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
   // First visit on this device, and nothing flown yet: a short welcome.
+  const [due] = useState(() => dueForReview().length);
   const [welcome, setWelcome] = useState(() => Object.keys(profile.daily).length === 0 && !hasBeenWelcomed());
 
   return (
@@ -103,6 +105,16 @@ export function Home({ go }: { go: (s: Screen) => void }) {
 
       <h3 className="section-title">Departures</h3>
       <div className="gates">
+        {due > 0 && (
+          <button className="gate" onClick={() => go({ name: 'review' })}>
+            <span className="gate-id mono">R1</span>
+            <span className="gate-body">
+              <strong>Review flight</strong>
+              <span>{due} question{due === 1 ? '' : 's'} you missed, back for another go. Spaced out so they stick.</span>
+            </span>
+            <span className="gate-status mono on">BOARDING</span>
+          </button>
+        )}
         {gates.map((g) => {
           const live = g.status === 'live' && g.screen;
           return (
