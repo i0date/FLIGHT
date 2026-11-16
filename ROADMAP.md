@@ -1,5 +1,27 @@
 # FLIGHT roadmap
 
+## 🔴 Urgent and very important (before launch)
+
+All of these are Adeoti's: billing and legal decisions only the account owner can make.
+
+- **Vercel → Pro (US$20/month).** The free Hobby plan doesn't allow commercial use, and FLIGHT takes
+  subscriptions. Vercel → Settings → Billing.
+- **Supabase → Pro (US$25/month).** The free plan pauses a project after a week without activity and has no
+  daily backups to restore from. Losing everyone's streaks would be the worst thing that could happen to FLIGHT.
+  Supabase → Organization → Billing.
+- **Resend: check the plan.** The free plan sends 100 emails a day. If sign-in codes go out through Resend, a
+  busy launch day could stop people signing in. Upgrade if launch could bring more than ~100 sign-ins a day.
+- **Legal review** of the privacy policy and terms (theflightgame.com/privacy and /terms) by a lawyer.
+
+## 🟠 Important (in this order)
+
+1. **Sign in with Google and Apple.** One tap instead of an emailed code. Next up, before more questions.
+   Adeoti creates the Google and Apple keys; Claude builds the app side.
+2. **A page for church leaders at theflightgame.com/churches.** What a pastor or youth leader gets, how one
+   invite code covers 100 people, and running a Connecting Flight on a Sunday. After sign-in.
+3. **Crossword.** Start with a new crossword every two weeks, made by Adeoti. Until it's ready, the "Arriving
+   soon" Crossword row on Departures could be hidden.
+
 ## Waiting on Adeoti
 
 - **Readable crash reports.** In Vercel → Project → Settings → Environment Variables, add (for Production):
@@ -18,12 +40,12 @@
   - *Attack Protection*: turn on CAPTCHA (hCaptcha or Turnstile) if sign-in codes are ever abused.
   - *Emails*: the sign-in code email reads as FLIGHT and is sent from theflightgame.com (custom SMTP via Resend).
 - **After the security headers**: sign in on your phone and add or change a passport photo once, to confirm both still work.
-- **Legal review** of the privacy policy and terms.
 
-## Next to build
+## Next to build (after the important list)
 
-- Daily Flight questions toward nine months without a repeat (about 2,000 more).
+- Daily Flight questions toward nine months without a repeat (about 1,700 more).
 - Book Club: a quality pass and a check for questions the Daily Flight also asks.
+- Test on real phones, especially an iPhone using FLIGHT from the Home Screen.
 - Later: questions served by the server, so answers can't be looked up in the app.
 - Later: the review flight and night-mode choice are kept per device; they could follow the account.
 
@@ -31,3 +53,5 @@
 
 - Link previews, a first-time welcome, the KJV verse behind every answer, the review flight,
   accessibility fixes, night mode, and automated tests that run before every deploy.
+- Visual polish: the gate before take-off, Scripture in Source Serif, the landing flight path, amber buttons at night.
+- Security: enforced security headers, a cap on guest question reports, and a key on the reminders function.
