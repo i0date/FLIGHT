@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Daily Flight rotation > keeps the questions of days already flown 1`] = `
+[
+  "d21",
+  "d30",
+  "h304",
+  "h305",
+  "h421",
+  "h420",
+  "h528",
+  "h524",
+  "h622",
+  "h621",
+]
+`;
+
+exports[`Daily Flight rotation > keeps the questions of days already flown 2`] = `
+[
+  "d17",
+  "d32",
+  "h301",
+  "h315",
+  "h408",
+  "h403",
+  "h527",
+  "h520",
+  "h615",
+  "h609",
+]
+`;
+
+exports[`Daily Flight rotation > keeps the questions of days already flown 3`] = `
+[
+  null,
+  null,
+  "k611",
+  null,
+]
+`;
