@@ -59,7 +59,7 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
 
 ## Next to build (after the important list)
 
-- Daily Flight questions toward nine months without a repeat (about 1,700 more).
+- Daily Flight questions toward nine months without a repeat: 1,185 now, about three months (level 6 runs out first, at 98 days); about 1,600 more to go.
 - Book Club: a quality pass and a check for questions the Daily Flight also asks.
 - Test on real phones, especially an iPhone using FLIGHT from the Home Screen.
 - Later: questions served by the server, so answers can't be looked up in the app.

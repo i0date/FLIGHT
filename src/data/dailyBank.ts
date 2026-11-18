@@ -5,6 +5,7 @@ import { dailyBatch2 } from './dailyBatch2';
 import { dailyBatch3 } from './dailyBatch3';
 import { dailyBatch4 } from './dailyBatch4';
 import { dailyBatch5 } from './dailyBatch5';
+import { dailyBatch6 } from './dailyBatch6';
 
 // The Daily Flight's questions from 12 November 2026 on. Instead of a fresh random draw each day,
 // every level is a fixed queue that each day takes the next few from, so a question never comes
@@ -27,6 +28,7 @@ const BATCHES: { from: string; questions: RawQuestion[] }[] = [
   { from: ROTATION_START, questions: dailyBatch3 },
   { from: ROTATION_START, questions: dailyBatch4 },
   { from: '2026-11-15', questions: dailyBatch5 },
+  { from: '2026-11-19', questions: dailyBatch6 },
 ];
 
 export const dailyBank: RawQuestion[] = BATCHES.flatMap((b) => b.questions);
@@ -52,7 +54,7 @@ export const dayIndex = (day: string) => {
 
 // The `count` questions a level gives on a given day.
 export function takeFromQueue(level: Level, day: string, count: number): RawQuestion[] {
-  const queue = queues.get(level) ?? [];
+  const queue = flightQueue(level);
   const start = dayIndex(day) * count;
   return Array.from({ length: count }, (_, i) => queue[(start + i) % queue.length]);
 }
@@ -76,10 +78,11 @@ export function dailySpare(day: string): ChoiceQuestion | null {
   if (day < ROTATION_START || !isGateDay(day)) return null;
   const live = BATCHES.filter((b) => b.from <= day);
   const since = live[live.length - 1].from;
+  const shown = sparesBefore(since);
   const choices = live
     .flatMap((b) => mixed(b.questions).filter((q) => q.level === 6))
     .reverse()
-    .filter((q): q is ChoiceQuestion => q.kind !== 'order');
+    .filter((q): q is ChoiceQuestion => q.kind !== 'order' && !shown.has(q.id));
   const [y, m, d] = since.split('-').map(Number);
   let before = 0;
   for (let i = 0; i < dayIndex(day) - dayIndex(since); i++) if (isGateDay(new Date(Date.UTC(y, m - 1, d + i)).toISOString().slice(0, 10))) before++;
@@ -88,4 +91,29 @@ export function dailySpare(day: string): ChoiceQuestion | null {
 
 // How many days each level lasts before its first repeat (for checking the bank's size).
 export const daysOfCover = (perDay: Record<Level, number>) =>
-  Object.fromEntries(([1, 2, 3, 4, 5, 6] as Level[]).map((l) => [l, Math.floor((queues.get(l)?.length ?? 0) / (perDay[l] + (l === 6 ? GATE_CHANCE : 0)))]));
+  Object.fromEntries(([1, 2, 3, 4, 5, 6] as Level[]).map((l) => [l, Math.floor(flightQueue(l).length / (perDay[l] + (l === 6 ? GATE_CHANCE : 0)))]));
+
+// Gate change bonuses shown before `since`. A new batch moves the back of the level-6 queue, so the
+// bonuses taken from the old back end up in its middle: the flight and later bonuses step over them.
+// They sit well ahead of where the flight has reached, so days already flown keep their questions.
+const shownBefore = new Map<string, Set<string>>();
+function sparesBefore(since: string): Set<string> {
+  let ids = shownBefore.get(since);
+  if (!ids) {
+    ids = new Set();
+    const [y, m, d] = ROTATION_START.split('-').map(Number);
+    for (let i = 0; i < dayIndex(since); i++) {
+      const spare = dailySpare(new Date(Date.UTC(y, m - 1, d + i)).toISOString().slice(0, 10));
+      if (spare) ids.add(spare.id);
+    }
+    shownBefore.set(since, ids);
+  }
+  return ids;
+}
+
+let levelSix: RawQuestion[] | undefined;
+function flightQueue(level: Level): RawQuestion[] {
+  if (level !== 6) return queues.get(level) ?? [];
+  const shown = sparesBefore(BATCHES[BATCHES.length - 1].from);
+  return (levelSix ??= (queues.get(6) ?? []).filter((q) => !shown.has(q.id)));
+}
