@@ -9,6 +9,7 @@ import { dailyBatch6 } from './dailyBatch6';
 import { dailyBatch7 } from './dailyBatch7';
 import { dailyBatch8 } from './dailyBatch8';
 import { dailyBatch9 } from './dailyBatch9';
+import { dailyBatch10 } from './dailyBatch10';
 
 // The Daily Flight's questions from 12 November 2026 on. Instead of a fresh random draw each day,
 // every level is a fixed queue that each day takes the next few from, so a question never comes
@@ -35,6 +36,7 @@ const BATCHES: { from: string; questions: RawQuestion[] }[] = [
   { from: '2026-11-20', questions: dailyBatch7 },
   { from: '2026-11-22', questions: dailyBatch8 },
   { from: '2026-11-27', questions: dailyBatch9 },
+  { from: '2026-11-28', questions: dailyBatch10 },
 ];
 
 export const dailyBank: RawQuestion[] = BATCHES.flatMap((b) => b.questions);
