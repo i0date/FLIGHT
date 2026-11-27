@@ -61,6 +61,10 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
 
 - Daily Flight questions toward nine months without a repeat: 1,728 now, about four months (level 6 runs out first, at 122 days); about 1,080 more to go, most needed at levels 5 and 6. When a level runs out, its queue starts again from the top in the same order.
 - Book Club: a quality pass and a check for questions the Daily Flight also asks.
+- To decide: what passport stamps do once someone has all 66. Today they're permanent, and each book has
+  the same 21 questions. One idea is seasons (every 90 or 120 days): stamps stay, and flying a book again in
+  a new season adds a dated stamp beside the first. That needs more questions per book, so a second visit
+  isn't the same 21 again. Resetting stamps would also take back the visas and miles they earned.
 - Test on real phones, especially an iPhone using FLIGHT from the Home Screen.
 - Later: questions served by the server, so answers can't be looked up in the app.
 - Later: the review flight and night-mode choice are kept per device; they could follow the account.
