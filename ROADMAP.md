@@ -59,7 +59,7 @@ All of these are Adeoti's: billing and legal decisions only the account owner ca
 
 ## Next to build (after the important list)
 
-- Daily Flight questions toward nine months without a repeat: 1,662 now, nearly four months (level 6 runs out first, at 119 days); about 1,150 more to go, most needed at levels 5 and 6.
+- Daily Flight questions toward nine months without a repeat: 1,728 now, about four months (level 6 runs out first, at 122 days); about 1,080 more to go, most needed at levels 5 and 6. When a level runs out, its queue starts again from the top in the same order.
 - Book Club: a quality pass and a check for questions the Daily Flight also asks.
 - Test on real phones, especially an iPhone using FLIGHT from the Home Screen.
 - Later: questions served by the server, so answers can't be looked up in the app.
